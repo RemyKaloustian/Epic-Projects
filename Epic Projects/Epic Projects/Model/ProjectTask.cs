@@ -26,5 +26,6 @@ namespace Epic_Projects.Model
 
                         this._isDone = false;
                 }//ProjectTask()
+
         }//class ProjectTask
 }//ns
