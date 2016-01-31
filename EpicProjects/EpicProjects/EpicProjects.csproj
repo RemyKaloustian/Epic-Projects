@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Constants\Brushes.cs" />
+    <Compile Include="Constants\DatabaseValues.cs" />
+    <Compile Include="Constants\Debug.cs" />
+    <Compile Include="Database\Deleter.cs" />
+    <Compile Include="Database\Inserter.cs" />
+    <Compile Include="Database\Selector.cs" />
+    <Compile Include="Database\Updater.cs" />
     <Compile Include="EpicProjectsDataBaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,7 +133,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Constants\" />
     <Folder Include="Exception\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\" />

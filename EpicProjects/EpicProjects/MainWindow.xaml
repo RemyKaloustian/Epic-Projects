@@ -3,8 +3,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Epic Projects" Height="350" Width="525"
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        MinHeight="900" MinWidth="1500">
-    <Grid>
-        
+        MinHeight="900" MinWidth="1920
+        ">
+    <Grid Margin="0,0,-5,-3">
+        <StackPanel x:Name="toppanel" HorizontalAlignment="Center" Height="110" VerticalAlignment="Top" Background="#FF7C7575" Width="1920" Margin="0" >
+
+            <TextBlock TextWrapping="Wrap" Text="EPIC PROJECTS" Height="112" FontFamily="Code Bold" FontSize="65" Foreground="#FFF9F3F3" Margin="100,10,0,0" HorizontalAlignment="Center"/>
+            <CheckBox Content="CheckBox"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="724,606,0,0" TextWrapping="Wrap" Text="Debugging values" VerticalAlignment="Top" Height="63" Width="424" FontSize="40" FontFamily="Lato Light"/>
+        <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="724,669,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="185" Width="768" Foreground="#FFDE4040" FontSize="15" FontFamily="Sintony"/>
+        <StackPanel HorizontalAlignment="Left" Height="749" Margin="0,110,0,0" VerticalAlignment="Top" Width="276">
+            <Button x:Name="button1" Content="Button" Height="88" Background="White"/>
+            <Button x:Name="button2" Content="Button" Height="98" Background="White"/>
+            <Button x:Name="button3" Content="Button" Height="112" Background="White"/>
+        </StackPanel>
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="281,115,0,0" TextWrapping="Wrap" Text="Some text to, you know just show off " VerticalAlignment="Top" RenderTransformOrigin="0.57,0.563" Height="34" Width="715" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="281,154,0,0" TextWrapping="Wrap" Text="Colors" VerticalAlignment="Top" Height="34" Width="425" Foreground="#FFD6C8C8" FontSize="30" FontFamily="Rockwell Extra Bold"/>
+        <Ellipse Fill="#FFF44336" HorizontalAlignment="Left" Height="100" Margin="281,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFE91E63" HorizontalAlignment="Left" Height="100" Margin="386,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF9C27B0" HorizontalAlignment="Left" Height="100" Margin="491,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF673AB7" HorizontalAlignment="Left" Height="100" Margin="596,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF3F51B5" HorizontalAlignment="Left" Height="100" Margin="701,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF2196F3" HorizontalAlignment="Left" Height="100" Margin="806,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF00BCD4" HorizontalAlignment="Left" Height="100" Margin="911,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF009688" HorizontalAlignment="Left" Height="100" Margin="1016,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF4CAF50" HorizontalAlignment="Left" Height="100" Margin="1121,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF8BC34A" HorizontalAlignment="Left" Height="100" Margin="1226,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFCDDC39" HorizontalAlignment="Left" Height="100" Margin="1331,215,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFFFEB3B" HorizontalAlignment="Left" Height="100" Margin="281,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse HorizontalAlignment="Left" Height="100" Margin="386,320,0,0" VerticalAlignment="Top" Width="100" Fill="#FFFFC107"/>
+        <Ellipse HorizontalAlignment="Left" Height="100" Margin="491,320,0,0" VerticalAlignment="Top" Width="100" Fill="#FFFF9800"/>
+        <Ellipse Fill="#FFFF5722" HorizontalAlignment="Left" Height="100" Margin="596,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF795548" HorizontalAlignment="Left" Height="100" Margin="701,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF607D8B" HorizontalAlignment="Left" Height="100" Margin="806,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFF22613" HorizontalAlignment="Left" Height="100" Margin="911,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF19B5FE" HorizontalAlignment="Left" Height="100" Margin="1016,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF3FC380" HorizontalAlignment="Left" Height="100" Margin="1121,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFE9D460" HorizontalAlignment="Left" Height="100" Margin="1226,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFBF55EB" HorizontalAlignment="Left" Height="100" Margin="1331,320,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF8E44AD" HorizontalAlignment="Left" Height="100" Margin="281,425,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF22313F" HorizontalAlignment="Left" Height="100" Margin="386,425,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FF34495E" HorizontalAlignment="Left" Height="100" Margin="491,425,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFABB7B7" HorizontalAlignment="Left" Height="100" Margin="596,425,0,0" VerticalAlignment="Top" Width="100"/>
+        <Ellipse Fill="#FFD2527E" HorizontalAlignment="Left" Height="100" Margin="701,425,0,0" VerticalAlignment="Top" Width="100"/>
+        <StackPanel HorizontalAlignment="Left" Height="674" Margin="1572,198,0,0" VerticalAlignment="Top" Width="345">
+            <TextBlock TextWrapping="Wrap" Text="Calibri" Height="50" FontSize="40" FontFamily="Calibri" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Segoe UI" Height="56" FontSize="40" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Aleo" Height="50" FontSize="40" FontFamily="Aleo" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Aller" Height="50" FontSize="40" FontFamily="Aller" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Droid sans" Height="50" FontSize="40" FontFamily="Droid Sans" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Fira mono" Height="50" FontSize="40" FontFamily="Fira Mono" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Sintony" Height="50" FontSize="40" FontFamily="Sintony" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Bariol" Height="50" FontSize="40" FontFamily="Bariol Regular" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Chunkfive" Height="50" FontSize="40" FontFamily="ChunkFive Light" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Droid sans mono" Height="50" FontSize="40" FontFamily="Droid Sans Mono" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Mido" Height="50" FontSize="40" FontFamily="Mido" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Open Sans" Height="50" FontSize="40" FontFamily="Open Sans" Foreground="#FF698381"/>
+            <TextBlock TextWrapping="Wrap" Text="Sertig" Height="50" FontSize="40" FontFamily="Sertig" Foreground="#FF698381"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="1572,115,0,0" TextWrapping="Wrap" Text="Fonts" VerticalAlignment="Top" Height="73" Width="174" FontSize="60" FontFamily="Myanmar Text" Foreground="#FF009688"/>
+
     </Grid>
 </Window>
