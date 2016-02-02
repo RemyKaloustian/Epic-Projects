@@ -18,12 +18,11 @@ namespace EpicProjects.Database
                 public string _connectionString { get; set; }
                 public SqlConnection _connection;
 
-                public Selector()
+                public Selector(string connectionStr)
                 {
                         //Setting up the connection settings
-                        this._connectionString = ConfigurationManager.ConnectionStrings[DatabaseValues.CONNECTIONSTRING].ToString();
 
-                        this._connection = new SqlConnection(_connectionString);
+                        this._connection = new SqlConnection(connectionStr);
 
 
                 }//Selector()
@@ -34,6 +33,7 @@ namespace EpicProjects.Database
                         List<Object> results = new List<Object>();
 
                         //Opening connection and setting the query
+                        _connection.Close();
                         _connection.Open();
                         SqlDataReader reader = null;
                         SqlCommand command = new SqlCommand("select " + attribute + " from " + table, _connection);

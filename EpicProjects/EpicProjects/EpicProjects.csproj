@@ -80,6 +80,7 @@
     <Compile Include="Constants\Brushes.cs" />
     <Compile Include="Constants\DatabaseValues.cs" />
     <Compile Include="Constants\Debug.cs" />
+    <Compile Include="Database\DatabaseGuru.cs" />
     <Compile Include="Database\Deleter.cs" />
     <Compile Include="Database\Inserter.cs" />
     <Compile Include="Database\Selector.cs" />

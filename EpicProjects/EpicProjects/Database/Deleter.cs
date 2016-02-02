@@ -3,10 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
+
+using EpicProjects.Constants;
 
 namespace EpicProjects.Database
 {
-        class Deleter
+        public class Deleter
         {
-        }
-}
+                public string _connectionString { get; set; }
+                public SqlConnection _connection;
+
+                public Deleter(string connectionStr)
+                {
+                        //Setting up the connection settings
+
+                        this._connection = new SqlConnection(connectionStr);
+
+
+                }//Selector()
+
+        public void DeleteOnId(int id)
+        {
+                _connection.Open();
+                SqlCommand command = new SqlCommand("delete from project where id = " + id, _connection);
+
+                command.ExecuteNonQuery();
+
+                _connection.Close();
+        }//DeleteOnId()
+
+        }//class Deleter
+}//ns

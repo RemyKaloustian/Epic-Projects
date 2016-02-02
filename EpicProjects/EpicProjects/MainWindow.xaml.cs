@@ -29,19 +29,36 @@ namespace EpicProjects
 
                         TryColors();
 
-                        Selector sel = new Selector();
+                        DatabaseGuru guru = new DatabaseGuru();
 
-                        string s = sel.SelectByEquality(DatabaseValues.ID, DatabaseValues.PROJECT,DatabaseValues.NAME, "AFK");
+                        
 
-                        StringBuilder text = new StringBuilder();
-                        ResultTextBlock.Inlines.Add("Test de SelectByEquality avec string : "  + s);
+                       
 
-                        string i = sel.SelectByEquality(DatabaseValues.NAME, DatabaseValues.PROJECT, DatabaseValues.ID, 5);
-                        ResultTextBlock.Inlines.Add("\n Test de SelectByEquality avec int : "  +i);
+                        //Test insert
 
-                        string c = sel.SelectCount(DatabaseValues.PROJECT).ToString();
+                        guru._propInserter.InsertProject("ARK mod", DateTime.Now.ToString("DD:MM:YYYY"), DateTime.Now.ToString("DD::MM::YYYY"));
 
-                        ResultTextBlock.Inlines.Add("\n Test de SelectCount : " + c);
+                        //Test update
+
+                       
+
+                        guru._propUpdater.UpdateProjectName(3, "NOUVEAUNom");
+
+                       
+
+                        //Test Delete
+
+                        guru._propDeleter.DeleteOnId(4);
+
+
+                        List<Object> list = guru._propSelector.Select("name", "project");
+
+                        foreach (string item in list)
+                        {
+                                ResultTextBlock.Inlines.Add("\n " + item);
+                        }
+
                      
                 }
 

@@ -11,8 +11,8 @@
             <TextBlock TextWrapping="Wrap" Text="EPIC PROJECTS" Height="112" FontFamily="Code Bold" FontSize="65" Foreground="#FFF9F3F3" Margin="100,10,0,0" HorizontalAlignment="Center"/>
             <CheckBox Content="CheckBox"/>
         </StackPanel>
-        <TextBlock HorizontalAlignment="Left" Margin="724,606,0,0" TextWrapping="Wrap" Text="Debugging values" VerticalAlignment="Top" Height="63" Width="424" FontSize="40" FontFamily="Lato Light"/>
-        <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="724,669,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="185" Width="768" Foreground="#FFDE4040" FontSize="15" FontFamily="Sintony"/>
+        <TextBlock HorizontalAlignment="Left" Margin="319,546,0,0" TextWrapping="Wrap" Text="Debugging values" VerticalAlignment="Top" Height="63" Width="424" FontSize="40" FontFamily="Lato Light"/>
+        <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="799,446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="426" Width="768" Foreground="#FFDE4040" FontSize="15" FontFamily="Sintony"/>
         <StackPanel HorizontalAlignment="Left" Height="749" Margin="0,110,0,0" VerticalAlignment="Top" Width="276">
             <Button x:Name="button1" Content="Button" Height="88" Background="White"/>
             <Button x:Name="button2" Content="Button" Height="98" Background="White"/>
