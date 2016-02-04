@@ -25,11 +25,11 @@ namespace EpicProjects.Database
 
                 }//Selector()
 
-                public void UpdateProjectName(int id,string newname)
+                public void UpdateName(int id, string table,string newname)
                 {
                         _connection.Open();
 
-                        SqlCommand command = new SqlCommand("Update project set name = @newname where id = @id", _connection);
+                        SqlCommand command = new SqlCommand("Update " + table + " set name = @newname where id = @id", _connection);
 
                         command.Parameters.AddWithValue("@newname", newname);
                         command.Parameters.AddWithValue("@id", id);

@@ -31,9 +31,9 @@ namespace EpicProjects
 
                         DatabaseGuru guru = new DatabaseGuru();
 
-                        
 
-                       
+
+
 
                         //Test insert
 
@@ -41,16 +41,17 @@ namespace EpicProjects
 
                         //Test update
 
-                       
 
-                        guru._propUpdater.UpdateProjectName(3, "NOUVEAUNom");
 
-                       
+                        guru._propUpdater.UpdateName(3,"project", "NOUVEAUNom");
+
+
 
                         //Test Delete
 
                         guru._propDeleter.DeleteOnId(4);
 
+                        ResultTextBlock.Inlines.Add("---------------Projects------------\n");
 
                         List<Object> list = guru._propSelector.Select("name", "project");
 
@@ -59,16 +60,30 @@ namespace EpicProjects
                                 ResultTextBlock.Inlines.Add("\n " + item);
                         }
 
-                        ResultTextBlock.Inlines.Add("\n---------------------TASKS ----------------\n");
 
-                        List<string> res = guru._propSelector.SelectMultipleByEquality("name", "task", "projectid", 2);
+
+                        ResultTextBlock.Inlines.Add("\n---------------------TASKS ----------------\n");
+                        //Test SelectMultipleByEquality
+                        //List<string> res = guru._propSelector.SelectMultipleByEquality("name", "task", "projectid", 2);
+
+                        //foreach (var item in res)
+                        //{
+                        //        ResultTextBlock.Inlines.Add("\n" + item);
+                        //}
+
+
+                        //Test Update tasks
+
+                        guru._propUpdater.UpdateName(2, "task", "Clean code");
+
+                        List<Object> res = guru._propSelector.Select("name", "task");
 
                         foreach (var item in res)
                         {
                                 ResultTextBlock.Inlines.Add("\n" + item);
                         }
 
-                     
+
                 }
 
                 public void TryColors()
@@ -86,7 +101,7 @@ namespace EpicProjects
 
                         button3.Foreground = col;
                         button3.BorderBrush = col;
-                        
+
                 }
         }
 }
