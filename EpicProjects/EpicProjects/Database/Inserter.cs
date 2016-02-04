@@ -21,6 +21,9 @@ namespace EpicProjects.Database
                        
 
                         this._connection = new SqlConnection(connectionStr);
+                        _connectionString = connectionStr;
+
+                        Debug.CW("\n\n---------------------------------------\n Dans le CTOR de Inserter, connectionStr vaut :" + connectionStr + "\n--------------------------------------\n\n");
 
 
                 }//Selector()
@@ -42,7 +45,29 @@ namespace EpicProjects.Database
                         command.ExecuteNonQuery();
 
                         _connection.Close();
-                        _connection.Dispose();
+                        
                 }//InsertProject()
+
+                public void InsertTask(string name, string deadline, string type, int priority, int projectid)
+                {
+
+                        Debug.CW("\n\n -------------------------------\n In InsertTask connectionString: " +_connection.ConnectionString.ToString() + "\n------------------------------\n\n");
+
+
+
+                        _connection.Open();
+
+                        SqlCommand command = new SqlCommand("insert into task(name, deadline, type, priority, projectid) values (@name , @deadline, @type, @priority, @projectid)", _connection);
+
+                        command.Parameters.AddWithValue("@name", name);
+                        command.Parameters.AddWithValue("@deadline", deadline);
+                        command.Parameters.AddWithValue("@type", type);
+                        command.Parameters.AddWithValue("@priority", priority);
+                        command.Parameters.AddWithValue("@projectid", projectid);
+
+                        command.ExecuteNonQuery();
+
+                        _connection.Close();
+                }//InsertTask
         }//class Inserter
 }//ns

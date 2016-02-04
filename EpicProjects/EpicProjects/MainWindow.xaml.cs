@@ -73,8 +73,10 @@ namespace EpicProjects
 
 
                         //Test Update tasks
-
+                        
                         guru._propUpdater.UpdateName(2, "task", "Clean code");
+                        //Test Insert tasks
+                        guru._propInserter.InsertTask("Mettre tout en flat", DateTime.Now.ToString(), "task", 3, 5);
 
                         List<Object> res = guru._propSelector.Select("name", "task");
 
@@ -82,6 +84,8 @@ namespace EpicProjects
                         {
                                 ResultTextBlock.Inlines.Add("\n" + item);
                         }
+
+                        
 
 
                 }
