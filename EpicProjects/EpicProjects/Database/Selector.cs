@@ -54,7 +54,7 @@ namespace EpicProjects.Database
 
                 }//Select()
 
-                public string SelectByEquality(string attribute, string table, string condition, object value)
+                public string SelectSingleByEquality(string attribute, string table, string condition, object value)
                 {
                         string result = null;
 
@@ -86,6 +86,39 @@ namespace EpicProjects.Database
 
                         return result;
                 }//SelectByName()
+
+                public List<string> SelectMultipleByEquality(string attribute, string table, string condition, object value)
+                {
+                        List<string> result = new List<string>();
+
+                        //Setting  the query
+                        _connection.Open();
+                        SqlDataReader reader = null;
+                        SqlCommand command;
+
+                        //Creating the command
+                        if (value is string)
+                        {
+                                command = new SqlCommand("select " + attribute + " from " + table + " where " + condition + " = '" + value + "'", _connection);
+                        }
+
+                        else
+                        {
+                                command = new SqlCommand("select " + attribute + " from " + table + " where " + condition + " = " + value + "", _connection);
+                        }
+
+                        //Reading the results
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                                result.Add(reader[attribute].ToString());
+                        }
+
+                        reader.Close();
+                        _connection.Close();
+
+                        return result;
+                }//SelectMultipleByEquality()
 
 
                 public int SelectCount(string table)

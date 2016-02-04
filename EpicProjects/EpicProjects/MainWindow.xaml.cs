@@ -59,6 +59,15 @@ namespace EpicProjects
                                 ResultTextBlock.Inlines.Add("\n " + item);
                         }
 
+                        ResultTextBlock.Inlines.Add("\n---------------------TASKS ----------------\n");
+
+                        List<string> res = guru._propSelector.SelectMultipleByEquality("name", "task", "projectid", 2);
+
+                        foreach (var item in res)
+                        {
+                                ResultTextBlock.Inlines.Add("\n" + item);
+                        }
+
                      
                 }
 
