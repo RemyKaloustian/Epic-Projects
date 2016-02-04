@@ -49,7 +49,7 @@ namespace EpicProjects
 
                         //Test Delete
 
-                        guru._propDeleter.DeleteOnId(4);
+                        guru._propDeleter.DeleteOnId(4,"project");
 
                         ResultTextBlock.Inlines.Add("---------------Projects------------\n");
 
@@ -77,6 +77,10 @@ namespace EpicProjects
                         guru._propUpdater.UpdateName(2, "task", "Clean code");
                         //Test Insert tasks
                         guru._propInserter.InsertTask("Mettre tout en flat", DateTime.Now.ToString(), "task", 3, 5);
+
+                        //Test delete
+
+                        guru._propDeleter.DeleteOnId(4, "task");
 
                         List<Object> res = guru._propSelector.Select("name", "task");
 

@@ -24,15 +24,17 @@ namespace EpicProjects.Database
 
                 }//Selector()
 
-        public void DeleteOnId(int id)
+        public void DeleteOnId(int id, string table)
         {
                 _connection.Open();
-                SqlCommand command = new SqlCommand("delete from project where id = " + id, _connection);
+                SqlCommand command = new SqlCommand("delete from " + table +  " where id = " + id, _connection);
 
                 command.ExecuteNonQuery();
 
                 _connection.Close();
         }//DeleteOnId()
+
+              
 
         }//class Deleter
 }//ns
