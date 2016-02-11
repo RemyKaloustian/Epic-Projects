@@ -70,9 +70,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constants\ModelConstants.cs" />
+    <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\Task.cs" />
-    <Compile Include="MVP\TestProject.xaml.cs">
+    <Compile Include="View\TestProject.xaml.cs">
       <DependentUpon>TestProject.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sketches\Home.xaml.cs">
@@ -106,7 +107,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVP\TestProject.xaml">
+    <Page Include="View\TestProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exception\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\EpicProjectsDataBase.mdf">

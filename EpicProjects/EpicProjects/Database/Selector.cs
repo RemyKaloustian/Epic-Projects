@@ -166,5 +166,28 @@ namespace EpicProjects.Database
                         return count;
                 }//SelectCount()
 
+                public List<string> SelectLatestProjects()
+                {
+                        List<string> result = new List<string>();
+
+                        //Setting up the query
+                        _connection.Open();
+
+                        SqlDataReader reader = null;
+                        SqlCommand command = new SqlCommand("select name from project order by lastchecked desc", _connection);
+
+                        //Reading the results
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                                result.Add(reader["name"].ToString());
+                        }
+
+                        reader.Close();
+                        _connection.Close();
+
+                        return result;
+                }//SelectLatestProjects()
+
         }//class Selector
 }//ns
