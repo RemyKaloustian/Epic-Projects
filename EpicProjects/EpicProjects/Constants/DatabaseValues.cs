@@ -20,6 +20,11 @@ namespace EpicProjects.Constants
                 public static readonly string STARTDATE = "startdate";
                 public static readonly string ENDDATE = "enddate";
 
+                public static readonly string TASK = "task";
+                public static readonly string TYPE = "type";
+
+
+
 
                 //Attributes fields
                 public static readonly string NAME = "name";

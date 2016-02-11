@@ -69,8 +69,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constants\ModelConstants.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\Task.cs" />
+    <Compile Include="MVP\TestProject.xaml.cs">
+      <DependentUpon>TestProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sketches\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sketches\Project.xaml.cs">
+      <DependentUpon>Project.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,7 +106,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVP\TestProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sketches\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketches\Project.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exception\" />
-    <Folder Include="Model\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +169,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>EpicProjectsDataBase.mdf</DependentUpon>
     </Content>
+    <Resource Include="Resources\Pictures\White\WHITE_bug.png" />
+    <Resource Include="Resources\Pictures\White\WHITE_new.png" />
+    <Resource Include="Resources\Pictures\White\WHITE_Open.png" />
+    <Resource Include="Resources\Pictures\White\WHITE_stats.png" />
     <Resource Include="Resources\Pictures\book40.png" />
     <Resource Include="Resources\Pictures\info44.png" />
     <Resource Include="Resources\Pictures\archive44.png" />

@@ -121,6 +121,39 @@ namespace EpicProjects.Database
                 }//SelectMultipleByEquality()
 
 
+                public List<string> SelectMultipleByEqualityWithProject(string attribute, string table, string condition, object value, int projectid)
+                {
+                        List<string> result = new List<string>();
+
+                        //Setting  the query
+                        _connection.Open();
+                        SqlDataReader reader = null;
+                        SqlCommand command;
+
+                        //Creating the command
+                        if (value is string)
+                        {
+                                command = new SqlCommand("select " + attribute + " from " + table + " where " + condition + " = '" + value + "' and projectid = " + projectid, _connection);
+                        }
+
+                        else
+                        {
+                                command = new SqlCommand("select " + attribute + " from " + table + " where " + condition + " = " + value + " and projectid =  " + projectid, _connection);
+                        }
+
+                        //Reading the results
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                                result.Add(reader[attribute].ToString());
+                        }
+
+                        reader.Close();
+                        _connection.Close();
+
+                        return result;
+                }//SelectMultipleByEquality()
+
                 public int SelectCount(string table)
                 {
                         //Setting the query
