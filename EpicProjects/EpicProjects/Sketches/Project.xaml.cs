@@ -19,9 +19,36 @@ namespace EpicProjects.Sketches
         /// </summary>
         public partial class Project : Window
         {
+                public string _currentProject { get; set; }
+
                 public Project()
                 {
                         InitializeComponent();
+                        ShowProjects();
+
+
+                }
+
+
+                public void SetHeader(string name)
+                {
+                        _currentProject = name;
+                        HeaderText.Text = name;
+                }
+
+
+                public void ShowProjects()
+                {
+
+                        Database.DatabaseGuru gu = new Database.DatabaseGuru();
+
+
+                        List<object> res = gu._propSelector.Select("name", "project");
+
+                        foreach (var item in res)
+                        {
+                                DebugText.Inlines.Add(item.ToString() + "\n");
+                        }
                 }
         }
 }

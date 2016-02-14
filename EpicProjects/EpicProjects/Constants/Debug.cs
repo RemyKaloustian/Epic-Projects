@@ -10,7 +10,7 @@ namespace EpicProjects.Constants
         {
                 public static void CW(string display)
                 {
-                        System.Diagnostics.Debug.WriteLine(display);
+                        System.Diagnostics.Debug.WriteLine("\n --------------------------------------------------\n  "+display + "\n--------------------------------------------------------\n");
                 }//CW
         }//class Debug
 }//ns

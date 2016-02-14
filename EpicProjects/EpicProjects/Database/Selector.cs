@@ -189,5 +189,23 @@ namespace EpicProjects.Database
                         return result;
                 }//SelectLatestProjects()
 
+
+                public int SelectLastId( string table)
+                {
+                        int res = 10000;
+
+                        //Setting up the query
+                        _connection.Open();
+
+                        SqlDataReader reader = null;
+                        SqlCommand command = new SqlCommand("select max(id)  from "+ table, _connection);
+
+                        res = (int)command.ExecuteScalar()  ;
+
+                        _connection.Close();
+
+                        return res;
+                }
+
         }//class Selector
 }//ns

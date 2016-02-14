@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Drawing;
 
 using EpicProjects.Controller;
-
+using EpicProjects.Constants;
 namespace EpicProjects.Sketches
 {
         /// <summary>
@@ -115,6 +115,14 @@ namespace EpicProjects.Sketches
                 {
                         aboutpanel.Background = new SolidColorBrush(Color.FromArgb(255, 238, 231, 231));
                         abouttext.Foreground = new SolidColorBrush(Color.FromArgb(255, 63, 81, 181));
+                }
+
+                private void newpanel_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        Debug.CW("In MouseDown");
+
+                        NewProject popup = new NewProject();
+                        popup.Show();
                 }
 
 

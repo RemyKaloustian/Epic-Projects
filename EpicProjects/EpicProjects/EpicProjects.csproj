@@ -73,6 +73,9 @@
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\Task.cs" />
+    <Compile Include="Sketches\NewProject.xaml.cs">
+      <DependentUpon>NewProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TestProject.xaml.cs">
       <DependentUpon>TestProject.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Sketches\NewProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TestProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

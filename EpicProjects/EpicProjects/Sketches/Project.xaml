@@ -6,35 +6,31 @@
         <StackPanel HorizontalAlignment="Left" Height="1049" VerticalAlignment="Top" Width="191" Background="#FF818080">
             <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
                 <Image Height="54" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_new.png" Margin="0,15,87,0" HorizontalAlignment="Right" Width="54"/>
-                <TextBlock TextWrapping="Wrap" Text="New Project" FontFamily="Open Sans" FontSize="20" Foreground="#FFF3F2F2" Margin="40,10,39,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
-                <Image Height="60" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_Open.png" Margin="35,15,84,0"/>
-                <TextBlock TextWrapping="Wrap" Text="Open Project" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#FFF3F2F2"/>
+                <Image Height="66" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_Open.png" Margin="35,15,80,0"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
                 <Image Height="54" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_stats.png" Margin="35,15,91,0"/>
-                <TextBlock TextWrapping="Wrap" Text="Project's Stats" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#FFF3F2F2" Margin="0,5,0,0"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
                 <Image Height="50" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_bug.png" Margin="35,15,85,0"/>
-                <TextBlock TextWrapping="Wrap" Text="Report bug
-" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Open Sans" FontSize="20" Foreground="#FFF3F2F2" Margin="0,5,0,0"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="191,0,0,0" VerticalAlignment="Top" Width="1721" Background="#FF2196F3">
+        <StackPanel x:Name="Header" HorizontalAlignment="Left" Height="100" Margin="191,0,0,0" VerticalAlignment="Top" Width="1721" Background="#FF2196F3">
             <StackPanel.BitmapEffect>
                 <DropShadowBitmapEffect Color="Gray" Direction="-5" ShadowDepth="5" Softness="1" 
          Opacity="0.5"/>
             </StackPanel.BitmapEffect>
-            <TextBlock TextWrapping="Wrap" Text="My Big Project" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0" FontFamily="Code Bold" FontSize="50" Foreground="#FFEAE2E2"/>
+            <TextBlock x:Name="HeaderText" TextWrapping="Wrap" Text="My Big Project" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0" FontFamily="Code Bold" FontSize="50" Foreground="#FFEAE2E2"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="70" Margin="286,164,0,0" VerticalAlignment="Top" Width="936" Background="#FFF3EEEE">
             <TextBlock TextWrapping="Wrap" Text="TextBlock" Height="48" FontFamily="Bariol Regular" FontSize="30" Margin="10,10,0,0" Foreground="#FF8F8383"/>
         </StackPanel>
+        <TextBlock x:Name="DebugText" HorizontalAlignment="Left" Margin="196,865,0,0" TextWrapping="Wrap" Text="Projects : " VerticalAlignment="Top" Height="184" Width="1216" Background="#FFF7F6E0"/>
 
     </Grid>
 </Window>
