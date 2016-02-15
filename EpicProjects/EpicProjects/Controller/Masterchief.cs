@@ -127,6 +127,17 @@ namespace EpicProjects.Controller
                         return leftPanel;
                 }//NewProjectPanel()
 
+                public ProjectsPanel GetExistingProjects()
+                {
+                        List<object> res = _guru._propSelector.Select(DatabaseValues.NAME, DatabaseValues.PROJECT);
+
+                        ProjectsPanel ppanel = new ProjectsPanel(res);
+
+                        return ppanel;
+
+                }//GetExistingProjects()
+
+             
                  
 
              
