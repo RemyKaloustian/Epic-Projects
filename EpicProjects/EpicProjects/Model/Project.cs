@@ -15,6 +15,8 @@ namespace EpicProjects.Model
                 public string _startDate { get; set; }
                 public string _endDate { get; set; }
 
+                public uint _id  { get; set; }
+
                 public List<string> _formations { get; set; }
                 public List<string> _tasks { get; set; }
                 public List<string> _maintenances { get; set; }
@@ -34,15 +36,17 @@ namespace EpicProjects.Model
 
                         //_name = _guru._propSelector.SelectSingleByEquality(DatabaseValues.NAME, DatabaseValues.PROJECT, DatabaseValues.NAME, "AFK");
 
+                        _id = Convert.ToUInt16(_guru._propSelector.SelectSingleByEquality(DatabaseValues.ID, DatabaseValues.PROJECT, DatabaseValues.NAME, _name));
+
                         _startDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.STARTDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
 
                         _endDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.ENDDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
 
-                        //_formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME,DatabaseValues.TASK,DatabaseValues.TYPE,ModelConstants.FORMATION,3);
+                        _formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME,DatabaseValues.TASK,DatabaseValues.TYPE,ModelConstants.FORMATION,3);
 
-                        //_tasks = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.TASK,3);
+                        _tasks = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.TASK,3);
 
-                        //_maintenances = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.MAINTENANCE,3);
+                        _maintenances = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.MAINTENANCE,3);
 
                 }
 

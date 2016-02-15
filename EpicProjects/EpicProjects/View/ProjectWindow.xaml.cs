@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using EpicProjects.Model;
+using EpicProjects.Constants;
 
 namespace EpicProjects.View
 {
@@ -30,6 +31,13 @@ namespace EpicProjects.View
                 public TextBlock _endBlock { get; set; }
                 public TextBlock _endDate { get; set; }
 
+                public Button _formationsButton { get; set; }
+                public Button _tasksButton { get; set; }
+                public Button _maintenanceButton { get; set; }
+
+                public StackPanel _headerButtons { get; set; }
+
+                public TextBlock _assignments  { get; set; }
 
                 public ProjectWindow(string name)
                 {
@@ -60,8 +68,68 @@ namespace EpicProjects.View
                         panel.Children.Add(_endBlock);
                         panel.Children.Add(_endDate);
 
-                        ProjectGrid.Children.Add(panel);
 
+
+                        _headerButtons = new StackPanel();
+                        _headerButtons.Orientation = Orientation.Horizontal;
+
+                        _formationsButton = new Button();
+                        _formationsButton.Content = ControlsValues.FORMATIONS;
+                        _formationsButton.Click += _formationsButton_Click;
+
+                        _tasksButton = new Button();
+                        _tasksButton.Content = ControlsValues.TASKS;
+                        _tasksButton.Click += _tasksButton_Click;
+
+                        _maintenanceButton = new Button();
+                        _maintenanceButton.Content = ControlsValues.MAINTENANCE;
+                        _maintenanceButton.Click += _maintenanceButton_Click;
+
+                        _headerButtons.Children.Add(_formationsButton);
+                        _headerButtons.Children.Add(_tasksButton);
+                        _headerButtons.Children.Add(_maintenanceButton);
+
+                         _assignments = new TextBlock();
+
+                         StackPanel greatStackPanel = new StackPanel();
+                         greatStackPanel.Orientation = Orientation.Vertical;
+
+                         greatStackPanel.Children.Add(panel);
+                         greatStackPanel.Children.Add(_headerButtons);
+                         greatStackPanel.Children.Add(_assignments);
+
+
+
+                        ProjectGrid.Children.Add(greatStackPanel);
+                        
+
+                }
+
+                void _maintenanceButton_Click(object sender, RoutedEventArgs e)
+                {
+                        _assignments.Inlines.Clear();
+                        foreach (string item in _project._maintenances)
+                        {
+                                _assignments.Inlines.Add(item + "\n");
+                        }
+                }
+
+                void _tasksButton_Click(object sender, RoutedEventArgs e)
+                {
+                        _assignments.Inlines.Clear();
+                        foreach (string item in _project._tasks)
+                        {
+                                _assignments.Inlines.Add(item + "\n");
+                        }
+                }
+
+                void _formationsButton_Click(object sender, RoutedEventArgs e)
+                {
+                        _assignments.Inlines.Clear();
+                        foreach (string item in _project._formations)
+                        {
+                                _assignments.Inlines.Add(item + "\n");
+                        }
                 }//ProjetWindow()
 
         }//class ProjectWindow
