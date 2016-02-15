@@ -34,9 +34,9 @@ namespace EpicProjects.Model
 
                         //_name = _guru._propSelector.SelectSingleByEquality(DatabaseValues.NAME, DatabaseValues.PROJECT, DatabaseValues.NAME, "AFK");
 
-                        //_startDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.STARTDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, "AFK");
+                        _startDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.STARTDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
 
-                        //_endDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.ENDDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, "AFK");
+                        _endDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.ENDDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
 
                         //_formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME,DatabaseValues.TASK,DatabaseValues.TYPE,ModelConstants.FORMATION,3);
 

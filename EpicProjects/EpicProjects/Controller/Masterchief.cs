@@ -11,6 +11,9 @@ using EpicProjects.Constants;
 using System.Windows.Media;
 using EpicProjects.View.CustomControls;
 using EpicProjects.Model;
+using EpicProjects.Controller;
+
+using EpicProjects.View;
 
 namespace EpicProjects.Controller
 {
@@ -28,9 +31,11 @@ namespace EpicProjects.Controller
                         return _guru._propSelector.SelectLatestProjects();
                 }
 
-                public void InsertProject(string name, string startDate, string endDate)
+                public void InsertProject(string name, string startDate, string endDate, Home home)
                 {
                         Project brandNew = new Project(name, startDate, endDate);
+                        Captain captain = new Captain();
+                        captain.ToProject(name, home);
                 }
 
                 

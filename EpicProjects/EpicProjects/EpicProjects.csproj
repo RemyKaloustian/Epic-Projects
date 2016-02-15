@@ -71,6 +71,7 @@
     </ApplicationDefinition>
     <Compile Include="Constants\ControlsValues.cs" />
     <Compile Include="Constants\ModelConstants.cs" />
+    <Compile Include="Controller\Captain.cs" />
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\Task.cs" />
@@ -90,6 +91,9 @@
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectWindow.xaml.cs">
+      <DependentUpon>ProjectWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
