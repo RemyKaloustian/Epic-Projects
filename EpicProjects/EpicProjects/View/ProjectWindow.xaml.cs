@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 using EpicProjects.Model;
 using EpicProjects.Constants;
+using EpicProjects.Controller;
 
 namespace EpicProjects.View
 {
@@ -23,6 +24,10 @@ namespace EpicProjects.View
         public partial class ProjectWindow : Window
         {
                 public Project _project { get; set; }
+
+                public string _currentAssignements { get; set; }
+
+                public ProjectMasterChief _chief { get; set; }
 
                 public TextBlock _nameBlock { get; set; }
                 public TextBlock _startBlock { get; set; }
@@ -59,7 +64,8 @@ namespace EpicProjects.View
                 public ProjectWindow(string name)
                 {
                         InitializeComponent();
-
+                        _chief = new ProjectMasterChief();
+                        _currentAssignements = ModelConstants.FORMATION;
                         _project = new Project(name);                        
 
                         _nameBlock = new TextBlock();
@@ -125,7 +131,8 @@ namespace EpicProjects.View
 
 
                         ProjectGrid.Children.Add(_greatPanel);
-                        
+
+                        LoadFormationsOnUI();               
 
                 }
 
@@ -181,9 +188,39 @@ namespace EpicProjects.View
                         _newAssignmentPanel.Children.Add(_priorityPicker);
                         _newAssignmentPanel.Children.Add(_createTask);
                         _newAssignmentPanel.Children.Add(_cancel);
-                        
 
+                        ShowDebugText();
 
+                }
+
+                private void ShowDebugText()
+                {
+                        _project.Reload();
+
+                        DebugText.Inlines.Clear();
+
+                        DebugText.Inlines.Add("Formations :  \n");
+
+                        foreach (string item in _project._formations)
+                        {
+                                DebugText.Inlines.Add(item + "\n");
+                        }
+
+                        DebugText.Inlines.Add("---------------------\n\n");
+                        DebugText.Inlines.Add("Tasks : \n");
+
+                        foreach (string item in _project._tasks)
+                        {
+                                DebugText.Inlines.Add(item + "\n");
+                        }
+
+                        DebugText.Inlines.Add("---------------------\n\n");
+                        DebugText.Inlines.Add("Maintenance :\n ");
+
+                        foreach (string item in _project._maintenances)
+                        {
+                                DebugText.Inlines.Add(item + "\n");
+                        }
                 }
 
                 void _cancel_Click(object sender, RoutedEventArgs e)
@@ -194,35 +231,85 @@ namespace EpicProjects.View
 
                 void _createTask_Click(object sender, RoutedEventArgs e)
                 {
-                        throw new NotImplementedException();
+                        string name = _assignmentName.Text;
+                        string deadline = _assignmentDeadline.Text;
+                        string type = _typePicker.Text;
+                        int priority = Convert.ToInt32(_priorityPicker.Text);
+                        int id = Convert.ToInt32(_project._id);
+                        //string name, string deadline, string type, int priority, int projectid
+                        _chief.InsertTask(name, deadline, type, priority, id);
+
+                        _greatPanel.Children.Remove(_newAssignmentPanel);
+                        ReloadAssignments();
+                        _greatPanel.Children.Add(_assignments);
+                        ShowDebugText();
+                }
+
+                private void ReloadAssignments()
+                {
+                        if (_currentAssignements == ModelConstants.FORMATION)
+                                LoadFormationsOnUI();
+
+                        else if (_currentAssignements == ModelConstants.MAINTENANCE)
+                                LoadMaintenanceOnUI();
+
+                        else if (_currentAssignements == ModelConstants.TASK)
+                                LoadTasksOnUI();
+
                 }
 
                 void _maintenanceButton_Click(object sender, RoutedEventArgs e)
                 {
+                        _currentAssignements = ModelConstants.MAINTENANCE;
+                        LoadMaintenanceOnUI();
+                        Debug.CW("_currentAssignments : " + _currentAssignements);
+                }
+
+                void _tasksButton_Click(object sender, RoutedEventArgs e)
+                {
+                        _currentAssignements = ModelConstants.TASK;
+                        LoadTasksOnUI();
+                        Debug.CW("_currentAssignments : " + _currentAssignements);
+
+                }
+
+                void _formationsButton_Click(object sender, RoutedEventArgs e)
+                {
+                        _currentAssignements = ModelConstants.FORMATION;
+                        LoadFormationsOnUI();
+                        Debug.CW("_currentAssignments : " + _currentAssignements);
+
+                }
+
+                private void LoadFormationsOnUI()
+                {
                         _assignments.Inlines.Clear();
-                        foreach (string item in _project._maintenances)
+                        _project.Reload();
+                        foreach (string item in _project._formations)
                         {
                                 _assignments.Inlines.Add(item + "\n");
                         }
                 }
 
-                void _tasksButton_Click(object sender, RoutedEventArgs e)
+                private void LoadTasksOnUI()
                 {
                         _assignments.Inlines.Clear();
+                        _project.Reload();
                         foreach (string item in _project._tasks)
                         {
                                 _assignments.Inlines.Add(item + "\n");
                         }
                 }
 
-                void _formationsButton_Click(object sender, RoutedEventArgs e)
+                private void LoadMaintenanceOnUI()
                 {
                         _assignments.Inlines.Clear();
-                        foreach (string item in _project._formations)
+                        _project.Reload();
+                        foreach (string item in _project._maintenances)
                         {
                                 _assignments.Inlines.Add(item + "\n");
                         }
-                }//ProjetWindow()
+                }
 
         }//class ProjectWindow
 }//ns
