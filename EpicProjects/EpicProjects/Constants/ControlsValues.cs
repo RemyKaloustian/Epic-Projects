@@ -22,6 +22,13 @@ namespace EpicProjects.Constants
                 public static readonly string FORMATIONS = "Formations";
                 public static readonly string TASKS = "Tasks";
                 public static readonly string MAINTENANCE = "Maintenance";
+                public static readonly string NEWASSIGNMENT = "New Assignment";
+
+                public static readonly string DEADLINE = "Deadline";
+
+                public static readonly string FORMATION = "Formation";
+                public static readonly string TASK = "Task";
+
 
         }//public class ControlsValues
 }//ns
