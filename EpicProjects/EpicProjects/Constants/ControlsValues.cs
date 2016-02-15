@@ -14,6 +14,7 @@ namespace EpicProjects.Constants
                 public static readonly string ENDATE = "End date";
 
                 public static readonly string CREATE = "Create";
+                public static readonly string QUIT = "Quit";
 
         }//public class ControlsValues
 }//ns

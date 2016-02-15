@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using EpicProjects.Database;
 using EpicProjects.Constants;
 using System.Windows.Media;
+using EpicProjects.View.CustomControls;
 
 namespace EpicProjects.Controller
 {
@@ -85,12 +86,12 @@ namespace EpicProjects.Controller
                         //Creating the controls
                         Button newProjectButton = new Button();
                         newProjectButton.Content = "New Project";
-                        newProjectButton.Click += ShowNewProjectA;
+                        //newProjectButton.Click += ShowNewProjectA;
                         //Adding the controls to the leftPanel
                         element.Children.Add(newProjectButton);
                 }
 
-                private void ShowNewProjectA(object sender, System.Windows.RoutedEventArgs e)
+                /*private void ShowNewProjectA(object sender, System.Windows.RoutedEventArgs e)
                 {
                         //Clearing the left Panel
                         LeftPanel.Children.Clear();
@@ -128,7 +129,7 @@ namespace EpicProjects.Controller
                         LeftPanel.Children.Add(endPicker);
                         LeftPanel.Children.Add(createButton);
                         LeftPanel.Children.Add(quitButton);
-                }
+                }*/
 
                 void createButton_Click(object sender, System.Windows.RoutedEventArgs e)
                 {
@@ -147,6 +148,26 @@ namespace EpicProjects.Controller
 
                         //Inserting the project
                         _guru._propInserter.InsertProject(name, startDate, endDate);
+                }
+
+                public NewProjectPanel GetNewProjectPanel()
+                {
+                        NewProjectPanel leftPanel = new NewProjectPanel();
+
+                        leftPanel._createButton.Click += _createButton_Click;
+                        leftPanel._quitButton.Click += _quitButton_Click;
+
+                        return leftPanel;
+                }
+
+                void _quitButton_Click(object sender, System.Windows.RoutedEventArgs e)
+                {
+                        throw new NotImplementedException();
+                }
+
+                void _createButton_Click(object sender, System.Windows.RoutedEventArgs e)
+                {
+                        throw new NotImplementedException();
                 }
         }//class MasterChief
 }//ns
