@@ -10,6 +10,7 @@ using EpicProjects.Database;
 using EpicProjects.Constants;
 using System.Windows.Media;
 using EpicProjects.View.CustomControls;
+using EpicProjects.Model;
 
 namespace EpicProjects.Controller
 {
@@ -27,48 +28,12 @@ namespace EpicProjects.Controller
                         return _guru._propSelector.SelectLatestProjects();
                 }
 
-                public void ShowNewProject(  System.Windows.Controls.StackPanel  LeftPanel)
+                public void InsertProject(string name, string startDate, string endDate)
                 {
-
-                        //Clearing the left Panel
-                        LeftPanel.Children.Clear();
-
-                        //Creating the controls
-                        TextBlock nameBlock = new TextBlock();
-                        nameBlock.Inlines.Add(ControlsValues.NAME);
-
-                        TextBox nameBox = new TextBox();
-
-                        TextBlock startBlock = new TextBlock();
-                        nameBlock.Inlines.Add(ControlsValues.STARTDATE);
-
-                        DatePicker startPicker = new DatePicker();
-
-                        TextBlock endBlock = new TextBlock();
-                        nameBlock.Inlines.Add(ControlsValues.ENDATE);
-
-                        DatePicker endPicker = new DatePicker();
-
-                        Button createButton = new Button();
-                        createButton.Content = ControlsValues.CREATE;
-                        createButton.Click += createButton_Click;
-
-                        Button quitButton = new Button();
-                        quitButton.Content = "Quit";
-                        
-
-                        //Adding the controls to the leftPanel
-                        LeftPanel.Children.Add(nameBlock);
-                        LeftPanel.Children.Add(nameBox);
-                        LeftPanel.Children.Add(startBlock);
-                        LeftPanel.Children.Add(startPicker);
-                        LeftPanel.Children.Add(endBlock );
-                        LeftPanel.Children.Add(endPicker);
-                        LeftPanel.Children.Add(createButton);
-                        LeftPanel.Children.Add(quitButton);
-
-
+                        Project brandNew = new Project(name, startDate, endDate);
                 }
+
+                
 
                 void quitButton_Click(object sender, System.Windows.RoutedEventArgs e)
                 {
