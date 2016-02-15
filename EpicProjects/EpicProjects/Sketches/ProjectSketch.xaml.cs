@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using EpicProjects.Database;
+
 namespace EpicProjects.Sketches
 {
         /// <summary>
@@ -20,6 +22,10 @@ namespace EpicProjects.Sketches
         public partial class Project : Window
         {
                 public string _currentProject { get; set; }
+
+                public int _id { get; set; } 
+
+                public DatabaseGuru _g = new DatabaseGuru();
 
                 public Project()
                 {
@@ -30,9 +36,10 @@ namespace EpicProjects.Sketches
                 }
 
 
-                public void SetHeader(string name)
+                public void SetHeader(string name, int id)
                 {
                         _currentProject = name;
+                        _id = id;
                         HeaderText.Text = name;
                 }
 
@@ -49,6 +56,18 @@ namespace EpicProjects.Sketches
                         {
                                 DebugText.Inlines.Add(item.ToString() + "\n");
                         }
+                }
+
+                private void CreateButton_Click(object sender, RoutedEventArgs e)
+                {
+                       // _g._propInserter.InsertTask()
+
+
+                }
+
+                private void CreateTask()
+                {
+
                 }
         }
 }

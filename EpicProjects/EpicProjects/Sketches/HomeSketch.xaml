@@ -1,0 +1,43 @@
+﻿<Window x:Class="EpicProjects.Sketches.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Home" Height="1080" Width="1920
+        ">
+    <Grid Background="#FFF3F2F2">
+        <TextBlock Margin="626,10,0,0" TextWrapping="Wrap" Text="EPIC PROJECTS" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Code Bold" FontSize="100" Foreground="#FF3F51B5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="592,147,0,0" TextWrapping="Wrap" Text="Lead your projects like a winner." VerticalAlignment="Top" FontSize="50" FontFamily="Open Sans" Foreground="#FF3F51B5"/>
+        <GridSplitter HorizontalAlignment="Left" Height="1674" Margin="965,-580,0,-45" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5" Background="#FF3F51B5">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <StackPanel x:Name="newpanel" Orientation="Horizontal" HorizontalAlignment="Left" Height="114" Margin="130,288,0,0" VerticalAlignment="Top" Width="958" Background="#FFEEE7E7" RenderTransformOrigin="0.337,0.509" MouseEnter="newpanel_MouseEnter" MouseLeave="newpanel_MouseLeave" MouseDown="newpanel_MouseDown">
+            <Image HorizontalAlignment="Center" Height="82" VerticalAlignment="Center" Width="129" Source="/EpicProjects;component/Resources/Pictures/archive44.png" Margin="10,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="newtext" HorizontalAlignment="Left" Margin="281,314,0,0" TextWrapping="Wrap" Text="New Project - Start something awesome" VerticalAlignment="Top" Height="48" Width="639" FontSize="40" Foreground="#FF3F51B5" FontFamily="Bariol Regular"/>
+        <StackPanel x:Name="openpanel" Orientation="Horizontal" HorizontalAlignment="Left" Height="114" Margin="130,422,0,0" VerticalAlignment="Top" Width="958" Background="#FFEEE7E7" RenderTransformOrigin="0.337,0.509" MouseEnter="openpanel_MouseEnter" MouseLeave="openpanel_MouseLeave">
+            <Image HorizontalAlignment="Center" Height="81" VerticalAlignment="Center" Width="126" Source="/EpicProjects;component/Resources/Pictures/man379.png" Margin="10,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="opentext" HorizontalAlignment="Left" Margin="281,452,0,0" TextWrapping="Wrap" Text="Open Project - Continue something brilliant" VerticalAlignment="Top" Height="48" Width="694" FontSize="40" Foreground="#FF3F51B5" FontFamily="Bariol Regular"/>
+        <StackPanel x:Name="settingpanel" Orientation="Horizontal" HorizontalAlignment="Left" Height="114" Margin="130,556,0,0" VerticalAlignment="Top" Width="958" Background="#FFEEE7E7" RenderTransformOrigin="0.337,0.509" MouseEnter="settingpanel_MouseEnter" MouseLeave="settingpanel_MouseLeave">
+            <Image HorizontalAlignment="Center" Height="80" VerticalAlignment="Center" Width="124" Source="/EpicProjects;component/Resources/Pictures/gear42.png" Margin="10,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="settingstext" HorizontalAlignment="Left" Margin="294,582,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="512" FontSize="40" Foreground="#FF3F51B5" FontFamily="Bariol Regular"><Run Text="Settings"/><Run Text=" - "/><Run Text="Customize like a boss"/></TextBlock>
+        <StackPanel x:Name="docpanel" Orientation="Horizontal" HorizontalAlignment="Left" Height="114" Margin="130,690,0,0" VerticalAlignment="Top" Width="958" Background="#FFEEE7E7" RenderTransformOrigin="0.337,0.509" MouseEnter="docpanel_MouseEnter" MouseLeave="docpanel_MouseLeave">
+            <Image HorizontalAlignment="Center" Height="81" VerticalAlignment="Center" Width="126" Source="/EpicProjects;component/Resources/Pictures/book40.png" Margin="10,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="doctext" HorizontalAlignment="Left" Margin="294,716,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="512" FontSize="40" Foreground="#FF3F51B5" FontFamily="Bariol Regular"><Run Text="Documentation"/><Run Text="- "/><Run Text="Learn the class"/></TextBlock>
+        <StackPanel x:Name="aboutpanel" Orientation="Horizontal" HorizontalAlignment="Left" Height="114" Margin="130,826,0,0" VerticalAlignment="Top" Width="958" Background="#FFEEE7E7" RenderTransformOrigin="0.337,0.509" MouseEnter="aboutpanel_MouseEnter" MouseLeave="aboutpanel_MouseLeave">
+            <Image HorizontalAlignment="Center" Height="70" VerticalAlignment="Center" Width="110" Source="/EpicProjects;component/Resources/Pictures/info44.png" Margin="10,0,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="abouttext" HorizontalAlignment="Left" Margin="281,858,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="440" FontSize="40" Foreground="#FF3F51B5" FontFamily="Bariol Regular"><Run Text="About"/><Run Text="- "/><Run Text="See the origin of life"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1434,305,0,0" TextWrapping="Wrap" Text="Last Projects" VerticalAlignment="Top" FontFamily="Bariol Regular" FontSize="50" Foreground="#FF3F51B5"/>
+        <StackPanel x:Name="LatestPanel" HorizontalAlignment="Left" Height="575" Margin="1434,365,0,0" VerticalAlignment="Top" Width="380" Background="#FFEEE6E6"/>
+
+    </Grid>
+</Window>

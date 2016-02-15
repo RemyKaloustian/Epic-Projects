@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constants\ControlsValues.cs" />
     <Compile Include="Constants\ModelConstants.cs" />
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Model\Project.cs" />
@@ -76,14 +77,18 @@
     <Compile Include="Sketches\NewProject.xaml.cs">
       <DependentUpon>NewProject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TestProject.xaml.cs">
-      <DependentUpon>TestProject.xaml</DependentUpon>
+    <Compile Include="Sketches\NewTask.xaml.cs">
+      <DependentUpon>NewTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sketches\Home.xaml.cs">
+    <Compile Include="Sketches\HomeSketch.xaml.cs">
+      <DependentUpon>HomeSketch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sketches\ProjectSketch.xaml.cs">
+      <DependentUpon>ProjectSketch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomControls\NewProjectPanel.cs" />
+    <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sketches\Project.xaml.cs">
-      <DependentUpon>Project.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -114,15 +119,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TestProject.xaml">
+    <Page Include="Sketches\NewTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sketches\Home.xaml">
+    <Page Include="Sketches\HomeSketch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sketches\Project.xaml">
+    <Page Include="Sketches\ProjectSketch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

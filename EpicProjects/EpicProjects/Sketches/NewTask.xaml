@@ -1,0 +1,13 @@
+﻿<Window x:Class="EpicProjects.Sketches.NewTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NewTask" Height="300" Width="300">
+    <Grid>
+        <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="97,196,0,0" VerticalAlignment="Top" Width="75" Click="CreateButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,49,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextButton" HorizontalAlignment="Left" Margin="74,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <DatePicker x:Name="Deadline" HorizontalAlignment="Left" Margin="70,84,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Priority" HorizontalAlignment="Left" Height="23" Margin="70,125,0,0" TextWrapping="Wrap" Text="Priority" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

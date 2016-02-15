@@ -31,6 +31,7 @@
             <TextBlock TextWrapping="Wrap" Text="TextBlock" Height="48" FontFamily="Bariol Regular" FontSize="30" Margin="10,10,0,0" Foreground="#FF8F8383"/>
         </StackPanel>
         <TextBlock x:Name="DebugText" HorizontalAlignment="Left" Margin="196,865,0,0" TextWrapping="Wrap" Text="Projects : " VerticalAlignment="Top" Height="184" Width="1216" Background="#FFF7F6E0"/>
+        <Button x:Name="CreateButton" Content="Create task" HorizontalAlignment="Left" Margin="228,105,0,0" VerticalAlignment="Top" Width="221" Height="54" Background="#FF2196F3" Foreground="#FFF3EAEA" FontSize="20" Click="CreateButton_Click"/>
 
     </Grid>
 </Window>
