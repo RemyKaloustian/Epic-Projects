@@ -86,6 +86,7 @@
     <Compile Include="Sketches\ProjectSketch.xaml.cs">
       <DependentUpon>ProjectSketch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>

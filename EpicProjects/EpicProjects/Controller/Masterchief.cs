@@ -55,7 +55,7 @@ namespace EpicProjects.Controller
 
                         Button quitButton = new Button();
                         quitButton.Content = "Quit";
-                        quitButton.Click += quitButton_Click;
+                        
 
                         //Adding the controls to the leftPanel
                         LeftPanel.Children.Add(nameBlock);
@@ -152,22 +152,13 @@ namespace EpicProjects.Controller
 
                 public NewProjectPanel GetNewProjectPanel()
                 {
-                        NewProjectPanel leftPanel = new NewProjectPanel();
-
-                        leftPanel._createButton.Click += _createButton_Click;
-                        leftPanel._quitButton.Click += _quitButton_Click;
+                        NewProjectPanel leftPanel = new NewProjectPanel();                 
 
                         return leftPanel;
-                }
+                }//NewProjectPanel()
 
-                void _quitButton_Click(object sender, System.Windows.RoutedEventArgs e)
-                {
-                        throw new NotImplementedException();
-                }
+                 
 
-                void _createButton_Click(object sender, System.Windows.RoutedEventArgs e)
-                {
-                        throw new NotImplementedException();
-                }
+             
         }//class MasterChief
 }//ns
