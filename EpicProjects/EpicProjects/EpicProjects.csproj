@@ -92,6 +92,7 @@
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />
+    <Compile Include="View\CustomControls\TaskPanel.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
