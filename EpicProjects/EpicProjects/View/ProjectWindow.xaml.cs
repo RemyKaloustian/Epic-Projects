@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using EpicProjects.Model;
 using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.CustomControls;
 
 namespace EpicProjects.View
 {
@@ -60,6 +61,8 @@ namespace EpicProjects.View
 
 
                 public TextBlock _assignments  { get; set; }
+
+                public StackPanel _assignmentsPanel { get; set; }
 
                 public ProjectWindow(string name)
                 {
@@ -121,12 +124,15 @@ namespace EpicProjects.View
 
                          _assignments = new TextBlock();
 
+                         _assignmentsPanel = new StackPanel();
+                         _assignmentsPanel.Orientation = Orientation.Vertical;
+
                           _greatPanel = new StackPanel();
                          _greatPanel.Orientation = Orientation.Vertical;
 
                          _greatPanel.Children.Add(panel);
                          _greatPanel.Children.Add(_headerButtons);
-                         _greatPanel.Children.Add(_assignments);
+                         _greatPanel.Children.Add(_assignmentsPanel);
 
 
 
@@ -139,6 +145,7 @@ namespace EpicProjects.View
                 void _newAssignment_Click(object sender, RoutedEventArgs e)
                 {
                         _greatPanel.Children.Remove(_assignments);
+                        _greatPanel.Children.Remove(_assignmentsPanel);
                         BuildNewAssignmentPanel();
                         _greatPanel.Children.Add(_newAssignmentPanel);
 
@@ -226,7 +233,8 @@ namespace EpicProjects.View
                 void _cancel_Click(object sender, RoutedEventArgs e)
                 {
                         _greatPanel.Children.Remove(_newAssignmentPanel);
-                        _greatPanel.Children.Add(_assignments);
+                       // _greatPanel.Children.Add(_assignments);
+                        _greatPanel.Children.Add(_assignmentsPanel);
                 }
 
                 void _createTask_Click(object sender, RoutedEventArgs e)
@@ -241,7 +249,8 @@ namespace EpicProjects.View
 
                         _greatPanel.Children.Remove(_newAssignmentPanel);
                         ReloadAssignments();
-                        _greatPanel.Children.Add(_assignments);
+                        //_greatPanel.Children.Add(_assignments);
+                        _greatPanel.Children.Add(_assignmentsPanel);
                         ShowDebugText();
                 }
 
@@ -284,30 +293,47 @@ namespace EpicProjects.View
                 private void LoadFormationsOnUI()
                 {
                         _assignments.Inlines.Clear();
+                        _assignmentsPanel.Children.Clear();
                         _project.Reload();
                         foreach (string item in _project._formations)
                         {
-                                _assignments.Inlines.Add(item + "\n");
+                                //_assignments.Inlines.Add(item + "\n");
+                                TaskPanel taskPanel = new TaskPanel(item);
+                                _assignmentsPanel.Children.Add(taskPanel);
+                                taskPanel._deleteButton.Click += _deleteButton_Click;
                         }
+                }
+
+                void _deleteButton_Click(object sender, RoutedEventArgs e)
+                {
+                        ReloadAssignments();
                 }
 
                 private void LoadTasksOnUI()
                 {
                         _assignments.Inlines.Clear();
+                        _assignmentsPanel.Children.Clear();
                         _project.Reload();
                         foreach (string item in _project._tasks)
                         {
-                                _assignments.Inlines.Add(item + "\n");
+                                //_assignments.Inlines.Add(item + "\n");
+                                TaskPanel taskPanel = new TaskPanel(item);
+                                _assignmentsPanel.Children.Add(taskPanel);
+                                taskPanel._deleteButton.Click += _deleteButton_Click;
                         }
                 }
 
                 private void LoadMaintenanceOnUI()
                 {
                         _assignments.Inlines.Clear();
+                        _assignmentsPanel.Children.Clear();
                         _project.Reload();
                         foreach (string item in _project._maintenances)
                         {
-                                _assignments.Inlines.Add(item + "\n");
+                                //_assignments.Inlines.Add(item + "\n");
+                                TaskPanel taskPanel = new TaskPanel(item);
+                                _assignmentsPanel.Children.Add(taskPanel);
+                                taskPanel._deleteButton.Click += _deleteButton_Click;
                         }
                 }
 
