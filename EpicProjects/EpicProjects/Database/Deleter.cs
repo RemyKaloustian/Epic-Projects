@@ -34,6 +34,17 @@ namespace EpicProjects.Database
                 _connection.Close();
         }//DeleteOnId()
 
+        public void DeleteOnName(string name, string table)
+        {
+                _connection.Open();
+                SqlCommand command = new SqlCommand("delete from " + table + " where name = '" + name + "'", _connection);
+
+                command.ExecuteNonQuery();
+
+                _connection.Close();
+        }//DeleteOnId()
+
+
               
 
         }//class Deleter

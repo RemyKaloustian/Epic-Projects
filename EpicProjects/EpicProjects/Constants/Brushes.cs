@@ -4,8 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//*
+// *  @Author : Rémy Kaloustian
+// * 
+// * /
+
 namespace EpicProjects.Constants
 {
+        /// <summary>
+        /// This class contains all the colors usable in the application
+        /// </summary>
         public static class Brushes
         {
 

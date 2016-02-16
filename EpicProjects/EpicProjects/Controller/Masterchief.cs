@@ -12,11 +12,18 @@ using System.Windows.Media;
 using EpicProjects.View.CustomControls;
 using EpicProjects.Model;
 using EpicProjects.Controller;
-
 using EpicProjects.View;
+
+//*
+// *  @Author : Rémy Kaloustian
+// * 
+// * /
 
 namespace EpicProjects.Controller
 {
+        /// <summary>
+        /// Although there is no warthog here, there is a MasterChief. This class treats the data and makes the link between the UI and the Database/Model. This one is used for the Home page.
+        /// </summary>
         public class Masterchief
         {
                 public DatabaseGuru _guru { get; set; }
@@ -29,16 +36,14 @@ namespace EpicProjects.Controller
                 public List<string> GetLatestProjects()
                 {
                         return _guru._propSelector.SelectLatestProjects();
-                }
+                }//GetLatestProjects
 
                 public void InsertProject(string name, string startDate, string endDate, Home home)
                 {
                         Project brandNew = new Project(name, startDate, endDate);
                         Captain captain = new Captain();
                         captain.ToProject(name, home);
-                }
-
-                
+                }//InsertProject()
 
                 void quitButton_Click(object sender, System.Windows.RoutedEventArgs e)
                 {
@@ -49,7 +54,7 @@ namespace EpicProjects.Controller
                         //Adding the default buttons
                         AddMenuButtons(leftPanel);
 
-                }
+                }//quitButton_Click()
 
                 private void AddMenuButtons(StackPanel element)
                 {
@@ -59,48 +64,9 @@ namespace EpicProjects.Controller
                         //newProjectButton.Click += ShowNewProjectA;
                         //Adding the controls to the leftPanel
                         element.Children.Add(newProjectButton);
-                }
+                }//AddMenuButtons()
 
-                /*private void ShowNewProjectA(object sender, System.Windows.RoutedEventArgs e)
-                {
-                        //Clearing the left Panel
-                        LeftPanel.Children.Clear();
-
-                        //Creating the controls
-                        TextBlock nameBlock = new TextBlock();
-                        nameBlock.Inlines.Add(ControlsValues.NAME);
-
-                        TextBox nameBox = new TextBox();
-
-                        TextBlock startBlock = new TextBlock();
-                        nameBlock.Inlines.Add(ControlsValues.STARTDATE);
-
-                        DatePicker startPicker = new DatePicker();
-
-                        TextBlock endBlock = new TextBlock();
-                        nameBlock.Inlines.Add(ControlsValues.ENDATE);
-
-                        DatePicker endPicker = new DatePicker();
-
-                        Button createButton = new Button();
-                        createButton.Content = ControlsValues.CREATE;
-                        createButton.Click += createButton_Click;
-
-                        Button quitButton = new Button();
-                        quitButton.Content = "Quit";
-                        quitButton.Click += quitButton_Click;
-
-                        //Adding the controls to the leftPanel
-                        LeftPanel.Children.Add(nameBlock);
-                        LeftPanel.Children.Add(nameBox);
-                        LeftPanel.Children.Add(startBlock);
-                        LeftPanel.Children.Add(startPicker);
-                        LeftPanel.Children.Add(endBlock);
-                        LeftPanel.Children.Add(endPicker);
-                        LeftPanel.Children.Add(createButton);
-                        LeftPanel.Children.Add(quitButton);
-                }*/
-
+              
                 void createButton_Click(object sender, System.Windows.RoutedEventArgs e)
                 {
                         //Getting the parent
@@ -118,7 +84,7 @@ namespace EpicProjects.Controller
 
                         //Inserting the project
                         _guru._propInserter.InsertProject(name, startDate, endDate);
-                }
+                }//createButtonClick()
 
                 public NewProjectPanel GetNewProjectPanel()
                 {
@@ -134,11 +100,7 @@ namespace EpicProjects.Controller
                         ProjectsPanel ppanel = new ProjectsPanel(res);
 
                         return ppanel;
-
                 }//GetExistingProjects()
-
-             
-                 
 
              
         }//class MasterChief

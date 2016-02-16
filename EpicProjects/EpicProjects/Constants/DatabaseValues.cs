@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//*
+// *  @Author : Rémy Kaloustian
+// * 
+// * /
+
 namespace EpicProjects.Constants
 {
 
