@@ -3,35 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Project" Height="1080" Width="1920">
     <Grid Background="#FFE2DBDB">
-        <StackPanel HorizontalAlignment="Left" Height="1049" VerticalAlignment="Top" Width="191" Background="#FF818080">
-            <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
-                <Image Height="54" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_new.png" Margin="0,15,87,0" HorizontalAlignment="Right" Width="54"/>
-            </StackPanel>
+        <StackPanel Height="1049" Width="120" Background="#FF818080" HorizontalAlignment="Left">
 
-            <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
-                <Image Height="66" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_Open.png" Margin="35,15,80,0"/>
-            </StackPanel>
 
-            <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
-                <Image Height="54" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_stats.png" Margin="35,15,91,0"/>
-            </StackPanel>
 
-            <StackPanel HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="191">
-                <Image Height="50" VerticalAlignment="Top" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_bug.png" Margin="35,15,85,0"/>
-            </StackPanel>
+
+
+
         </StackPanel>
-        <StackPanel x:Name="Header" HorizontalAlignment="Left" Height="100" Margin="191,0,0,0" VerticalAlignment="Top" Width="1721" Background="#FF2196F3">
-            <StackPanel.BitmapEffect>
-                <DropShadowBitmapEffect Color="Gray" Direction="-5" ShadowDepth="5" Softness="1" 
-         Opacity="0.5"/>
-            </StackPanel.BitmapEffect>
-            <TextBlock x:Name="HeaderText" TextWrapping="Wrap" Text="My Big Project" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0" FontFamily="Code Bold" FontSize="50" Foreground="#FFEAE2E2"/>
+        <StackPanel x:Name="Header" HorizontalAlignment="Left" Height="68" Margin="120,0,-3,0" VerticalAlignment="Top" Width="1795" Background="#FF2196F3">
+
+            <TextBlock x:Name="HeaderText" TextWrapping="Wrap" Text="My Big Project" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,0" FontFamily="Code Bold" FontSize="50" Foreground="#FFEAE2E2"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="70" Margin="286,164,0,0" VerticalAlignment="Top" Width="936" Background="#FFF3EEEE">
-            <TextBlock TextWrapping="Wrap" Text="TextBlock" Height="48" FontFamily="Bariol Regular" FontSize="30" Margin="10,10,0,0" Foreground="#FF8F8383"/>
+        <StackPanel HorizontalAlignment="Left" Height="50" Margin="120,280,0,0" VerticalAlignment="Top" Width="933" Background="#FFF3EEEE" Orientation="Horizontal">
+            <Image Height="34"/>
+            <Image x:Name="CheckImage" Width="100" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_unchecked.png" Margin="0,5" MouseDown="CheckImage_MouseDown"/>
+            <TextBlock TextWrapping="Wrap" Text="Do something of my life" Height="48" FontFamily="Bariol Regular" FontSize="20" Margin="5,8,0,6" Foreground="#FF8F8383" HorizontalAlignment="Left"/>
+            <Image x:Name="EditButton" Width="51" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_edit.png" Margin="5,5,0,6" MouseEnter="EditButton_MouseEnter" MouseLeave="EditButton_MouseLeave"/>
+            <Image x:Name="DeleteButton" Width="55" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_delete.png" Margin="0,5,0,6" MouseEnter="DeleteButton_MouseEnter" MouseLeave="DeleteButton_MouseLeave"/>
         </StackPanel>
-        <TextBlock x:Name="DebugText" HorizontalAlignment="Left" Margin="196,865,0,0" TextWrapping="Wrap" Text="Projects : " VerticalAlignment="Top" Height="184" Width="1216" Background="#FFF7F6E0"/>
-        <Button x:Name="CreateButton" Content="Create task" HorizontalAlignment="Left" Margin="228,105,0,0" VerticalAlignment="Top" Width="221" Height="54" Background="#FF2196F3" Foreground="#FFF3EAEA" FontSize="20" Click="CreateButton_Click"/>
+        <StackPanel x:Name="FormationsPanel" HorizontalAlignment="Left" Height="64" Margin="120,68,0,0" VerticalAlignment="Top" Width="432" Background="#FF2196F3" MouseEnter="FormationsPanel_MouseEnter" MouseLeave="FormationsPanel_MouseLeave">
+            <TextBlock x:Name="FormationsText" TextWrapping="Wrap" Text="Formations" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Foreground="#FFF3EAEA" FontFamily="Proxima Nova Alt Lt" FontSize="24"/>
+        </StackPanel>
+        <StackPanel x:Name="TasksPanel" HorizontalAlignment="Left" Height="64" Margin="552,68,0,0" VerticalAlignment="Top" Width="431" Background="#FF2196F3" MouseEnter="TasksPanel_MouseEnter" MouseLeave="TasksPanel_MouseLeave">
+            <TextBlock x:Name="TasksText" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Tasks" VerticalAlignment="Top" Margin="0,20,0,0" Foreground="#FFF3EAEA" FontFamily="Proxima Nova Alt Lt" FontSize="24"/>
+        </StackPanel>
+        <StackPanel x:Name="MaintenancePanel" HorizontalAlignment="Left" Height="64" Margin="983,68,0,0" VerticalAlignment="Top" Width="431" Background="#FF2196F3" MouseEnter="MaintenancePanel_MouseEnter" MouseLeave="MaintenancePanel_MouseLeave">
+            <TextBlock x:Name="MaintenanceText" TextWrapping="Wrap" Text="Maintenance" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" Foreground="#FFF3EAEA" FontFamily="Proxima Nova Alt Lt" FontSize="24"/>
+        </StackPanel>
+        <StackPanel x:Name="BrainstormingPanel" HorizontalAlignment="Left" Height="64" Margin="1414,68,-3,0" VerticalAlignment="Top" Width="501" Background="#FF2196F3" MouseEnter="BrainstormingPanel_MouseEnter" MouseLeave="BrainstormingPanel_MouseLeave">
+            <TextBlock x:Name="BrainstormingText" TextWrapping="Wrap" Text="Brainstorming" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0" Foreground="#FFF9F9F9" FontFamily="Proxima Nova Alt Lt" FontSize="24"/>
+        </StackPanel>
+        <Image x:Name="NewProjectImage" HorizontalAlignment="Left" Height="60" Margin="31,56,0,0" VerticalAlignment="Top" Width="56" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_new.png" MouseEnter="NewProjectImage_MouseEnter" MouseLeave="NewProjectImage_MouseLeave"/>
+        <Image x:Name="OpenProjectImage" HorizontalAlignment="Left" Height="60" Margin="31,180,0,0" VerticalAlignment="Top" Width="56" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_Open.png" MouseEnter="OpenProjectImage_MouseEnter" MouseLeave="OpenProjectImage_MouseLeave"/>
+        <Image x:Name="StatsImage" HorizontalAlignment="Left" Height="60" Margin="31,306,0,0" VerticalAlignment="Top" Width="56" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_stats.png" MouseEnter="StatsImage_MouseEnter" MouseLeave="StatsImage_MouseLeave"/>
+        <Image x:Name="BugImage" HorizontalAlignment="Left" Height="60" Margin="31,428,0,0" VerticalAlignment="Top" Width="56" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_bug.png" MouseEnter="BugImage_MouseEnter" MouseLeave="BugImage_MouseLeave"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="346,562,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="MenuImage" HorizontalAlignment="Left" Height="60" Margin="31,540,0,0" VerticalAlignment="Top" Width="56" Source="/EpicProjects;component/Resources/Pictures/White/WHITE_menu.png" MouseEnter="MenuImage_MouseEnter" MouseLeave="MenuImage_MouseLeave"/>
+        <Image HorizontalAlignment="Left" Height="69" Margin="140,137,0,0" VerticalAlignment="Top" Width="68" Source="/EpicProjects;component/Resources/Pictures/Blue/BLUE_add.png"/>
+        <StackPanel HorizontalAlignment="Left" Height="769" Margin="1092,280,0,0" VerticalAlignment="Top" Width="527" Background="#FFF3EEEE">
+            <Image Height="100" Source="/EpicProjects;component/Resources/Pictures/Blue/WHITE_details (2).png"/>
+        </StackPanel>
 
     </Grid>
 </Window>

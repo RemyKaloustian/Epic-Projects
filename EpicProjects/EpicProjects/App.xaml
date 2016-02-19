@@ -1,7 +1,7 @@
 ﻿<Application x:Class="EpicProjects.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="View/Home.xaml">
+             StartupUri="Sketches/Custom/CustomDoc.xaml">
     <Application.Resources>
          
     </Application.Resources>
