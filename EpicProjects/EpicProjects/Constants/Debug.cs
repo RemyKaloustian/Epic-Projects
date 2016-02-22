@@ -17,9 +17,11 @@ namespace EpicProjects.Constants
         /// </summary>
         public static class Debug
         {
+                //Writes display on the output
                 public static void CW(string display)
                 {
                         System.Diagnostics.Debug.WriteLine("\n --------------------------------------------------\n  "+display + "\n--------------------------------------------------------\n");
                 }//CW
+
         }//class Debug
 }//ns

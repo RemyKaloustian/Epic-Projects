@@ -22,6 +22,15 @@ namespace EpicProjects.Controller
                         _guru = new DatabaseGuru();
                 }//ProjectMasterChief()
 
+
+                /// <summary>
+                /// Insert a task in the database using the Guru
+                /// </summary>
+                /// <param name="name">Name of the task</param>
+                /// <param name="deadline">   Deadline o' the task</param>
+                /// <param name="type">Type o' the task</param>
+                /// <param name="priority">Priority o' the task</param>
+                /// <param name="projectid">the id of the project linked to the task</param>
                 public void InsertTask(string name, string deadline, string type, int priority, int projectid)
                 {
                         _guru._propInserter.InsertTask(name, deadline, type, priority, projectid);

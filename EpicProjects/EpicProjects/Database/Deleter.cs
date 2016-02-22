@@ -8,8 +8,15 @@ using System.Configuration;
 
 using EpicProjects.Constants;
 
+/*
+ * @Author : Rémy Kaloustian
+ * */
+
 namespace EpicProjects.Database
 {
+        /// <summary>
+        /// This class deletes values from the database
+        /// </summary>
         public class Deleter
         {
                 public string _connectionString { get; set; }
@@ -24,28 +31,35 @@ namespace EpicProjects.Database
 
                 }//Selector()
 
-        public void DeleteOnId(int id, string table)
-        {
-                _connection.Open();
-                SqlCommand command = new SqlCommand("delete from " + table +  " where id = " + id, _connection);
+                /// <summary>
+                /// Deletes avalue based on an id
+                /// </summary>
+                /// <param name="id">the id</param>
+                /// <param name="table">the table</param>
+                public void DeleteOnId(int id, string table)
+                {
+                        _connection.Open();
+                        SqlCommand command = new SqlCommand("delete from " + table + " where id = " + id, _connection);
 
-                command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
 
-                _connection.Close();
-        }//DeleteOnId()
+                        _connection.Close();
+                }//DeleteOnId()
 
-        public void DeleteOnName(string name, string table)
-        {
-                _connection.Open();
-                SqlCommand command = new SqlCommand("delete from " + table + " where name = '" + name + "'", _connection);
+                /// <summary>
+                /// Deletes a value based on the name
+                /// </summary>
+                /// <param name="name">the name</param>
+                /// <param name="table"> teh table</param>
+                public void DeleteOnName(string name, string table)
+                {
+                        _connection.Open();
+                        SqlCommand command = new SqlCommand("delete from " + table + " where name = '" + name + "'", _connection);
 
-                command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
 
-                _connection.Close();
-        }//DeleteOnId()
-
-
-              
+                        _connection.Close();
+                }//DeleteOnId()
 
         }//class Deleter
 }//ns

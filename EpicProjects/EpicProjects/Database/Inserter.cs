@@ -10,6 +10,9 @@ using EpicProjects.Constants;
 
 namespace EpicProjects.Database
 {
+        /// <summary>
+        /// This class inserts values in the database
+        /// </summary>
         public class Inserter
         {
                 public string _connectionString { get; set; }
@@ -17,17 +20,18 @@ namespace EpicProjects.Database
 
                 public Inserter(string connectionStr)
                 {
-                        //Setting up the connection settings
-                       
-
+                        //Setting up the connection settings      
                         this._connection = new SqlConnection(connectionStr);
                         _connectionString = connectionStr;
-
-                        Debug.CW("\n\n---------------------------------------\n Dans le CTOR de Inserter, connectionStr vaut :" + connectionStr + "\n--------------------------------------\n\n");
-
-
                 }//Selector()
 
+
+                /// <summary>
+                /// Insert a project in the database
+                /// </summary>
+                /// <param name="name">Name of the project</param>
+                /// <param name="startDate">start date of the project</param>
+                /// <param name="endDate">end date of the project</param>
                 public void InsertProject(string name, string startDate, string endDate)
                 {
                         _connection.Open();
@@ -37,24 +41,25 @@ namespace EpicProjects.Database
 
                         command.Parameters.AddWithValue("@name", name);
                         command.Parameters.AddWithValue("@startdate", startDate);
-                        command.Parameters.AddWithValue("@enddate", endDate);
-
-                        Debug.CW("\n\n--------------------------\nINSERT COMMAND : " + command.CommandText + "\n-----------------------------------\n\n");
+                        command.Parameters.AddWithValue("@enddate", endDate);                 
 
                         //Executing the query
                         command.ExecuteNonQuery();
-
                         _connection.Close();
                         
                 }//InsertProject()
 
+
+                /// <summary>
+                /// Insert a task in the database
+                /// </summary>
+                /// <param name="name">Name of the task</param>
+                /// <param name="deadline">deadline of the task</param>
+                /// <param name="type">type of the task</param>
+                /// <param name="priority">priority of the task</param>
+                /// <param name="projectid">id of the dedicated project</param>
                 public void InsertTask(string name, string deadline, string type, int priority, int projectid)
                 {
-
-                        Debug.CW("\n\n -------------------------------\n In InsertTask connectionString: " +_connection.ConnectionString.ToString() + "\n------------------------------\n\n");
-
-
-
                         _connection.Open();
 
                         SqlCommand command = new SqlCommand("insert into task(name, deadline, type, priority, projectid) values (@name , @deadline, @type, @priority, @projectid)", _connection);
@@ -68,6 +73,8 @@ namespace EpicProjects.Database
                         command.ExecuteNonQuery();
 
                         _connection.Close();
+
                 }//InsertTask
+
         }//class Inserter
 }//ns
