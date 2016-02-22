@@ -60,18 +60,19 @@ namespace EpicProjects.Database
                 /// <param name="projectid">id of the dedicated project</param>
                 public void InsertTask(string name, string deadline, string type, int priority, int projectid)
                 {
+                        //Creating the query
                         _connection.Open();
 
                         SqlCommand command = new SqlCommand("insert into task(name, deadline, type, priority, projectid) values (@name , @deadline, @type, @priority, @projectid)", _connection);
-
+                        //Adding the parameters
                         command.Parameters.AddWithValue("@name", name);
                         command.Parameters.AddWithValue("@deadline", deadline);
                         command.Parameters.AddWithValue("@type", type);
                         command.Parameters.AddWithValue("@priority", priority);
                         command.Parameters.AddWithValue("@projectid", projectid);
 
+                        //Executing and closing
                         command.ExecuteNonQuery();
-
                         _connection.Close();
 
                 }//InsertTask

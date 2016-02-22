@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using EpicProjects.Constants;
 using EpicProjects.Database;
 
+/*
+ * @Author : Rémy Kaloustian
+ * */
+
 namespace EpicProjects.Controller
 {
        /// <summary>

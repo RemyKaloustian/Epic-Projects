@@ -8,8 +8,15 @@ using System.Configuration;
 
 using EpicProjects.Constants;
 
+/*
+ * @Author : Rémy Kaloustian
+ * */
+
 namespace EpicProjects.Database
 {
+        /// <summary>
+        /// Updates the rows in the database
+        /// </summary>
         public class Updater
         {
                 public string _connectionString { get; set; }
@@ -18,25 +25,29 @@ namespace EpicProjects.Database
                 public Updater(string connectionStr)
                 {
                         //Setting up the connection settings
-                        
-
                         this._connection = new SqlConnection(connectionStr);
-
-
                 }//Selector()
 
+
+                /// <summary>
+                /// Updates the name of a row
+                /// </summary>
+                /// <param name="id">Name of the row</param>
+                /// <param name="table">Name of the table</param>
+                /// <param name="newname">new name of the row</param>
                 public void UpdateName(int id, string table,string newname)
                 {
+                        //Setting up the query
                         _connection.Open();
-
                         SqlCommand command = new SqlCommand("Update " + table + " set name = @newname where id = @id", _connection);
-
+                        //Adding parameters and executing
                         command.Parameters.AddWithValue("@newname", newname);
                         command.Parameters.AddWithValue("@id", id);
 
                         command.ExecuteNonQuery();
-
                         _connection.Close();
+
                 }//UpdateProjectName()
+
         }//class Updater()
 }//ns
