@@ -49,5 +49,26 @@ namespace EpicProjects.Database
 
                 }//UpdateProjectName()
 
+                /// <summary>
+                /// Updates the name of a row based on the name
+                /// </summary>
+                /// <param name="name">current name</param>
+                /// <param name="table">the table</param>
+                /// <param name="newname">the new name</param>
+                public void UpdateNameWithName(string name, string table, string newname)
+                {
+                        //Setting up the query
+                        _connection.Open();
+                        SqlCommand command = new SqlCommand("Update " + table + " set name = @newname where name = @name", _connection);
+                        //Adding parameters and executing
+                        command.Parameters.AddWithValue("@newname", newname);
+                        command.Parameters.AddWithValue("@name", name);
+
+                        command.ExecuteNonQuery();
+                        _connection.Close();
+
+                }//UpdateProjectName()
+
+
         }//class Updater()
 }//ns

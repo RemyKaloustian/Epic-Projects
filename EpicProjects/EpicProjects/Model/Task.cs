@@ -21,6 +21,11 @@ namespace EpicProjects.Model
                         _name = name;
                 }//Task()
 
+                public void Update(string name, string newName)
+                {
+                        _guru._propUpdater.UpdateNameWithName(name,DatabaseValues.TASK, newName );
+                }//Update
+
                 public void Delete()
                 {
                         _guru._propDeleter.DeleteOnName(_name, DatabaseValues.TASK);
