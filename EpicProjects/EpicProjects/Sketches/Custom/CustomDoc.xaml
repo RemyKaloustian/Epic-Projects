@@ -12,7 +12,7 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="122" Margin="120,0,-35,0" VerticalAlignment="Top" Width="1827" Background="#FF3F51B5"/>
         <TextBlock HorizontalAlignment="Left" Margin="144,65,0,0" TextWrapping="Wrap" Text="Documentation" VerticalAlignment="Top" Cursor="Wait" FontFamily="aller" Foreground="#FFFBF5F5" FontSize="30"/>
-        <ScrollViewer x:Name="MyScroller" HorizontalAlignment="Left" Height="298" Margin="1794,751,0,0" VerticalAlignment="Top" Width="118" Background="#FFE04E4E"/>
+        <ScrollViewer x:Name="MyScroller" HorizontalAlignment="Left" Height="298" Margin="1586,301,0,0" VerticalAlignment="Top" Width="118" Background="#FFE04E4E"/>
         <StackPanel HorizontalAlignment="Left" Height="718" Margin="120,145,0,0" VerticalAlignment="Top" Width="1140" Background="#FFF9F9F9"/>
         <TextBlock HorizontalAlignment="Left" Margin="164,171,0,0" TextWrapping="Wrap" Text="What to do" VerticalAlignment="Top" FontFamily="Proxima Nova Alt Lt" FontSize="40" Width="210" Foreground="#FF3F51B5"/>
         <TextBlock HorizontalAlignment="Left" Margin="164,251,0,0" TextWrapping="Wrap" Text="This example shows how to create and use a ScrollViewer element in Extensible Application Markup Language (XAML)." VerticalAlignment="Top" Height="204" Width="388" FontFamily="Lato" FontSize="20" Foreground="#FFB9B0B0"/>
