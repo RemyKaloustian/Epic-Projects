@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EpicProjects.Sketches.Light
+namespace EpicProjects.Sketches.Custom
 {
         /// <summary>
-        /// Interaction logic for LightHome.xaml
+        /// Interaction logic for CustomHome.xaml
         /// </summary>
-        public partial class LightHome : Window
+        public partial class CustomHome : Window
         {
-                public LightHome()
+                public CustomHome()
                 {
                         InitializeComponent();
                 }
