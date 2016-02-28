@@ -80,6 +80,9 @@
     <Compile Include="Sketches\Custom\CustomDoc.xaml.cs">
       <DependentUpon>CustomDoc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sketches\Light\LightHome.xaml.cs">
+      <DependentUpon>LightHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sketches\NewProject.xaml.cs">
       <DependentUpon>NewProject.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Sketches\Custom\CustomDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketches\Light\LightHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,7 +204,6 @@
   <ItemGroup>
     <Folder Include="Exception\" />
     <Folder Include="Sketches\Dark\" />
-    <Folder Include="Sketches\Light\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\EpicProjectsDataBase.mdf">
@@ -207,6 +213,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>EpicProjectsDataBase.mdf</DependentUpon>
     </Content>
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_about.png" />
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_doc.png" />
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_gear.png" />
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_new.png" />
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_open.png" />
     <Resource Include="Resources\Pictures\Blue\WHITE_details %282%29.png" />
     <Resource Include="Resources\Pictures\White\WHITE_details %282%29.png" />
     <Resource Include="Resources\Pictures\White\WHITE_add.png" />
