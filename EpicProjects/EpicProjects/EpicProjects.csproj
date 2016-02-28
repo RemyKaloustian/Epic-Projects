@@ -83,6 +83,9 @@
     <Compile Include="Sketches\Custom\CustomHome.xaml.cs">
       <DependentUpon>CustomHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sketches\Custom\CustomProject.xaml.cs">
+      <DependentUpon>CustomProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sketches\Dark\DarkHome.xaml.cs">
       <DependentUpon>DarkHome.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,8 @@
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />
+    <Compile Include="View\CustomControls\Project\MenuItem.cs" />
+    <Compile Include="View\CustomControls\Project\MenuPanel.cs" />
     <Compile Include="View\CustomControls\TaskPanel.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -141,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sketches\Custom\CustomHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketches\Custom\CustomProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,6 +235,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>EpicProjectsDataBase.mdf</DependentUpon>
     </Content>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_menu.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_stats.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_bug.png" />
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_about.png" />
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_doc.png" />
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_gear.png" />

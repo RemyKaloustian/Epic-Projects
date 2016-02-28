@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Project" Height="1080" Width="1920">
     <Grid Background="#FFE2DBDB">
-        <StackPanel Height="1049" Width="120" Background="#FF818080" HorizontalAlignment="Left">
+        <StackPanel Height="1049" Width="120" Background="#FF2196F3" HorizontalAlignment="Left">
 
 
 
