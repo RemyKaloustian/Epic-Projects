@@ -242,7 +242,6 @@ namespace EpicProjects.Database
                         //Setting up the query
                         _connection.Open();
 
-                        SqlDataReader reader = null;
                         SqlCommand command = new SqlCommand("select max(id)  from "+ table, _connection);
 
                         //Executing and closing

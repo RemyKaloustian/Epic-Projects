@@ -80,6 +80,9 @@
     <Compile Include="Sketches\Custom\CustomDoc.xaml.cs">
       <DependentUpon>CustomDoc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sketches\Dark\LightHome.xaml.cs">
+      <DependentUpon>LightHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sketches\Light\LightHome.xaml.cs">
       <DependentUpon>LightHome.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
     <Page Include="Sketches\Custom\CustomDoc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketches\Dark\LightHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Sketches\Light\LightHome.xaml">
       <SubType>Designer</SubType>
@@ -203,7 +210,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exception\" />
-    <Folder Include="Sketches\Dark\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\EpicProjectsDataBase.mdf">
