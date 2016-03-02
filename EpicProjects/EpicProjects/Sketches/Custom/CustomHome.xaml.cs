@@ -38,6 +38,12 @@ namespace EpicProjects.Sketches.Custom
                                 if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
                                         MessageBox.Show("Open project damn");
                         }
+
+                        if (e.Key == Key.S)
+                        {
+                                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                                        MessageBox.Show("Settings, mister no happy ?");
+                        }
                 }
 
         }
