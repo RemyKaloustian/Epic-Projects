@@ -83,6 +83,9 @@
     <Compile Include="Sketches\Custom\CustomHome.xaml.cs">
       <DependentUpon>CustomHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sketches\Custom\CustomNewProject.xaml.cs">
+      <DependentUpon>CustomNewProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sketches\Custom\CustomProject.xaml.cs">
       <DependentUpon>CustomProject.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sketches\Custom\CustomHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketches\Custom\CustomNewProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

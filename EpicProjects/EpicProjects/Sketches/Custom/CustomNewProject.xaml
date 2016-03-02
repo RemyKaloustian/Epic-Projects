@@ -1,0 +1,9 @@
+﻿<Window x:Class="EpicProjects.Sketches.Custom.CustomNewProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CustomNewProject" Height="300" Width="300">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="27,98,0,0" TextWrapping="Wrap" Text="Create you project bastardo" VerticalAlignment="Top" FontFamily="Aller" FontSize="20" Height="42" Width="255"/>
+
+    </Grid>
+</Window>

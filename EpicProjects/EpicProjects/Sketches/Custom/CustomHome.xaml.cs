@@ -22,6 +22,23 @@ namespace EpicProjects.Sketches.Custom
                 public CustomHome()
                 {
                         InitializeComponent();
+                        this.KeyDown += Window_KeyDown;
                 }
+
+                private void Window_KeyDown(object sender, KeyEventArgs e)
+                {
+                        if(e.Key == Key.N)
+                        {
+                                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                                        MessageBox.Show("New project OMG");
+                        }
+
+                        if(e.Key == Key.O)
+                        {
+                                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                                        MessageBox.Show("Open project damn");
+                        }
+                }
+
         }
 }
