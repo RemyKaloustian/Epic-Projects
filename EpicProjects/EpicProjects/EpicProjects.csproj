@@ -71,6 +71,7 @@
     </ApplicationDefinition>
     <Compile Include="Constants\ControlsValues.cs" />
     <Compile Include="Constants\ModelConstants.cs" />
+    <Compile Include="Constants\Palette2.cs" />
     <Compile Include="Controller\Captain.cs" />
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Controller\ProjectMasterChief.cs" />

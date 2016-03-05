@@ -1,10 +1,10 @@
 ﻿<Window x:Class="EpicProjects.Sketches.Custom.CustomHome"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CustomHome" Height="1080" Width="1980
+        Title="CustomHome" Height="1080" Width="1920
         ">
     <Grid>
-        <Grid Background="#FF2196F3">
+        <Grid x:Name="TheGrid" Background="#FF95A5A6">
             <TextBlock HorizontalAlignment="Left" Margin="688,10,0,0" TextWrapping="Wrap" Text="EPIC PROJECTS" VerticalAlignment="Top" FontFamily="Code Bold" FontSize="70" Foreground="#FFEEEEEE"/>
             <TextBlock HorizontalAlignment="Left" Margin="624,113,0,0" TextWrapping="Wrap" Text="Lead your pojects like a winner." VerticalAlignment="Top" FontSize="45" FontFamily="Edmondsans Regular" Foreground="#FFEEEEEE"/>
             <Separator HorizontalAlignment="Left" Height="38" Margin="136,175,0,0" VerticalAlignment="Top" Width="1620" Background="#FFEEEEEE"/>
@@ -28,6 +28,21 @@
             </StackPanel>
             <Separator HorizontalAlignment="Left" Height="38" Margin="136,793,0,0" VerticalAlignment="Top" Width="1620" Background="#FFEEEEEE"/>
             <TextBlock HorizontalAlignment="Left" Margin="801,921,0,0" TextWrapping="Wrap" Text="Created by Rémy Kaloustian" VerticalAlignment="Top" Foreground="#FFEEEEEE" FontSize="20" FontFamily="Open Sans"/>
+            <Button x:Name="ColorChangerButton" Content="PREVIOUS" HorizontalAlignment="Left" Margin="1531,836,0,0" VerticalAlignment="Top" Width="108" Click="ColorChangerButton_Click"/>
+            <Separator HorizontalAlignment="Left" Height="38" Margin="1401,923,0,0" VerticalAlignment="Top" Width="228" Background="#FFEEEEEE" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.752"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <TextBlock x:Name="ColorBlock" HorizontalAlignment="Left" Margin="1531,921,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="88" Width="323" FontFamily="Lato Light" FontSize="20" Foreground="White"/>
+            <Button x:Name="NextColorButton" Content="NEXT" HorizontalAlignment="Left" Margin="1644,836,0,0" VerticalAlignment="Top" Width="112" Click="NextColorButton_Click"/>
+            <Button x:Name="PaletteButton" Content="CHANGE PALETTE" HorizontalAlignment="Left" Margin="1774,836,0,0" VerticalAlignment="Top" Width="112" Click="PaletteButton_Click"/>
+            <TextBlock x:Name="PaletteBlock" HorizontalAlignment="Left" Margin="1531,874,0,0" TextWrapping="Wrap" Text="PALETTE  : " VerticalAlignment="Top" Foreground="White" FontFamily="Sertig" FontSize="20"/>
 
         </Grid>
 

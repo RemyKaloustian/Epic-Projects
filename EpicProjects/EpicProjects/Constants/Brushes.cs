@@ -48,9 +48,10 @@ namespace EpicProjects.Constants
             public static readonly string  EUCALYPTUS= "#26a65b";
             public static readonly string  EMERALD= "#3fc380";
             public static readonly string  ECSTASY= "#f9690e";
-            public static readonly string  CALIFORNIA= "#f89406";
-            public static readonly string  CONFETTI= "#e9d460";
-            public static readonly string  SANDSTORM= "#f9bf3b";
+
+            public static readonly string  CALIFORNIA= "#e87e04";
+            //public static readonly string  CONFETTI= "#f5ab35";
+            public static readonly string SANDSTORM = "#F27935";
             public static readonly string  SEANCE= "#9a12b3";
             public static readonly string  MEDIUM_PURPLE= "#bf55ec";
             public static readonly string  REBECCA_PURPLE= "#663399";
@@ -68,13 +69,16 @@ namespace EpicProjects.Constants
             public static readonly string  DEEP_PURPLE= "#673ab7";
             public static readonly string  INDIGO= "#3f51b5";
             public static readonly string  BLUE= "#2196f3";
-            public static readonly string  CYAN= "#0bcd4";
+            public static readonly string  CYAN= "#00bcd4";
             public static readonly string TEAL = "#009688";
             public static readonly string GREEN = "#4caf50";
             public static readonly string LIGHT_GREEN = "#8bc34a";
-            public static readonly string LIME = "#cddc39";
-            public static readonly string YELLOW = "#ffeb3b";
-            public static readonly string AMBER = "#ffc107";
+            public static readonly string LIME = "#afb42b";
+            //public static readonly string YELLOW = "#ffeb3b";
+
+            //public static readonly string AMBER = "#ffc107";
+            public static readonly string AMBER = "#ffa000";
+
             public static readonly string ORANGE = "#ff9800";
             public static readonly string DEEP_ORANGE = "#ff5722";
             public static readonly string BROWN = "#795548";
