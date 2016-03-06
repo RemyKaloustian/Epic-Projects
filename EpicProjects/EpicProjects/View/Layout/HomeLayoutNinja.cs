@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 
 using EpicProjects.View.Theme;
+using EpicProjects.Constants;
+using System.Windows.Media;
 
 namespace EpicProjects.View.Layout
 {
@@ -19,10 +21,19 @@ namespace EpicProjects.View.Layout
                 public HomeLayoutNinja()
                 {
                         _theme = new CustomTheme();
+                        SetUpMainAndContainer();
+                }
+
+                private void SetUpMainAndContainer()
+                {
                         _mainPanel = new StackPanel();
                         _containerPanel = new StackPanel();
+                        _containerPanel.Height = Dimensions.GetHeight();
+                        _containerPanel.Width = Dimensions.GetWidth() * 0.8;
+                        _containerPanel.Background = new SolidColorBrush(Colors.Bisque);
 
 
+                        _mainPanel.Children.Add(_containerPanel);
                         _mainPanel.Background = _theme.GetBackground();
                 }
                 public override StackPanel GetLayout()
