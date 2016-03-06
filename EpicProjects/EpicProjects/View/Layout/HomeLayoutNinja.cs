@@ -29,6 +29,8 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel _itemsPanel { get; set; }
 
+                public Separator _itemsSeparator { get; set; }
+
                 public HomeLayoutNinja()
                 {
                         _theme = new CustomTheme();
@@ -36,18 +38,32 @@ namespace EpicProjects.View.Layout
 
                         SetUpHeader();
 
+                        SetUpItems();
+
+
+                }
+
+                private void SetUpItems()
+                {
                         _itemsPanel = new StackPanel();
                         _itemsPanel.Orientation = Orientation.Horizontal;
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
-                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width/5,"Settings") );
+
+                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width / 5, "Settings"));
                         _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_open.png", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project"));
                         _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_new.png", "CTRL + N", _theme, _containerPanel.Width / 5, "New project"));
                         _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_doc.png", "CTRL + D", _theme, _containerPanel.Width / 5, "Documentation"));
                         _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_bug.png", "CTRL + R", _theme, _containerPanel.Width / 5, "Report bug"));
 
+                        _itemsSeparator = new Separator();
+                        _itemsSeparator.Width = _containerPanel.Width;
+                        _itemsSeparator.Background = _theme.GetAccentColor();
+                        _itemsSeparator.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 20, 0, 0);
+
+
+
                         _containerPanel.Children.Add(_itemsPanel);
-
-
+                        _containerPanel.Children.Add(_itemsSeparator);
                 }
 
                 private void SetUpHeader()
