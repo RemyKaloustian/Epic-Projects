@@ -110,6 +110,7 @@
       <DependentUpon>ProjectSketch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
+    <Compile Include="View\CustomControls\Home\HomeItem.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />
     <Compile Include="View\CustomControls\Project\MenuItem.cs" />

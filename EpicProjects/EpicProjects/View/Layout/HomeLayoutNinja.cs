@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using EpicProjects.View.Theme;
 using EpicProjects.Constants;
 using System.Windows.Media;
+using EpicProjects.View.CustomControls;
+using EpicProjects.View.CustomControls.Home;
 
 namespace EpicProjects.View.Layout
 {
@@ -25,12 +27,26 @@ namespace EpicProjects.View.Layout
 
                 public Separator _headerSeparator { get; set; }
 
+                public StackPanel _itemsPanel { get; set; }
+
                 public HomeLayoutNinja()
                 {
                         _theme = new CustomTheme();
                         SetUpMainAndContainer();
 
                         SetUpHeader();
+
+                        _itemsPanel = new StackPanel();
+                        _itemsPanel.Orientation = Orientation.Horizontal;
+                        _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
+                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width/5,"Settings") );
+                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_open.png", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project"));
+                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_new.png", "CTRL + N", _theme, _containerPanel.Width / 5, "New project"));
+                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_doc.png", "CTRL + D", _theme, _containerPanel.Width / 5, "Documentation"));
+                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_bug.png", "CTRL + R", _theme, _containerPanel.Width / 5, "Report bug"));
+
+                        _containerPanel.Children.Add(_itemsPanel);
+
 
                 }
 
@@ -77,7 +93,7 @@ namespace EpicProjects.View.Layout
                         _windowTitle.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _windowTitle.FontFamily = new FontFamily("CODE LIGHT");
                         _windowTitle.Foreground = _theme.GetAccentColor();
-                        _windowTitle.FontSize = 70;
+                        _windowTitle.FontSize = 82;
                         _windowTitle.Padding = new System.Windows.Thickness(0, Convert.ToDouble(Dimensions.GetHeight() / 40), 0, 0);
                 }
 
@@ -88,7 +104,7 @@ namespace EpicProjects.View.Layout
                         _containerPanel.Orientation = Orientation.Vertical;
                         _containerPanel.Height = Dimensions.GetHeight();
                         _containerPanel.Width = Dimensions.GetWidth() * 0.9;
-                        _containerPanel.Background = new SolidColorBrush(Colors.Black);
+                       // _containerPanel.Background = new SolidColorBrush(Colors.Black);
 
 
                         _mainPanel.Children.Add(_containerPanel);
