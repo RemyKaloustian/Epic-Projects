@@ -18,12 +18,16 @@ namespace EpicProjects.View.Layout
 
                 public HomeLayoutNinja()
                 {
+                        _theme = new CustomTheme();
                         _mainPanel = new StackPanel();
                         _containerPanel = new StackPanel();
+
+
+                        _mainPanel.Background = _theme.GetBackground();
                 }
                 public override StackPanel GetLayout()
                 {
-                        return new StackPanel();
+                        return _mainPanel;
                 }
         }//class HomeLayoutNinja
 }//ns

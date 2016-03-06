@@ -9,7 +9,7 @@ namespace EpicProjects.View.Layout
 {
         public abstract class LayoutNinja
         {
-                public StackPanel GetLayout();
+                public abstract StackPanel GetLayout();
 
         }//class LayoutNinja
 }//ns

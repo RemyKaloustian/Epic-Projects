@@ -9,12 +9,12 @@ namespace EpicProjects.View.Theme
 {
         public abstract class Theme
         {
-                public SolidColorBrush GetBackground();
+                public abstract SolidColorBrush GetBackground();
 
-                public SolidColorBrush GetAccentColor();
+                public abstract SolidColorBrush GetAccentColor();
 
-                public FontFamily GetTitleFont();
+                public abstract FontFamily GetTitleFont();
 
-                public FontFamily GetTextFont();
+                public abstract  FontFamily GetTextFont();
         }//class Theme
 }//ns
