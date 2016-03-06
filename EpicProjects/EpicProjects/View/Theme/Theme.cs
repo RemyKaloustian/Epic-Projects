@@ -16,5 +16,7 @@ namespace EpicProjects.View.Theme
                 public abstract FontFamily GetTitleFont();
 
                 public abstract  FontFamily GetTextFont();
+
+                public abstract uint GetFontSize();
         }//class Theme
 }//ns

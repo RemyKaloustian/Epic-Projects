@@ -34,6 +34,11 @@ namespace EpicProjects.View.Theme
                         return new FontFamily("Lato Light");
                 }
 
+                public override uint GetFontSize()
+                {
+                        throw new NotImplementedException();
+                }
+
 
         }//class CustomTheme
 }//ns
