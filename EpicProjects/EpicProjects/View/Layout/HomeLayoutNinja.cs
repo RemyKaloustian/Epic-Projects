@@ -36,6 +36,7 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel _latestProjectsPanel { get; set; }
                 public TextBlock _latestBlock { get; set; }
+                public Separator _latestSeparator { get; set; }
 
                 public HomeLayoutNinja()
                 {
@@ -56,15 +57,23 @@ namespace EpicProjects.View.Layout
                         _latestProjectsPanel = new StackPanel();
                         _latestProjectsPanel.Orientation = Orientation.Vertical;
                         _latestProjectsPanel.Width = _containerPanel.Width;
-                        SetUpLatestTitle();
 
-
-
-
+                        SetUpLatestTitle();                        
                         SetUpLatestProjectsNames();
-
+                        SetUpLatestSeparator();
 
                         _containerPanel.Children.Add(_latestProjectsPanel);
+                }
+
+                private void SetUpLatestSeparator()
+                {
+
+                        _latestSeparator = new Separator();
+                        _latestSeparator.Width = _containerPanel.Width;
+                        _latestSeparator.Background = _theme.GetAccentColor();
+                        _latestSeparator.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
+
+                        _latestProjectsPanel.Children.Add(_latestSeparator);
                 }
 
                 private void SetUpLatestProjectsNames()
