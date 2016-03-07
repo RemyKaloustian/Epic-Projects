@@ -10,12 +10,15 @@ using EpicProjects.Constants;
 using System.Windows.Media;
 using EpicProjects.View.CustomControls;
 using EpicProjects.View.CustomControls.Home;
+using EpicProjects.Controller;
+
 
 namespace EpicProjects.View.Layout
 {
         public class HomeLayoutNinja : LayoutNinja
         {
                 public Theme.Theme _theme { get; set; }
+                public Masterchief _chief { get; set; }
 
                 public StackPanel _mainPanel { get; set; }
                 public StackPanel _containerPanel { get; set; }
@@ -31,14 +34,48 @@ namespace EpicProjects.View.Layout
 
                 public Separator _itemsSeparator { get; set; }
 
+                public StackPanel _latestProjectsPanel { get; set; }
+                public TextBlock _latestBlock { get; set; }
+
                 public HomeLayoutNinja()
                 {
                         _theme = new CustomTheme();
+                        _chief = new Masterchief();
                         SetUpMainAndContainer();
 
                         SetUpHeader();
 
                         SetUpItems();
+
+                        _latestProjectsPanel = new StackPanel();
+                        _latestProjectsPanel.Orientation = Orientation.Vertical;
+                        _latestProjectsPanel.Width = _containerPanel.Width;
+
+                        _latestBlock = new TextBlock();
+                        _latestBlock.Text = "Latest Projects";
+                        _latestBlock.FontFamily = new FontFamily("Edmondsans Regular");
+                        _latestBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _latestBlock.FontSize = 45;
+                        _latestBlock.Foreground = _theme.GetAccentColor();
+                        _latestBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
+
+
+                        _latestProjectsPanel.Children.Add(_latestBlock);    
+                        
+                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0,4);
+
+                        foreach (var item in latestProjects)
+                        {
+                                TextBlock block = new TextBlock();
+                                block.Text = item;
+                                block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                                _latestProjectsPanel.Children.Add(block);
+                        }
+
+
+                        _containerPanel.Children.Add(_latestProjectsPanel);
+
+
 
 
                 }
