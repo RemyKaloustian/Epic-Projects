@@ -56,6 +56,30 @@ namespace EpicProjects.View.Layout
                         _latestProjectsPanel = new StackPanel();
                         _latestProjectsPanel.Orientation = Orientation.Vertical;
                         _latestProjectsPanel.Width = _containerPanel.Width;
+                        SetUpLatestTitle();
+
+
+
+
+                        SetUpLatestProjectsNames();
+
+
+                        _containerPanel.Children.Add(_latestProjectsPanel);
+                }
+
+                private void SetUpLatestProjectsNames()
+                {
+                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 4);
+
+                        foreach (var item in latestProjects)
+                        {
+                                ProjectLink link = new ProjectLink(item, _theme.GetAccentColor());
+                                _latestProjectsPanel.Children.Add(link);
+                        }
+                }
+
+                private void SetUpLatestTitle()
+                {
 
                         _latestBlock = new TextBlock();
                         _latestBlock.Text = "Latest Projects";
@@ -65,19 +89,7 @@ namespace EpicProjects.View.Layout
                         _latestBlock.Foreground = _theme.GetAccentColor();
                         _latestBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
-
                         _latestProjectsPanel.Children.Add(_latestBlock);
-
-                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 4);
-
-                        foreach (var item in latestProjects)
-                        {
-                                ProjectLink link = new ProjectLink(item, _theme.GetAccentColor());
-                                _latestProjectsPanel.Children.Add(link);
-                        }
-
-
-                        _containerPanel.Children.Add(_latestProjectsPanel);
                 }
 
                 private void SetUpItems()
