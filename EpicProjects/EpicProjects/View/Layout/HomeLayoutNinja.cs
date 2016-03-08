@@ -31,7 +31,6 @@ namespace EpicProjects.View.Layout
                 public Separator _headerSeparator { get; set; }
 
                 public StackPanel _itemsPanel { get; set; }
-
                 public Separator _itemsSeparator { get; set; }
 
                 public StackPanel _subContainer { get; set; }
@@ -39,6 +38,10 @@ namespace EpicProjects.View.Layout
                 public StackPanel _latestProjectsPanel { get; set; }
                 public TextBlock _latestBlock { get; set; }
                 public Separator _latestSeparator { get; set; }
+
+                public StackPanel _footerPanel { get; set; }
+                public TextBlock _remyBlock { get; set; }
+                public TextBlock _siteBlock{ get; set; }
 
                 public HomeLayoutNinja()
                 {
@@ -51,6 +54,33 @@ namespace EpicProjects.View.Layout
                         SetUpItems();
 
                         SetUpLatestProjects();
+
+                        _footerPanel = new StackPanel();
+                        _footerPanel.Orientation = Orientation.Vertical;
+
+                        _remyBlock = new TextBlock();
+                        _remyBlock.Text = "Created by Rémy Kaloustian | remykaloustian.com";
+                        _remyBlock.Foreground = _theme.GetAccentColor();
+                        _remyBlock.FontFamily = new FontFamily("Lato Light");
+                        _remyBlock.FontSize = 20;
+                        _remyBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _remyBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
+
+
+                        _siteBlock = new TextBlock();
+                        _siteBlock.Text = "http://remykaloustian.com/epicprojects (Coming soon)";
+                        _siteBlock.Foreground = _theme.GetAccentColor();
+                        _siteBlock.FontFamily = new FontFamily("Lato Light");
+                        _siteBlock.FontSize = 20;
+                        _siteBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _siteBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
+
+
+                        _footerPanel.Children.Add(_remyBlock);
+                        _footerPanel.Children.Add(_siteBlock);
+
+                        _subContainer.Children.Add(_footerPanel);
+
 
                 }//HomeLayoutNinja()
 
