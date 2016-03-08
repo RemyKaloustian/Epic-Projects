@@ -34,6 +34,8 @@ namespace EpicProjects.View.Layout
 
                 public Separator _itemsSeparator { get; set; }
 
+                public StackPanel _subContainer { get; set; }
+
                 public StackPanel _latestProjectsPanel { get; set; }
                 public TextBlock _latestBlock { get; set; }
                 public Separator _latestSeparator { get; set; }
@@ -54,6 +56,10 @@ namespace EpicProjects.View.Layout
 
                 private void SetUpLatestProjects()
                 {
+                        _subContainer = new StackPanel();
+                        _subContainer.Orientation = Orientation.Vertical;
+
+
                         _latestProjectsPanel = new StackPanel();
                         _latestProjectsPanel.Orientation = Orientation.Vertical;
                         _latestProjectsPanel.Width = _containerPanel.Width;
@@ -62,7 +68,9 @@ namespace EpicProjects.View.Layout
                         SetUpLatestProjectsNames();
                         SetUpLatestSeparator();
 
-                        _containerPanel.Children.Add(_latestProjectsPanel);
+                        _subContainer.Children.Add(_latestProjectsPanel);
+
+                        _containerPanel.Children.Add(_subContainer);
                 }
 
                 private void SetUpLatestSeparator()
