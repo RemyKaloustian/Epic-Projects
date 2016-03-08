@@ -252,7 +252,7 @@ namespace EpicProjects.View.Layout
                         _createProjectButton.MouseDown += _createProjectButton_MouseDown;
                         _quitProjectButton = new StackPanel();
                         _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
-                        _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton);
+                        _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton,_theme, _containerPanel.Width);
                         ReloadLayout();
                         return _mainPanel;
                        
