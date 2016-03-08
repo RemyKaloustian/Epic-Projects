@@ -45,10 +45,15 @@ namespace EpicProjects.View.Layout
                 public TextBlock _remyBlock { get; set; }
                 public TextBlock _siteBlock{ get; set; }
 
+                public StackPanel _createProjectButton { get; set; }
+                public StackPanel  _quitProjectButton{ get; set; }
+
                 public HomeLayoutNinja()
                 {
                         _theme = new CustomTheme();
                         _chief = new Masterchief();
+
+                        
                         SetUpMainAndContainer();
 
                         SetUpHeader();
@@ -58,11 +63,12 @@ namespace EpicProjects.View.Layout
                         SetUpLatestProjects();
 
                         SetUpFooter();
-
-                    
-
-
+                        
                 }//HomeLayoutNinja()
+
+
+
+# region Layout_Handling
 
                 private void SetUpFooter()
                 {
@@ -92,9 +98,6 @@ namespace EpicProjects.View.Layout
 
                         _subContainer.Children.Add(_footerPanel);
                 }
-
-
-# region Layout_Handling
 
                 private void SetUpLatestProjects()
                 {
@@ -169,9 +172,12 @@ namespace EpicProjects.View.Layout
                         _itemsSeparator.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 20, 0, 0);
 
 
+                        
 
                         _containerPanel.Children.Add(_itemsPanel);
+                        //Bacause it would be displayed horizontally
                         _containerPanel.Children.Add(_itemsSeparator);
+                        
                 }
 
                 private void SetUpHeader()
@@ -234,6 +240,7 @@ namespace EpicProjects.View.Layout
                         _mainPanel.Children.Add(_containerPanel);
                         _mainPanel.Background = _theme.GetBackground();
                 }
+
                 public override StackPanel GetLayout()
                 {
                         return _mainPanel;
@@ -241,10 +248,26 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetNewProjectPanel()
                 {
-                        _subContainer = new CustomControls.Home.NewProjectPanel();
+                        _createProjectButton = new StackPanel();
+                        _createProjectButton.MouseDown += _createProjectButton_MouseDown;
+                        _quitProjectButton = new StackPanel();
+                        _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
+                        _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton);
                         ReloadLayout();
                         return _mainPanel;
                        
+                }
+
+                void _quitProjectButton_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        this.SetUpLatestProjects();
+                        this.SetUpFooter();
+                        this.ReloadLayout();
+                }
+
+                void _createProjectButton_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        throw new NotImplementedException();
                 }
 
                 private void ReloadLayout()
@@ -252,6 +275,7 @@ namespace EpicProjects.View.Layout
                         _containerPanel.Children.Clear();
                         _containerPanel.Children.Add(_headerPanel);
                         _containerPanel.Children.Add(_itemsPanel);
+                        _containerPanel.Children.Add(_itemsSeparator);
                         _containerPanel.Children.Add(_subContainer);
                 }
 
