@@ -118,6 +118,9 @@
     <Compile Include="View\CustomControls\Project\MenuItem.cs" />
     <Compile Include="View\CustomControls\Project\MenuPanel.cs" />
     <Compile Include="View\CustomControls\TaskPanel.cs" />
+    <Compile Include="View\Debug\Debug.xaml.cs">
+      <DependentUpon>Debug.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sketches\ProjectSketch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Debug\Debug.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

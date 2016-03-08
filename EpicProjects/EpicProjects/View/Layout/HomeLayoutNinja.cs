@@ -250,12 +250,36 @@ namespace EpicProjects.View.Layout
                 {
                         _createProjectButton = new StackPanel();
                         _createProjectButton.MouseDown += _createProjectButton_MouseDown;
+                        _createProjectButton.MouseEnter += _createProjectButton_MouseEnter;
+                        _createProjectButton.MouseLeave += _createProjectButton_MouseLeave;
                         _quitProjectButton = new StackPanel();
                         _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
+                        _quitProjectButton.MouseEnter += _quitProjectButton_MouseEnter;
+                        _quitProjectButton.MouseLeave += _quitProjectButton_MouseLeave;
                         _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton,_theme, _containerPanel.Width);
                         ReloadLayout();
                         return _mainPanel;
                        
+                }
+
+                void _quitProjectButton_MouseLeave(object sender, MouseEventArgs e)
+                {
+                        _quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
+                }
+
+                void _quitProjectButton_MouseEnter(object sender, MouseEventArgs e)
+                {
+                        _quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL_HOVER));
+                }
+
+                void _createProjectButton_MouseLeave(object sender, MouseEventArgs e)
+                {
+                        _createProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE));
+                }
+
+                void _createProjectButton_MouseEnter(object sender, MouseEventArgs e)
+                {
+                        _createProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE_HOVER));
                 }
 
                 void _quitProjectButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -267,7 +291,7 @@ namespace EpicProjects.View.Layout
 
                 void _createProjectButton_MouseDown(object sender, MouseButtonEventArgs e)
                 {
-                        throw new NotImplementedException();
+                       // _chief.InsertProject((NewProjectPanel)_subContainer.)
                 }
 
                 private void ReloadLayout()

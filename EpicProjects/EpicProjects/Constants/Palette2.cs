@@ -27,5 +27,12 @@ namespace EpicProjects.Constants
                 public static readonly string POMEGRANATE = "#c0392b";
                 public static readonly string SILVER = "#bdc3c7";
                 public static readonly string ASBESTOS = "#7f8c8d";
+
+                public static readonly string VALIDATE = "#2CC990";
+                public static readonly string VALIDATE_HOVER = "#64DDBB";
+
+
+                public static readonly string CANCEL = "#E01931";
+                public static readonly string CANCEL_HOVER = "#EB6361";
         }
 }

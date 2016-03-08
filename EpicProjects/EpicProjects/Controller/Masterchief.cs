@@ -53,13 +53,13 @@ namespace EpicProjects.Controller
                 /// <param name="startDate">the start date</param>
                 /// <param name="endDate">the end date</param>
                 /// <param name="home">The home window, in order to close it</param>
-                public void InsertProject(string name, string startDate, string endDate, Home home)
+                public void InsertProject(string name, string startDate, string endDate, Home home = null)
                 {
                         //USEFUL ??????????
                         Project brandNew = new Project(name, startDate, endDate);
                         //Going to the project window
                         Captain captain = new Captain();
-                        captain.ToProject(name, home);
+                       // captain.ToProject(name, home);
                 }//InsertProject()
 
                 /// <summary>

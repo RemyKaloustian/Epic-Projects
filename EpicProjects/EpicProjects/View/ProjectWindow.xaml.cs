@@ -271,14 +271,14 @@ namespace EpicProjects.View
                 {
                         _currentAssignements = ModelConstants.MAINTENANCE;
                         LoadMaintenanceOnUI();
-                        Debug.CW("_currentAssignments : " + _currentAssignements);
+                        Constants.Debug.CW("_currentAssignments : " + _currentAssignements);
                 }
 
                 void _tasksButton_Click(object sender, RoutedEventArgs e)
                 {
                         _currentAssignements = ModelConstants.TASK;
                         LoadTasksOnUI();
-                        Debug.CW("_currentAssignments : " + _currentAssignements);
+                        Constants.Debug.CW("_currentAssignments : " + _currentAssignements);
 
                 }
 
@@ -286,7 +286,7 @@ namespace EpicProjects.View
                 {
                         _currentAssignements = ModelConstants.FORMATION;
                         LoadFormationsOnUI();
-                        Debug.CW("_currentAssignments : " + _currentAssignements);
+                        Constants.Debug.CW("_currentAssignments : " + _currentAssignements);
 
                 }
 

@@ -29,7 +29,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                 private void GoToProject(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        Debug.CW("GOING ! ! ");
+                        Constants.Debug.CW("GOING ! ! ");
                 }
 
                 void ProjectLink_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
