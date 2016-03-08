@@ -11,6 +11,8 @@ using System.Windows.Media;
 using EpicProjects.View.CustomControls;
 using EpicProjects.View.CustomControls.Home;
 using EpicProjects.Controller;
+using System.Windows.Input;
+using System.Windows;
 
 
 namespace EpicProjects.View.Layout
@@ -55,6 +57,15 @@ namespace EpicProjects.View.Layout
 
                         SetUpLatestProjects();
 
+                        SetUpFooter();
+
+                    
+
+
+                }//HomeLayoutNinja()
+
+                private void SetUpFooter()
+                {
                         _footerPanel = new StackPanel();
                         _footerPanel.Orientation = Orientation.Vertical;
 
@@ -80,9 +91,10 @@ namespace EpicProjects.View.Layout
                         _footerPanel.Children.Add(_siteBlock);
 
                         _subContainer.Children.Add(_footerPanel);
+                }
 
 
-                }//HomeLayoutNinja()
+# region Layout_Handling
 
                 private void SetUpLatestProjects()
                 {
@@ -226,5 +238,25 @@ namespace EpicProjects.View.Layout
                 {
                         return _mainPanel;
                 }
+
+                public StackPanel GetNewProjectPanel()
+                {
+                        _subContainer = new CustomControls.Home.NewProjectPanel();
+                        ReloadLayout();
+                        return _mainPanel;
+                       
+                }
+
+                private void ReloadLayout()
+                {
+                        _containerPanel.Children.Clear();
+                        _containerPanel.Children.Add(_headerPanel);
+                        _containerPanel.Children.Add(_itemsPanel);
+                        _containerPanel.Children.Add(_subContainer);
+                }
+
+#endregion
+
+
         }//class HomeLayoutNinja
 }//ns
