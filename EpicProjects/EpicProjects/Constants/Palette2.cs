@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace EpicProjects.Constants
 {
         public class Palette2
         {
+                public static SolidColorBrush GetColor(string color)
+                {
+                        return (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
+                }//GetColor()
+
                 public static readonly string TURQUOISE = "#1abc9c";
                 public static readonly string EMERALD = "#2ecc71";
                 public static readonly string PETER_RIVER = "#3498db";
