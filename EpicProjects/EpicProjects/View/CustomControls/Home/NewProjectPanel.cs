@@ -69,6 +69,7 @@ namespace EpicProjects.View.CustomControls.Home
                         quitBlock.Foreground = _theme.GetAccentColor();
                         quitBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
+
                         _quitButton = quitProjectButton;
                         _quitButton.Children.Add(quitBlock);
                         _quitButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;

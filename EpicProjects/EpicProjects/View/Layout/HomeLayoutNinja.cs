@@ -264,7 +264,7 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetOpenProjectPanel()
                 {
-                        _subContainer = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.Select(DatabaseValues.NAME,DatabaseValues.PROJECT));
+                        _subContainer = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.Select(DatabaseValues.NAME,DatabaseValues.PROJECT),_theme, _containerPanel.Width);
 
                         ReloadLayout();
                         return _mainPanel;

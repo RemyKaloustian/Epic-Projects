@@ -1,10 +1,12 @@
-﻿using System;
+﻿using EpicProjects.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace EpicProjects.View.CustomControls.Home
 {
@@ -23,7 +25,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                 public StackPanel _leaveButton{ get; set; }
 
-                public OpenProjectPanel(List<object> projectsName)
+                public OpenProjectPanel(List<object> projectsName, Theme.Theme theme, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -46,10 +48,8 @@ namespace EpicProjects.View.CustomControls.Home
                         _navigationPanel = new ScrollViewer();
                         _navigationPanel.Content = _projectsPanel;
 
-                        _leaveButton = new StackPanel();
-                        TextBlock leaveBlock = new TextBlock();
-                        leaveBlock.Text = "Just leave";
-                        _leaveButton.Children.Add(leaveBlock);
+                        SetUpLeaveButton(theme, width);
+
 
                        
 
@@ -83,6 +83,41 @@ namespace EpicProjects.View.CustomControls.Home
                         this.Children.Add(_actionsPanel);
 
                        
+                }
+
+                private void SetUpLeaveButton(Theme.Theme theme, double width)
+                {
+                        _leaveButton = new StackPanel();
+                        TextBlock leaveBlock = new TextBlock();
+                        leaveBlock.Text = "Just leave";
+                        _leaveButton.Children.Add(leaveBlock);
+
+                        leaveBlock.FontSize = 25;
+                        leaveBlock.FontFamily = new FontFamily("Lato Light");
+                        leaveBlock.Foreground = theme.GetAccentColor();
+                        leaveBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        leaveBlock.Margin = new System.Windows.Thickness(0, width / 200, 0, 0);
+
+
+
+                        _leaveButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _leaveButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
+                        _leaveButton.Margin = new System.Windows.Thickness(0, width / 50, 0, 0);
+                        _leaveButton.Width = width / 2;
+                        _leaveButton.Height = width / 30;
+
+                        _leaveButton.MouseEnter += _leaveButton_MouseEnter;
+                        _leaveButton.MouseLeave += _leaveButton_MouseLeave;
+                }
+
+                void _leaveButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+                {
+                        _leaveButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
+                }
+
+                void _leaveButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+                {
+                        _leaveButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL_HOVER  ));
                 }
 
         }///class OpenProjectPanel
