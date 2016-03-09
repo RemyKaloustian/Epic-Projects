@@ -7,13 +7,21 @@ using System.Windows.Controls;
 
 namespace EpicProjects.View.CustomControls
 {
-        public class CustomButton : StackPanel
+        public abstract class  CustomButton : StackPanel
         {
                 public TextBlock _block { get; set; }
 
-                public CustomButton(string content, )
+                public CustomButton(string content, double width)
                 {
+                        _block = new TextBlock();
+                        _block.Text = content;
 
+                        this.Width = width;
+                        this.SetColor();
                 }
-        }
-}
+
+                public abstract void SetColor();
+
+
+        }//class CustomButton
+}//ns

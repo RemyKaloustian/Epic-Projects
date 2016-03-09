@@ -112,6 +112,7 @@
     <Compile Include="Sketches\ProjectSketch.xaml.cs">
       <DependentUpon>ProjectSketch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomControls\CancelButton.cs" />
     <Compile Include="View\CustomControls\CustomButton.cs" />
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
     <Compile Include="View\CustomControls\Home\HomeItem.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="View\CustomControls\Project\MenuItem.cs" />
     <Compile Include="View\CustomControls\Project\MenuPanel.cs" />
     <Compile Include="View\CustomControls\TaskPanel.cs" />
+    <Compile Include="View\CustomControls\ValidateButton.cs" />
     <Compile Include="View\Debug\Debug.xaml.cs">
       <DependentUpon>Debug.xaml</DependentUpon>
     </Compile>
