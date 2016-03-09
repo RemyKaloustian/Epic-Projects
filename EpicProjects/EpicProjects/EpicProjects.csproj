@@ -73,6 +73,7 @@
     <Compile Include="Constants\Dimensions.cs" />
     <Compile Include="Constants\ModelConstants.cs" />
     <Compile Include="Constants\Palette2.cs" />
+    <Compile Include="Constants\Shortcuts.cs" />
     <Compile Include="Constants\Tooltips.cs" />
     <Compile Include="Controller\Captain.cs" />
     <Compile Include="Controller\Masterchief.cs" />
