@@ -23,9 +23,15 @@ namespace EpicProjects.Constants
                 public static readonly string ENDATE = "End date";
 
                 public static readonly string CREATE = "Create";
-                public static readonly string QUIT = "Quit";
+                public static readonly string QUIT = "Forget it...";
                 public static readonly string DELETE = "Delete";
                 public static readonly string EDIT = "Edit";
+                public static readonly string LEAVE = "Just leave";
+                public static readonly string OPEN = "Open";
+                public static readonly string RENAME = "Rename";
+
+                public static string NEW_PROJECT_TITLE = "Already making a new project ? You are so dynamic !";
+                public static string OPEN_PROJECT_TITLE = "There are plenty of interesting projects down there";
                 
 
                 public static readonly string NEWPROJECT = "New Project";
