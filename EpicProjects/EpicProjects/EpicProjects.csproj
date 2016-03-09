@@ -112,6 +112,7 @@
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
     <Compile Include="View\CustomControls\Home\HomeItem.cs" />
     <Compile Include="View\CustomControls\Home\NewProjectPanel.cs" />
+    <Compile Include="View\CustomControls\Home\OpenProjectPanel.cs" />
     <Compile Include="View\CustomControls\Home\ProjectLink.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />

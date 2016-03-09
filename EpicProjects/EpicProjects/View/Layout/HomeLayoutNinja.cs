@@ -262,6 +262,17 @@ namespace EpicProjects.View.Layout
                        
                 }
 
+                public StackPanel GetOpenProjectPanel()
+                {
+                        _subContainer = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.Select(DatabaseValues.NAME,DatabaseValues.PROJECT));
+
+                        ReloadLayout();
+                        return _mainPanel;
+                }
+
+
+                public
+
                 void _quitProjectButton_MouseLeave(object sender, MouseEventArgs e)
                 {
                         _quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
