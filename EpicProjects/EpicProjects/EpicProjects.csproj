@@ -130,12 +130,12 @@
     <Compile Include="View\Debug\Debug.xaml.cs">
       <DependentUpon>Debug.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Home.xaml.cs">
+    <Compile Include="View\Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Layout\HomeLayoutNinja.cs" />
     <Compile Include="View\Layout\LayoutNinja.cs" />
-    <Compile Include="View\ProjectWindow.xaml.cs">
+    <Compile Include="View\Windows\ProjectWindow.xaml.cs">
       <DependentUpon>ProjectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Theme\CustomTheme.cs" />
@@ -209,11 +209,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Home.xaml">
+    <Page Include="View\Windows\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ProjectWindow.xaml">
+    <Page Include="View\Windows\ProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
