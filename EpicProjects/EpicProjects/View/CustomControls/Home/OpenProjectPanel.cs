@@ -32,6 +32,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                         _projectsListPanel = new StackPanel();
                         _projectsListPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
+                        _projectsListPanel.Margin = new System.Windows.Thickness(width / 50);
 
                         _navigationPanel = new ScrollViewer();
 
@@ -40,13 +41,17 @@ namespace EpicProjects.View.CustomControls.Home
 
                         foreach (var item in projectsName)
                         {
-                                TextBlock block = new TextBlock();
-                                block.Text = item.ToString();
+                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, width/50, theme);
+                              
                                 _projectsPanel.Children.Add(block);
                         }
 
+                        //_projectsPanel.CanVerticallyScroll = true;
+                        //_projectsPanel.Height = 100;
+
                         _navigationPanel = new ScrollViewer();
                         _navigationPanel.Content = _projectsPanel;
+                        _navigationPanel.Height = width/10;
 
                         SetUpLeaveButton(theme, width);
 
