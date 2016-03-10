@@ -71,6 +71,7 @@
     </ApplicationDefinition>
     <Compile Include="Constants\ControlsValues.cs" />
     <Compile Include="Constants\Dimensions.cs" />
+    <Compile Include="Constants\FontProvider.cs" />
     <Compile Include="Constants\ModelConstants.cs" />
     <Compile Include="Constants\Palette2.cs" />
     <Compile Include="Constants\Shortcuts.cs" />

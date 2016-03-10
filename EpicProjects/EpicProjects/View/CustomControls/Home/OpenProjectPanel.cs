@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace EpicProjects.View.CustomControls.Home
                 public StackPanel _renameButton{ get; set; }
 
                 public CustomButton _leaveButton{ get; set; }
+
+                public ProjectBlock _selectedBlock { get; set; }
 
                 public List<ProjectBlock> _blockList { get; set; }
 
@@ -78,6 +81,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _actionsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
 
                         _openButton = new ValidateButton(ControlsValues.OPEN,width/5,width/30, new System.Windows.Thickness(0,width/50 ,0,0), new System.Windows.Thickness(0,width/200,0,0),System.Windows.HorizontalAlignment.Center,theme);
+                        _openButton.MouseDown += _openButton_MouseDown;
                        
 
                         _deleteButton = new   CancelButton(ControlsValues.DELETE,width/5,width/30, new System.Windows.Thickness(0,width/70 ,0,0), new System.Windows.Thickness(0,width/200,0,0),System.Windows.HorizontalAlignment.Center,theme);
@@ -101,6 +105,15 @@ namespace EpicProjects.View.CustomControls.Home
                        
                 }
 
+                void _openButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                       if(_selectedBlock != null)
+                       {
+                               Captain oCaptain = new Captain();
+                               oCaptain.ToProject(_selectedBlock._block.Text);
+                       }
+                }
+
                 void block_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         foreach (ProjectBlock item in _blockList)
@@ -108,8 +121,8 @@ namespace EpicProjects.View.CustomControls.Home
                                 item.GetUnselected();
                         }
 
-                        ProjectBlock selected = (ProjectBlock)sender;
-                        selected.GetSelected();
+                         _selectedBlock = (ProjectBlock)sender;
+                        _selectedBlock.GetSelected();
                 }
 
                 private void SetUpLeaveButton(Theme.Theme theme, double width)
