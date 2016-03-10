@@ -78,15 +78,12 @@ namespace EpicProjects.Database
                         SqlCommand command;
 
                         //Creating the command
-                        if (value is string)
-                        {
+                      
+                      
                                  command = new SqlCommand("select " + attribute + " from " + table + " where " + condition + " = '" + value + "'", _connection);
-                        }
+                     
 
-                        else
-                        {
-                                 command = new SqlCommand("select " + attribute + " from " + table + " where " + condition + " = " + value + "", _connection);
-                        }
+                    
                         
                         //Reading the results
                         reader = command.ExecuteReader();

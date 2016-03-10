@@ -12,13 +12,13 @@ using System.Windows.Media;
 namespace EpicProjects.View.CustomControls.Home
 {
         public class OpenProjectPanel : StackPanel
-        { 
+        {
+                #region fields
                 public ScrollViewer _navigationPanel { get; set; }
                 public StackPanel _projectsListPanel { get; set; }
                 public StackPanel _projectsPanel { get; set; }
 
-                public TextBlock _openBlock { get; set; }
-               
+                public TextBlock _openBlock { get; set; }               
 
                 public StackPanel _actionsPanel { get; set; }
 
@@ -31,21 +31,90 @@ namespace EpicProjects.View.CustomControls.Home
                 public ProjectBlock _selectedBlock { get; set; }
 
                 public List<ProjectBlock> _blockList { get; set; }
+                #endregion
 
                 public OpenProjectPanel(List<object> projectsName, Theme.Theme theme, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
-                        _projectsListPanel = new StackPanel();
-                        _projectsListPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
-                        _projectsListPanel.Margin = new System.Windows.Thickness(width / 50);
+                        SetUpProjectsListPanel(width);
+                        SetUpProjectsPanel();
+                        SetUpOpenBlock(theme, width);
+                        SetUpBlocks(projectsName, theme, width);
+                        SetUpNavigationPanel(width);
+                        SetUpLeaveButton(theme, width);
+                        SetUpActionsPanel(theme, width);
 
+                        AddControls();                       
+                }
+
+                private void AddControls()
+                {
+                        _projectsListPanel.Children.Add(_openBlock);
+                        _projectsListPanel.Children.Add(_navigationPanel);
+                        _projectsListPanel.Children.Add(_leaveButton);
+
+                        this.Children.Add(_projectsListPanel);
+                        this.Children.Add(_actionsPanel);
+                }
+
+                private void SetUpActionsPanel(Theme.Theme theme, double width)
+                {
+                        _actionsPanel = new StackPanel();
+                        _actionsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
+
+                        SetUpOpenButton(theme, width);
+                        SetUpDeleteButton(theme, width);
+                        SetUpRenameButton(theme, width);
+
+                        _actionsPanel.Children.Add(_openButton);
+                        _actionsPanel.Children.Add(_deleteButton);
+                        _actionsPanel.Children.Add(_renameButton);
+                        _actionsPanel.Margin = new System.Windows.Thickness(width / 20, 0, 0, 0);
+                }
+
+                private void SetUpRenameButton(Theme.Theme theme, double width)
+                {
+                        _renameButton = new AlternativeButton(ControlsValues.RENAME, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                }
+
+                private void SetUpDeleteButton(Theme.Theme theme, double width)
+                {
+                        _deleteButton = new CancelButton(ControlsValues.DELETE, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                }
+
+                private void SetUpOpenButton(Theme.Theme theme, double width)
+                {
+                        _openButton = new ValidateButton(ControlsValues.OPEN, width / 5, width / 30, new System.Windows.Thickness(0, width / 50, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                        _openButton.MouseDown += _openButton_MouseDown;
+                }
+
+                private void SetUpNavigationPanel(double width)
+                {
                         _navigationPanel = new ScrollViewer();
+                        _navigationPanel.Content = _projectsPanel;
+                        _navigationPanel.Height = width / 10;
+                }
 
-                        _projectsPanel = new StackPanel();
-                        _projectsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
+                private void SetUpBlocks(List<object> projectsName, Theme.Theme theme, double width)
+                {
 
+                        _blockList = new List<ProjectBlock>();
+                        foreach (var item in projectsName)
+                        {
+                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, width / 50, theme);
+
+                                block.MouseDown += block_MouseDown;
+
+                                _blockList.Add(block);
+
+                                _projectsPanel.Children.Add(block);
+                        }
+                }
+
+                private void SetUpOpenBlock(Theme.Theme theme, double width)
+                {
                         _openBlock = new TextBlock();
                         _openBlock.Text = ControlsValues.OPEN_PROJECT_TITLE;
                         _openBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -53,56 +122,19 @@ namespace EpicProjects.View.CustomControls.Home
                         _openBlock.FontSize = 30;
                         _openBlock.Foreground = theme.GetAccentColor();
                         _openBlock.Margin = new System.Windows.Thickness(0, 0, 0, width / 30);
+                }
 
+                private void SetUpProjectsPanel()
+                {
+                        _projectsPanel = new StackPanel();
+                        _projectsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
+                }
 
-                        _blockList = new List<ProjectBlock>();
-                        foreach (var item in projectsName)
-                        {
-                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, width/50, theme);
-
-                                block.MouseDown += block_MouseDown;
-
-                                _blockList.Add(block);
-                              
-                                _projectsPanel.Children.Add(block);
-                        }
-
-                       
-                        _navigationPanel = new ScrollViewer();
-                        _navigationPanel.Content = _projectsPanel;
-                        _navigationPanel.Height = width/10;
-
-                        SetUpLeaveButton(theme, width);
-
-
-                       
-
-                        _actionsPanel = new StackPanel();
-                        _actionsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
-
-                        _openButton = new ValidateButton(ControlsValues.OPEN,width/5,width/30, new System.Windows.Thickness(0,width/50 ,0,0), new System.Windows.Thickness(0,width/200,0,0),System.Windows.HorizontalAlignment.Center,theme);
-                        _openButton.MouseDown += _openButton_MouseDown;
-                       
-
-                        _deleteButton = new   CancelButton(ControlsValues.DELETE,width/5,width/30, new System.Windows.Thickness(0,width/70 ,0,0), new System.Windows.Thickness(0,width/200,0,0),System.Windows.HorizontalAlignment.Center,theme);
-
-
-                        _renameButton = new AlternativeButton(ControlsValues.RENAME, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
-                     
-
-                        _actionsPanel.Children.Add(_openButton);
-                        _actionsPanel.Children.Add(_deleteButton);
-                        _actionsPanel.Children.Add(_renameButton);
-                        _actionsPanel.Margin = new System.Windows.Thickness(width / 20, 0, 0, 0);
-
-                        _projectsListPanel.Children.Add(_openBlock);
-                        _projectsListPanel.Children.Add(_navigationPanel);
-                        _projectsListPanel.Children.Add(_leaveButton);
-
-                        this.Children.Add(_projectsListPanel);
-                        this.Children.Add(_actionsPanel);
-
-                       
+                private void SetUpProjectsListPanel(double width)
+                {
+                        _projectsListPanel = new StackPanel();
+                        _projectsListPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
+                        _projectsListPanel.Margin = new System.Windows.Thickness(width / 50);
                 }
 
                 void _openButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -14,6 +14,7 @@ namespace EpicProjects.View.CustomControls.Home
         public class ProjectLink : TextBlock
         {
                 public SolidColorBrush _color { get; set; }
+
                 public ProjectLink(string projectName, SolidColorBrush accentColor)
                 {
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -23,6 +24,11 @@ namespace EpicProjects.View.CustomControls.Home
                         _color = accentColor;
                         this.Foreground = accentColor;
 
+                        SetUpEvents();
+                }
+
+                private void SetUpEvents()
+                {
                         this.MouseEnter += ProjectLink_MouseEnter;
                         this.MouseLeave += ProjectLink_MouseLeave;
                         this.MouseDown += GoToProject;
