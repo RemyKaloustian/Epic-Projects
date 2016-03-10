@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 using EpicProjects.Constants;
+using EpicProjects.Controller;
 
 namespace EpicProjects.View.CustomControls.Home
 {
@@ -29,7 +30,9 @@ namespace EpicProjects.View.CustomControls.Home
 
                 private void GoToProject(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        Constants.Debug.CW("GOING ! ! ");
+                        
+                        Captain oCaptain = new Captain();
+                        oCaptain.ToProject(this.Text);
                 }
 
                 void ProjectLink_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
@@ -41,5 +44,7 @@ namespace EpicProjects.View.CustomControls.Home
                 {
                         this.Foreground = new SolidColorBrush(Colors.White);
                 }
+
+
         }//class ProjectLink
 }//ns
