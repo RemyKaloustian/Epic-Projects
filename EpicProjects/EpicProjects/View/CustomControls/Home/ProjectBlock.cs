@@ -7,9 +7,11 @@ using System.Windows.Controls;
 
 namespace EpicProjects.View.CustomControls.Home
 {
-        class ProjectBlock : StackPanel
+        public class ProjectBlock : StackPanel
         {
                 public TextBlock _block { get; set; }
+
+                public Theme.Theme _theme { get; set; }
 
                 public ProjectBlock(string content, double width, double height, Theme.Theme theme)
                 {
@@ -23,9 +25,23 @@ namespace EpicProjects.View.CustomControls.Home
                         this.Background = theme.GetBackground();
                         this.Width = width;
                         this.Height = height;
+                        _theme = theme;
                         this.Children.Add(_block);
-                       
-                        
-                }//ProjectBlock()
+
+
+
+                }//ProjectBlock() 
+
+                public void GetSelected()
+                {
+                        this.Background = _theme.GetAccentColor();
+                        _block.Foreground = _theme.GetBackground();
+                }//GetSelected
+
+                public void GetUnselected()
+                {
+                        this.Background = _theme.GetBackground();
+                        _block.Foreground = _theme.GetAccentColor();
+                }//GetUnselected()
         }//class projectBlock
 }//ns
