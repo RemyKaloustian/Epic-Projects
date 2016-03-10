@@ -23,7 +23,7 @@ namespace EpicProjects.View.CustomControls.Home
                 public StackPanel _deleteButton{ get; set; }
                 public StackPanel _renameButton{ get; set; }
 
-                public StackPanel _leaveButton{ get; set; }
+                public CustomButton _leaveButton{ get; set; }
 
                 public OpenProjectPanel(List<object> projectsName, Theme.Theme theme, double width)
                 {
@@ -87,24 +87,13 @@ namespace EpicProjects.View.CustomControls.Home
 
                 private void SetUpLeaveButton(Theme.Theme theme, double width)
                 {
-                        _leaveButton = new StackPanel();
-                        TextBlock leaveBlock = new TextBlock();
-                        leaveBlock.Text = "Just leave";
-                        _leaveButton.Children.Add(leaveBlock);
+                        _leaveButton = new CancelButton(ControlsValues.LEAVE,width/2, width/30, new System.Windows.Thickness(0,width/50,0,0), new System.Windows.Thickness(0,width/200,0,0), System.Windows.HorizontalAlignment.Center, theme);
+                        
 
-                        leaveBlock.FontSize = 25;
-                        leaveBlock.FontFamily = new FontFamily("Lato Light");
-                        leaveBlock.Foreground = theme.GetAccentColor();
-                        leaveBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        leaveBlock.Margin = new System.Windows.Thickness(0, width / 200, 0, 0);
+                       
 
 
 
-                        _leaveButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _leaveButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
-                        _leaveButton.Margin = new System.Windows.Thickness(0, width / 50, 0, 0);
-                        _leaveButton.Width = width / 2;
-                        _leaveButton.Height = width / 30;
 
                         _leaveButton.MouseEnter += _leaveButton_MouseEnter;
                         _leaveButton.MouseLeave += _leaveButton_MouseLeave;
@@ -112,13 +101,12 @@ namespace EpicProjects.View.CustomControls.Home
 
                 void _leaveButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _leaveButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
+                        
                 }
 
                 void _leaveButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _leaveButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL_HOVER  ));
-                }
+                                        }
 
         }///class OpenProjectPanel
 }//ns

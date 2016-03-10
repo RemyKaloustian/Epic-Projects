@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EpicProjects.View.CustomControls
 {
         public class ValidateButton : CustomButton
         {
-                public ValidateButton(string content, double width ) : base(content,width)
+                public ValidateButton(string content, double width, double height, System.Windows.Thickness margin,System.Windows.Thickness padding, HorizontalAlignment hAlign, Theme.Theme theme ) : base(content,width, height,margin , padding,hAlign, theme)
                 {
                         this.MouseEnter += ValidateButton_MouseEnter;
                         this.MouseLeave+=ValidateButton_MouseLeave;
+                        
                 }
 
                 private void ValidateButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
@@ -28,5 +30,5 @@ namespace EpicProjects.View.CustomControls
                 {
                         this.Background = Palette2.GetColor(Palette2.VALIDATE);
                 }
-        }
-}
+        }//class ValidateButton
+}//ns
