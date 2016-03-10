@@ -56,25 +56,19 @@ namespace EpicProjects.View.CustomControls.Home
                         _actionsPanel = new StackPanel();
                         _actionsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
 
-                        _openButton = new StackPanel();
-                        TextBlock openBlock = new TextBlock();
-                        openBlock.Text = "Open";
-                        _openButton.Children.Add(openBlock);
+                        _openButton = new ValidateButton(ControlsValues.OPEN,width/5,width/30, new System.Windows.Thickness(0,width/50 ,0,0), new System.Windows.Thickness(0,width/200,0,0),System.Windows.HorizontalAlignment.Center,theme);
+                       
 
-                        _deleteButton = new StackPanel();
-                        TextBlock deleteBlock = new TextBlock();
-                        deleteBlock.Text = "Delete";
-                        _deleteButton.Children.Add(deleteBlock);
+                        _deleteButton = new   CancelButton(ControlsValues.DELETE,width/5,width/30, new System.Windows.Thickness(0,width/70 ,0,0), new System.Windows.Thickness(0,width/200,0,0),System.Windows.HorizontalAlignment.Center,theme);
 
 
-                        _renameButton = new StackPanel();
-                        TextBlock renameBlock = new TextBlock();
-                        renameBlock.Text = "Rename";
-                        _renameButton.Children.Add(renameBlock);
+                        _renameButton = new AlternativeButton(ControlsValues.RENAME, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                     
 
                         _actionsPanel.Children.Add(_openButton);
                         _actionsPanel.Children.Add(_deleteButton);
                         _actionsPanel.Children.Add(_renameButton);
+                        _actionsPanel.Margin = new System.Windows.Thickness(width / 20, 0, 0, 0);
 
                         _projectsListPanel.Children.Add(_navigationPanel);
                         _projectsListPanel.Children.Add(_leaveButton);

@@ -39,6 +39,9 @@ namespace EpicProjects.Constants
 
 
                 public static readonly string CANCEL = "#E01931";
-                public static readonly string CANCEL_HOVER = "#D33257";
+                public static readonly string CANCEL_HOVER = "#C82647";
+
+                public static readonly string ALTERNATIVE = "#8870FF";
+                public static readonly string ALTERNATIVE_HOVER = "#5659C9";
         }
 }

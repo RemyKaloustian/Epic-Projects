@@ -115,6 +115,7 @@
     <Compile Include="View\CustomControls\CancelButton.cs" />
     <Compile Include="View\CustomControls\CustomButton.cs" />
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
+    <Compile Include="View\CustomControls\Home\AlternativeButton.cs" />
     <Compile Include="View\CustomControls\Home\HomeItem.cs" />
     <Compile Include="View\CustomControls\Home\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\Home\OpenProjectPanel.cs" />
