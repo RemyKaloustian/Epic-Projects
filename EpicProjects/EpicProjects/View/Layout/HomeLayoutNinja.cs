@@ -264,10 +264,19 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetOpenProjectPanel()
                 {
-                        _subContainer = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.Select(DatabaseValues.NAME,DatabaseValues.PROJECT),_theme, _containerPanel.Width);
+                        OpenProjectPanel openProjectPanel = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.Select(DatabaseValues.NAME,DatabaseValues.PROJECT),_theme, _containerPanel.Width);
+
+                        _subContainer = openProjectPanel;
+
+                        openProjectPanel._leaveButton.MouseDown += _leaveButton_MouseDown;
 
                         ReloadLayout();
                         return _mainPanel;
+                }
+
+                void _leaveButton_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        this.RestoreDefaultLayout();
                 }
 
 
@@ -295,10 +304,17 @@ namespace EpicProjects.View.Layout
 
                 void _quitProjectButton_MouseDown(object sender, MouseButtonEventArgs e)
                 {
+                        RestoreDefaultLayout();
+                }
+
+                private void RestoreDefaultLayout()
+                {
                         this.SetUpLatestProjects();
                         this.SetUpFooter();
                         this.ReloadLayout();
                 }
+
+
 
                 void _createProjectButton_MouseDown(object sender, MouseButtonEventArgs e)
                 {

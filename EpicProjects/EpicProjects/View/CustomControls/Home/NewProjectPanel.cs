@@ -105,7 +105,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                 void _createButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        if (_nameBox.Text != "" && _startDatePicker.Text != "" && _startDatePicker.Text != "")
+                        if (_nameBox.Text != "" && _nameBox.Text != "Name of your project here" || _startDatePicker.Text != "" || _startDatePicker.Text != "" )
                                 _chief.InsertProject(_nameBox.Text, _startDatePicker.Text, _endDatePicker.Text);
 
                         else
