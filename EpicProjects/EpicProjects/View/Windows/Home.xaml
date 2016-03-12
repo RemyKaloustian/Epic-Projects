@@ -3,4 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Home" >
     <Grid x:Name="MainGrid" SizeChanged="MainGrid_SizeChanged"/>
+
+    
 </Window>

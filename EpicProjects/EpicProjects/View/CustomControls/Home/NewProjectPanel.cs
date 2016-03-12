@@ -9,6 +9,7 @@ using System.Windows.Media;
 using EpicProjects.Constants;
 using EpicProjects.Controller;
 using System.Windows;
+using EpicProjects.View.CustomControls.PopUp;
 
 namespace EpicProjects.View.CustomControls.Home
 {
@@ -28,7 +29,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                 public Masterchief _chief { get; set; }
 
-                public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, Theme.Theme theme, double width )
+                public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, Theme.Theme theme, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                         //this.Background = new SolidColorBrush(Colors.Chartreuse);
@@ -48,14 +49,14 @@ namespace EpicProjects.View.CustomControls.Home
                         SetUpEndDatePicker(width);
                         SetUpCreateProjectButton(createProjectButton, width);
                         SetUpQuitButton(quitProjectButton, width);
-                      
+
                         this.Children.Add(_titleBlock);
                         this.Children.Add(_nameBox);
                         this.Children.Add(_startDatePicker);
                         this.Children.Add(_endDatePicker);
                         this.Children.Add(createProjectButton);
                         this.Children.Add(quitProjectButton);
-                       
+
 
                 }
 
@@ -99,31 +100,44 @@ namespace EpicProjects.View.CustomControls.Home
                         _createButton.Height = width / 30;
                         _createButton.Margin = new System.Windows.Thickness(0, width / 60, 0, width / 60);
                         _createButton.MouseDown += _createButton_MouseDown;
-                       
+
 
                 }
 
                 void _createButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        if (_nameBox.Text != "" && _nameBox.Text != "Name of your project here" || _startDatePicker.Text != "" || _startDatePicker.Text != "")
+                        if (_nameBox.Text == "" || _nameBox.Text == "Name of your project here")
                         {
+                                NullInputPopUp popup = new NullInputPopUp(_theme);
+                        }
+
+                        if (  null==_startDatePicker.SelectedDate.Value)
+                        {
+                                NullInputPopUp popup = new NullInputPopUp(_theme);
+                        }
+                        if (null==_endDatePicker.SelectedDate.Value  )
+                        {
+                                NullInputPopUp popup = new NullInputPopUp(_theme);
+                        }
+
+
+                        else
+                        {
+                                Constants.Debug.CW("startPicker date : " + _startDatePicker.SelectedDate.Value);
                                 _chief.InsertProject(_nameBox.Text, _startDatePicker.Text, _endDatePicker.Text);
                                 Captain oCaptain = new Captain();
                                 oCaptain.ToProject(_nameBox.Text);
                         }
 
-
-                        else
-                                MessageBox.Show("U ArseHole");
                 }
 
-                
+
                 private void SetUpEndDatePicker(double width)
                 {
                         _endDatePicker.Width = width / 2;
                         _endDatePicker.Text = "Ending date of your project";
                         _endDatePicker.ToolTip = "Ending date of your project";
-                        
+
                         _endDatePicker.FontSize = 20;
                         _endDatePicker.Height = width / 40;
                         _endDatePicker.Foreground = new SolidColorBrush(Colors.Gray);
@@ -135,7 +149,8 @@ namespace EpicProjects.View.CustomControls.Home
                 {
                         _startDatePicker.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _startDatePicker.Width = width / 2;
-                        _startDatePicker.Text = "Start date of your project";
+                        //_startDatePicker.Text = "Start date of your project";
+
                         _startDatePicker.FontSize = 20;
                         _startDatePicker.Height = width / 40;
                         _startDatePicker.Foreground = new SolidColorBrush(Colors.Gray);
@@ -166,12 +181,12 @@ namespace EpicProjects.View.CustomControls.Home
 
                 void _nameBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
                 {
-                        if(_nameBox.Text == "")
+                        if (_nameBox.Text == "")
                         {
                                 _nameBox.Text = "Name of your project here";
                                 _nameBox.Foreground = new SolidColorBrush(Colors.Gray);
                         }
-                       
+
                 }
 
                 void _nameBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)

@@ -48,5 +48,11 @@ namespace EpicProjects.Constants
                 public static readonly string TASK = "Task";
 
 
+                public static readonly string GOT_IT = "I got it, I won't do that again.";
+                public static readonly string AGAIN = "I will do that again.";
+                public static readonly string BAD = "I am a bad person.";
+
+
+
         }//public class ControlsValues
 }//ns
