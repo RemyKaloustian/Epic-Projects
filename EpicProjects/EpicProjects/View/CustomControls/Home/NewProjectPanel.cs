@@ -111,11 +111,11 @@ namespace EpicProjects.View.CustomControls.Home
                                 NullInputPopUp popup = new NullInputPopUp(_theme);
                         }
 
-                        if (  null==_startDatePicker.SelectedDate.Value)
+                        else if (  _startDatePicker.SelectedDate == null)
                         {
                                 NullInputPopUp popup = new NullInputPopUp(_theme);
                         }
-                        if (null==_endDatePicker.SelectedDate.Value  )
+                        else if (_endDatePicker.SelectedDate == null  )
                         {
                                 NullInputPopUp popup = new NullInputPopUp(_theme);
                         }
