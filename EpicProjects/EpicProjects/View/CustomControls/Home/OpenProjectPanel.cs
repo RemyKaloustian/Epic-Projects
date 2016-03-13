@@ -23,6 +23,8 @@ namespace EpicProjects.View.CustomControls.Home
                 public StackPanel _projectsListPanel { get; set; }
                 public StackPanel _projectsPanel { get; set; }
 
+                public RenamePopUp _renamePopUp { get; set; }
+
                 public TextBlock _openBlock { get; set; }
 
                 public StackPanel _actionsPanel { get; set; }
@@ -86,7 +88,11 @@ namespace EpicProjects.View.CustomControls.Home
                 private void SetUpRenameButton(Theme.Theme theme, double width)
                 {
                         _renameButton = new AlternativeButton(ControlsValues.RENAME, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+
+                        _renameButton.MouseDown += _renameButton_MouseDown;
                 }
+
+                
 
                 private void SetUpDeleteButton(Theme.Theme theme, double width)
                 {
@@ -178,6 +184,11 @@ namespace EpicProjects.View.CustomControls.Home
 
 
                 }//ReloadProjectsPanel()
+
+                void _renameButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        //_chief.Rename(_selectedBlock._block.Text.ToString,DatabaseValues.PROJECT)
+                }
 
                 void _openButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {

@@ -50,6 +50,12 @@ namespace EpicProjects.Controller
                 }
 
 
+                public void Rename(string name, string table)
+                {
+                        //_guru._propUpdater.UpdateNameWithName();
+                }
+
+
 
                 //USEFUL ?????????????? RENAME !!!!!!!!!!!!!!!!!!!!
                 /// <summary>
