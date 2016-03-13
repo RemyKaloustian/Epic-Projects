@@ -14,6 +14,9 @@ namespace EpicProjects.View.CustomControls.Home
         public class OpenProjectPanel : StackPanel
         {
                 #region fields
+                public Masterchief _chief { get; set; }
+
+
                 public ScrollViewer _navigationPanel { get; set; }
                 public StackPanel _projectsListPanel { get; set; }
                 public StackPanel _projectsPanel { get; set; }
@@ -37,6 +40,8 @@ namespace EpicProjects.View.CustomControls.Home
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+
+                        _chief = new Masterchief();
 
                         SetUpProjectsListPanel(width);
                         SetUpProjectsPanel();
@@ -82,6 +87,16 @@ namespace EpicProjects.View.CustomControls.Home
                 private void SetUpDeleteButton(Theme.Theme theme, double width)
                 {
                         _deleteButton = new CancelButton(ControlsValues.DELETE, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+
+                        _deleteButton.MouseDown += _deleteButton_MouseDown;
+                }
+
+                void _deleteButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        if(_selectedBlock != null)
+                        {
+                                _chief.Delete(_selectedBlock._block.Text.ToString(), DatabaseValues.PROJECT);
+                        }
                 }
 
                 private void SetUpOpenButton(Theme.Theme theme, double width)
@@ -155,6 +170,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                          _selectedBlock = (ProjectBlock)sender;
                         _selectedBlock.GetSelected();
+                       
                 }
 
                 private void SetUpLeaveButton(Theme.Theme theme, double width)

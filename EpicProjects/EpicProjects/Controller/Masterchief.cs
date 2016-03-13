@@ -144,6 +144,12 @@ namespace EpicProjects.Controller
 
                         return ppanel;
                 }//GetExistingProjects()
+
+
+                public void Delete(string name, string table)
+                {
+                        _guru._propDeleter.DeleteOnName(name, table);
+                }//Delete()
              
         }//class MasterChief
 }//ns
