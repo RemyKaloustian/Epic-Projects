@@ -153,10 +153,6 @@ namespace EpicProjects.View.CustomControls.Home
 
                 public void ReloadProjectsPanel()
                 {
-
-
-
-
                         _blockList.Clear();
 
                         _projectsPanel.Children.Clear();
