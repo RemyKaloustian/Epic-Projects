@@ -126,6 +126,7 @@
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
     <Compile Include="View\CustomControls\PopUp\NullInputPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\PopUp.cs" />
+    <Compile Include="View\CustomControls\PopUp\RenamePopUp.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />
     <Compile Include="View\CustomControls\Project\MenuItem.cs" />
     <Compile Include="View\CustomControls\Project\MenuPanel.cs" />

@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.CustomControls.PopUp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace EpicProjects.View.CustomControls.Home
                 public ScrollViewer _navigationPanel { get; set; }
                 public StackPanel _projectsListPanel { get; set; }
                 public StackPanel _projectsPanel { get; set; }
+
 
                 public RenamePopUp _renamePopUp { get; set; }
 
@@ -188,6 +190,25 @@ namespace EpicProjects.View.CustomControls.Home
                 void _renameButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         //_chief.Rename(_selectedBlock._block.Text.ToString,DatabaseValues.PROJECT)
+                        if(_selectedBlock != null)
+                        {
+                                _renamePopUp = new RenamePopUp(Dimensions.GetWidth() / 4, Dimensions.GetHeight() / 2, _selectedBlock._block.Text);
+                                _renamePopUp._validateButton.MouseDown += _validateButton_MouseDown;
+                        }
+                        
+                }
+
+                void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        if(_renamePopUp._nameBox.Text != "")
+                        {
+                                _chief.Rename(_selectedBlock._block.Text, DatabaseValues.PROJECT, _renamePopUp._nameBox.Text);
+                                ReloadProjectsPanel();
+                        }
+                        else
+                        {
+                                NullInputPopUp p = new NullInputPopUp(_theme);
+                        }
                 }
 
                 void _openButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

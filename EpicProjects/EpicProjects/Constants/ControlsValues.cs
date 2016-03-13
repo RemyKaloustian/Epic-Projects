@@ -52,6 +52,11 @@ namespace EpicProjects.Constants
                 public static readonly string AGAIN = "I will do that again.";
                 public static readonly string BAD = "I am a bad person.";
 
+                public static readonly string COOL = "Now that's a cool name.";
+                public static readonly string NEVER_MIND = "Never mind.";
+
+
+
 
 
         }//public class ControlsValues

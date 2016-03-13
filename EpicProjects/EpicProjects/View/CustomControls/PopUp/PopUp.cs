@@ -27,13 +27,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _block.FontSize = 30;
                         _block.FontFamily = new System.Windows.Media.FontFamily("Lato Light");
-                        _block.Foreground = _theme.GetAccentColor();
-                        _block.Margin = new Thickness(0, this.Height / 10, 0, 0);
+                        _block.Foreground = _theme.GetBackground();
+                        _block.Margin = new Thickness(0, height / 10, 0, 0);
 
                         this.Background = _theme.GetAccentColor();
 
 
-                        this.Width = width;
+                      this.Width = width;
                         this.Height = height;
                         this.WindowStyle = System.Windows.WindowStyle.None;
                         this.ResizeMode = System.Windows.ResizeMode.NoResize;
