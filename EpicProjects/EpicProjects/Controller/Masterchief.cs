@@ -44,6 +44,12 @@ namespace EpicProjects.Controller
                 }//GetLatestProjects
 
 
+                public List<object > Select(string name, string table)
+                {
+                        return _guru._propSelector.Select(name, table);
+                }
+
+
 
                 //USEFUL ?????????????? RENAME !!!!!!!!!!!!!!!!!!!!
                 /// <summary>

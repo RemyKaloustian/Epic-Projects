@@ -15,21 +15,23 @@ namespace EpicProjects.View.CustomControls.Home
         {
                 #region fields
                 public Masterchief _chief { get; set; }
+                public double  _width { get; set; }
 
+                public Theme.Theme _theme { get; set; }
 
                 public ScrollViewer _navigationPanel { get; set; }
                 public StackPanel _projectsListPanel { get; set; }
                 public StackPanel _projectsPanel { get; set; }
 
-                public TextBlock _openBlock { get; set; }               
+                public TextBlock _openBlock { get; set; }
 
                 public StackPanel _actionsPanel { get; set; }
 
                 public StackPanel _openButton { get; set; }
-                public StackPanel _deleteButton{ get; set; }
-                public StackPanel _renameButton{ get; set; }
+                public StackPanel _deleteButton { get; set; }
+                public StackPanel _renameButton { get; set; }
 
-                public CustomButton _leaveButton{ get; set; }
+                public CustomButton _leaveButton { get; set; }
 
                 public ProjectBlock _selectedBlock { get; set; }
 
@@ -42,6 +44,8 @@ namespace EpicProjects.View.CustomControls.Home
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
                         _chief = new Masterchief();
+                        _width = width;
+                        _theme = theme;
 
                         SetUpProjectsListPanel(width);
                         SetUpProjectsPanel();
@@ -51,7 +55,7 @@ namespace EpicProjects.View.CustomControls.Home
                         SetUpLeaveButton(theme, width);
                         SetUpActionsPanel(theme, width);
 
-                        AddControls();                       
+                        AddControls();
                 }
 
                 private void AddControls()
@@ -91,13 +95,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _deleteButton.MouseDown += _deleteButton_MouseDown;
                 }
 
-                void _deleteButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-                {
-                        if(_selectedBlock != null)
-                        {
-                                _chief.Delete(_selectedBlock._block.Text.ToString(), DatabaseValues.PROJECT);
-                        }
-                }
+
 
                 private void SetUpOpenButton(Theme.Theme theme, double width)
                 {
@@ -116,6 +114,7 @@ namespace EpicProjects.View.CustomControls.Home
                 {
 
                         _blockList = new List<ProjectBlock>();
+
                         foreach (var item in projectsName)
                         {
                                 ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, width / 50, theme);
@@ -152,13 +151,45 @@ namespace EpicProjects.View.CustomControls.Home
                         _projectsListPanel.Margin = new System.Windows.Thickness(width / 50);
                 }
 
+                public void ReloadProjectsPanel()
+                {
+
+
+
+
+                        _blockList.Clear();
+
+                        _projectsPanel.Children.Clear();
+
+                        List<object> projects = _chief.Select(DatabaseValues.NAME, DatabaseValues.PROJECT);
+
+                        foreach (var item in projects)
+                        {
+                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, _width / 50, _theme);
+
+                                block.MouseDown += block_MouseDown;
+
+                                _blockList.Add(block);
+
+                                _projectsPanel.Children.Add(block);
+
+                        }
+
+                        _projectsPanel.UpdateLayout();
+                        _projectsListPanel.UpdateLayout();
+                        _navigationPanel.UpdateLayout();
+                        this.UpdateLayout();
+
+
+                }//ReloadProjectsPanel()
+
                 void _openButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                       if(_selectedBlock != null)
-                       {
-                               Captain oCaptain = new Captain();
-                               oCaptain.ToProject(_selectedBlock._block.Text);
-                       }
+                        if (_selectedBlock != null)
+                        {
+                                Captain oCaptain = new Captain();
+                                oCaptain.ToProject(_selectedBlock._block.Text);
+                        }
                 }
 
                 void block_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -168,23 +199,33 @@ namespace EpicProjects.View.CustomControls.Home
                                 item.GetUnselected();
                         }
 
-                         _selectedBlock = (ProjectBlock)sender;
+                        _selectedBlock = (ProjectBlock)sender;
                         _selectedBlock.GetSelected();
-                       
+
+                }
+
+
+                void _deleteButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        if (_selectedBlock != null)
+                        {
+                                _chief.Delete(_selectedBlock._block.Text.ToString(), DatabaseValues.PROJECT);
+                                ReloadProjectsPanel();
+                        }
                 }
 
                 private void SetUpLeaveButton(Theme.Theme theme, double width)
                 {
-                        _leaveButton = new CancelButton(ControlsValues.LEAVE,width/2, width/30, new System.Windows.Thickness(0,width/50,0,0), new System.Windows.Thickness(0,width/200,0,0), System.Windows.HorizontalAlignment.Center, theme);
-                        
-                        
+                        _leaveButton = new CancelButton(ControlsValues.LEAVE, width / 2, width / 30, new System.Windows.Thickness(0, width / 50, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+
+
                         _leaveButton.MouseEnter += _leaveButton_MouseEnter;
                         _leaveButton.MouseLeave += _leaveButton_MouseLeave;
                 }
 
                 void _leaveButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        
+
                 }
 
                 void _leaveButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
