@@ -17,6 +17,8 @@ using EpicProjects.Database;
 using EpicProjects.Constants;
 using EpicProjects.View.CustomControls;
 using EpicProjects.View.Layout;
+using EpicProjects.View.Windows;
+using EpicProjects.Exception;
 
 namespace EpicProjects.View
 {
@@ -30,29 +32,38 @@ namespace EpicProjects.View
 
                 public StackPanel _mainPanel { get; set; }
 
-             
-
                 public Home()
                 {
-                        View.Debug.Debug maDeb = new Debug.Debug();
-                        maDeb.Show();
-                        InitializeComponent();
+                        try
+                        {
+                                View.Debug.Debug maDeb = new Debug.Debug();
+                                maDeb.Show();
 
 
+                                InitializeComponent();
+                                //Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts"));
+                                SetDimensions();
 
-                        SetDimensions();
+                                TestFonts t = new TestFonts();
+                                t.Show();
 
-                        _chief = new Masterchief();
-                        _ninja = new HomeLayoutNinja();
-                        _mainPanel = new StackPanel();
+                                _chief = new Masterchief();
+                                _ninja = new HomeLayoutNinja();
+                                _mainPanel = new StackPanel();
+                                _mainPanel = _ninja.GetLayout();
 
-                       
+                                MainGrid.Children.Add(_mainPanel);
 
-                        _mainPanel = _ninja.GetLayout(); 
-                        
-                        MainGrid.Children.Add(_mainPanel);
+                                this.KeyDown += Home_KeyDown;
 
-                        this.KeyDown += Home_KeyDown;
+                                
+                        }
+                        catch (System.Exception e)
+                        {
+
+                                LaunchException l = new LaunchException(e.Message, e.StackTrace.ToString(), e.Data.Values.ToString());
+                        }
+                      
 
                 }//Home()...family, future
 
@@ -73,6 +84,7 @@ namespace EpicProjects.View
 
                 private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)
                 {
+                        //Useless for now
                         _mainPanel = _ninja.GetLayout();
                 }//SetDimensions()
 

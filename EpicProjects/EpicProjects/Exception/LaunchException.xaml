@@ -1,0 +1,16 @@
+﻿<Window x:Class="EpicProjects.Exception.LaunchException"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LaunchException" Height="1080
+        " Width="1000">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="156,10,0,0" TextWrapping="Wrap" Text="Exception u dumass" VerticalAlignment="Top" Height="56" Width="658" FontFamily="Segoe UI Black" FontSize="30"/>
+        <TextBlock HorizontalAlignment="Left" Height="41" Margin="184,66,0,0" TextWrapping="Wrap" Text="Message : " VerticalAlignment="Top" Width="181" FontSize="20"/>
+        <TextBlock x:Name="MessageBlock" HorizontalAlignment="Left" Margin="21,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.46,0.375" Height="79" Width="934"/>
+        <TextBlock HorizontalAlignment="Left" Height="41" Margin="156,196,0,0" TextWrapping="Wrap" Text="StackTrace : " VerticalAlignment="Top" Width="181" FontSize="20"/>
+        <TextBlock x:Name="StackBlock" HorizontalAlignment="Left" Margin="21,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.46,0.375" Height="79" Width="934"/>
+        <TextBlock HorizontalAlignment="Left" Height="41" Margin="156,354,0,0" TextWrapping="Wrap" Text="Data : " VerticalAlignment="Top" Width="181" FontSize="20"/>
+        <TextBlock x:Name="DataBlock" HorizontalAlignment="Left" Margin="48,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.46,0.375" Height="79" Width="934"/>
+
+    </Grid>
+</Window>

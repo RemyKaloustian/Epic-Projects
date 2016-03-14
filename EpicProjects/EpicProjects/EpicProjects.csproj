@@ -48,6 +48,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -80,6 +102,9 @@
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Controller\ProjectMasterChief.cs" />
     <Compile Include="Controller\TaskMasterChief.cs" />
+    <Compile Include="Exception\LaunchException.xaml.cs">
+      <DependentUpon>LaunchException.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Exception\NullInputException.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\Task.cs" />
@@ -145,6 +170,13 @@
     </Compile>
     <Compile Include="View\Theme\CustomTheme.cs" />
     <Compile Include="View\Theme\Theme.cs" />
+    <Compile Include="View\Windows\TestFonts.xaml.cs">
+      <DependentUpon>TestFonts.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Exception\LaunchException.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -222,6 +254,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\TestFonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -257,6 +293,48 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Fonts\aleo.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\aller.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\bariol.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\calibri.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\droid.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\edmond.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\lato.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\open.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\proxima.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\raleway.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\segoe.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\cambria.ttc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\consola.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Mido.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -270,19 +348,45 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>EpicProjectsDataBase.mdf</DependentUpon>
     </Content>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_menu.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_stats.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_bug.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_about.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_doc.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_gear.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_new.png" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_open.png" />
-    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_about.png" />
-    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_doc.png" />
-    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_gear.png" />
-    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_new.png" />
-    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_open.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_stats.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_bug.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_about.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_doc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_new.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_about.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_doc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_new.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Pictures\Blue\WHITE_details %282%29.png" />
     <Resource Include="Resources\Pictures\White\WHITE_details %282%29.png" />
     <Resource Include="Resources\Pictures\White\WHITE_add.png" />

@@ -1,0 +1,19 @@
+﻿<Window x:Class="EpicProjects.View.Windows.TestFonts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TestFonts" Height="900" Width="900">
+    <Grid>
+        <TextBlock x:Name="EdmondSans" HorizontalAlignment="Left" Margin="38,26,0,0" TextWrapping="Wrap" Text="C'est par la force du téton que l'on reconnaît le BG. (Edmond sans)" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"/>
+        <TextBlock x:Name="ProximaNova" HorizontalAlignment="Left" Margin="38,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text=" (Proxima nova)"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Raleway" HorizontalAlignment="Left" Margin="38,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Raleway)"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Calibri" HorizontalAlignment="Left" Margin="38,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Calibri)"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="Cambria" HorizontalAlignment="Left" Margin="38,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Cambria)"/></TextBlock>
+        <TextBlock x:Name="Segoe" HorizontalAlignment="Left" Margin="38,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Segoe UI)"/></TextBlock>
+        <TextBlock x:Name="OpenSans" HorizontalAlignment="Left" Margin="38,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Open sans)"/></TextBlock>
+        <TextBlock x:Name="Lato" HorizontalAlignment="Left" Margin="38,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Lato light)"/></TextBlock>
+        <TextBlock x:Name="Aller" HorizontalAlignment="Left" Margin="38,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Aller light)"/></TextBlock>
+        <TextBlock x:Name="Aleo" HorizontalAlignment="Left" Margin="38,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Aleo)"/></TextBlock>
+        <TextBlock x:Name="Bariol" HorizontalAlignment="Left" Margin="38,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Bariol)"/></TextBlock>
+
+    </Grid>
+</Window>
