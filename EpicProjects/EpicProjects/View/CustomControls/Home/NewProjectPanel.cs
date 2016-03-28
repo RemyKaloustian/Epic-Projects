@@ -120,15 +120,35 @@ namespace EpicProjects.View.CustomControls.Home
                                 NullInputPopUp popup = new NullInputPopUp(_theme);
                         }
 
+                        else if(isExistingProject(_nameBox.Text))
+                        {
+                                Constants.Debug.CW("Project Already EXISTS DUMASS !!!");
+                                MessageBox.Show("PROJEECTS EXISTSTTT U RETARD !!!!!");
+                        }
 
                         else
                         {
-                                Constants.Debug.CW("startPicker date : " + _startDatePicker.SelectedDate.Value);
                                 _chief.InsertProject(_nameBox.Text, _startDatePicker.Text, _endDatePicker.Text);
                                 Captain oCaptain = new Captain();
                                 oCaptain.ToProject(_nameBox.Text);
                         }
 
+                }
+
+                private bool isExistingProject(string projectName)
+                {
+                        List<string> existingProjects = _chief.SelectProjects();
+
+                        foreach (string item in existingProjects)
+                        {
+                                if (item.ToLower() == _nameBox.Text.ToLower())
+                                {
+                                       
+                                        return true;
+                                }
+                        }
+
+                        return false;
                 }
 
 
