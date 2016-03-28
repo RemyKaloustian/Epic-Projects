@@ -240,6 +240,8 @@ namespace EpicProjects.View.CustomControls.Home
                                 _chief.Delete(_selectedBlock._block.Text.ToString(), DatabaseValues.PROJECT);
                                 ReloadProjectsPanel();
                         }
+
+                        _selectedBlock = null;
                 }
 
                 private void SetUpLeaveButton(Theme.Theme theme, double width)

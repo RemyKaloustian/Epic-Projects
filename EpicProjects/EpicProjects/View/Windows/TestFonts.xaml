@@ -2,6 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TestFonts" Height="900" Width="900">
+
+    
+    
+    
     <Grid>
         <TextBlock x:Name="EdmondSans" HorizontalAlignment="Left" Margin="38,26,0,0" TextWrapping="Wrap" Text="C'est par la force du téton que l'on reconnaît le BG. (Edmond sans)" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"/>
         <TextBlock x:Name="ProximaNova" HorizontalAlignment="Left" Margin="38,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text=" (Proxima nova)"/><LineBreak/><Run/></TextBlock>

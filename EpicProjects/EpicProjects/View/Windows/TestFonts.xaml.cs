@@ -22,7 +22,9 @@ namespace EpicProjects.View.Windows
                 public TestFonts()
                 {
                         InitializeComponent();
-                        Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts"));
+                        Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts/#"));
+
+                        //NOTE  : if doesn't work, try replacing the font names with the file names
 
                         EdmondSans.FontFamily = new FontFamily("Edmondsans Regular");
                         

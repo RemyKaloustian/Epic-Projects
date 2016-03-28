@@ -112,11 +112,7 @@ namespace EpicProjects.View
                 {
                         _ninja._newProjectItem.MouseDown += ShowNewProject;
                         _ninja._openProjectItem.MouseDown += ShowOpenProject;
-                }
-
-               
-
-              
+                }              
 
                 #endregion
 
