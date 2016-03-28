@@ -55,6 +55,7 @@ namespace EpicProjects.View
                                 MainGrid.Children.Add(_mainPanel);
 
                                 this.KeyDown += Home_KeyDown;
+                                SetClickHandling();
 
                                 
                         }
@@ -106,11 +107,43 @@ namespace EpicProjects.View
                         }
                         
                 }
+
+                void SetClickHandling()
+                {
+                        _ninja._newProjectItem.MouseDown += ShowNewProject;
+                        _ninja._openProjectItem.MouseDown += ShowOpenProject;
+                }
+
+               
+
+              
+
                 #endregion
 
-             
 
-            
-         
+                #region LayoutChange
+                void ShowNewProject(object sender, MouseButtonEventArgs e)
+                {
+                        _mainPanel = _ninja.GetOpenProjectPanel();
+
+                        Constants.Debug.CW("SHOWING New project");
+
+                }
+
+                void ShowOpenProject(object sender, MouseButtonEventArgs e)
+                {
+                        _mainPanel = _ninja.GetNewProjectPanel();
+
+                        Constants.Debug.CW("SHOWING OPEN project");
+                }
+
+
+
+                #endregion
+
+
+
+
+
         }//class Home.xaml
 }//ns

@@ -35,6 +35,10 @@ namespace EpicProjects.View.Layout
                 public StackPanel _itemsPanel { get; set; }
                 public Separator _itemsSeparator { get; set; }
 
+                public HomeItem _settingsItem { get; set; }
+                public HomeItem _newProjectItem { get; set; }
+                public HomeItem _openProjectItem { get; set; }
+
                 public StackPanel _subContainer { get; set; }
 
                 public StackPanel _latestProjectsPanel { get; set; }
@@ -186,9 +190,17 @@ namespace EpicProjects.View.Layout
                         _itemsPanel.Orientation = Orientation.Horizontal;
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
-                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width / 5, "Settings"));
-                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_open.png", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project"));
-                        _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_new.png", "CTRL + N", _theme, _containerPanel.Width / 5, "New project"));
+                        _settingsItem = new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width / 5, "Settings");
+
+                        _itemsPanel.Children.Add(_settingsItem);
+
+                        _newProjectItem = new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_open.png", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project");
+
+                        _itemsPanel.Children.Add(_newProjectItem);
+
+                        _openProjectItem = new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_new.png", "CTRL + N", _theme, _containerPanel.Width / 5, "New project");
+                        _itemsPanel.Children.Add(_openProjectItem);
+
                         _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_doc.png", "CTRL + D", _theme, _containerPanel.Width / 5, "Documentation"));
                         _itemsPanel.Children.Add(new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_bug.png", "CTRL + R", _theme, _containerPanel.Width / 5, "Report bug"));
 
