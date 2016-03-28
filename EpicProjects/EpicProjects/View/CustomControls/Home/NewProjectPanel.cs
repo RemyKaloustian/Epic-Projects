@@ -122,8 +122,9 @@ namespace EpicProjects.View.CustomControls.Home
 
                         else if(isExistingProject(_nameBox.Text))
                         {
-                                Constants.Debug.CW("Project Already EXISTS DUMASS !!!");
-                                MessageBox.Show("PROJEECTS EXISTSTTT U RETARD !!!!!");
+                                
+
+                                AlreadyExistingProject aep = new AlreadyExistingProject(Dimensions.GetWidth()/3,Dimensions.GetHeight()/4,ControlsValues.EXISTING_PROJECT);
                         }
 
                         else
