@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 using EpicProjects.Constants;
+using System.Xml;
 
 /*
  * @Author : Rémy Kaloustian
@@ -50,16 +51,24 @@ namespace EpicProjects.Database
                 /// Deletes a value based on the name
                 /// </summary>
                 /// <param name="name">the name</param>
-                /// <param name="table"> teh table</param>
-                public void DeleteOnName(string name, string table)
+                public void DeleteProject(string name)
                 {
-                        //_connection.Open();
-                        //SqlCommand command = new SqlCommand("delete from " + table + " where name = '" + name + "'", _connection);
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(Paths.PROJECTSSAVE);
+                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
 
-                        //command.ExecuteNonQuery();
-
-                        //_connection.Close();
-                }//DeleteOnId()
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if(item.Attributes[DatabaseValues.NAME].InnerText== name)
+                                {
+                                        if (item != null)
+                                        {
+                                                item.ParentNode.RemoveChild(item);
+                                        }
+                                }                             
+                        }
+                        doc.Save(Paths.PROJECTSSAVE);
+                }//DeleteProject()
 
         }//class Deleter
 }//ns

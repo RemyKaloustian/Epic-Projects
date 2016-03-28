@@ -28,7 +28,7 @@ namespace EpicProjects.Model
 
                 public void Delete()
                 {
-                        _guru._propDeleter.DeleteOnName(_name, DatabaseValues.TASK);
+                        //_guru._propDeleter.DeleteProject(_name, DatabaseValues.TASK);
                 }//Delete()
         }//class task
 }//ns

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
+
+using EpicProjects.Database;
+
 namespace EpicProjects.View.CustomControls.PopUp
 {
         public class RenamePopUp : PopUp
@@ -14,6 +17,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ValidateButton _validateButton { get; set; }
                 public CancelButton _cancelButton { get; set; }
                 public TextBox _nameBox { get; set; }
+
 
                 public RenamePopUp(double width, double height, string content) : base ( width,  height,  content)
                 {
@@ -39,6 +43,9 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
+
+                        DatabaseGuru guru = new DatabaseGuru( Paths.PROJECTSSAVE);
+                        guru._propUpdater.UpdateProject(_block.Text, DatabaseValues.NAME, _nameBox.Text);
                         this.Close();
                 }
 

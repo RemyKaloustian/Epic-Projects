@@ -295,13 +295,13 @@ namespace EpicProjects.View
                         _assignments.Inlines.Clear();
                         _assignmentsPanel.Children.Clear();
                         _project.Reload();
-                        foreach (string item in _project._formations)
-                        {
-                                //_assignments.Inlines.Add(item + "\n");
-                                TaskPanel taskPanel = new TaskPanel(item);
-                                _assignmentsPanel.Children.Add(taskPanel);
-                                taskPanel._deleteButton.Click += _deleteButton_Click;
-                        }
+                        //foreach (string item in _project._formations)
+                        //{
+                        //        //_assignments.Inlines.Add(item + "\n");
+                        //        TaskPanel taskPanel = new TaskPanel(item);
+                        //        _assignmentsPanel.Children.Add(taskPanel);
+                        //        taskPanel._deleteButton.Click += _deleteButton_Click;
+                        //}
                 }
 
                 void _deleteButton_Click(object sender, RoutedEventArgs e)

@@ -50,9 +50,9 @@ namespace EpicProjects.Controller
                 }
 
 
-                public void Rename(string name, string table,string newname)
+                public void Rename(string name, string field,string newname)
                 {
-                        _guru._propUpdater.UpdateNameWithName(name,table,newname);
+                        _guru._propUpdater.UpdateProject(name,field,newname);
                 }
 
 
@@ -160,7 +160,7 @@ namespace EpicProjects.Controller
 
                 public void Delete(string name, string table)
                 {
-                        _guru._propDeleter.DeleteOnName(name, table);
+                        _guru._propDeleter.DeleteProject(name);
                 }//Delete()
              
         }//class MasterChief

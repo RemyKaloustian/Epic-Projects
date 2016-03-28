@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 using EpicProjects.Constants;
+using System.Xml.Linq;
 
 namespace EpicProjects.Database
 {
@@ -33,7 +34,20 @@ namespace EpicProjects.Database
                 /// <param name="endDate">end date of the project</param>
                 public void InsertProject(string name, string startDate, string endDate)
                 {
-                        
+                        XDocument doc = XDocument.Load(Paths.PROJECTSSAVE);
+                        XElement root = doc.Root;
+
+                        //Creation of the projects
+                        XElement newProject = new XElement("Project");
+                        newProject.Add(new XAttribute(DatabaseValues.NAME, name));
+                        newProject.Add(new XAttribute(DatabaseValues.STARTDATE, startDate));
+                        newProject.Add(new XAttribute(DatabaseValues.ENDDATE, endDate));
+
+
+                        root.Add(newProject);
+                     
+                        //doc.Element("Snippets").Add(root);
+                        doc.Save(Paths.PROJECTSSAVE);
                         
                 }//InsertProject()
 

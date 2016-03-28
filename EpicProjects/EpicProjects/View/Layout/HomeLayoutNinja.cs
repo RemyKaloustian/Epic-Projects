@@ -222,7 +222,7 @@ namespace EpicProjects.View.Layout
 
                 private void SetUpLatestProjectsNames()
                 {
-                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 1);
+                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 3);
 
                         foreach (var item in latestProjects)
                         {

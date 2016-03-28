@@ -43,7 +43,7 @@ namespace EpicProjects
 
 
 
-                        guru._propUpdater.UpdateName(3,"project", "NOUVEAUNom");
+                        //guru._propUpdater.Update(3,"project", "NOUVEAUNom");
 
 
 
@@ -74,7 +74,7 @@ namespace EpicProjects
 
                         //Test Update tasks
                         
-                        guru._propUpdater.UpdateName(2, "task", "Clean code");
+                        //guru._propUpdater.UpdateName(2, "task", "Clean code");
                         //Test Insert tasks
                         //guru._propInserter.InsertTask("Mettre tout en flat", DateTime.Now.ToString(), "task", 3, 5);
 

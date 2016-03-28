@@ -189,7 +189,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                 void _renameButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        //_chief.Rename(_selectedBlock._block.Text.ToString,DatabaseValues.PROJECT)
+                        //_chief.Rename(_selectedBlock._block.Text.ToString,DatabaseValues.Na)
                         if(_selectedBlock != null)
                         {
                                 _renamePopUp = new RenamePopUp(Dimensions.GetWidth() / 4, Dimensions.GetHeight() / 2, _selectedBlock._block.Text);

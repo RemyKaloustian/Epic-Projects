@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 using EpicProjects.Constants;
+using System.Xml;
 
 /*
  * @Author : Rémy Kaloustian
@@ -32,11 +33,24 @@ namespace EpicProjects.Database
                 /// Updates the name of a row
                 /// </summary>
                 /// <param name="id">Name of the row</param>
-                /// <param name="table">Name of the table</param>
+                /// <param name="field">Name of the field to change</param>
                 /// <param name="newname">new name of the row</param>
-                public void UpdateName(int id, string table,string newname)
+                public void UpdateProject(string name, string field,string newValue)
                 {
-                       
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(_savePath);
+
+                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes[DatabaseValues.NAME].InnerText == name)
+                                {
+                                        item.Attributes["name"].InnerText = newValue;
+                                }
+                        }
+
+                        doc.Save(Paths.PROJECTSSAVE);
 
                 }//UpdateProjectName()
 
