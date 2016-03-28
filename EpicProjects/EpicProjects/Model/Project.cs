@@ -25,40 +25,40 @@ namespace EpicProjects.Model
 
                 public Project(string name, string startDate, string endDate)
                 {
-                        _guru = new DatabaseGuru();
+                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
                         _guru._propInserter.InsertProject(name, startDate, endDate);
                 }
 
                 public Project(string name)
                 {
                         _name = name;
-                        _guru = new DatabaseGuru();
+                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
 
                         //_name = _guru._propSelector.SelectSingleByEquality(DatabaseValues.NAME, DatabaseValues.PROJECT, DatabaseValues.NAME, "AFK");
 
-                        _id = Convert.ToUInt16(_guru._propSelector.SelectSingleByEquality(DatabaseValues.ID, DatabaseValues.PROJECT, DatabaseValues.NAME, _name));
+                        //_id = Convert.ToUInt16(_guru._propSelector.SelectSingleByEquality(DatabaseValues.ID, DatabaseValues.PROJECT, DatabaseValues.NAME, _name));
 
-                        _startDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.STARTDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
+                        //_startDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.STARTDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
 
-                        _endDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.ENDDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
+                        //_endDate = _guru._propSelector.SelectSingleByEquality(DatabaseValues.ENDDATE, DatabaseValues.PROJECT, DatabaseValues.NAME, name);
 
-                        _formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME,DatabaseValues.TASK,DatabaseValues.TYPE,ModelConstants.FORMATION,_id);
+                        //_formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME,DatabaseValues.TASK,DatabaseValues.TYPE,ModelConstants.FORMATION,_id);
 
-                        _tasks = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.TASK,_id);
+                        //_tasks = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.TASK,_id);
 
-                        _maintenances = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.MAINTENANCE,_id);
+                        //_maintenances = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.MAINTENANCE,_id);
 
                 }//Project()
 
                 public void Reload()
                 {
-                        _formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.FORMATION, _id);
+                        //WILL NEED TO WORK ON DAT
 
-                        _tasks = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.TASK,_id);
+                        //_formations = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.FORMATION, _id);
 
-                        _maintenances = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.MAINTENANCE, _id);
+                        //_tasks = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.TASK,_id);
+
+                        //_maintenances = _guru._propSelector.SelectMultipleByEqualityWithProject(DatabaseValues.NAME, DatabaseValues.TASK, DatabaseValues.TYPE, ModelConstants.MAINTENANCE, _id);
                 }
-
-
         }//class Project
 }//ns

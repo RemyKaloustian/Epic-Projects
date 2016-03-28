@@ -17,7 +17,7 @@ namespace EpicProjects.Model
 
                 public Task(string name)
                 {
-                        _guru = new DatabaseGuru();
+                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
                         _name = name;
                 }//Task()
 

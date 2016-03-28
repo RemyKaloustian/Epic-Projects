@@ -245,7 +245,7 @@ namespace EpicProjects.View
                         int priority = Convert.ToInt32(_priorityPicker.Text);
                         int id = Convert.ToInt32(_project._id);
                         //string name, string deadline, string type, int priority, int projectid
-                        _chief.InsertTask(name, deadline, type, priority, id);
+                        //_chief.InsertTask(name, deadline, type, priority, id);
 
                         _greatPanel.Children.Remove(_newAssignmentPanel);
                         ReloadAssignments();

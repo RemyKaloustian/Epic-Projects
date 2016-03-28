@@ -15,14 +15,13 @@ namespace EpicProjects.Database
         /// </summary>
         public class Inserter
         {
-                public string _connectionString { get; set; }
-                public SqlConnection _connection;
+                public string _savePath { get; set; }
 
-                public Inserter(string connectionStr)
+                public Inserter(string path)
                 {
                         //Setting up the connection settings      
-                        this._connection = new SqlConnection(connectionStr);
-                        _connectionString = connectionStr;
+                       
+                        _savePath = path;
                 }//Selector()
 
 
@@ -34,18 +33,7 @@ namespace EpicProjects.Database
                 /// <param name="endDate">end date of the project</param>
                 public void InsertProject(string name, string startDate, string endDate)
                 {
-                        _connection.Open();
-
-                        //Setting the query
-                        SqlCommand command = new SqlCommand("insert into project (name, startdate,enddate) values(@name, @startdate, @enddate)", _connection);
-
-                        command.Parameters.AddWithValue("@name", name);
-                        command.Parameters.AddWithValue("@startdate", startDate);
-                        command.Parameters.AddWithValue("@enddate", endDate);                 
-
-                        //Executing the query
-                        command.ExecuteNonQuery();
-                        _connection.Close();
+                        
                         
                 }//InsertProject()
 
@@ -58,22 +46,9 @@ namespace EpicProjects.Database
                 /// <param name="type">type of the task</param>
                 /// <param name="priority">priority of the task</param>
                 /// <param name="projectid">id of the dedicated project</param>
-                public void InsertTask(string name, string deadline, string type, int priority, int projectid)
+                public void InsertTask(string name, string deadline, string type, int priority, string projectName)
                 {
-                        //Creating the query
-                        _connection.Open();
-
-                        SqlCommand command = new SqlCommand("insert into task(name, deadline, type, priority, projectid) values (@name , @deadline, @type, @priority, @projectid)", _connection);
-                        //Adding the parameters
-                        command.Parameters.AddWithValue("@name", name);
-                        command.Parameters.AddWithValue("@deadline", deadline);
-                        command.Parameters.AddWithValue("@type", type);
-                        command.Parameters.AddWithValue("@priority", priority);
-                        command.Parameters.AddWithValue("@projectid", projectid);
-
-                        //Executing and closing
-                        command.ExecuteNonQuery();
-                        _connection.Close();
+                      
 
                 }//InsertTask
 

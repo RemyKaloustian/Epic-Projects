@@ -42,7 +42,7 @@ namespace EpicProjects.View.CustomControls.Home
                 public List<ProjectBlock> _blockList { get; set; }
                 #endregion
 
-                public OpenProjectPanel(List<object> projectsName, Theme.Theme theme, double width)
+                public OpenProjectPanel(List<string> projectsName, Theme.Theme theme, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -118,7 +118,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _navigationPanel.Height = width / 10;
                 }
 
-                private void SetUpBlocks(List<object> projectsName, Theme.Theme theme, double width)
+                private void SetUpBlocks(List<string> projectsName, Theme.Theme theme, double width)
                 {
 
                         _blockList = new List<ProjectBlock>();
@@ -165,7 +165,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                         _projectsPanel.Children.Clear();
 
-                        List<object> projects = _chief.Select(DatabaseValues.NAME, DatabaseValues.PROJECT);
+                        List<string> projects = _chief.SelectProjects();
 
                         foreach (var item in projects)
                         {

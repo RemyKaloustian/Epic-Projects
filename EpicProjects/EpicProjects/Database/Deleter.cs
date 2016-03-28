@@ -19,14 +19,14 @@ namespace EpicProjects.Database
         /// </summary>
         public class Deleter
         {
-                public string _connectionString { get; set; }
-                public SqlConnection _connection;
+                //public string _connectionString { get; set; }
+                //public SqlConnection _connection;
 
                 public Deleter(string connectionStr)
                 {
                         //Setting up the connection settings
 
-                        this._connection = new SqlConnection(connectionStr);
+                        //this._connection = new SqlConnection(connectionStr);
 
 
                 }//Selector()
@@ -38,12 +38,12 @@ namespace EpicProjects.Database
                 /// <param name="table">the table</param>
                 public void DeleteOnId(int id, string table)
                 {
-                        _connection.Open();
-                        SqlCommand command = new SqlCommand("delete from " + table + " where id = " + id, _connection);
+                        //_connection.Open();
+                        //SqlCommand command = new SqlCommand("delete from " + table + " where id = " + id, _connection);
 
-                        command.ExecuteNonQuery();
+                        //command.ExecuteNonQuery();
 
-                        _connection.Close();
+                        //_connection.Close();
                 }//DeleteOnId()
 
                 /// <summary>
@@ -53,12 +53,12 @@ namespace EpicProjects.Database
                 /// <param name="table"> teh table</param>
                 public void DeleteOnName(string name, string table)
                 {
-                        _connection.Open();
-                        SqlCommand command = new SqlCommand("delete from " + table + " where name = '" + name + "'", _connection);
+                        //_connection.Open();
+                        //SqlCommand command = new SqlCommand("delete from " + table + " where name = '" + name + "'", _connection);
 
-                        command.ExecuteNonQuery();
+                        //command.ExecuteNonQuery();
 
-                        _connection.Close();
+                        //_connection.Close();
                 }//DeleteOnId()
 
         }//class Deleter

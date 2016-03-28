@@ -222,7 +222,7 @@ namespace EpicProjects.View.Layout
 
                 private void SetUpLatestProjectsNames()
                 {
-                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 4);
+                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 1);
 
                         foreach (var item in latestProjects)
                         {
@@ -267,7 +267,7 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetOpenProjectPanel()
                 {
-                        OpenProjectPanel openProjectPanel = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.Select(DatabaseValues.NAME,DatabaseValues.PROJECT),_theme, _containerPanel.Width);
+                        OpenProjectPanel openProjectPanel = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.SelectProjects(),_theme, _containerPanel.Width);
 
                         _subContainer = openProjectPanel;
 

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using EpicProjects.Database;
+using EpicProjects.Constants;
 
 namespace EpicProjects.Sketches
 {
@@ -27,7 +28,7 @@ namespace EpicProjects.Sketches
 
                 public int _id { get; set; } 
 
-                public DatabaseGuru _g = new DatabaseGuru();
+                public DatabaseGuru _g = new DatabaseGuru(Paths.PROJECTSSAVE);
 
                 public Project()
                 {
@@ -49,15 +50,15 @@ namespace EpicProjects.Sketches
                 public void ShowProjects()
                 {
 
-                        Database.DatabaseGuru gu = new Database.DatabaseGuru();
+                        Database.DatabaseGuru gu = new Database.DatabaseGuru(Paths.PROJECTSSAVE);
 
 
-                        List<object> res = gu._propSelector.Select("name", "project");
+                        //List<object> res = gu._propSelector.Select("name", "project");
 
-                        foreach (var item in res)
-                        {
-                               // DebugText.Inlines.Add(item.ToString() + "\n");
-                        }
+                        //foreach (var item in res)
+                        //{
+                        //       // DebugText.Inlines.Add(item.ToString() + "\n");
+                        //}
                 }
 
                 private void CreateButton_Click(object sender, RoutedEventArgs e)

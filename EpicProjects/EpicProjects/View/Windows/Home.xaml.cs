@@ -85,7 +85,7 @@ namespace EpicProjects.View
                 private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)
                 {
                         //Useless for now
-                        _mainPanel = _ninja.GetLayout();
+                      //  _mainPanel = _ninja.GetLayout();
                 }//SetDimensions()
 
 

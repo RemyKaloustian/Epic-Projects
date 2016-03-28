@@ -19,7 +19,7 @@ namespace EpicProjects.View.CustomControls
 
                 public List<Button> _projectsList { get; set; }
 
-                public ProjectsPanel(List<object> projectNames)
+                public ProjectsPanel(List<string> projectNames)
                 {
                         this.Orientation = Orientation.Vertical;
                         _projectsList = new List<Button>();

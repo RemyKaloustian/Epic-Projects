@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using EpicProjects.Database;
+using EpicProjects.Constants;
 
 namespace EpicProjects.Sketches
 {
@@ -30,7 +31,7 @@ namespace EpicProjects.Sketches
 
                 private void CreateButton_Click(object sender, RoutedEventArgs e)
                 {
-                        DatabaseGuru g = new DatabaseGuru();
+                        DatabaseGuru g = new DatabaseGuru(Paths.PROJECTSSAVE);
 
                        // g._propInserter.InsertTask(TextButton.Text, Deadline.SelectedDate, "formation");
                 }

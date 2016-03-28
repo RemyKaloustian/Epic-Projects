@@ -31,7 +31,7 @@ namespace EpicProjects.Controller
 
                 public Masterchief ()
 	        {
-                        _guru = new   DatabaseGuru ();
+                        _guru = new   DatabaseGuru (Paths.PROJECTSSAVE);
 	        }//Masterchief()
 
                 /// <summary>
@@ -44,9 +44,9 @@ namespace EpicProjects.Controller
                 }//GetLatestProjects
 
 
-                public List<object > Select(string name, string table)
+                public List<string > SelectProjects()
                 {
-                        return _guru._propSelector.Select(name, table);
+                        return _guru._propSelector.SelectProjects();
                 }
 
 
@@ -150,7 +150,7 @@ namespace EpicProjects.Controller
                 public ProjectsPanel GetExistingProjects()
                 {
                         //We get the projects from the guru
-                        List<object> res = _guru._propSelector.Select(DatabaseValues.NAME, DatabaseValues.PROJECT);
+                        List<string> res = _guru._propSelector.SelectProjects();
 
                         ProjectsPanel ppanel = new ProjectsPanel(res);
 

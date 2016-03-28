@@ -23,7 +23,7 @@ namespace EpicProjects.Controller
 
                 public ProjectMasterChief()
                 {
-                        _guru = new DatabaseGuru();
+                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
                 }//ProjectMasterChief()
 
 
@@ -35,7 +35,7 @@ namespace EpicProjects.Controller
                 /// <param name="type">Type o' the task</param>
                 /// <param name="priority">Priority o' the task</param>
                 /// <param name="projectid">the id of the project linked to the task</param>
-                public void InsertTask(string name, string deadline, string type, int priority, int projectid)
+                public void InsertTask(string name, string deadline, string type, int priority, string projectid)
                 {
                         _guru._propInserter.InsertTask(name, deadline, type, priority, projectid);
                 }//InsertTask()

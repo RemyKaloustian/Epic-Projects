@@ -29,7 +29,7 @@ namespace EpicProjects
 
                         TryColors();
 
-                        DatabaseGuru guru = new DatabaseGuru();
+                        DatabaseGuru guru = new DatabaseGuru(Paths.PROJECTSSAVE);
 
 
 
@@ -53,7 +53,7 @@ namespace EpicProjects
 
                         ResultTextBlock.Inlines.Add("---------------Projects------------\n");
 
-                        List<Object> list = guru._propSelector.Select("name", "project");
+                        List<string> list = guru._propSelector.SelectProjects();
 
                         foreach (string item in list)
                         {
@@ -76,18 +76,18 @@ namespace EpicProjects
                         
                         guru._propUpdater.UpdateName(2, "task", "Clean code");
                         //Test Insert tasks
-                        guru._propInserter.InsertTask("Mettre tout en flat", DateTime.Now.ToString(), "task", 3, 5);
+                        //guru._propInserter.InsertTask("Mettre tout en flat", DateTime.Now.ToString(), "task", 3, 5);
 
                         //Test delete
 
                         guru._propDeleter.DeleteOnId(4, "task");
 
-                        List<Object> res = guru._propSelector.Select("name", "task");
+                        //List<Object> res = guru._propSelector.Select("name", "task");
 
-                        foreach (var item in res)
-                        {
-                                ResultTextBlock.Inlines.Add("\n" + item);
-                        }
+                        //foreach (var item in res)
+                        //{
+                        //        ResultTextBlock.Inlines.Add("\n" + item);
+                        //}
 
                         
 

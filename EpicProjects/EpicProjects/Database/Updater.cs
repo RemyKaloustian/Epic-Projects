@@ -19,13 +19,12 @@ namespace EpicProjects.Database
         /// </summary>
         public class Updater
         {
-                public string _connectionString { get; set; }
-                public SqlConnection _connection;
+                public string _savePath { get; set; }
 
-                public Updater(string connectionStr)
+                public Updater(string path)
                 {
                         //Setting up the connection settings
-                        this._connection = new SqlConnection(connectionStr);
+                        _savePath = path;
                 }//Selector()
 
 
@@ -37,15 +36,7 @@ namespace EpicProjects.Database
                 /// <param name="newname">new name of the row</param>
                 public void UpdateName(int id, string table,string newname)
                 {
-                        //Setting up the query
-                        _connection.Open();
-                        SqlCommand command = new SqlCommand("Update " + table + " set name = @newname where id = @id", _connection);
-                        //Adding parameters and executing
-                        command.Parameters.AddWithValue("@newname", newname);
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                        _connection.Close();
+                       
 
                 }//UpdateProjectName()
 
@@ -57,16 +48,7 @@ namespace EpicProjects.Database
                 /// <param name="newname">the new name</param>
                 public void UpdateNameWithName(string name, string table, string newname)
                 {
-                        //Setting up the query
-                        _connection.Open();
-                        SqlCommand command = new SqlCommand("Update " + table + " set name = @newname where name = @name", _connection);
-                        //Adding parameters and executing
-                        command.Parameters.AddWithValue("@newname", newname);
-                        command.Parameters.AddWithValue("@name", name);
-
-                        command.ExecuteNonQuery();
-                        _connection.Close();
-
+                       
                 }//UpdateProjectName()
 
 
