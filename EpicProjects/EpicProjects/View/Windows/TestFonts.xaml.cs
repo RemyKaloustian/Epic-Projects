@@ -25,19 +25,20 @@ namespace EpicProjects.View.Windows
                         Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts/#"));
 
                         //NOTE  : if doesn't work, try replacing the font names with the file names
+                        //NOTE : I DID THAT, DID NOT WORK :'(
 
-                        EdmondSans.FontFamily = new FontFamily("Edmondsans Regular");
+                        EdmondSans.FontFamily = new FontFamily("edmond");
                         
-                        ProximaNova.FontFamily = new FontFamily("Proxima Nova Alt Lt");
-                        Raleway.FontFamily = new FontFamily("Raleway Light");
+                        ProximaNova.FontFamily = new FontFamily("proxima");
+                        Raleway.FontFamily = new FontFamily("raleway");
                         Calibri.FontFamily = new FontFamily("Calibri Light");
                         Cambria.FontFamily = new FontFamily("cambria");
-                        Segoe.FontFamily = new FontFamily("Segoe UI Light");
-                        OpenSans.FontFamily = new FontFamily("Open Sans");
+                        Segoe.FontFamily = new FontFamily("segoe");
+                        OpenSans.FontFamily = new FontFamily("open");
                         Lato.FontFamily = new FontFamily("Lato Light");
-                        Aller.FontFamily = new FontFamily("Aller Light");
-                        Aleo.FontFamily = new FontFamily("Aleo");
-                        Bariol.FontFamily = new FontFamily("Bariol Regular");
+                        Aller.FontFamily = new FontFamily("aller");
+                        Aleo.FontFamily = new FontFamily("aleo");
+                        Bariol.FontFamily = new FontFamily("bariol");
 
                 }
         }

@@ -189,11 +189,12 @@ namespace EpicProjects.View.CustomControls.Home
 
                 void _renameButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        //_chief.Rename(_selectedBlock._block.Text.ToString,DatabaseValues.Na)
                         if(_selectedBlock != null)
                         {
                                 _renamePopUp = new RenamePopUp(Dimensions.GetWidth() / 4, Dimensions.GetHeight() / 2, _selectedBlock._block.Text);
                                 _renamePopUp._validateButton.MouseDown += _validateButton_MouseDown;
+
+                               
                         }
                         
                 }
@@ -203,6 +204,7 @@ namespace EpicProjects.View.CustomControls.Home
                         if(_renamePopUp._nameBox.Text != "")
                         {
                                 _chief.Rename(_selectedBlock._block.Text, DatabaseValues.PROJECT, _renamePopUp._nameBox.Text);
+                                _selectedBlock = null;
                                 ReloadProjectsPanel();
                         }
                         else
