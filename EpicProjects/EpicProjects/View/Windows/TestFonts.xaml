@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TestFonts" Height="900" Width="900">
 
-    
-    
-    
+
+
+
     <Grid>
         <TextBlock x:Name="EdmondSans" HorizontalAlignment="Left" Margin="38,26,0,0" TextWrapping="Wrap" Text="C'est par la force du téton que l'on reconnaît le BG. (Edmond sans)" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"/>
         <TextBlock x:Name="ProximaNova" HorizontalAlignment="Left" Margin="38,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text=" (Proxima nova)"/><LineBreak/><Run/></TextBlock>
@@ -18,6 +18,26 @@
         <TextBlock x:Name="Aller" HorizontalAlignment="Left" Margin="38,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Aller light)"/></TextBlock>
         <TextBlock x:Name="Aleo" HorizontalAlignment="Left" Margin="38,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Aleo)"/></TextBlock>
         <TextBlock x:Name="Bariol" HorizontalAlignment="Left" Margin="38,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Bariol)"/></TextBlock>
+        <StackPanel x:Name="XPanel" HorizontalAlignment="Left" Height="304" Margin="196,565,0,0" VerticalAlignment="Top" Width="696" Background="#FFE6B3B3">
+            <TextBlock x:Name="Xlato" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lato Light" VerticalAlignment="Top"
+        		Style="{StaticResource Lato Light}" FontSize="20
+                       
+" Height="28"/>
+            <TextBlock x:Name="Xaleo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Style="{StaticResource Aleo}">
+                <Run Text="aleo"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="Xbariol" HorizontalAlignment="Left" TextWrapping="Wrap" Text="bariol" VerticalAlignment="Top" Style="{StaticResource Bariol Regular}"/>
+            <TextBlock x:Name="Xcalibri" HorizontalAlignment="Left" TextWrapping="Wrap" Text="calibri" VerticalAlignment="Top" Style="{StaticResource Calibri Light}"/>
+            <TextBlock x:Name="Xcambria" HorizontalAlignment="Left" TextWrapping="Wrap" Text="cambria" VerticalAlignment="Top" Style="{StaticResource Cambria}"/>
+            <TextBlock x:Name="xdroid" HorizontalAlignment="Left" TextWrapping="Wrap" Text="droid" VerticalAlignment="Top" Style="{StaticResource Droid Sans}"/>
+            <TextBlock x:Name="Xedmond" HorizontalAlignment="Left" TextWrapping="Wrap" Text="edmond" VerticalAlignment="Top" Style="{StaticResource Edmondsans Regular}"/>
+            <TextBlock x:Name="Xlido" HorizontalAlignment="Left" TextWrapping="Wrap" Text="mido" VerticalAlignment="Top" Style="{StaticResource Mido}"/>
+            <TextBlock x:Name="Xopen" HorizontalAlignment="Left" TextWrapping="Wrap" Text="open" VerticalAlignment="Top" Style="{StaticResource Open Sans}"/>
+            <TextBlock x:Name="Xproxima" HorizontalAlignment="Left" TextWrapping="Wrap" Text="proxima" VerticalAlignment="Top" Style="{StaticResource Proxima Nova Alt Lt}"/>
+            <TextBlock x:Name="Xraleway" HorizontalAlignment="Left" TextWrapping="Wrap" Text="raleway" VerticalAlignment="Top" Style="{StaticResource Raleway Light}"/>
+            <TextBlock x:Name="Xsegoe" HorizontalAlignment="Left" TextWrapping="Wrap" Text="segoe" VerticalAlignment="Top" Style="{StaticResource Segoe UI Light}"/>
+            <TextBlock x:Name="Xaller" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Style="{StaticResource Aller Light}"><Run Text="aller"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="Xconsolas" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Style="{StaticResource Consolas}"><Run Text="consola"/><LineBreak/><Run/></TextBlock>
+        </StackPanel>
 
     </Grid>
 </Window>

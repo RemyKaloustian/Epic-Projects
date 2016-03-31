@@ -3,6 +3,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View/Windows/Home.xaml">
     <Application.Resources>
-         
+        <Style x:Key="Lato Light">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Lato Light"/>
+        </Style>
+
+        <Style x:Key="Aleo">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Aleo"/>
+        </Style>
+
+        <Style x:Key="Aller Light">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Aller Light"/>
+        </Style>
+
+        <Style x:Key="Bariol Regular">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Bariol Regular"/>
+        </Style>
+
+        <Style x:Key="Calibri Light">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Calibri Light"/>
+        </Style>
+
+        <Style x:Key="Cambria">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Cambria"/>
+        </Style>
+
+        <Style x:Key="Consolas">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Consolas"/>
+        </Style>
+
+        <Style x:Key="Droid Sans">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Droid Sans"/>
+        </Style>
+
+        <Style x:Key="Edmondsans Regular">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Edmondsans Regular"/>
+        </Style>
+
+        <Style x:Key="Mido">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Mido"/>
+        </Style>
+
+        <Style x:Key="Open Sans">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Open Sans"/>
+        </Style>
+
+        <Style x:Key="Proxima Nova Alt Lt">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Proxima Nova Alt Lt"/>
+        </Style>
+
+        <Style x:Key="Raleway Light">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Raleway Light"/>
+        </Style>
+
+        <Style x:Key="Segoe UI Light">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Segoe UI Light"/>
+        </Style>
+
+
+
+
+
     </Application.Resources>
+    
+    
 </Application>

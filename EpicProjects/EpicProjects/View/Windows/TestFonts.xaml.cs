@@ -22,23 +22,25 @@ namespace EpicProjects.View.Windows
                 public TestFonts()
                 {
                         InitializeComponent();
-                        Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts/#"));
+                        //Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts/#"));
 
                         //NOTE  : if doesn't work, try replacing the font names with the file names
                         //NOTE : I DID THAT, DID NOT WORK :'(
 
-                        EdmondSans.FontFamily = new FontFamily("edmond");
-                        
-                        ProximaNova.FontFamily = new FontFamily("proxima");
-                        Raleway.FontFamily = new FontFamily("raleway");
-                        Calibri.FontFamily = new FontFamily("Calibri Light");
-                        Cambria.FontFamily = new FontFamily("cambria");
-                        Segoe.FontFamily = new FontFamily("segoe");
-                        OpenSans.FontFamily = new FontFamily("open");
-                        Lato.FontFamily = new FontFamily("Lato Light");
-                        Aller.FontFamily = new FontFamily("aller");
-                        Aleo.FontFamily = new FontFamily("aleo");
-                        Bariol.FontFamily = new FontFamily("bariol");
+                        EdmondSans.FontFamily = Xedmond.FontFamily;
+
+                        ProximaNova.FontFamily = Xproxima.FontFamily;
+                        Raleway.FontFamily = Xraleway.FontFamily;
+                        Calibri.FontFamily = Xcalibri.FontFamily;
+                        Cambria.FontFamily = Xcambria.FontFamily;
+                        Segoe.FontFamily = Xsegoe.FontFamily;
+                        OpenSans.FontFamily = Xopen.FontFamily;
+                        Lato.FontFamily = Xlato.FontFamily;
+                        Aller.FontFamily = Xaller.FontFamily;
+                        Aleo.FontFamily = Xaleo.FontFamily;
+                        Bariol.FontFamily = Xbariol.FontFamily;
+
+                        XPanel.Visibility = System.Windows.Visibility.Hidden;
 
                 }
         }
