@@ -19,7 +19,7 @@ namespace EpicProjects.View.CustomControls.Home
                 {
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         this.Text = projectName;
-                        this.FontFamily = new System.Windows.Media.FontFamily("Lato Light");
+                        this.FontFamily = FontProvider._lato;
                         this.FontSize = 20;
                         _color = accentColor;
                         this.Foreground = accentColor;

@@ -26,7 +26,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBox = new TextBox();
                         _nameBox.Width = width * 0.7;
                         _nameBox.Height = height / 10;
-                        _nameBox.FontFamily = new System.Windows.Media.FontFamily("Lato Light");
+                        _nameBox.FontFamily = FontProvider._lato;
                         _nameBox.FontSize = 15;
                         _nameBox.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 

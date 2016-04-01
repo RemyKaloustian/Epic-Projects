@@ -82,7 +82,7 @@ namespace EpicProjects.View.Layout
                         _remyBlock = new TextBlock();
                         _remyBlock.Text = "Created by Rémy Kaloustian | remykaloustian.com";
                         _remyBlock.Foreground = _theme.GetAccentColor();
-                        _remyBlock.FontFamily = new FontFamily("Lato Light");
+                        _remyBlock.FontFamily = FontProvider._lato;
                         _remyBlock.FontSize = 20;
                         _remyBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _remyBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
@@ -91,7 +91,7 @@ namespace EpicProjects.View.Layout
                         _siteBlock = new TextBlock();
                         _siteBlock.Text = "http://remykaloustian.com/epicprojects (Coming soon)";
                         _siteBlock.Foreground = _theme.GetAccentColor();
-                        _siteBlock.FontFamily = new FontFamily("Lato Light");
+                        _siteBlock.FontFamily = FontProvider._lato;
                         _siteBlock.FontSize = 20;
                         _siteBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _siteBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
@@ -141,7 +141,7 @@ namespace EpicProjects.View.Layout
                 {
                         _windowTitle.Text = "EPIC PROJECTS";
                         _windowTitle.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _windowTitle.FontFamily = new FontFamily("CODE LIGHT");
+                        _windowTitle.FontFamily = FontProvider._code;
                         _windowTitle.Foreground = _theme.GetAccentColor();
                         _windowTitle.FontSize = 82;
                         _windowTitle.Padding = new System.Windows.Thickness(0, Convert.ToDouble(Dimensions.GetHeight() / 40), 0, 0);
@@ -151,7 +151,7 @@ namespace EpicProjects.View.Layout
                 {
                         _catchPhrase.Text = "Lead your projects like a winner.";
                         _catchPhrase.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _catchPhrase.FontFamily = new FontFamily("Edmondsans Regular");
+                        _catchPhrase.FontFamily = FontProvider._edmond;
                         _catchPhrase.Foreground = _theme.GetAccentColor();
                         _catchPhrase.FontSize = 40;
                         _catchPhrase.Padding = new System.Windows.Thickness(0, Convert.ToDouble(Dimensions.GetHeight() / 50), 0, Convert.ToDouble(Dimensions.GetHeight() / 50));
@@ -223,7 +223,7 @@ namespace EpicProjects.View.Layout
 
                         _latestBlock = new TextBlock();
                         _latestBlock.Text = "Latest Projects";
-                        _latestBlock.FontFamily = new FontFamily("Edmondsans Regular");
+                        _latestBlock.FontFamily = FontProvider._edmond;
                         _latestBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _latestBlock.FontSize = 45;
                         _latestBlock.Foreground = _theme.GetAccentColor();

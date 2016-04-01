@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EpicProjects.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.Text = content;
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _block.FontSize = 30;
-                        _block.FontFamily = new System.Windows.Media.FontFamily("Lato Light");
+                        _block.FontFamily = FontProvider._lato;
                         _block.Foreground = _theme.GetBackground();
                         _block.Margin = new Thickness(0, height / 10, 0, 0);
 

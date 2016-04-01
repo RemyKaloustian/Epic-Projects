@@ -66,7 +66,7 @@ namespace EpicProjects.View.CustomControls.Home
                         quitBlock.Text = "Forget it...";
                         quitBlock.FontSize = 25;
                         quitBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
-                        quitBlock.FontFamily = new FontFamily("Lato Light");
+                        quitBlock.FontFamily =FontProvider._lato;
                         quitBlock.Foreground = _theme.GetAccentColor();
                         quitBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
@@ -84,7 +84,7 @@ namespace EpicProjects.View.CustomControls.Home
                 {
                         TextBlock createBlock = new TextBlock();
                         createBlock.Text = "Go on !";
-                        createBlock.FontFamily = new FontFamily("Lato Light");
+                        createBlock.FontFamily = FontProvider._lato;
                         createBlock.FontSize = 25;
                         createBlock.Foreground = _theme.GetAccentColor();
                         createBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
@@ -193,7 +193,7 @@ namespace EpicProjects.View.CustomControls.Home
                 private void SetUpTitleBox(double width)
                 {
                         _titleBlock.Text = "Already making a new project ? You are so dynamic !";
-                        _titleBlock.FontFamily = new System.Windows.Media.FontFamily("Edmondsans Regular");
+                        _titleBlock.FontFamily = FontProvider._edmond;
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.FontSize = 25;
                         _titleBlock.Foreground = _theme.GetAccentColor();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EpicProjects.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _block.Text = content;
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _block.Foreground = theme.GetAccentColor();
-                        _block.FontFamily = new System.Windows.Media.FontFamily("Lato Light");
+                        _block.FontFamily = FontProvider._lato;
                         _block.FontSize = 18;
 
                         this.Background = theme.GetBackground();

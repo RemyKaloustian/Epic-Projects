@@ -31,7 +31,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.Text = "You are a bad person. ";
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _block.FontSize = 30;
-                        _block.FontFamily = new System.Windows.Media.FontFamily("Lato Light");
+                        _block.FontFamily = FontProvider._lato;
                         _block.Foreground = th.GetAccentColor();
                         _block.Margin = new Thickness(0, this.Height / 10, 0, 0);
 

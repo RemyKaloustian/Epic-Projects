@@ -41,13 +41,13 @@ namespace EpicProjects.View
 
 
                                 InitializeComponent();
-                                //Fonts.GetFontFamilies(new Uri("pack://application:,,,/Resources/Fonts"));
+                                SetFonts();
                                 SetDimensions();
 
                                 TestFonts t = new TestFonts();
                                 t.Show();
 
-                                SetFonts();
+
                                 FontsHolder.Visibility = System.Windows.Visibility.Hidden;
 
                                 _chief = new Masterchief();
@@ -60,14 +60,14 @@ namespace EpicProjects.View
                                 this.KeyDown += Home_KeyDown;
                                 SetClickHandling();
 
-                                
+
                         }
                         catch (System.Exception e)
                         {
 
                                 LaunchException l = new LaunchException(e.Message, e.StackTrace.ToString(), e.Data.Values.ToString());
                         }
-                      
+
 
                 }//Home()...family, future
 
@@ -87,10 +87,10 @@ namespace EpicProjects.View
                         FontProvider._segoe = Xsegoe.FontFamily;
                         FontProvider._droid = Xdroid.FontFamily;
                         FontProvider._consolas = Xconsolas.FontFamily;
-                        FontProvider._mido =Xmido.FontFamily;
+                        FontProvider._mido = Xmido.FontFamily;
                 }
 
-               
+
 
                 /// <summary>
                 /// Sets the dimensions of the window
@@ -108,7 +108,7 @@ namespace EpicProjects.View
                 private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)
                 {
                         //Useless for now
-                      //  _mainPanel = _ninja.GetLayout();
+                        //  _mainPanel = _ninja.GetLayout();
                 }//SetDimensions()
 
 
@@ -127,14 +127,14 @@ namespace EpicProjects.View
                                 if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
                                         _mainPanel = _ninja.GetOpenProjectPanel();
                         }
-                        
+
                 }
 
                 void SetClickHandling()
                 {
                         _ninja._newProjectItem.MouseDown += ShowNewProject;
                         _ninja._openProjectItem.MouseDown += ShowOpenProject;
-                }              
+                }
 
                 #endregion
 

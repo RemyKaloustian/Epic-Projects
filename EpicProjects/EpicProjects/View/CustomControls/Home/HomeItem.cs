@@ -31,7 +31,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _itemBlock = new TextBlock();
                         _itemBlock.Text = text;
                         _itemBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _itemBlock.FontFamily = new System.Windows.Media.FontFamily("Bariol Regular");
+                        _itemBlock.FontFamily = FontProvider._bariol;
                         _itemBlock.FontSize = 20;
                         _itemBlock.Foreground = _theme.GetAccentColor(); 
                         _itemBlock.Margin = new System.Windows.Thickness(0, _image.Height/3, 0, 0);
