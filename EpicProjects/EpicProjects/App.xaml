@@ -59,6 +59,11 @@
             <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Segoe UI Light"/>
         </Style>
 
+        <Style x:Key="Code Light">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/fonts/#Code Light"/>
+        </Style>
+
+
 
 
 

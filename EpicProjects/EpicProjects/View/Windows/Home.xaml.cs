@@ -47,6 +47,9 @@ namespace EpicProjects.View
                                 TestFonts t = new TestFonts();
                                 t.Show();
 
+                                SetFonts();
+                                FontsHolder.Visibility = System.Windows.Visibility.Hidden;
+
                                 _chief = new Masterchief();
                                 _ninja = new HomeLayoutNinja();
                                 _mainPanel = new StackPanel();
@@ -67,6 +70,25 @@ namespace EpicProjects.View
                       
 
                 }//Home()...family, future
+
+                private void SetFonts()
+                {
+                        FontProvider._aleo = Xaleo.FontFamily;
+                        FontProvider._aller = Xaller.FontFamily;
+                        FontProvider._bariol = Xbariol.FontFamily;
+                        FontProvider._calibri = Xcalibri.FontFamily;
+                        FontProvider._cambria = Xcambria.FontFamily;
+                        FontProvider._code = Xcode.FontFamily;
+                        FontProvider._edmond = Xedmond.FontFamily;
+                        FontProvider._lato = Xlato.FontFamily;
+                        FontProvider._open = Xopen.FontFamily;
+                        FontProvider._proxima = Xproxima.FontFamily;
+                        FontProvider._raleway = Xraleway.FontFamily;
+                        FontProvider._segoe = Xsegoe.FontFamily;
+                        FontProvider._droid = Xdroid.FontFamily;
+                        FontProvider._consolas = Xconsolas.FontFamily;
+                        FontProvider._mido =Xmido.FontFamily;
+                }
 
                
 

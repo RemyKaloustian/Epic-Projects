@@ -18,6 +18,8 @@
         <TextBlock x:Name="Aller" HorizontalAlignment="Left" Margin="38,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Aller light)"/></TextBlock>
         <TextBlock x:Name="Aleo" HorizontalAlignment="Left" Margin="38,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Aleo)"/></TextBlock>
         <TextBlock x:Name="Bariol" HorizontalAlignment="Left" Margin="38,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="36" Width="707"><Run Text="C'est par la force du téton que l'on reconnaît le BG."/><Run Text="(Bariol)"/></TextBlock>
+       
+        
         <StackPanel x:Name="XPanel" HorizontalAlignment="Left" Height="304" Margin="196,565,0,0" VerticalAlignment="Top" Width="696" Background="#FFE6B3B3">
             <TextBlock x:Name="Xlato" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lato Light" VerticalAlignment="Top"
         		Style="{StaticResource Lato Light}" FontSize="20
