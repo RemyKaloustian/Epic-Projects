@@ -7,12 +7,22 @@ using System.Windows.Media;
 
 namespace EpicProjects.Constants
 {
-        public class FontProvider
+        public static class FontProvider
         {
 
-                public void GetLatoLight()
-                {
-                         Fonts.GetFontFamilies("../Resources/Fonts");
-                }
+                public FontFamily _edmond { get; set; }
+                public FontFamily _proxima { get; set; }
+                public FontFamily _raleway { get; set; }
+                public FontFamily _calibri { get; set; }
+                public FontFamily _cambria { get; set; }
+                public FontFamily _segoe { get; set; }
+                public FontFamily _open { get; set; }
+                public FontFamily _lato { get; set; }
+                public FontFamily _aller { get; set; }
+                public FontFamily _aleo { get; set; }
+                public FontFamily _bariol { get; set; }
+                public FontFamily _code { get; set; }
+
+               
         }//class FontProvider
 }
