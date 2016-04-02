@@ -43,6 +43,13 @@ namespace EpicProjects.View
 
                         ProjectGrid.Children.Add(_container);
 
+                        SetUpWindow(name);
+
+
+                }
+
+                private void SetUpWindow(string name)
+                {
                         this.Width = Dimensions.GetWidth();
                         this.Height = Dimensions.GetHeight();
                         this.MinHeight = Dimensions.GetHeight();
@@ -51,8 +58,6 @@ namespace EpicProjects.View
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
                         this.WindowState = WindowState.Maximized;
                         this.Title = name;
-
-
                 }
 
              

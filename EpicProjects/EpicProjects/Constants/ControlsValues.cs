@@ -69,7 +69,7 @@ namespace EpicProjects.Constants
                 public static readonly string NO_PROBLEMO = "No problemo.";
 
                 public static readonly string STATS = "Stats";
-                public static string HOME = "Home;
+                public static string HOME = "Home";
 
 
 
