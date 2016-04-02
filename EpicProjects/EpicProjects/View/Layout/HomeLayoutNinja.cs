@@ -194,11 +194,11 @@ namespace EpicProjects.View.Layout
 
                         _itemsPanel.Children.Add(_settingsItem);
 
-                        _newProjectItem = new HomeItem("New Project", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project");
+                        _newProjectItem = new HomeItem("Open Project", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project");
 
                         _itemsPanel.Children.Add(_newProjectItem);
 
-                        _openProjectItem = new HomeItem("Open Project", "CTRL + N", _theme, _containerPanel.Width / 5, "New project");
+                        _openProjectItem = new HomeItem("New Project", "CTRL + N", _theme, _containerPanel.Width / 5, "New project");
                         _itemsPanel.Children.Add(_openProjectItem);
 
                         _itemsPanel.Children.Add(new HomeItem("Documentation", "CTRL + D", _theme, _containerPanel.Width / 5, "Documentation"));

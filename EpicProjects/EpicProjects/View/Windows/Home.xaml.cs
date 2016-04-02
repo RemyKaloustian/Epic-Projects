@@ -97,12 +97,14 @@ namespace EpicProjects.View
                 /// </summary>
                 private void SetDimensions()
                 {
+                        
                         this.Width = Dimensions.GetWidth();
                         this.Height = Dimensions.GetHeight();
                         this.MinHeight = Dimensions.GetHeight();
                         this.MinWidth = Dimensions.GetWidth();
                         this.ResizeMode = System.Windows.ResizeMode.CanResize;
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+                        this.WindowState = WindowState.Maximized;
                 }
 
                 private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)

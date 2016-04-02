@@ -49,6 +49,7 @@ namespace EpicProjects.View
                         this.MinWidth = Dimensions.GetWidth();
                         this.ResizeMode = System.Windows.ResizeMode.CanResize;
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+                        this.WindowState = WindowState.Maximized;
 
 
                 }
