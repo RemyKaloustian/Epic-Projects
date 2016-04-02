@@ -105,6 +105,7 @@ namespace EpicProjects.View
                         this.ResizeMode = System.Windows.ResizeMode.CanResize;
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
                         this.WindowState = WindowState.Maximized;
+                        this.Title = "HERE COMES THE EPIC";
                 }
 
                 private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)

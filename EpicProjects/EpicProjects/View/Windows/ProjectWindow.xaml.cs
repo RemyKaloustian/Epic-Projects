@@ -50,6 +50,7 @@ namespace EpicProjects.View
                         this.ResizeMode = System.Windows.ResizeMode.CanResize;
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
                         this.WindowState = WindowState.Maximized;
+                        this.Title = name;
 
 
                 }
