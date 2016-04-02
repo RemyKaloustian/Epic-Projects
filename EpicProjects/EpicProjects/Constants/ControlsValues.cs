@@ -18,9 +18,13 @@ namespace EpicProjects.Constants
         public class ControlsValues
         {
 
-                public static readonly string NAME = "Name";
-                public static readonly string STARTDATE = "Start date";
+                public static readonly string NAME = "Name of your project here";
+                public static readonly string STARTDATE = "Start date (Use the picker at the right)";
                 public static readonly string ENDATE = "End date";
+
+                public static readonly string VALID = "Valid name";
+                public static readonly string NULL = "Null name is not allowed";
+                
 
                 public static readonly string CREATE = "Create";
                 public static readonly string QUIT = "Forget it...";

@@ -174,14 +174,14 @@ SetUpCheckBlock();
 
                 private   void SetUpDateBlocks()
                 {
-                        _startDateBlock.Text = "Start Date (Use the picker at the right)";
+                        _startDateBlock.Text = ControlsValues.STARTDATE;
                         _startDateBlock.FontFamily = FontProvider._lato;
                         _startDateBlock.Foreground = _theme.GetAccentColor();
                         _startDateBlock.FontSize = 25;
 
                         Constants.Debug.CW((_containerWidth - _startDatePicker.Width - (_containerWidth - _startDatePicker.Width) / 2).ToString());
                         _startDateBlock.Margin = new Thickness(_containerWidth- _nameBox.Width - (_containerWidth - _nameBox.Width) / 2, _containerWidth/90, 0, 0);
-                        _endDateBlock.Text = "Ending date";
+                        _endDateBlock.Text = ControlsValues.ENDATE;
                         _endDateBlock.FontFamily = FontProvider._lato;
                         _endDateBlock.FontSize = 25;
                         _endDateBlock.Margin = new Thickness(_containerWidth- _nameBox.Width - (_containerWidth - _nameBox.Width) / 2, _containerWidth/90, 0, 0);
@@ -191,8 +191,7 @@ SetUpCheckBlock();
                 private void SetUpEndDatePicker(double width)
                 {
                         _endDatePicker.Width = width / 2;
-                        _endDatePicker.Text = "Ending date of your project";
-                        _endDatePicker.ToolTip = "Ending date of your project";
+                     
                         _endDatePicker.FontSize = 20;
                         _endDatePicker.Height = width / 40;
                         _endDatePicker.Foreground = new SolidColorBrush(Colors.Gray);
@@ -204,7 +203,6 @@ SetUpCheckBlock();
                 {
                         _startDatePicker.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _startDatePicker.Width = width / 2;
-                        //_startDatePicker.Text = "Start date of your project";
 
                         _startDatePicker.FontSize = 20;
                         _startDatePicker.Height = width / 40;
@@ -215,7 +213,7 @@ SetUpCheckBlock();
                 private void SetUpNameBox(double width)
                 {
                         _nameBox.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _nameBox.Text = "Name of your project here";
+                        _nameBox.Text = ControlsValues.NAME;
                         _nameBox.Width = width / 2;
                         _nameBox.Height = width / 40;
                         _nameBox.FontSize = 20;
@@ -243,7 +241,7 @@ SetUpCheckBlock();
                         {
                                 Constants.Debug.CW("Null name is not allowed ! ");
                                 _createButton.IsEnabled = false;
-                                _checkBlock.Text = "Null name is not allowed";
+                                _checkBlock.Text = ControlsValues.NULL;
                                 _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
                         }
                         else
@@ -251,7 +249,7 @@ SetUpCheckBlock();
                                 if(!isExistingProject(_nameBox.Text))
                                 {
                                         Constants.Debug.CW("VALID NAME");
-                                        _checkBlock.Text = "Valid name";
+                                        _checkBlock.Text = ControlsValues.VALID;
                                         _createButton.IsEnabled = true;
                                         _checkBlock.Foreground = Palette2.GetColor(Palette2.TURQUOISE);
 
@@ -260,7 +258,7 @@ SetUpCheckBlock();
                                 else
                                 {
                                         Constants.Debug.CW("THER IS ALREADY A PROJECT NAMED LIKE THAT ! ");
-                                        _checkBlock.Text = "There is already a project named like this.";
+                                        _checkBlock.Text = ControlsValues.EXISTING_PROJECT;
                                         _createButton.IsEnabled = false;
                                         _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
 
@@ -270,7 +268,7 @@ SetUpCheckBlock();
 
                 private void SetUpTitleBlock(double width)
                 {
-                        _titleBlock.Text = "Already making a new project ? You are so dynamic !";
+                        _titleBlock.Text = ControlsValues.NEW_PROJECT_TITLE;
                         _titleBlock.FontFamily = FontProvider._edmond;
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.FontSize = 25;
@@ -283,7 +281,7 @@ SetUpCheckBlock();
                 {
                         if (_nameBox.Text == "")
                         {
-                                _nameBox.Text = "Name of your project here";
+                                _nameBox.Text = ControlsValues.NEW_PROJECT_TITLE;
                                 _nameBox.Foreground = new SolidColorBrush(Colors.Gray);
                                 _checkBlock.Visibility = System.Windows.Visibility.Hidden;
                         }
