@@ -13,20 +13,19 @@ namespace EpicProjects.View.CustomControls.Home
 {
         public class HomeItem : StackPanel
         {
-                public Image _image { get; set; }
+                public MenuTitle _title { get; set; }
                 public TextBlock _itemBlock { get; set; }
                 public Theme.Theme _theme { get; set; }
 
-                public HomeItem(string imageSrc, string text, Theme.Theme th, double width, string tooltip)
+                public HomeItem(string title, string text, Theme.Theme th, double width, string tooltip)
                 {
                         _theme = th;
 
-                        _image = new Image();
-                        var uriSource = new Uri( imageSrc, UriKind.Relative);
-                        _image.Source = new BitmapImage(uriSource);
-                        _image.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _image.Width = Dimensions.GetWidth()/15;
-                        _image.Height = Dimensions.GetHeight() / 15;
+                        _title = new MenuTitle(title,35);
+                        
+                        _title.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        //_image.Width = Dimensions.GetWidth()/15;
+                        //_image.Height = Dimensions.GetHeight() / 15;
 
                         _itemBlock = new TextBlock();
                         _itemBlock.Text = text;
@@ -34,14 +33,14 @@ namespace EpicProjects.View.CustomControls.Home
                         _itemBlock.FontFamily = FontProvider._bariol;
                         _itemBlock.FontSize = 20;
                         _itemBlock.Foreground = _theme.GetAccentColor(); 
-                        _itemBlock.Margin = new System.Windows.Thickness(0, _image.Height/3, 0, 0);
+                        _itemBlock.Margin = new System.Windows.Thickness(0, 15, 0, 0);
                        
 
 
                         this.ToolTip = tooltip;
                         this.Orientation = Orientation.Vertical;
                         this.Width = width;
-                        this.Children.Add(_image);
+                        this.Children.Add(_title);
                         this.Children.Add(_itemBlock);
                 }
         }//class HomeItem
