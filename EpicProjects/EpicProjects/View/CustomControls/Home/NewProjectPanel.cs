@@ -19,7 +19,10 @@ namespace EpicProjects.View.CustomControls.Home
                 public TextBlock _titleBlock { get; set; }
                 public TextBox _nameBox { get; set; }
                 public TextBlock _checkBlock { get; set; }
+                public TextBlock _startDateBlock { get; set; }
                 public DatePicker _startDatePicker { get; set; }
+                public TextBlock _endDateBlock { get; set; }
+
                 public DatePicker _endDatePicker { get; set; }
 
                 public StackPanel _actionsPanel { get; set; }
@@ -30,11 +33,14 @@ namespace EpicProjects.View.CustomControls.Home
                 public Theme.Theme _theme { get; set; }
 
                 public Masterchief _chief { get; set; }
+
+                public double _containerWidth { get; set; }
                 #endregion
 
                 public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, Theme.Theme theme, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
+                        _containerWidth = width;
                         //this.Background = new SolidColorBrush(Colors.Chartreuse);
                         _theme = theme;
                         _chief = new Masterchief();
@@ -42,14 +48,17 @@ namespace EpicProjects.View.CustomControls.Home
                         _titleBlock = new TextBlock();
                         _nameBox = new TextBox();
                         _checkBlock = new TextBlock();
+                        _startDateBlock = new TextBlock();
                         _startDatePicker = new DatePicker();
+                        _endDateBlock = new TextBlock();
                         _endDatePicker = new DatePicker();
 
                         _actionsPanel = new StackPanel();
 
                         SetUpTitleBlock(width);
                         SetUpNameBox(width);
-                        SetUpCheckBlock();
+                        
+                        SetUpDateBlocks();
                         SetUpStartDatePicker(width);
                         SetUpEndDatePicker(width);
                         SetUpCreateProjectButton(createProjectButton, width);
@@ -58,12 +67,14 @@ namespace EpicProjects.View.CustomControls.Home
                         this.Children.Add(_titleBlock);
                         this.Children.Add(_nameBox);
                         this.Children.Add(_checkBlock);
+                        this.Children.Add(_startDateBlock);
                         this.Children.Add(_startDatePicker);
+                        this.Children.Add(_endDateBlock);
                         this.Children.Add(_endDatePicker);
                         this.Children.Add(createProjectButton);
                         this.Children.Add(quitProjectButton);
 
-
+SetUpCheckBlock();
                 }
 
            
@@ -161,16 +172,31 @@ namespace EpicProjects.View.CustomControls.Home
                 }
 
 
+                private   void SetUpDateBlocks()
+                {
+                        _startDateBlock.Text = "Start Date (Use the picker at the right)";
+                        _startDateBlock.FontFamily = FontProvider._lato;
+                        _startDateBlock.Foreground = _theme.GetAccentColor();
+                        _startDateBlock.FontSize = 25;
+
+                        Constants.Debug.CW((_containerWidth - _startDatePicker.Width - (_containerWidth - _startDatePicker.Width) / 2).ToString());
+                        _startDateBlock.Margin = new Thickness(_containerWidth- _nameBox.Width - (_containerWidth - _nameBox.Width) / 2, _containerWidth/90, 0, 0);
+                        _endDateBlock.Text = "Ending date";
+                        _endDateBlock.FontFamily = FontProvider._lato;
+                        _endDateBlock.FontSize = 25;
+                        _endDateBlock.Margin = new Thickness(_containerWidth- _nameBox.Width - (_containerWidth - _nameBox.Width) / 2, _containerWidth/90, 0, 0);
+                        _endDateBlock.Foreground = _theme.GetAccentColor();
+                }
+
                 private void SetUpEndDatePicker(double width)
                 {
                         _endDatePicker.Width = width / 2;
                         _endDatePicker.Text = "Ending date of your project";
                         _endDatePicker.ToolTip = "Ending date of your project";
-
                         _endDatePicker.FontSize = 20;
                         _endDatePicker.Height = width / 40;
                         _endDatePicker.Foreground = new SolidColorBrush(Colors.Gray);
-                        _endDatePicker.Margin = new System.Windows.Thickness(0, width / 60, 0, 0);
+                        _endDatePicker.Margin = new System.Windows.Thickness(0, 0, 0, 0);
                         _endDatePicker.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 }
 
@@ -183,7 +209,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _startDatePicker.FontSize = 20;
                         _startDatePicker.Height = width / 40;
                         _startDatePicker.Foreground = new SolidColorBrush(Colors.Gray);
-                        _startDatePicker.Margin = new System.Windows.Thickness(0, width / 60, 0, 0);
+                        _startDatePicker.Margin = new System.Windows.Thickness(0, 0, 0, 0);
                 }
 
                 private void SetUpNameBox(double width)
@@ -202,7 +228,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                 private void SetUpCheckBlock()
                 {
-                        double leftMargin = Dimensions.GetWidth() - _nameBox.Width-(Dimensions.GetWidth()-_nameBox.Width)/2;
+                        double leftMargin = _containerWidth- _nameBox.Width-(_containerWidth-_nameBox.Width)/2;
                         _checkBlock.Margin = new Thickness(leftMargin, 0, 0, 0);
                         _checkBlock.FontFamily = FontProvider._aleo;
                         _checkBlock.FontSize = 20;
