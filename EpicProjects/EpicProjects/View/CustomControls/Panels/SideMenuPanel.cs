@@ -33,22 +33,22 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Width = Dimensions.GetWidth() * 0.1;
                         this.Height = Dimensions.GetHeight();
 
-                        _newProjectItem = new SideMenuItem("New project", 20);
+                        _newProjectItem = new SideMenuItem(ControlsValues.NEWPROJECT, 20);
                         _newProjectItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
 
-                        _openProjectItem = new SideMenuItem("Open project",20);
+                        _openProjectItem = new SideMenuItem(ControlsValues.OPENPROJECT,20);
                         _openProjectItem.Padding = new Thickness(this.Width * 0.1,this.Width/8,0,this.Width/8);
 
 
-                        _statsItem = new SideMenuItem("Stats",20);
+                        _statsItem = new SideMenuItem(ControlsValues.STATS,20);
                         _statsItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
 
 
-                        _bugItem = new SideMenuItem("Report bug",20);
+                        _bugItem = new SideMenuItem(ControlsValues.REPORT,20);
                         _bugItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
 
 
-                        _homeItem = new SideMenuItem("Home",20);
+                        _homeItem = new SideMenuItem(ControlsValues.HOME,20);
                         _homeItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
 
 

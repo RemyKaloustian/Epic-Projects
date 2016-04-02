@@ -68,6 +68,8 @@ namespace EpicProjects.Constants
                 public static readonly string EXISTING_PROJECT = "There is already a project named like that.";
                 public static readonly string NO_PROBLEMO = "No problemo.";
 
+                public static readonly string STATS = "Stats";
+                public static string HOME = "Home;
 
 
 
