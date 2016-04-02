@@ -187,6 +187,8 @@ namespace EpicProjects.View.CustomControls.Home
 
                 }//ReloadProjectsPanel()
 
+
+                #region Events
                 void _renameButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         if(_selectedBlock != null)
@@ -263,6 +265,8 @@ namespace EpicProjects.View.CustomControls.Home
                 void _leaveButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
                 }
+
+                #endregion
 
         }///class OpenProjectPanel
 }//ns

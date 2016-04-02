@@ -15,8 +15,10 @@ namespace EpicProjects.View.CustomControls.Home
 {
         public class NewProjectPanel : StackPanel
         {
+                #region fields
                 public TextBlock _titleBlock { get; set; }
                 public TextBox _nameBox { get; set; }
+                public TextBlock _checkBlock { get; set; }
                 public DatePicker _startDatePicker { get; set; }
                 public DatePicker _endDatePicker { get; set; }
 
@@ -28,6 +30,7 @@ namespace EpicProjects.View.CustomControls.Home
                 public Theme.Theme _theme { get; set; }
 
                 public Masterchief _chief { get; set; }
+                #endregion
 
                 public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, Theme.Theme theme, double width)
                 {
@@ -38,13 +41,15 @@ namespace EpicProjects.View.CustomControls.Home
 
                         _titleBlock = new TextBlock();
                         _nameBox = new TextBox();
+                        _checkBlock = new TextBlock();
                         _startDatePicker = new DatePicker();
                         _endDatePicker = new DatePicker();
 
                         _actionsPanel = new StackPanel();
 
-                        SetUpTitleBox(width);
+                        SetUpTitleBlock(width);
                         SetUpNameBox(width);
+                        SetUpCheckBlock();
                         SetUpStartDatePicker(width);
                         SetUpEndDatePicker(width);
                         SetUpCreateProjectButton(createProjectButton, width);
@@ -52,6 +57,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                         this.Children.Add(_titleBlock);
                         this.Children.Add(_nameBox);
+                        this.Children.Add(_checkBlock);
                         this.Children.Add(_startDatePicker);
                         this.Children.Add(_endDatePicker);
                         this.Children.Add(createProjectButton);
@@ -59,6 +65,8 @@ namespace EpicProjects.View.CustomControls.Home
 
 
                 }
+
+           
 
                 private void SetUpQuitButton(StackPanel quitProjectButton, double width)
                 {
@@ -188,9 +196,53 @@ namespace EpicProjects.View.CustomControls.Home
                         _nameBox.Foreground = new SolidColorBrush(Colors.Gray);
                         _nameBox.GotFocus += _nameBox_GotFocus;
                         _nameBox.LostFocus += _nameBox_LostFocus;
+                        _nameBox.TextChanged += _nameBox_TextChanged;
+                        _nameBox.LostFocus +=_nameBox_LostFocus;
                 }
 
-                private void SetUpTitleBox(double width)
+                private void SetUpCheckBlock()
+                {
+                        double leftMargin = Dimensions.GetWidth() - _nameBox.Width-(Dimensions.GetWidth()-_nameBox.Width)/2;
+                        _checkBlock.Margin = new Thickness(leftMargin, 0, 0, 0);
+                        _checkBlock.FontFamily = FontProvider._aleo;
+                        _checkBlock.FontSize = 20;
+                        
+                }
+
+                void _nameBox_TextChanged(object sender, TextChangedEventArgs e)
+                {
+                        _checkBlock.Visibility = System.Windows.Visibility.Visible;
+
+                        if(_nameBox.Text.Length ==0)
+                        {
+                                Constants.Debug.CW("Null name is not allowed ! ");
+                                _createButton.IsEnabled = false;
+                                _checkBlock.Text = "Null name is not allowed";
+                                _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
+                        }
+                        else
+                        {
+                                if(!isExistingProject(_nameBox.Text))
+                                {
+                                        Constants.Debug.CW("VALID NAME");
+                                        _checkBlock.Text = "Valid name";
+                                        _createButton.IsEnabled = true;
+                                        _checkBlock.Foreground = Palette2.GetColor(Palette2.TURQUOISE);
+
+                                }
+
+                                else
+                                {
+                                        Constants.Debug.CW("THER IS ALREADY A PROJECT NAMED LIKE THAT ! ");
+                                        _checkBlock.Text = "There is already a project named like this.";
+                                        _createButton.IsEnabled = false;
+                                        _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
+
+                                }
+                        }
+                }//_nameBox_TextChanged()
+
+                private void SetUpTitleBlock(double width)
                 {
                         _titleBlock.Text = "Already making a new project ? You are so dynamic !";
                         _titleBlock.FontFamily = FontProvider._edmond;
@@ -198,6 +250,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _titleBlock.FontSize = 25;
                         _titleBlock.Foreground = _theme.GetAccentColor();
                         _titleBlock.Margin = new System.Windows.Thickness(0, width / 40, 0, width / 60);
+                        
                 }
 
                 void _nameBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
@@ -206,6 +259,7 @@ namespace EpicProjects.View.CustomControls.Home
                         {
                                 _nameBox.Text = "Name of your project here";
                                 _nameBox.Foreground = new SolidColorBrush(Colors.Gray);
+                                _checkBlock.Visibility = System.Windows.Visibility.Hidden;
                         }
 
                 }
