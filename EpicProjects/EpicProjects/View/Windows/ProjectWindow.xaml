@@ -3,6 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ProjectWindow" Height="600" Width="900">
     <Grid x:Name="ProjectGrid">
-        <TextBlock x:Name="DebugText" HorizontalAlignment="Left" Margin="642,187,0,-593" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="975" Width="326"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="615,118,0,0" VerticalAlignment="Top" Width="100" Source="/EpicProjects;component/Resources/Pictures/Blue2196F3/BLUE2196F3_doc.png"/>
     </Grid>
 </Window>

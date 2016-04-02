@@ -190,7 +190,7 @@ namespace EpicProjects.View.Layout
                         _itemsPanel.Orientation = Orientation.Horizontal;
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
-                        _settingsItem = new HomeItem(@"/Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width / 5, "Settings");
+                        _settingsItem = new HomeItem("Resources/Pictures/WhiteEEEEEE/WhiteEEEEEE_gear.png", "CTRL + S", _theme, _containerPanel.Width / 5, "Settings");
 
                         _itemsPanel.Children.Add(_settingsItem);
 

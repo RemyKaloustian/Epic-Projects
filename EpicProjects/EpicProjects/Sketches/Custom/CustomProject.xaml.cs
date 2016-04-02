@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using EpicProjects.View.CustomControls.Project;
+using EpicProjects.View.CustomControls;
 using EpicProjects.Constants;
 
 namespace EpicProjects.Sketches.Custom

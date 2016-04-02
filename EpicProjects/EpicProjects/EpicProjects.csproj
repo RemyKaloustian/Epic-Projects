@@ -93,6 +93,7 @@
     <Compile Include="Constants\ControlsValues.cs" />
     <Compile Include="Constants\Dimensions.cs" />
     <Compile Include="Constants\FontProvider.cs" />
+    <Compile Include="Constants\Images\CustomImages.cs" />
     <Compile Include="Constants\ModelConstants.cs" />
     <Compile Include="Constants\Palette2.cs" />
     <Compile Include="Constants\Paths.cs" />
@@ -143,11 +144,14 @@
     <Compile Include="View\CustomControls\DefaultMenuPanel.cs" />
     <Compile Include="View\CustomControls\Buttons\AlternativeButton.cs" />
     <Compile Include="View\CustomControls\Home\HomeItem.cs" />
+    <Compile Include="View\CustomControls\Home\MenuTitle.cs" />
     <Compile Include="View\CustomControls\Home\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\Home\OpenProjectPanel.cs" />
     <Compile Include="View\CustomControls\Home\ProjectBlock.cs" />
     <Compile Include="View\CustomControls\Home\ProjectLink.cs" />
+    <Compile Include="View\CustomControls\Items\SideMenuItem.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />
     <Compile Include="View\CustomControls\PopUp\AlreadyExistingProject.cs" />
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
     <Compile Include="View\CustomControls\PopUp\NullInputPopUp.cs" />
@@ -161,6 +165,7 @@
     <Compile Include="View\Debug\Debug.xaml.cs">
       <DependentUpon>Debug.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Layout\ProjectLayoutNinja.cs" />
     <Compile Include="View\Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -327,31 +332,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_about.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_bug.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_doc.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_gear.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_menu.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_new.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_open.png" />
+    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_stats.png" />
     <Resource Include="Saves\ProjectsSave.xml" />
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_menu.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_stats.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_bug.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_about.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_doc.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_gear.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_new.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_open.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_about.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
