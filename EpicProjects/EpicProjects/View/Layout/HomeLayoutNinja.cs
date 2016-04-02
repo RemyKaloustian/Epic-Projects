@@ -190,19 +190,19 @@ namespace EpicProjects.View.Layout
                         _itemsPanel.Orientation = Orientation.Horizontal;
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
-                        _settingsItem = new HomeItem("Settings", "CTRL + S", _theme, _containerPanel.Width / 5, "Settings");
+                        _settingsItem = new HomeItem(ControlsValues.SETTINGS, "CTRL + S", _theme, _containerPanel.Width / 5, "");
 
                         _itemsPanel.Children.Add(_settingsItem);
 
-                        _newProjectItem = new HomeItem("Open Project", "CTRL + O", _theme, _containerPanel.Width / 5, "Open project");
+                        _newProjectItem = new HomeItem(ControlsValues.OPENPROJECT, "CTRL + O", _theme, _containerPanel.Width / 5, "");
 
                         _itemsPanel.Children.Add(_newProjectItem);
 
-                        _openProjectItem = new HomeItem("New Project", "CTRL + N", _theme, _containerPanel.Width / 5, "New project");
+                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, "CTRL + N", _theme, _containerPanel.Width / 5, "");
                         _itemsPanel.Children.Add(_openProjectItem);
 
-                        _itemsPanel.Children.Add(new HomeItem("Documentation", "CTRL + D", _theme, _containerPanel.Width / 5, "Documentation"));
-                        _itemsPanel.Children.Add(new HomeItem("Report Bug", "CTRL + R", _theme, _containerPanel.Width / 5, "Report bug"));
+                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, "CTRL + D", _theme, _containerPanel.Width / 5, ""));
+                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.REPORT, "CTRL + R", _theme, _containerPanel.Width / 5, ""));
 
                         _itemsSeparator = new Separator();
                         _itemsSeparator.Width = _containerPanel.Width;

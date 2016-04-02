@@ -40,6 +40,12 @@ namespace EpicProjects.Constants
 
                 public static readonly string NEWPROJECT = "New Project";
                 public static readonly string OPENPROJECT = "Open Project";
+                public static readonly string SETTINGS = "Settings";
+                public static readonly string DOCUMENTATION = "Documentation";
+                public static readonly string REPORT = "Report a bug";
+
+
+
 
                 public static readonly string FORMATIONS = "Formations";
                 public static readonly string TASKS = "Tasks";
