@@ -18,7 +18,7 @@ namespace EpicProjects.View.Layout
                 {
                        _menuPanel = new SideMenuPanel();
                        _centralPanel = new CentralPanel();
-                       _centralPanel.Background = Palette2.GetColor(Palette2.EMERALD);
+                      
 
                        StackPanel container = new StackPanel();
                        container.Orientation = Orientation.Horizontal;

@@ -17,6 +17,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.9;
                         this.Height = Dimensions.GetHeight();
+                        this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
 
                         _headerPanel = new HeaderPanel();
 
