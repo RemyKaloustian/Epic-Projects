@@ -57,5 +57,45 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Children.Add(block);
                 }
+
+                public  void LoadBrainstormingAddition()
+                {
+                        this.Children.Clear();
+                        TextBlock block = new TextBlock();
+                        block.Text = "NU BRAINSTORLING ?";
+                        block.FontSize = 50;
+
+                        this.Children.Add(block);
+                }
+
+                internal void LoadTrainingAddition()
+                {
+                        this.Children.Clear();
+                        TextBlock block = new TextBlock();
+                        block.Text = "NU TRAININg ?";
+                        block.FontSize = 50;
+
+                        this.Children.Add(block);
+                }
+
+                internal void LoadAssignmentsAddition()
+                {
+                        this.Children.Clear();
+                        TextBlock block = new TextBlock();
+                        block.Text = "NU ASSIGNMENT ?";
+                        block.FontSize = 50;
+
+                        this.Children.Add(block);
+                }
+
+                internal void LoadMaintenanceAddition()
+                {
+                        this.Children.Clear();
+                        TextBlock block = new TextBlock();
+                        block.Text = "NU MAINTENANCE ?";
+                        block.FontSize = 50;
+
+                        this.Children.Add(block);
+                }
         }//class ContentPanel
 }//ns
