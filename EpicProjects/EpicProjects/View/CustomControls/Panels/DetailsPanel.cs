@@ -10,12 +10,21 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class DetailsPanel : StackPanel
         {
+                public TextBlock _name { get; set; }
+                public TextBlock _details { get; set; }
+
                 public DetailsPanel()
                 {
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.3;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = Palette2.GetColor(Palette2.NEPHRITIS);
+                        this.Background = new Theme.CustomTheme().GetAccentColor();
+
+                        _name = new TextBlock();
+                        _details = new TextBlock();
+
+                        this.Children.Add(_name);
+                        this.Children.Add(_details);
                 }
         }//class DetailsPanel()
 }

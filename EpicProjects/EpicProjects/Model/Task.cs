@@ -20,6 +20,7 @@ namespace EpicProjects.Model
                 {
                         _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
                         _name = name;
+                        _details = details;
                 }//Task()
 
                 public void Update(string name, string newName)

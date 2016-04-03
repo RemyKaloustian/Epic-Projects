@@ -18,6 +18,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public StackPanel _checkBox { get; set; }
 
                 public TextBlock _content { get; set; }
+                public bool _isSelected { get; set; }
 
                 public SingleTaskPanel(Model.Task task)
                 {
@@ -29,6 +30,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _task = task;
 
                         _checkBox = new StackPanel();
+                        _checkBox.Background = new Theme.CustomTheme().GetAccentColor();
                         //_checkBox.Width = Dimensions.GetWidth() * 0.01;
                         //_checkBox.Height = Dimensions.GetWidth() * 0.01;
                         _checkBoxBorder = new Border();
@@ -54,5 +56,13 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_content);
                 }
 
+
+                internal void TriggerHover()
+                {
+                        this.Background = new Theme.CustomTheme().GetBackground();
+
+                        _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetAccentColor();
+                        _content.Foreground = new Theme.CustomTheme().GetAccentColor();
+                }
         }
 }

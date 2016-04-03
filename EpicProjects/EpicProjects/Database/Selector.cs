@@ -101,11 +101,13 @@ namespace EpicProjects.Database
 
                                         foreach (XmlNode brain in brainstormings)
                                         {
-                                                Debug.CW("In second for loop");
+                                                
 
                                                 Model.Task aBrain = new Model.Task(brain.Attributes["name"].InnerText, brain.Attributes["details"].InnerText);
-                                                Debug.CW("In SelectBrainstormings, brain.Name = " + brain.Attributes["name"].InnerText);
+                                                
+
                                                 brainList.Add(aBrain);
+
                                         }
                                 }
                         }

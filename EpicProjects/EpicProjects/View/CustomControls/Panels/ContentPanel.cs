@@ -15,7 +15,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public ContentPanel(string name)
                 {
-                        this.Height = Dimensions.GetHeight()*0.80;
+                        this.Height = Dimensions.GetHeight()*0.75;
+                        this.Margin = new System.Windows.Thickness(0, 10, 0, 0);
                         this.Background = Palette2.GetColor(Palette2.GREEN_SEA);
 
                         
