@@ -26,7 +26,7 @@ namespace EpicProjects.View
         /// </summary>
         public partial class ProjectWindow : Window
         {
-                public Project _project { get; set; }
+                
 
                 public LayoutNinja _ninja { get; set; }
 
@@ -38,7 +38,7 @@ namespace EpicProjects.View
                 {
                         InitializeComponent();
 
-                        _ninja = new ProjectLayoutNinja();
+                        _ninja = new ProjectLayoutNinja(name);
                         _container = _ninja.GetLayout();
 
                         ProjectGrid.Children.Add(_container);

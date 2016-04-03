@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,10 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class CentralPanel : StackPanel
         {
-                public StackPanel _headerPanel { get; set; }
+                public HeaderPanel _headerPanel { get; set; }
+                public ContentPanel _contentPanel { get; set; }
+
+                public EventCoordinator _eventC { get; set; }
 
                 public CentralPanel()
                 {
@@ -20,8 +24,12 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
 
                         _headerPanel = new HeaderPanel();
+                        _contentPanel = new ContentPanel();
+
+                        _eventC = new EventCoordinator(_headerPanel, _contentPanel);
 
                         this.Children.Add(_headerPanel);
+                        this.Children.Add(_contentPanel);
                 }
         }//class CentralPanel
 }//ns

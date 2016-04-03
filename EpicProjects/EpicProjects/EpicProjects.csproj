@@ -101,6 +101,7 @@
     <Compile Include="Constants\Tooltips.cs" />
     <Compile Include="Constants\WindowsTitle.cs" />
     <Compile Include="Controller\Captain.cs" />
+    <Compile Include="Controller\EventCoordinator.cs" />
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Controller\ProjectMasterChief.cs" />
     <Compile Include="Controller\TaskMasterChief.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="View\CustomControls\Items\SideMenuItem.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\Panels\CentralPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\ContentPanel.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />

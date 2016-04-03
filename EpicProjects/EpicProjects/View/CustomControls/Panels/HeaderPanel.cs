@@ -10,7 +10,7 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class HeaderPanel : StackPanel
         {
-                public StackPanel _titlesPanel { get; set; }
+                public TitlesPanel _titlesPanel { get; set; }
                 public StackPanel _plusPanel { get; set; }
 
                 public HeaderPanel()
