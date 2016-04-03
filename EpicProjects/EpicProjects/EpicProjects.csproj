@@ -152,7 +152,11 @@
     <Compile Include="View\CustomControls\Home\ProjectLink.cs" />
     <Compile Include="View\CustomControls\Items\SideMenuItem.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\CentralPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
+    <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\TitlesPanel.cs" />
     <Compile Include="View\CustomControls\PopUp\AlreadyExistingProject.cs" />
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
     <Compile Include="View\CustomControls\PopUp\NullInputPopUp.cs" />

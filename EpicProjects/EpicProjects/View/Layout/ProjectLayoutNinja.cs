@@ -1,4 +1,5 @@
-﻿using EpicProjects.View.CustomControls.Panels;
+﻿using EpicProjects.Constants;
+using EpicProjects.View.CustomControls.Panels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,13 @@ namespace EpicProjects.View.Layout
                 public override System.Windows.Controls.StackPanel GetLayout()
                 {
                        _menuPanel = new SideMenuPanel();
+                       _centralPanel = new CentralPanel();
+                       _centralPanel.Background = Palette2.GetColor(Palette2.EMERALD);
 
                        StackPanel container = new StackPanel();
                        container.Orientation = Orientation.Horizontal;
                        container.Children.Add(_menuPanel);
+                       container.Children.Add(_centralPanel);
 
                        return container;
                 }

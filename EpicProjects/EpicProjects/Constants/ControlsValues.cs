@@ -46,9 +46,10 @@ namespace EpicProjects.Constants
 
 
 
+                public static readonly string BRAINSTORMING = "Brainstorming";
 
-                public static readonly string FORMATIONS = "Formations";
-                public static readonly string TASKS = "Tasks";
+                public static readonly string TRAINING = "Training";
+                public static readonly string ASSIGNMENTS = "Assignments";
                 public static readonly string MAINTENANCE = "Maintenance";
                 public static readonly string NEWASSIGNMENT = "New Assignment";
 
