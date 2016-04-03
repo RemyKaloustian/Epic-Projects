@@ -79,6 +79,41 @@ namespace EpicProjects.Database
                         return project; //Ternaire
 
                 }//SelectSingleProject()
+
+
+
+                public List<Model.Task> SelectBrainstormings(string projectName)
+                {
+                        Debug.CW("Name is  : " + projectName);
+                        List<Model.Task> brainList = new List<Model.Task>();
+
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(_projectsSavePath);
+
+                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                Debug.CW("In first for loop");
+                                if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
+                                {
+                                        XmlNodeList brainstormings = item["Brainstormings"].ChildNodes;
+
+                                        foreach (XmlNode brain in brainstormings)
+                                        {
+                                                Debug.CW("In second for loop");
+
+                                                Model.Task aBrain = new Model.Task(brain.Attributes["name"].InnerText, brain.Attributes["details"].InnerText);
+                                                Debug.CW("In SelectBrainstormings, brain.Name = " + brain.Attributes["name"].InnerText);
+                                                brainList.Add(aBrain);
+                                        }
+                                }
+                        }
+
+                        return brainList;
+                }//SelectBrainstormings
+
+
                 #endregion XMLDB
 
 

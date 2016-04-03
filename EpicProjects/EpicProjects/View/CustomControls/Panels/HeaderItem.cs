@@ -72,6 +72,9 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void _add_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
+
+                        
+
                         _addPanel.Background = new Theme.CustomTheme().GetBackground();
                         _addContent.Foreground = new Theme.CustomTheme().GetAccentColor();
 
@@ -85,7 +88,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void HeaderItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _underline.Background = new Theme.CustomTheme().GetBackground();
+                       
+                                _underline.Background = new Theme.CustomTheme().GetBackground();
                 }
 
                

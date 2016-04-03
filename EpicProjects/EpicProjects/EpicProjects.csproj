@@ -155,9 +155,11 @@
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\Panels\CentralPanel.cs" />
     <Compile Include="View\CustomControls\Panels\ContentPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\DetailsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\TaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\TitlesPanel.cs" />
     <Compile Include="View\CustomControls\PopUp\AlreadyExistingProject.cs" />
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
@@ -167,7 +169,6 @@
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />
     <Compile Include="View\CustomControls\Project\MenuItem.cs" />
     <Compile Include="View\CustomControls\Project\MenuPanel.cs" />
-    <Compile Include="View\CustomControls\TaskPanel.cs" />
     <Compile Include="View\CustomControls\Buttons\ValidateButton.cs" />
     <Compile Include="View\Debug\Debug.xaml.cs">
       <DependentUpon>Debug.xaml</DependentUpon>

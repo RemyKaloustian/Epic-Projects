@@ -1,4 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Projects>
+  <Project name="BAWITDABA" startdate="02/03/2016" enddate="26/03/2016" >
+  	<Brainstormings>
+  		<Brainstorming name="IS dis life ?" details="This is ma life, sniff"/>
+  		<Brainstorming name="Wait this is not life ! ?" details="Indeed it is not"/>
+  	</Brainstormings>
 
+  	<Trainings>
+  		<Training name="Push ups every day ?" details="That's for pussies" priority="2"/>
+  		<Training name="Squats every day" details="That's for Duffeau" priority="3"/>
+  	</Trainings>
+
+  	<Assignments>
+  		<Assignments name="It's not over" details="Until I win" priority="4"/>
+  		<Assignments name="Rule the galaxy" details="And the universe " priority="5"/>
+  	</Assignments>
+
+  	<Maintenances>
+  		<Maintenance name="Maintain the class" details="Class class class" priority="4"/>
+  		<Maintenance name="Maintain the charisma" details="téton power " priority="5"/>
+  	</Maintenances>
+  </Project>
+  
 </Projects>

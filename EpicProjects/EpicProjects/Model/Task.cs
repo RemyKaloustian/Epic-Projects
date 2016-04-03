@@ -13,9 +13,10 @@ namespace EpicProjects.Model
         public class Task
         {
                 public string _name { get; set; }
+                public string _details { get; set; }
                 public DatabaseGuru _guru { get; set; }
 
-                public Task(string name)
+                public Task(string name, string details)
                 {
                         _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
                         _name = name;

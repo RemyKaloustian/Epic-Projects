@@ -16,16 +16,18 @@ namespace EpicProjects.View.Layout
                 public StackPanel _menuPanel { get; set; }
                 public StackPanel _centralPanel { get; set; }
 
+                public string _name  { get; set; }
                 public ProjectLayoutNinja(string name)
                 {
-                        _project = new Project(name);   
+                        _project = new Project(name);
+                        _name = name;
                 }
 
                 public override System.Windows.Controls.StackPanel GetLayout()
                 {
                       
                        _menuPanel = new SideMenuPanel();
-                       _centralPanel = new CentralPanel();
+                       _centralPanel = new CentralPanel(_name);
                       
 
                        StackPanel container = new StackPanel();

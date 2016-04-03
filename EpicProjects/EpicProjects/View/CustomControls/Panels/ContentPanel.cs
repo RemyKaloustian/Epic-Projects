@@ -10,21 +10,32 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class ContentPanel : StackPanel
         {
+                public TaskPanel _taskPanel { get; set; }
+                public DetailsPanel  _detailsPanel { get; set; }
 
-                public ContentPanel()
+                public ContentPanel(string name)
                 {
-                        //this.Height = 500;
-                       // this.Background = Palette2.GetColor(Palette2.GREEN_SEA);
+                        this.Height = Dimensions.GetHeight()*0.80;
+                        this.Background = Palette2.GetColor(Palette2.GREEN_SEA);
+
+                        
+                        _detailsPanel = new DetailsPanel();
+                        
+                        _taskPanel = new TaskPanel(_detailsPanel,name);
+                        this.Orientation = System.Windows.Controls.Orientation.Horizontal;
+
+                        this.Children.Add(_taskPanel);
+                        this.Children.Add(_detailsPanel);
+
+                        LoadBrainstorming();
                 }
 
                 public void LoadBrainstorming()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "Here is the brainstorming";
-                        block.FontSize = 50;
+                        Constants.Debug.CW("In LoadBrainstorming();");
+                        _taskPanel.FillBrainstormings();
 
-                        this.Children.Add(block);
+                        //this.Children.Add(block);
                 }
 
                 public void LoadTraining()
