@@ -23,6 +23,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _chief = new TaskMasterChief(name);
                         _detailsPanel = detailsPanel;
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
+                        this.Margin = new System.Windows.Thickness(0, 0, 10, 0);
 
                         this.Width = Dimensions.GetWidth() * 0.6;
                         this.Height = Dimensions.GetHeight() * 0.8;

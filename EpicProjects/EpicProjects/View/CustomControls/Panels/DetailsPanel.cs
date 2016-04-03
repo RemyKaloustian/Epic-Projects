@@ -16,7 +16,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public DetailsPanel()
                 {
                         this.Orientation = Orientation.Vertical;
-                        this.Width = Dimensions.GetWidth() * 0.3;
+                        this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 

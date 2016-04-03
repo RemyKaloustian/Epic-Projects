@@ -22,7 +22,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public SingleTaskPanel(Model.Task task)
                 {
-                        this.Margin = new System.Windows.Thickness(1, 2, 0, 1);
+                        this.Margin = new System.Windows.Thickness(10, 2, 0, 1);
                       
                         this.MinHeight = Dimensions.GetHeight() / 20;
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
@@ -36,7 +36,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _checkBoxBorder = new Border();
                         _checkBoxBorder.Width = Dimensions.GetWidth() * 0.02;
                         _checkBoxBorder.Height = Dimensions.GetWidth() * 0.02;
-                        _checkBoxBorder.Margin = new System.Windows.Thickness(3, 0, 0, 0);
+                        _checkBoxBorder.Margin = new System.Windows.Thickness(10, 0, 0, 0);
 
                         _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                         _checkBoxBorder.BorderThickness = new System.Windows.Thickness(1);

@@ -17,6 +17,8 @@ namespace EpicProjects.View.CustomControls.Home
                 public TextBlock _itemBlock { get; set; }
                 public Theme.Theme _theme { get; set; }
 
+                public bool _isOver { get; set; }
+
                 public HomeItem(string title, string text, Theme.Theme th, double width, string tooltip)
                 {
                         _theme = th;
@@ -37,11 +39,26 @@ namespace EpicProjects.View.CustomControls.Home
                        
 
 
-                        this.ToolTip = tooltip;
+                        //this.ToolTip = tooltip;
                         this.Orientation = Orientation.Vertical;
                         this.Width = width;
                         this.Children.Add(_title);
                         this.Children.Add(_itemBlock);
+
+                        _title.MouseEnter += HomeItem_MouseEnter;
+                        _title.MouseLeave += HomeItem_MouseLeave;
+                }
+
+                void HomeItem_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+                {
+
+                        _title.Foreground = new Theme.CustomTheme().GetAccentColor();
+                }
+
+                void HomeItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+                {
+
+                        _title.Foreground = Palette2.GetColor(Palette2.EMERALD);
                 }
         }//class HomeItem
 }//ns

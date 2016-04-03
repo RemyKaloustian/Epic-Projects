@@ -10,6 +10,7 @@ namespace EpicProjects.View.CustomControls.Home
 {
         public class MenuTitle : TextBlock
         {
+
                 public MenuTitle(string content, int fontSize)
                 {
                         this.Text = content;
@@ -17,6 +18,8 @@ namespace EpicProjects.View.CustomControls.Home
                         this.FontFamily = FontProvider._proxima;
 
                         this.Foreground = new Theme.CustomTheme().GetAccentColor();
+
+                        
                 }
 
         }//class MenuTitle

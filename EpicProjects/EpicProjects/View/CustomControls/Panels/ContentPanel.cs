@@ -17,7 +17,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         this.Height = Dimensions.GetHeight()*0.75;
                         this.Margin = new System.Windows.Thickness(0, 10, 0, 0);
-                        this.Background = Palette2.GetColor(Palette2.GREEN_SEA);
+                        //this.Background = Palette2.GetColor(Palette2.GREEN_SEA);
 
                         
                         _detailsPanel = new DetailsPanel();

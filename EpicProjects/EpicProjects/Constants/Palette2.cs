@@ -44,6 +44,6 @@ namespace EpicProjects.Constants
                 public static readonly string ALTERNATIVE = "#8870FF";
                 public static readonly string ALTERNATIVE_HOVER = "#5659C9";
 
-                public static readonly string LIGHT_GRAY = "#e0e0e0";
+                public static readonly string LIGHT_GRAY = "#cfd8dc";
         }
 }
