@@ -1,4 +1,5 @@
-﻿using EpicProjects.View.CustomControls.Panels;
+﻿using EpicProjects.Constants;
+using EpicProjects.View.CustomControls.Panels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,7 @@ namespace EpicProjects.Controller
                                 _contentPanel.LoadBrainstormingAddition();
                         else
                         {
+                                Debug.CW("LOADING BRAINSTORMING");
                                 _contentPanel.LoadBrainstorming();
 
                         }

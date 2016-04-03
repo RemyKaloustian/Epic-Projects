@@ -198,7 +198,7 @@ namespace EpicProjects.View.Layout
 
                         _itemsPanel.Children.Add(_newProjectItem);
 
-                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, Shortcuts.OPEN, _theme, _containerPanel.Width / 5, "");
+                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, Shortcuts.NEW, _theme, _containerPanel.Width / 5, "");
                         _itemsPanel.Children.Add(_openProjectItem);
 
                         _itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, Shortcuts.DOC, _theme, _containerPanel.Width / 5, ""));

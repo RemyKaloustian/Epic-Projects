@@ -24,20 +24,21 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Width = Dimensions.GetWidth() * 0.6;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = Palette2.GetColor(Palette2.POMEGRANATE);
+                        this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
                 }
 
 
                 public void FillBrainstormings()
                 {
+
                         Constants.Debug.CW("In FillBrainsTorming");
                         List<Model.Task> brains = _chief.SelectBrainstormings();
 
                         foreach (Model.Task item in brains)
                         {
-                                TextBlock t = new TextBlock();
-                                t.Text = item._name;
-                                this.Children.Add(t);
+                                SingleTaskPanel p = new SingleTaskPanel(item);
+                                
+                                this.Children.Add(p);
                         }
                 }
         }//class TaskPanel

@@ -32,6 +32,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void LoadBrainstorming()
                 {
+                        
+
                         Constants.Debug.CW("In LoadBrainstorming();");
                         _taskPanel.FillBrainstormings();
 

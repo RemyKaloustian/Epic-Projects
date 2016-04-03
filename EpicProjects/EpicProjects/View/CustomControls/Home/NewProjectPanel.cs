@@ -281,7 +281,7 @@ SetUpCheckBlock();
                 {
                         if (_nameBox.Text == "")
                         {
-                                _nameBox.Text = ControlsValues.NEW_PROJECT_TITLE;
+                                _nameBox.Text = ControlsValues.NAME;
                                 _nameBox.Foreground = new SolidColorBrush(Colors.Gray);
                                 _checkBlock.Visibility = System.Windows.Visibility.Hidden;
                         }
