@@ -116,6 +116,38 @@ namespace EpicProjects.Database
                 }//SelectBrainstormings
 
 
+                public List<Model.AdvancedTask> SelectTrainings(string projectName)
+                {
+                        Debug.CW("Name is  : " + projectName);
+                        List<Model.AdvancedTask> trainingList = new List<Model.AdvancedTask>();
+
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(_projectsSavePath);
+
+                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                Debug.CW("In first for loop");
+                                if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
+                                {
+                                        XmlNodeList trainings = item["Trainings"].ChildNodes;
+
+                                        foreach (XmlNode training in trainings)
+                                        {
+
+
+                                                Model.AdvancedTask aTraining = new Model.AdvancedTask(training.Attributes["name"].InnerText, training.Attributes["details"].InnerText, training.Attributes["priority"].InnerText);
+
+
+                                                trainingList.Add(aTraining);
+
+                                        }
+                                }
+                        }
+
+                        return trainingList;
+                }//SelectBrainstormings
                 #endregion XMLDB
 
 

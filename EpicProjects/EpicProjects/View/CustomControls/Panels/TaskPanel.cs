@@ -17,6 +17,8 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TaskMasterChief _chief { get; set; }
 
                 public List<SingleTaskPanel> _brainstormingList { get; set; }
+                public List<SingleTaskPanel> _trainingList { get; set; }
+                public List<SingleTaskPanel> _assignmentsList { get; set; }
 
                 public TaskPanel(DetailsPanel detailsPanel, string name)
                 {
@@ -30,27 +32,47 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
 
                         _brainstormingList = new List<SingleTaskPanel>();
+                        _trainingList = new List<SingleTaskPanel>();
                 }
 
 
                 public void FillBrainstormings()
                 {
+                        this.Children.Clear();
 
-                        
                         List<Model.Task> brains = _chief.SelectBrainstormings();
-
-
-
                         foreach (Model.Task item in brains)
-                        {
-                                
-
+                        {                               
                                 SingleTaskPanel brainStorming = new SingleTaskPanel(item);
                                 _brainstormingList.Add(brainStorming);
                                 brainStorming.MouseDown += brainStorming_MouseDown;
                                 this.Children.Add(brainStorming);
+                        }
+                }//FillBrainstormings
 
+                public void FillTrainings()
+                {
+                        this.Children.Clear();
+                        List<Model.AdvancedTask> brains = _chief.SelectTrainings();
+                        foreach (Model.AdvancedTask item in brains)
+                        {
+                                SingleTaskPanel training = new SingleTaskPanel(item);
+                                _trainingList.Add(training);
+                                training.MouseDown += brainStorming_MouseDown;
+                                this.Children.Add(training);
+                        }
+                }
 
+                public void FillAssignments()
+                {
+                        this.Children.Clear();
+                        List<Model.AdvancedTask> assignments = _chief.SelectAssignments();
+                        foreach (Model.AdvancedTask item in assignments)
+                        {
+                                SingleTaskPanel assignment = new SingleTaskPanel(item);
+                                _trainingList.Add(assignment);
+                                assignment.MouseDown += brainStorming_MouseDown;
+                                this.Children.Add(assignment);
                         }
                 }
 
@@ -76,5 +98,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
 
                 }
+
+              
         }//class TaskPanel
 }//ns

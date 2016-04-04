@@ -109,6 +109,7 @@
       <DependentUpon>LaunchException.xaml</DependentUpon>
     </Compile>
     <Compile Include="Exception\NullInputException.cs" />
+    <Compile Include="Model\AdvancedTask.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Sketches\Custom\CustomDoc.xaml.cs">

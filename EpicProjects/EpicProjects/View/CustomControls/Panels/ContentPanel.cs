@@ -43,12 +43,9 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void LoadTraining()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "Here is the training";
-                        block.FontSize = 50;
+                        Constants.Debug.CW("In LoadTrainings()");
+                        _taskPanel.FillTrainings();
 
-                        this.Children.Add(block);
                 }
 
 
