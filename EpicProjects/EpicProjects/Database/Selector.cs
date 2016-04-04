@@ -39,7 +39,7 @@ namespace EpicProjects.Database
                         XmlDocument doc = new XmlDocument();
                         doc.Load(_projectsSavePath);
 
-                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
@@ -61,7 +61,7 @@ namespace EpicProjects.Database
                         XmlDocument doc = new XmlDocument();
                         doc.Load(_projectsSavePath);
 
-                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
@@ -90,20 +90,20 @@ namespace EpicProjects.Database
                         XmlDocument doc = new XmlDocument();
                         doc.Load(_projectsSavePath);
 
-                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
-                                        XmlNodeList brainstormings = item["Brainstormings"].ChildNodes;
+                                        XmlNodeList brainstormings = item[DatabaseValues.BRAINSTORMINGS].ChildNodes;
 
                                         foreach (XmlNode brain in brainstormings)
                                         {
                                                 
 
-                                                Model.Task aBrain = new Model.Task(brain.Attributes["name"].InnerText, brain.Attributes["details"].InnerText);
+                                                Model.Task aBrain = new Model.Task(brain.Attributes[DatabaseValues.NAME].InnerText, brain.Attributes[DatabaseValues.DETAILS].InnerText);
                                                 
 
                                                 brainList.Add(aBrain);
@@ -124,20 +124,20 @@ namespace EpicProjects.Database
                         XmlDocument doc = new XmlDocument();
                         doc.Load(_projectsSavePath);
 
-                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
-                                        XmlNodeList trainings = item["Trainings"].ChildNodes;
+                                        XmlNodeList trainings = item[DatabaseValues.TRAININGS].ChildNodes;
 
                                         foreach (XmlNode training in trainings)
                                         {
 
 
-                                                Model.AdvancedTask aTraining = new Model.AdvancedTask(training.Attributes["name"].InnerText, training.Attributes["details"].InnerText, training.Attributes["priority"].InnerText);
+                                                Model.AdvancedTask aTraining = new Model.AdvancedTask(training.Attributes[DatabaseValues.NAME].InnerText, training.Attributes[DatabaseValues.DETAILS].InnerText, training.Attributes[DatabaseValues.PRIORITY].InnerText);
 
 
                                                 trainingList.Add(aTraining);
@@ -159,20 +159,20 @@ namespace EpicProjects.Database
                         XmlDocument doc = new XmlDocument();
                         doc.Load(_projectsSavePath);
 
-                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
-                                        XmlNodeList assignments = item["Assignments"].ChildNodes;
+                                        XmlNodeList assignments = item[DatabaseValues.ASSIGNMENTS].ChildNodes;
 
                                         foreach (XmlNode assignment in assignments)
                                         {
 
 
-                                                Model.AdvancedTask anAssignment = new Model.AdvancedTask(assignment.Attributes["name"].InnerText, assignment.Attributes["details"].InnerText, assignment.Attributes["priority"].InnerText);
+                                                Model.AdvancedTask anAssignment = new Model.AdvancedTask(assignment.Attributes[DatabaseValues.NAME].InnerText, assignment.Attributes[DatabaseValues.DETAILS].InnerText, assignment.Attributes[DatabaseValues.PRIORITY].InnerText);
 
 
                                                 assignmentList.Add(anAssignment);
@@ -194,20 +194,20 @@ namespace EpicProjects.Database
                         XmlDocument doc = new XmlDocument();
                         doc.Load(_projectsSavePath);
 
-                        XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
-                                        XmlNodeList maintenances = item["Maintenances"].ChildNodes;
+                                        XmlNodeList maintenances = item[DatabaseValues.MAINTENANCES].ChildNodes;
 
                                         foreach (XmlNode maintenance in maintenances)
                                         {
 
 
-                                                Model.AdvancedTask aMaintenance = new Model.AdvancedTask(maintenance.Attributes["name"].InnerText, maintenance.Attributes["details"].InnerText, maintenance.Attributes["priority"].InnerText);
+                                                Model.AdvancedTask aMaintenance = new Model.AdvancedTask(maintenance.Attributes[DatabaseValues.NAME].InnerText, maintenance.Attributes[DatabaseValues.DETAILS].InnerText, maintenance.Attributes[DatabaseValues.PRIORITY].InnerText);
 
 
                                                 maintenanceList.Add(aMaintenance);

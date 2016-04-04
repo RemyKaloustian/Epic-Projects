@@ -30,9 +30,25 @@ namespace EpicProjects.Constants
                 //Attributes fields
                 public static readonly string ID = "id";
                 public static readonly string NAME = "name";
+                public static readonly string DETAILS = "details";
+                public static readonly string PRIORITY = "priority";
+
+
+
                 public static readonly string STARTDATE = "startdate";
                 public static readonly string ENDDATE = "enddate";
                 public static readonly string TYPE = "type";
+
+                //XML used fields 
+
+                public static readonly string  PROJECT_PATH = "/Projects/Project";
+                public static readonly string BRAINSTORMINGS = "Brainstormings";
+                public static readonly string TRAININGS = "Trainings";
+                public static readonly string ASSIGNMENTS = "Assignments";
+                public static readonly string MAINTENANCES="Maintenances";
+
+
+                 
 
         }//class Database
 }//ns
