@@ -33,6 +33,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _brainstormingList = new List<SingleTaskPanel>();
                         _trainingList = new List<SingleTaskPanel>();
+                        _assignmentsList = new List<SingleTaskPanel>();
                 }
 
 
@@ -69,8 +70,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         List<Model.AdvancedTask> assignments = _chief.SelectAssignments();
                         foreach (Model.AdvancedTask item in assignments)
                         {
+                                Constants.Debug.CW("Assignment is : \n name = " + item._name + "\n details = " + item._details + "\n priority = " + item._priority);
                                 SingleTaskPanel assignment = new SingleTaskPanel(item);
-                                _trainingList.Add(assignment);
+                                _assignmentsList.Add(assignment);
                                 assignment.MouseDown += brainStorming_MouseDown;
                                 this.Children.Add(assignment);
                         }

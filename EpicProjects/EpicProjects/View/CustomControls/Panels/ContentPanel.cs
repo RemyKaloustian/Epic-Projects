@@ -51,12 +51,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void LoadAssignments()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "Here are the assignments";
-                        block.FontSize = 50;
-
-                        this.Children.Add(block);
+                        _taskPanel.FillAssignments();
                 }
 
                 public void LoadMaintenance()
