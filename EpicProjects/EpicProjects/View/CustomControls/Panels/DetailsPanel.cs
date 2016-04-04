@@ -12,6 +12,7 @@ namespace EpicProjects.View.CustomControls.Panels
         {
                 public TextBlock _name { get; set; }
                 public TextBlock _details { get; set; }
+                public TextBlock _priority{ get; set; }
 
                 public DetailsPanel()
                 {
@@ -22,8 +23,10 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _name = new TextBlock();
                         _details = new TextBlock();
+                        _priority = new TextBlock();
 
-                        this.Children.Add(_name);
+                        this.Children.Add(_name);                        
+                        this.Children.Add(_priority);
                         this.Children.Add(_details);
                 }
         }//class DetailsPanel()

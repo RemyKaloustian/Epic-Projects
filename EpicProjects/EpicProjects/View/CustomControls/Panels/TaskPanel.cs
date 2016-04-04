@@ -17,9 +17,9 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TaskMasterChief _chief { get; set; }
 
                 public List<SingleTaskPanel> _brainstormingList { get; set; }
-                public List<SingleTaskPanel> _trainingList { get; set; }
-                public List<SingleTaskPanel> _assignmentsList { get; set; }
-                public List<SingleTaskPanel> _maintenancesList { get; set; }
+                public List<SingleAdvancedTaskPanel> _trainingList { get; set; }
+                public List<SingleAdvancedTaskPanel> _assignmentsList { get; set; }
+                public List<SingleAdvancedTaskPanel> _maintenancesList { get; set; }
 
                 public TaskPanel(DetailsPanel detailsPanel, string name)
                 {
@@ -33,9 +33,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
 
                         _brainstormingList = new List<SingleTaskPanel>();
-                        _trainingList = new List<SingleTaskPanel>();
-                        _assignmentsList = new List<SingleTaskPanel>();
-                        _maintenancesList = new List<SingleTaskPanel>();
+                        _trainingList = new List<SingleAdvancedTaskPanel>();
+                        _assignmentsList = new List<SingleAdvancedTaskPanel>();
+                        _maintenancesList = new List<SingleAdvancedTaskPanel>();
                 }
 
 
@@ -59,9 +59,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         List<Model.AdvancedTask> brains = _chief.SelectTrainings();
                         foreach (Model.AdvancedTask item in brains)
                         {
-                                SingleTaskPanel training = new SingleTaskPanel(item);
+                                SingleAdvancedTaskPanel training = new SingleAdvancedTaskPanel(item);
                                 _trainingList.Add(training);
-                                training.MouseDown += brainStorming_MouseDown;
+                                training.MouseDown += Trainings_MouseDown;
                                 this.Children.Add(training);
                         }
                 }//FillTrainings()
@@ -73,9 +73,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         foreach (Model.AdvancedTask item in assignments)
                         {
                                 Constants.Debug.CW("Assignment is : \n name = " + item._name + "\n details = " + item._details + "\n priority = " + item._priority);
-                                SingleTaskPanel assignment = new SingleTaskPanel(item);
+                                SingleAdvancedTaskPanel assignment = new SingleAdvancedTaskPanel(item);
                                 _assignmentsList.Add(assignment);
-                                assignment.MouseDown += brainStorming_MouseDown;
+                                assignment.MouseDown += Assignments_MouseDown;
                                 this.Children.Add(assignment);
                         }
                 }//FillAssignments()
@@ -87,9 +87,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         foreach (Model.AdvancedTask item in maintenances)
                         {
                                 
-                                SingleTaskPanel maintenance = new SingleTaskPanel(item);
+                                SingleAdvancedTaskPanel maintenance = new SingleAdvancedTaskPanel(item);
                                 _maintenancesList.Add(maintenance);
-                                maintenance.MouseDown += brainStorming_MouseDown;
+                                maintenance.MouseDown += Maintenances_MouseDown;
                                 this.Children.Add(maintenance);
                         }
                 }//FillAssignments()
@@ -115,6 +115,82 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         Constants.Debug.CW("NAME : " + taskPanel._task._name);
                         Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
+
+                }
+
+
+                void Trainings_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+
+                        SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
+                        taskPanel.TriggerHover();
+                        foreach (SingleAdvancedTaskPanel task in _trainingList)
+                        {
+                                if (!task.IsMouseOver)
+                                {
+                                        task.Background = new Theme.CustomTheme().GetAccentColor();
+
+                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                }
+                        }
+                        _detailsPanel._name.Text = taskPanel._advancedTask._name;
+                        _detailsPanel._details.Text = taskPanel._advancedTask._details;
+                        _detailsPanel._priority.Text = taskPanel._advancedTask._priority;
+
+                        //Constants.Debug.CW("NAME : " + taskPanel._task._name);
+                        //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
+
+                }
+
+
+
+                void Assignments_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+
+                        SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
+                        taskPanel.TriggerHover();
+                        foreach (SingleAdvancedTaskPanel task in _assignmentsList)
+                        {
+                                if (!task.IsMouseOver)
+                                {
+                                        task.Background = new Theme.CustomTheme().GetAccentColor();
+
+                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                }
+                        }
+                        _detailsPanel._name.Text = taskPanel._advancedTask._name;
+                        _detailsPanel._details.Text = taskPanel._advancedTask._details;
+                        _detailsPanel._priority.Text = taskPanel._advancedTask._priority;
+
+                        //Constants.Debug.CW("NAME : " + taskPanel._task._name);
+                        //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
+
+                }
+
+                void Maintenances_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+
+                        SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
+                        taskPanel.TriggerHover();
+                        foreach (SingleAdvancedTaskPanel task in _maintenancesList)
+                        {
+                                if (!task.IsMouseOver)
+                                {
+                                        task.Background = new Theme.CustomTheme().GetAccentColor();
+
+                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                }
+                        }
+                        _detailsPanel._name.Text = taskPanel._advancedTask._name;
+                        _detailsPanel._details.Text = taskPanel._advancedTask._details;
+                        _detailsPanel._priority.Text = taskPanel._advancedTask._priority;
+                        
+
+                        //Constants.Debug.CW("NAME : " + taskPanel._task._name);
+                        //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
 
                 }
 
