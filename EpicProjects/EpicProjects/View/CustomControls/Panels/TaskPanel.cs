@@ -110,6 +110,8 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
+                        _detailsPanel.AddSeparator();
+
                         _detailsPanel._name.Text = taskPanel._task._name;
                         _detailsPanel._details.Text = taskPanel._task._details;
 
@@ -134,9 +136,11 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
+                        _detailsPanel.AddSeparator();
+
                         _detailsPanel._name.Text = taskPanel._advancedTask._name;
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        _detailsPanel._priority.Text = taskPanel._advancedTask._priority;
+                        _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
 
                         //Constants.Debug.CW("NAME : " + taskPanel._task._name);
                         //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
@@ -160,9 +164,11 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
+                        _detailsPanel.AddSeparator();
+
                         _detailsPanel._name.Text = taskPanel._advancedTask._name;
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        _detailsPanel._priority.Text = taskPanel._advancedTask._priority;
+                        _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
 
                         //Constants.Debug.CW("NAME : " + taskPanel._task._name);
                         //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
@@ -184,9 +190,10 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
+                        _detailsPanel.AddSeparator();
                         _detailsPanel._name.Text = taskPanel._advancedTask._name;
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        _detailsPanel._priority.Text = taskPanel._advancedTask._priority;
+                        _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
                         
 
                         //Constants.Debug.CW("NAME : " + taskPanel._task._name);
