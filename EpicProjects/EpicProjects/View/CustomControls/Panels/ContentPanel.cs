@@ -67,6 +67,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         block.FontSize = 50;
 
                         this.Children.Add(block);
+
+                      
                 }
 
                 internal void LoadTrainingAddition()
@@ -89,8 +91,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(block);
                 }
 
-                internal void LoadMaintenanceAddition()
-                {
+                internal void LoadMaintenanceAddition()  
+                {                        
                         this.Children.Clear();
                         TextBlock block = new TextBlock();
                         block.Text = "NU MAINTENANCE ?";
