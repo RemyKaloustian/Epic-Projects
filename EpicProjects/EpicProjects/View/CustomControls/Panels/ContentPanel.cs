@@ -56,12 +56,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void LoadMaintenance()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "Here is the maintenance";
-                        block.FontSize = 50;
-
-                        this.Children.Add(block);
+                        _taskPanel.FillMaintenances();
                 }
 
                 public  void LoadBrainstormingAddition()

@@ -19,6 +19,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public List<SingleTaskPanel> _brainstormingList { get; set; }
                 public List<SingleTaskPanel> _trainingList { get; set; }
                 public List<SingleTaskPanel> _assignmentsList { get; set; }
+                public List<SingleTaskPanel> _maintenancesList { get; set; }
 
                 public TaskPanel(DetailsPanel detailsPanel, string name)
                 {
@@ -34,6 +35,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _brainstormingList = new List<SingleTaskPanel>();
                         _trainingList = new List<SingleTaskPanel>();
                         _assignmentsList = new List<SingleTaskPanel>();
+                        _maintenancesList = new List<SingleTaskPanel>();
                 }
 
 
@@ -62,7 +64,7 @@ namespace EpicProjects.View.CustomControls.Panels
                                 training.MouseDown += brainStorming_MouseDown;
                                 this.Children.Add(training);
                         }
-                }
+                }//FillTrainings()
 
                 public void FillAssignments()
                 {
@@ -76,7 +78,22 @@ namespace EpicProjects.View.CustomControls.Panels
                                 assignment.MouseDown += brainStorming_MouseDown;
                                 this.Children.Add(assignment);
                         }
-                }
+                }//FillAssignments()
+
+                public void FillMaintenances()
+                {
+                        this.Children.Clear();
+                        List<Model.AdvancedTask> maintenances = _chief.SelectMaintenances();
+                        foreach (Model.AdvancedTask item in maintenances)
+                        {
+                                
+                                SingleTaskPanel maintenance = new SingleTaskPanel(item);
+                                _maintenancesList.Add(maintenance);
+                                maintenance.MouseDown += brainStorming_MouseDown;
+                                this.Children.Add(maintenance);
+                        }
+                }//FillAssignments()
+
 
                 void brainStorming_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
