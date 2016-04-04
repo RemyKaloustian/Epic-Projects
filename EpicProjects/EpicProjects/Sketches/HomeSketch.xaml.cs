@@ -119,7 +119,6 @@ namespace EpicProjects.Sketches
 
                 private void newpanel_MouseDown(object sender, MouseButtonEventArgs e)
                 {
-                        Debug.CW("In MouseDown");
 
                         NewProject popup = new NewProject();
                         popup.Show();

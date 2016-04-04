@@ -147,7 +147,6 @@ namespace EpicProjects.View
                 {
                         _mainPanel = _ninja.GetOpenProjectPanel();
 
-                        Constants.Debug.CW("SHOWING New project");
 
                 }
 
@@ -155,7 +154,6 @@ namespace EpicProjects.View
                 {
                         _mainPanel = _ninja.GetNewProjectPanel();
 
-                        Constants.Debug.CW("SHOWING OPEN project");
                 }
 
 

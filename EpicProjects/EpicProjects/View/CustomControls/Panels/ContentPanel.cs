@@ -35,7 +35,6 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         
 
-                        Constants.Debug.CW("In LoadBrainstorming();");
                         _taskPanel.FillBrainstormings();
 
                         //this.Children.Add(block);
@@ -43,7 +42,6 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void LoadTraining()
                 {
-                        Constants.Debug.CW("In LoadTrainings()");
                         _taskPanel.FillTrainings();
 
                 }

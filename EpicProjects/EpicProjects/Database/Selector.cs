@@ -84,7 +84,6 @@ namespace EpicProjects.Database
 
                 public List<Model.Task> SelectBrainstormings(string projectName)
                 {
-                        Debug.CW("Name is  : " + projectName);
                         List<Model.Task> brainList = new List<Model.Task>();
 
                         XmlDocument doc = new XmlDocument();
@@ -94,7 +93,6 @@ namespace EpicProjects.Database
 
                         foreach (XmlNode item in nodelist)
                         {
-                                Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
                                         XmlNodeList brainstormings = item[DatabaseValues.BRAINSTORMINGS].ChildNodes;
@@ -118,7 +116,6 @@ namespace EpicProjects.Database
 
                 public List<Model.AdvancedTask> SelectTrainings(string projectName)
                 {
-                        Debug.CW("Name is  : " + projectName);
                         List<Model.AdvancedTask> trainingList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
@@ -128,7 +125,6 @@ namespace EpicProjects.Database
 
                         foreach (XmlNode item in nodelist)
                         {
-                                Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
                                         XmlNodeList trainings = item[DatabaseValues.TRAININGS].ChildNodes;
@@ -153,7 +149,6 @@ namespace EpicProjects.Database
 
                 public List<Model.AdvancedTask> SelectAssignments(string projectName)
                 {
-                        Debug.CW("Name is  : " + projectName);
                         List<Model.AdvancedTask> assignmentList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
@@ -163,7 +158,6 @@ namespace EpicProjects.Database
 
                         foreach (XmlNode item in nodelist)
                         {
-                                Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
                                         XmlNodeList assignments = item[DatabaseValues.ASSIGNMENTS].ChildNodes;
@@ -188,7 +182,6 @@ namespace EpicProjects.Database
 
                 public List<Model.AdvancedTask> SelectMaintenances(string projectName)
                 {
-                        Debug.CW("Name is  : " + projectName);
                         List<Model.AdvancedTask> maintenanceList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
@@ -198,7 +191,6 @@ namespace EpicProjects.Database
 
                         foreach (XmlNode item in nodelist)
                         {
-                                Debug.CW("In first for loop");
                                 if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
                                 {
                                         XmlNodeList maintenances = item[DatabaseValues.MAINTENANCES].ChildNodes;

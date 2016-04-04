@@ -72,7 +72,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         List<Model.AdvancedTask> assignments = _chief.SelectAssignments();
                         foreach (Model.AdvancedTask item in assignments)
                         {
-                                Constants.Debug.CW("Assignment is : \n name = " + item._name + "\n details = " + item._details + "\n priority = " + item._priority);
+
                                 SingleAdvancedTaskPanel assignment = new SingleAdvancedTaskPanel(item);
                                 _assignmentsList.Add(assignment);
                                 assignment.MouseDown += Assignments_MouseDown;
@@ -115,8 +115,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._name.Text = taskPanel._task._name;
                         _detailsPanel._details.Text = taskPanel._task._details;
 
-                        Constants.Debug.CW("NAME : " + taskPanel._task._name);
-                        Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
+                       
 
                 }
 
@@ -142,9 +141,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
                         _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
 
-                        //Constants.Debug.CW("NAME : " + taskPanel._task._name);
-                        //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
-
+                  
                 }
 
 
@@ -170,9 +167,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
                         _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
 
-                        //Constants.Debug.CW("NAME : " + taskPanel._task._name);
-                        //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
-
+                  
                 }
 
                 void Maintenances_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -195,9 +190,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
                         _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
                         
-
-                        //Constants.Debug.CW("NAME : " + taskPanel._task._name);
-                        //Constants.Debug.CW("DETAILS ON SINGLE : " + taskPanel._task._details);
 
                 }
 

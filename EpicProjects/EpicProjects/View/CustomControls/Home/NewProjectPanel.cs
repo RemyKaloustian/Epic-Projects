@@ -179,7 +179,7 @@ SetUpCheckBlock();
                         _startDateBlock.Foreground = _theme.GetAccentColor();
                         _startDateBlock.FontSize = 25;
 
-                        Constants.Debug.CW((_containerWidth - _startDatePicker.Width - (_containerWidth - _startDatePicker.Width) / 2).ToString());
+
                         _startDateBlock.Margin = new Thickness(_containerWidth- _nameBox.Width - (_containerWidth - _nameBox.Width) / 2, _containerWidth/90, 0, 0);
                         _endDateBlock.Text = ControlsValues.ENDATE;
                         _endDateBlock.FontFamily = FontProvider._lato;
@@ -239,7 +239,6 @@ SetUpCheckBlock();
 
                         if(_nameBox.Text.Length ==0)
                         {
-                                Constants.Debug.CW("Null name is not allowed ! ");
                                 _createButton.IsEnabled = false;
                                 _checkBlock.Text = ControlsValues.NULL;
                                 _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
@@ -248,7 +247,6 @@ SetUpCheckBlock();
                         {
                                 if(!isExistingProject(_nameBox.Text))
                                 {
-                                        Constants.Debug.CW("VALID NAME");
                                         _checkBlock.Text = ControlsValues.VALID;
                                         _createButton.IsEnabled = true;
                                         _checkBlock.Foreground = Palette2.GetColor(Palette2.TURQUOISE);
@@ -257,7 +255,6 @@ SetUpCheckBlock();
 
                                 else
                                 {
-                                        Constants.Debug.CW("THER IS ALREADY A PROJECT NAMED LIKE THAT ! ");
                                         _checkBlock.Text = ControlsValues.EXISTING_PROJECT;
                                         _createButton.IsEnabled = false;
                                         _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);

@@ -78,7 +78,6 @@ namespace EpicProjects.Controller
                                 _contentPanel.LoadBrainstormingAddition();
                         else
                         {
-                                Debug.CW("LOADING BRAINSTORMING");
                                 _contentPanel.LoadBrainstorming();
 
                         }
