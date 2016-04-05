@@ -15,7 +15,8 @@ namespace EpicProjects.View.CustomControls.Panels
                 public Separator _nameSeparator { get; set; }
                 public TextBlock _priority{ get; set; }
                 public Separator _prioritySeparator { get; set; }   
-                public TextBlock _details { get; set; }     
+                public TextBlock _details { get; set; }
+                public CancelButton _quitButton { get; set; }
 
 
                 public DetailsPanel()
@@ -28,6 +29,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name = new TextBlock();
                         _details = new TextBlock();
                         _priority = new TextBlock();
+                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
+                        _quitButton.Visibility = System.Windows.Visibility.Hidden;
 
                         SetUpName();
                         SetUpSeparator();
@@ -39,6 +42,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_priority);
                         this.Children.Add(_prioritySeparator);
                         this.Children.Add(_details);
+                        this.Children.Add(_quitButton);
                 }
 
                 private void SetUpDetails()

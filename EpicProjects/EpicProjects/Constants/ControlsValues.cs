@@ -33,6 +33,8 @@ namespace EpicProjects.Constants
                 public static readonly string LEAVE = "Just leave";
                 public static readonly string OPEN = "Open";
                 public static readonly string RENAME = "Rename";
+                public static readonly string CLOSE = "Close";
+
 
                 public static string NEW_PROJECT_TITLE = "Already making a new project ? You are so dynamic !";
                 public static string OPEN_PROJECT_TITLE = "There are plenty of interesting projects down there";
