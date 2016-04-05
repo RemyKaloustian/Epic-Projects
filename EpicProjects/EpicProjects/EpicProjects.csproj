@@ -97,12 +97,14 @@
     <Compile Include="Constants\ModelConstants.cs" />
     <Compile Include="Constants\Palette2.cs" />
     <Compile Include="Constants\Paths.cs" />
+    <Compile Include="Constants\Priorities.cs" />
     <Compile Include="Constants\Shortcuts.cs" />
     <Compile Include="Constants\Tooltips.cs" />
     <Compile Include="Constants\WindowsTitle.cs" />
     <Compile Include="Controller\Captain.cs" />
     <Compile Include="Controller\EventCoordinator.cs" />
     <Compile Include="Controller\Masterchief.cs" />
+    <Compile Include="Controller\PriorityInterpreter.cs" />
     <Compile Include="Controller\ProjectMasterChief.cs" />
     <Compile Include="Controller\TaskMasterChief.cs" />
     <Compile Include="Exception\LaunchException.xaml.cs">

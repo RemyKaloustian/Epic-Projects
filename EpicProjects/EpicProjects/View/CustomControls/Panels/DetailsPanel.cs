@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _details.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _details.FontFamily = FontProvider._lato;
-                        _details.FontSize = 22;
+                        _details.FontSize = 15;
                         _details.Width = this.Width * 0.8;
                         _details.MinHeight = 100;
                         _details.TextWrapping = System.Windows.TextWrapping.Wrap;
@@ -90,7 +91,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void SetPriorityLayout(string content)
                 {
                         _prioritySeparator.Visibility = System.Windows.Visibility.Visible;
-                        _priority.Text = "Priority : " + content;
+                        _priority.Text = "Priority : " + new PriorityInterpreter(content).Interpret();
 
                         _priority.FontFamily = FontProvider._lato;
                         _priority.FontSize = 22;
