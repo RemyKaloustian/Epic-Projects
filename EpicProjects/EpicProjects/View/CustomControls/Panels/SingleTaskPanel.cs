@@ -93,5 +93,13 @@ namespace EpicProjects.View.CustomControls.Panels
                         _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetAccentColor();
                         _content.Foreground = new Theme.CustomTheme().GetAccentColor();
                 }
+
+                internal void UnHover()
+                {
+                        this.Background = new Theme.CustomTheme().GetAccentColor();
+
+                        _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                        _content.Foreground = new Theme.CustomTheme().GetBackground();
+                }
         }
 }

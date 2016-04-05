@@ -12,6 +12,7 @@ namespace EpicProjects.View.CustomControls.Panels
         {
                 public TaskPanel _taskPanel { get; set; }
                 public DetailsPanel  _detailsPanel { get; set; }
+                public OptionsPanel _optionsPanel { get; set; }
 
                 public ContentPanel(string name)
                 {
@@ -21,12 +22,17 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         
                         _detailsPanel = new DetailsPanel();
+                        _optionsPanel = new OptionsPanel();
                         
                         _taskPanel = new TaskPanel(_detailsPanel,name);
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
 
+                        _detailsPanel.Visibility = System.Windows.Visibility.Hidden;
+
                         this.Children.Add(_taskPanel);
-                        this.Children.Add(_detailsPanel);
+                        //this.Children.Add(_detailsPanel);
+                        this.Children.Add(_optionsPanel);
+
 
                         LoadBrainstorming();
                 }

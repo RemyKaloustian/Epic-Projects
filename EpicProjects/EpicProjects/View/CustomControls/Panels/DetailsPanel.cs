@@ -18,6 +18,8 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _details { get; set; }
                 public CancelButton _quitButton { get; set; }
 
+                public SingleTaskPanel _taskPanel { get; set; }
+
 
                 public DetailsPanel()
                 {
@@ -31,6 +33,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priority = new TextBlock();
                         _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
                         _quitButton.Visibility = System.Windows.Visibility.Hidden;
+                        _quitButton.MouseDown += _quitButton_MouseDown;
 
                         SetUpName();
                         SetUpSeparator();
@@ -43,6 +46,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_prioritySeparator);
                         this.Children.Add(_details);
                         this.Children.Add(_quitButton);
+                }
+
+                void _quitButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        _taskPanel.UnHover();
                 }
 
                 private void SetUpDetails()

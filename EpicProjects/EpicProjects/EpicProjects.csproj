@@ -161,6 +161,7 @@
     <Compile Include="View\CustomControls\Panels\DetailsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\OptionsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SingleAdvancedTaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SingleTaskPanel.cs" />

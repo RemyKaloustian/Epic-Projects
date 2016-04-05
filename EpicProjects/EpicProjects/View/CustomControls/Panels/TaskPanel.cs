@@ -115,6 +115,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._name.Text = taskPanel._task._name;
                         _detailsPanel._details.Text = taskPanel._task._details;
                         _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        _detailsPanel._taskPanel = taskPanel;
 
                        
 
@@ -142,6 +143,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
                         _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
                         _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        _detailsPanel._taskPanel = taskPanel;
+
 
                   
                 }
@@ -169,6 +172,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
                         _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
                         _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        _detailsPanel._taskPanel = taskPanel;
+
 
                   
                 }
@@ -193,8 +198,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsPanel._details.Text = taskPanel._advancedTask._details;
                         _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
                         _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        
+                        _detailsPanel._taskPanel = taskPanel;
 
+                        
                 }
 
               
