@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TaskPanel _taskPanel { get; set; }
                 public DetailsPanel  _detailsPanel { get; set; }
                 public OptionsPanel _optionsPanel { get; set; }
+                public StackPanel _rightPanel { get; set; }
 
                 public ContentPanel(string name)
                 {
@@ -20,17 +22,20 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Margin = new System.Windows.Thickness(0, 10, 0, 0);
                         //this.Background = Palette2.GetColor(Palette2.GREEN_SEA);
 
-                        
-                        _detailsPanel = new DetailsPanel();
+                        RightPanelCoordinator coord = new RightPanelCoordinator(this);
+                       // _detailsPanel = new DetailsPanel(coord);
                         _optionsPanel = new OptionsPanel();
                         
-                        _taskPanel = new TaskPanel(_detailsPanel,name);
+                        _taskPanel = new TaskPanel(_detailsPanel,name,coord);
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
 
-                        _detailsPanel.Visibility = System.Windows.Visibility.Hidden;
+                      //  _detailsPanel.Visibility = System.Windows.Visibility.Hidden;
+
+                        _rightPanel = _optionsPanel;
 
                         this.Children.Add(_taskPanel);
                         //this.Children.Add(_detailsPanel);
+                        //this.Children.Add(_rightPanel);
                         this.Children.Add(_optionsPanel);
 
 

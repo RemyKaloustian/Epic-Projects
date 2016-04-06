@@ -12,19 +12,21 @@ namespace EpicProjects.View.CustomControls.Panels
         public class TaskPanel : StackPanel
         {
 
-                public DetailsPanel _detailsPanel { get; set; }
+               // public DetailsPanel _detailsPanel { get; set; }
 
                 public TaskMasterChief _chief { get; set; }
+                public RightPanelCoordinator _coordinator { get; set; }
 
                 public List<SingleTaskPanel> _brainstormingList { get; set; }
                 public List<SingleAdvancedTaskPanel> _trainingList { get; set; }
                 public List<SingleAdvancedTaskPanel> _assignmentsList { get; set; }
                 public List<SingleAdvancedTaskPanel> _maintenancesList { get; set; }
 
-                public TaskPanel(DetailsPanel detailsPanel, string name)
+                public TaskPanel(DetailsPanel detailsPanel, string name, RightPanelCoordinator coordinator)
                 {
                         _chief = new TaskMasterChief(name);
-                        _detailsPanel = detailsPanel;
+                       // _detailsPanel = detailsPanel;
+                        _coordinator = coordinator;
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                         this.Margin = new System.Windows.Thickness(0, 0, 10, 0);
 
@@ -110,14 +112,15 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _detailsPanel.AddSeparator();
 
-                        _detailsPanel._name.Text = taskPanel._task._name;
-                        _detailsPanel._details.Text = taskPanel._task._details;
-                        _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        _detailsPanel._taskPanel = taskPanel;
 
-                       
+                        //_detailsPanel._name.Text = ;
+                        //_detailsPanel._details.Text = ;
+                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        //_detailsPanel._taskPanel = ;
+
+                        _coordinator.ToDetails(taskPanel._task._name ,  taskPanel._task._details , taskPanel,null);
+
 
                 }
 
@@ -137,13 +140,17 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _detailsPanel.AddSeparator();
+                        //_detailsPanel.AddSeparator();
 
-                        _detailsPanel._name.Text = taskPanel._advancedTask._name;
-                        _detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
-                        _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        _detailsPanel._taskPanel = taskPanel;
+                        //_detailsPanel._name.Text = taskPanel._advancedTask._name;
+                        //_detailsPanel._details.Text = taskPanel._advancedTask._details;
+                        //_detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
+                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        //_detailsPanel._taskPanel = taskPanel;
+
+                        //_coordinator.ToDetails(_detailsPanel);
+
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel,  taskPanel._advancedTask._priority);
 
 
                   
@@ -166,15 +173,16 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _detailsPanel.AddSeparator();
+                        //_detailsPanel.AddSeparator();
 
-                        _detailsPanel._name.Text = taskPanel._advancedTask._name;
-                        _detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
-                        _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        _detailsPanel._taskPanel = taskPanel;
+                        //_detailsPanel._name.Text = taskPanel._advancedTask._name;
+                        //_detailsPanel._details.Text = taskPanel._advancedTask._details;
+                        //_detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
+                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        //_detailsPanel._taskPanel = taskPanel;
 
-
+                        //_coordinator.ToDetails(_detailsPanel);
+                        _coordinator.ToDetails(taskPanel._task._name, taskPanel._task._details, taskPanel, taskPanel._advancedTask._priority);
                   
                 }
 
@@ -193,14 +201,16 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _detailsPanel.AddSeparator();
-                        _detailsPanel._name.Text = taskPanel._advancedTask._name;
-                        _detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        _detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
-                        _detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        _detailsPanel._taskPanel = taskPanel;
+                        //_detailsPanel.AddSeparator();
+                        _coordinator.ToDetails(taskPanel._task._name, taskPanel._task._details, taskPanel, taskPanel._advancedTask._priority);
 
-                        
+                        //_detailsPanel._name.Text = taskPanel._advancedTask._name;
+                        //_detailsPanel._details.Text = taskPanel._advancedTask._details;
+                        //_detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
+                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
+                        //_detailsPanel._taskPanel = taskPanel;
+
+                        //_coordinator.ToDetails(_detailsPanel);
                 }
 
               

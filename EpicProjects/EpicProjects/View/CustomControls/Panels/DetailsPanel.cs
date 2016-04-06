@@ -11,6 +11,11 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class DetailsPanel : StackPanel
         {
+                private   string details;
+                private   SingleTaskPanel taskPanel;
+
+                public RightPanelCoordinator _coordinator { get; set; }
+
                 public TextBlock _name { get; set; }
                 public Separator _nameSeparator { get; set; }
                 public TextBlock _priority{ get; set; }
@@ -21,13 +26,14 @@ namespace EpicProjects.View.CustomControls.Panels
                 public SingleTaskPanel _taskPanel { get; set; }
 
 
-                public DetailsPanel()
+                public DetailsPanel(RightPanelCoordinator coordinator)
                 {
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 
+                        _coordinator = coordinator;
                         _name = new TextBlock();
                         _details = new TextBlock();
                         _priority = new TextBlock();
@@ -48,9 +54,51 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_quitButton);
                 }
 
+                public    DetailsPanel(string name,string details,SingleTaskPanel taskPanel, RightPanelCoordinator coordinator, string priority)
+                {
+                // TODO: Complete member initialization
+                     
+
+                         this.Orientation = Orientation.Vertical;
+                        this.Width = Dimensions.GetWidth() * 0.27;
+                        this.Height = Dimensions.GetHeight() * 0.8;
+                        this.Background = new Theme.CustomTheme().GetAccentColor();
+
+                        _coordinator = coordinator;
+                        _name = new TextBlock();
+                        _details = new TextBlock();
+                        _priority = new TextBlock();
+
+                        _name.Text = name;
+                        _details.Text = details;
+                        _taskPanel = taskPanel;
+                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
+                        //_quitButton.Visibility = System.Windows.Visibility.Hidden;
+                        _quitButton.MouseDown += _quitButton_MouseDown;
+
+                        SetUpName();
+                        SetUpSeparator();
+                        SetUpPrioritySeparator();
+                        SetUpDetails();
+
+                        this.Children.Add(_name);
+                        this.Children.Add(_nameSeparator);
+                        if(priority != null)
+                        {
+                                this.SetPriorityLayout(priority);
+                                this.Children.Add(_priority);
+                                this.Children.Add(_prioritySeparator);
+                        }
+                       
+                        this.Children.Add(_details);
+                        this.Children.Add(_quitButton);
+                }
+
                 void _quitButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         _taskPanel.UnHover();
+                        _coordinator.ToOptions();
+                        Constants.Debug.CW("TO OPTIONS");
                 }
 
                 private void SetUpDetails()
@@ -69,7 +117,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _prioritySeparator = new Separator();
                         _prioritySeparator.Width = this.Width * 0.85;
                         _prioritySeparator.Background = new Theme.CustomTheme().GetBackground();
-                        _prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
+                      //  _prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
                         _prioritySeparator.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
                 }
 
@@ -78,7 +126,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _nameSeparator = new Separator();
                         _nameSeparator.Width = this.Width * 0.85;
                         _nameSeparator.Background = new Theme.CustomTheme().GetBackground();
-                        _nameSeparator.Visibility = System.Windows.Visibility.Hidden;
+                      //  _nameSeparator.Visibility = System.Windows.Visibility.Hidden;
                         _nameSeparator.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
                 }
 
