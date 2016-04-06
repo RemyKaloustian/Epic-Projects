@@ -57,14 +57,61 @@ namespace EpicProjects.Database
                 /// </summary>
                 /// <param name="name">Name of the task</param>
                 /// <param name="deadline">deadline of the task</param>
-                /// <param name="type">type of the task</param>
-                /// <param name="priority">priority of the task</param>
-                /// <param name="projectid">id of the dedicated project</param>
-                public void InsertTask(string name, string deadline, string type, int priority, string projectName)
-                {
+                ///// <param name="type">type of the task</param>
+                ///// <param name="priority">priority of the task</param>
+                ///// <param name="projectid">id of the dedicated project</param>
+                //public void InsertTask(string name, string deadline, string type, int priority, string projectName)
+                //{
                       
 
-                }//InsertTask
+                //}//InsertTask
+
+                /// <summary>
+                /// Insert a brainstorming in the DB
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                /// <param name="project"></param>
+                public void InsertBrainstorming(string name, string details, string project)
+                {
+
+                }
+
+
+                /// <summary>
+                /// Insert a training in the DB
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                /// <param name="project"></param>
+                public void InsertTraining(string name, string details, string project, string priority)
+                {
+
+                }
+
+                /// <summary>
+                /// Insert an assignment in the DB
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                /// <param name="project"></param>
+                public void InsertAssignment(string name, string details, string project, string priority)
+                {
+
+                }
+
+                /// <summary>
+                /// Insert an assignment in the DB
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                /// <param name="project"></param>
+                public void InsertMaintenance(string name, string details, string project, string priority)
+                {
+
+                }
+
+
 
         }//class Inserter
 }//ns
