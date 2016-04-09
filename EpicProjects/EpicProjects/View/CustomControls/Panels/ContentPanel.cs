@@ -15,6 +15,7 @@ namespace EpicProjects.View.CustomControls.Panels
         /// </summary>
         public class ContentPanel : StackPanel
         {
+                public string _projectName { get; set; }
                 public TaskPanel _taskPanel { get; set; }
                 public DetailsPanel  _detailsPanel { get; set; }
                 public OptionsPanel _optionsPanel { get; set; }
@@ -37,6 +38,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _rightPanel = _optionsPanel;
                         _firstLoad = true;
                         _isOnOptions = true;
+                        _projectName = name;
 
                         //Adding children
                         this.Children.Add(_taskPanel);
@@ -128,7 +130,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public  void LoadBrainstormingAddition()
                 {
 
-                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/2, "New Brainstorming");
+                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/1.5, "New Brainstorming", _projectName);
 
                       
 
