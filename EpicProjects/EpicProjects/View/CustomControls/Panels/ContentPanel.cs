@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.CustomControls.PopUp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,12 +127,10 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public  void LoadBrainstormingAddition()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "NU BRAINSTORLING ?";
-                        block.FontSize = 50;
 
-                        this.Children.Add(block);
+                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/2, "New Brainstorming");
+
+                      
 
                       
                 }

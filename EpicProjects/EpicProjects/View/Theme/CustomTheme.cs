@@ -24,6 +24,12 @@ namespace EpicProjects.View.Theme
                         return (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
                 }
 
+                public SolidColorBrush GetPopUpBackground()
+                {
+                        return (SolidColorBrush)(new BrushConverter().ConvertFrom("#b0bec5"));
+
+                }
+
                 public override FontFamily GetTitleFont()
                 {
                         return new FontFamily("Segoe UI");

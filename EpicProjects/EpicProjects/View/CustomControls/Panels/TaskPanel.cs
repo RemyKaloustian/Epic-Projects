@@ -140,8 +140,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel,  taskPanel._advancedTask._priority);                  
                 }//Trainings_MouseDown()
 
-
-
                 void Assignments_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;

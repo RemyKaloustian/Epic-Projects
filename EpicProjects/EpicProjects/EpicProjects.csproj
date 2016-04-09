@@ -162,6 +162,7 @@
     <Compile Include="View\CustomControls\Panels\DetailsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\NewTaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\OptionsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SingleAdvancedTaskPanel.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="View\CustomControls\Panels\TitlesPanel.cs" />
     <Compile Include="View\CustomControls\PopUp\AlreadyExistingProject.cs" />
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
+    <Compile Include="View\CustomControls\PopUp\NewTaskPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NullInputPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\PopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\RenamePopUp.cs" />
