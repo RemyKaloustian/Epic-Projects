@@ -9,11 +9,11 @@ using System.Windows.Controls;
 
 namespace EpicProjects.View.CustomControls.Panels
 {
+        /// <summary>
+        /// Contains all the task panels 
+        /// </summary>
         public class TaskPanel : StackPanel
         {
-
-               // public DetailsPanel _detailsPanel { get; set; }
-
                 public TaskMasterChief _chief { get; set; }
                 public RightPanelCoordinator _coordinator { get; set; }
 
@@ -24,16 +24,16 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public TaskPanel(DetailsPanel detailsPanel, string name, RightPanelCoordinator coordinator)
                 {
-                        _chief = new TaskMasterChief(name);
-                       // _detailsPanel = detailsPanel;
-                        _coordinator = coordinator;
+                      //Setting up properties
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                         this.Margin = new System.Windows.Thickness(0, 0, 10, 0);
-
                         this.Width = Dimensions.GetWidth() * 0.6;
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
 
+                        //Setting up fields
+                        _chief = new TaskMasterChief(name);
+                        _coordinator = coordinator;
                         _brainstormingList = new List<SingleTaskPanel>();
                         _trainingList = new List<SingleAdvancedTaskPanel>();
                         _assignmentsList = new List<SingleAdvancedTaskPanel>();
@@ -97,37 +97,34 @@ namespace EpicProjects.View.CustomControls.Panels
                 }//FillAssignments()
 
 
+                /// <summary>
+                /// Adds the details of the clicked brainstorming to the optionsPanel
+                /// </summary>
+                /// <param name="sender"></param>
+                /// <param name="e"></param>
                 void brainStorming_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-
                         SingleTaskPanel taskPanel = (SingleTaskPanel)sender;
+                        //Making the hover effect
                         taskPanel.TriggerHover();
+
+                        //UnHovering the previously selected task
                         foreach (SingleTaskPanel task in _brainstormingList)
                         {
                                 if (!task.IsMouseOver)
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
-
                                         task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-
-
-                        //_detailsPanel._name.Text = ;
-                        //_detailsPanel._details.Text = ;
-                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        //_detailsPanel._taskPanel = ;
-
+                        //Displaying the details panel
                         _coordinator.ToDetails(taskPanel._task._name ,  taskPanel._task._details , taskPanel,null);
-
-
-                }
+                }//brainStorming_MouseDown()
 
 
                 void Trainings_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-
                         SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
                         taskPanel.TriggerHover();
                         foreach (SingleAdvancedTaskPanel task in _trainingList)
@@ -140,30 +137,16 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        //_detailsPanel.AddSeparator();
-
-                        //_detailsPanel._name.Text = taskPanel._advancedTask._name;
-                        //_detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        //_detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
-                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        //_detailsPanel._taskPanel = taskPanel;
-
-                        //_coordinator.ToDetails(_detailsPanel);
-
-                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel,  taskPanel._advancedTask._priority);
-                        
-
-
-                  
-                }
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel,  taskPanel._advancedTask._priority);                  
+                }//Trainings_MouseDown()
 
 
 
                 void Assignments_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-
                         SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
                         taskPanel.TriggerHover();
+
                         foreach (SingleAdvancedTaskPanel task in _assignmentsList)
                         {
                                 if (!task.IsMouseOver)
@@ -174,22 +157,11 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        //_detailsPanel.AddSeparator();
-
-                        //_detailsPanel._name.Text = taskPanel._advancedTask._name;
-                        //_detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        //_detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
-                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        //_detailsPanel._taskPanel = taskPanel;
-
-                        //_coordinator.ToDetails(_detailsPanel);
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority);
-                  
-                }
+                }//Assignments_MouseDown()
 
                 void Maintenances_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-
                         SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
                         taskPanel.TriggerHover();
                         foreach (SingleAdvancedTaskPanel task in _maintenancesList)
@@ -202,17 +174,8 @@ namespace EpicProjects.View.CustomControls.Panels
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        //_detailsPanel.AddSeparator();
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority);
-
-                        //_detailsPanel._name.Text = taskPanel._advancedTask._name;
-                        //_detailsPanel._details.Text = taskPanel._advancedTask._details;
-                        //_detailsPanel.SetPriorityLayout(taskPanel._advancedTask._priority);
-                        //_detailsPanel._quitButton.Visibility = System.Windows.Visibility.Visible;
-                        //_detailsPanel._taskPanel = taskPanel;
-
-                        //_coordinator.ToDetails(_detailsPanel);
-                }
+                }//Maintenances_MouseDown()
 
               
         }//class TaskPanel
