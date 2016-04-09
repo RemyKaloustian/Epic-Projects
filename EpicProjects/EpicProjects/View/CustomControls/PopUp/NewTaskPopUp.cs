@@ -41,6 +41,8 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
+                        _cancelButton.MouseDown += _cancelButton_MouseDown;
+
                         _container.Children.Add(_nameBlock);
                         _container.Children.Add(_nameBox);
                         _container.Children.Add(_alertBlock);
@@ -51,6 +53,11 @@ namespace EpicProjects.View.CustomControls.PopUp
 
 
 
+                }
+
+                void _cancelButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        this.Close();
                 }
         }
 }
