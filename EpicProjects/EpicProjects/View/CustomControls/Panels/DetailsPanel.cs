@@ -83,12 +83,11 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Children.Add(_name);
                         this.Children.Add(_nameSeparator);
-                        if(priority != null)
-                        {
-                                this.SetPriorityLayout(priority);
-                                this.Children.Add(_priority);
-                                this.Children.Add(_prioritySeparator);
-                        }
+                       
+                        this.SetPriorityLayout(priority);
+                        this.Children.Add(_priority);
+                        this.Children.Add(_prioritySeparator);
+                       
                        
                         this.Children.Add(_details);
                         this.Children.Add(_quitButton);
@@ -150,15 +149,22 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void SetPriorityLayout(string content)
                 {
-                        _prioritySeparator.Visibility = System.Windows.Visibility.Visible;
+                        _prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
                         _priority.Text = "Priority : " + new PriorityInterpreter(content).Interpret();
 
                         _priority.FontFamily = FontProvider._lato;
                         _priority.FontSize = 22;
                         _priority.Width = this.Width * 0.8;
+                        _priority.Visibility = System.Windows.Visibility.Hidden;
                         _priority.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priority.Foreground = new Theme.CustomTheme().GetBackground();
 
+                }
+
+                public void DisplayPriority(string content)
+                {
+                        _prioritySeparator.Visibility = System.Windows.Visibility.Visible;
+                        _priority.Visibility = System.Windows.Visibility.Visible;
                 }
         }//class DetailsPanel()
 }//ns

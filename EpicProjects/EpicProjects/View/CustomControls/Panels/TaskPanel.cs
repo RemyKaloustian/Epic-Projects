@@ -151,6 +151,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         //_coordinator.ToDetails(_detailsPanel);
 
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel,  taskPanel._advancedTask._priority);
+                        
 
 
                   

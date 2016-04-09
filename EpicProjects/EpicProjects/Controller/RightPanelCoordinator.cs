@@ -48,7 +48,8 @@ namespace EpicProjects.Controller
                         if(_contentPanel._detailsPanel == null)
                         {
                                 DetailsPanel dp = new DetailsPanel(name, details, taskPanel,this, priority);
-                                _contentPanel._detailsPanel = dp; 
+                                _contentPanel._detailsPanel = dp;
+                                _contentPanel._detailsPanel.SetPriorityLayout(priority);
                                 _contentPanel.Children.Add(_contentPanel._detailsPanel);
                                // _contentPanel._rightPanel = _contentPanel._detailsPanel;
                                
@@ -57,11 +58,16 @@ namespace EpicProjects.Controller
                         }
                         else
                         {
+                                //DetailsPanel dp = new DetailsPanel(name, details, taskPanel, this, priority);
+                                //_contentPanel._detailsPanel = dp;
+                                _contentPanel._detailsPanel.SetPriorityLayout(priority);
                                 if(!_contentPanel._isOnOptions)
                                 {
                                         _contentPanel._detailsPanel._name.Text = name;
                                         _contentPanel._detailsPanel._details.Text = details;
                                         _contentPanel._detailsPanel._taskPanel = taskPanel;
+                                        _contentPanel._detailsPanel.SetPriorityLayout(priority);
+
                                 }
                                 else
                                 {
@@ -69,11 +75,16 @@ namespace EpicProjects.Controller
                                         _contentPanel._detailsPanel._name.Text = name;
                                         _contentPanel._detailsPanel._details.Text = details;
                                         _contentPanel._detailsPanel._taskPanel = taskPanel;
+                                        _contentPanel._detailsPanel.SetPriorityLayout(priority);
                                         _contentPanel.Children.Add(_contentPanel._detailsPanel);
                                 }
                                 
                                 //_contentPanel._rightPanel = _contentPanel._detailsPanel;
-
+                                
+                                if(priority != null)
+                                {
+                                        _contentPanel._detailsPanel.DisplayPriority(priority);
+                                }
 
                         }
 
