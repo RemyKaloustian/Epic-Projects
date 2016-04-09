@@ -182,7 +182,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         //_detailsPanel._taskPanel = taskPanel;
 
                         //_coordinator.ToDetails(_detailsPanel);
-                        _coordinator.ToDetails(taskPanel._task._name, taskPanel._task._details, taskPanel, taskPanel._advancedTask._priority);
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority);
                   
                 }
 
@@ -202,7 +202,7 @@ namespace EpicProjects.View.CustomControls.Panels
                                 }
                         }
                         //_detailsPanel.AddSeparator();
-                        _coordinator.ToDetails(taskPanel._task._name, taskPanel._task._details, taskPanel, taskPanel._advancedTask._priority);
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority);
 
                         //_detailsPanel._name.Text = taskPanel._advancedTask._name;
                         //_detailsPanel._details.Text = taskPanel._advancedTask._details;

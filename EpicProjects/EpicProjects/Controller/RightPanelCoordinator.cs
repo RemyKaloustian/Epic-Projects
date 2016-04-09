@@ -23,6 +23,7 @@ namespace EpicProjects.Controller
                         //_contentPanel._rightPanel = _contentPanel._optionsPanel;
                         _contentPanel.Children.Remove(_contentPanel._detailsPanel);
                         _contentPanel.Children.Add(_contentPanel._optionsPanel);
+                        _contentPanel._isOnOptions = true;
                 }
 
                 public void ToDetails(DetailsPanel dp)
@@ -49,16 +50,34 @@ namespace EpicProjects.Controller
                                 DetailsPanel dp = new DetailsPanel(name, details, taskPanel,this, priority);
                                 _contentPanel._detailsPanel = dp; 
                                 _contentPanel.Children.Add(_contentPanel._detailsPanel);
+                               // _contentPanel._rightPanel = _contentPanel._detailsPanel;
+                               
+
 
                         }
                         else
                         {
-                                _contentPanel._detailsPanel._name.Text = name;
-                                _contentPanel._detailsPanel._details.Text = details;
-                                _contentPanel._detailsPanel._taskPanel = taskPanel;
+                                if(!_contentPanel._isOnOptions)
+                                {
+                                        _contentPanel._detailsPanel._name.Text = name;
+                                        _contentPanel._detailsPanel._details.Text = details;
+                                        _contentPanel._detailsPanel._taskPanel = taskPanel;
+                                }
+                                else
+                                {
+                                        Debug.CW("IN ELESE");
+                                        _contentPanel._detailsPanel._name.Text = name;
+                                        _contentPanel._detailsPanel._details.Text = details;
+                                        _contentPanel._detailsPanel._taskPanel = taskPanel;
+                                        _contentPanel.Children.Add(_contentPanel._detailsPanel);
+                                }
+                                
+                                //_contentPanel._rightPanel = _contentPanel._detailsPanel;
+
+
                         }
-                      
-                        
+
+                        _contentPanel._isOnOptions = false;
                         
                 }
         }//class RightPanelCoordinator

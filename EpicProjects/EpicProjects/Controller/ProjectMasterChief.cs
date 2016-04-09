@@ -37,7 +37,7 @@ namespace EpicProjects.Controller
                 /// <param name="projectid">the id of the project linked to the task</param>
                 public void InsertTask(string name, string deadline, string type, int priority, string projectid)
                 {
-                        _guru._propInserter.InsertTask(name, deadline, type, priority, projectid);
+                        //_guru._propInserter.InsertTask(name, deadline, type, priority, projectid);
                 }//InsertTask()
 
         }//class ProjectMasterChief

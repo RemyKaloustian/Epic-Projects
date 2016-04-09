@@ -16,6 +16,9 @@ namespace EpicProjects.View.CustomControls.Panels
                 public OptionsPanel _optionsPanel { get; set; }
                 public StackPanel _rightPanel { get; set; }
 
+                public bool _firstLoad { get; set; }
+                public bool _isOnOptions { get; set; }
+
                 public ContentPanel(string name)
                 {
                         this.Height = Dimensions.GetHeight()*0.75;
@@ -33,10 +36,13 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _rightPanel = _optionsPanel;
 
+                        _firstLoad = true;
+                        _isOnOptions = true;
+
                         this.Children.Add(_taskPanel);
                         //this.Children.Add(_detailsPanel);
-                        //this.Children.Add(_rightPanel);
-                        this.Children.Add(_optionsPanel);
+                        this.Children.Add(_rightPanel);
+                        //this.Children.Add(_optionsPanel);
 
 
                         LoadBrainstorming();
@@ -47,6 +53,18 @@ namespace EpicProjects.View.CustomControls.Panels
                         
 
                         _taskPanel.FillBrainstormings();
+                        if(!_firstLoad && !_isOnOptions)
+                        {
+                                //this.Children.Remove(_detailsPanel);
+                               // this.Children.Add(_optionsPanel);
+                                this._rightPanel = _optionsPanel;
+                        }
+
+                        else if(_firstLoad)
+                        {
+                                _firstLoad = false;
+                        }
+                        
 
                         //this.Children.Add(block);
                 }
@@ -54,6 +72,14 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void LoadTraining()
                 {
                         _taskPanel.FillTrainings();
+                        if(!_isOnOptions)
+                        {
+                                //this.Children.Remove(_detailsPanel);
+                                //this.Children.Add(_optionsPanel);
+                                this._rightPanel = _optionsPanel;
+
+                        }
+                        
 
                 }
 
@@ -61,11 +87,27 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void LoadAssignments()
                 {
                         _taskPanel.FillAssignments();
+                        if(!_isOnOptions)
+                        {
+                                //this.Children.Remove(_detailsPanel);
+                                //this.Children.Add(_optionsPanel);
+                                this._rightPanel = _optionsPanel;
+
+                        }
+                        
                 }
 
                 public void LoadMaintenance()
                 {
                         _taskPanel.FillMaintenances();
+                        if(!_isOnOptions)
+                        {
+                                //this.Children.Remove(_detailsPanel);
+                                //this.Children.Add(_optionsPanel);
+                                this._rightPanel = _optionsPanel;
+
+                        }
+                       
                 }
 
                 public  void LoadBrainstormingAddition()
@@ -109,5 +151,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Children.Add(block);
                 }
+
+                
         }//class ContentPanel
 }//ns
