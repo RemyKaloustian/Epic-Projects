@@ -78,6 +78,8 @@ namespace EpicProjects.Controller
                         }
 
                         _contentPanel._isOnOptions = false;
+
+                        Debug.CW("In ToDetails : _isOnOptions = " + _contentPanel._isOnOptions);
                         
                 }
         }//class RightPanelCoordinator

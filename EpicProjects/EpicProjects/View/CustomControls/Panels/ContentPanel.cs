@@ -55,15 +55,18 @@ namespace EpicProjects.View.CustomControls.Panels
                         _taskPanel.FillBrainstormings();
                         if(!_firstLoad && !_isOnOptions)
                         {
-                                //this.Children.Remove(_detailsPanel);
-                               // this.Children.Add(_optionsPanel);
-                                this._rightPanel = _optionsPanel;
+                                this.Children.Remove(_detailsPanel);
+                                this.Children.Add(_optionsPanel);
+                               // this._rightPanel = _optionsPanel;
+                                _isOnOptions = true;
                         }
 
                         else if(_firstLoad)
                         {
                                 _firstLoad = false;
                         }
+
+
                         
 
                         //this.Children.Add(block);
@@ -74,9 +77,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         _taskPanel.FillTrainings();
                         if(!_isOnOptions)
                         {
-                                //this.Children.Remove(_detailsPanel);
-                                //this.Children.Add(_optionsPanel);
-                                this._rightPanel = _optionsPanel;
+                                this.Children.Remove(_detailsPanel);
+                                this.Children.Add(_optionsPanel);
+                                //this._rightPanel = _optionsPanel;
+                                _isOnOptions = true;
 
                         }
                         
@@ -89,9 +93,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         _taskPanel.FillAssignments();
                         if(!_isOnOptions)
                         {
-                                //this.Children.Remove(_detailsPanel);
-                                //this.Children.Add(_optionsPanel);
-                                this._rightPanel = _optionsPanel;
+                                this.Children.Remove(_detailsPanel);
+                                this.Children.Add(_optionsPanel);
+                                //this._rightPanel = _optionsPanel;
+                                _isOnOptions = true;
 
                         }
                         
@@ -102,9 +107,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         _taskPanel.FillMaintenances();
                         if(!_isOnOptions)
                         {
-                                //this.Children.Remove(_detailsPanel);
-                                //this.Children.Add(_optionsPanel);
-                                this._rightPanel = _optionsPanel;
+                                this.Children.Remove(_detailsPanel);
+                                this.Children.Add(_optionsPanel);
+                                //this._rightPanel = _optionsPanel;
+                                _isOnOptions = true;
 
                         }
                        
