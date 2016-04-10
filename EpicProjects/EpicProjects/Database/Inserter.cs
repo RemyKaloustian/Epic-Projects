@@ -154,7 +154,7 @@ namespace EpicProjects.Database
                                 xmlTextWriter.Flush();
                                 MessageBox.Show(stringWriter.GetStringBuilder().ToString());
                         }
-                }
+                }//InsertAssignment()
 
                 /// <summary>
                 /// Insert an assignment in the DB
@@ -164,8 +164,30 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertMaintenance(string name, string details, string project, string priority)
                 {
+                        Debug.CW("In InsertMaintenance(), project = " + project);
 
-                }
+                        XDocument doc = XDocument.Load("Saves/Maintenances.xml");
+                        XElement root = doc.Root;
+
+                        //Creation of the projects
+                        XElement maintenance = new XElement("Maintenance");
+                        maintenance.Add(new XAttribute("name", name));
+                        maintenance.Add(new XAttribute("details", details));
+
+                        maintenance.Add(new XAttribute("project", project));
+
+                        root.Add(maintenance);
+
+                        doc.Save("Saves/Maintenances.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//InsertMaintenance()
 
 
 
