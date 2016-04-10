@@ -87,27 +87,18 @@ namespace EpicProjects.Database
                         List<Model.Task> brainList = new List<Model.Task>();
 
                         XmlDocument doc = new XmlDocument();
-                        doc.Load(_projectsSavePath);
+                        doc.Load("Saves/Brainstormings.xml");
 
-                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
+                        XmlNodeList nodelist = doc.SelectNodes("Brainstormings/Brainstorming");
 
                         foreach (XmlNode item in nodelist)
                         {
-                                if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
-                                {
-                                        XmlNodeList brainstormings = item[DatabaseValues.BRAINSTORMINGS].ChildNodes;
-
-                                        foreach (XmlNode brain in brainstormings)
-                                        {
+                                Model.Task aBrain = new Model.Task(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText);
                                                 
 
-                                                Model.Task aBrain = new Model.Task(brain.Attributes[DatabaseValues.NAME].InnerText, brain.Attributes[DatabaseValues.DETAILS].InnerText);
-                                                
+                                brainList.Add(aBrain);
 
-                                                brainList.Add(aBrain);
-
-                                        }
-                                }
+                                 
                         }
 
                         return brainList;
