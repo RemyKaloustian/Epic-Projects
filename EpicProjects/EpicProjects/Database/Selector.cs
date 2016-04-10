@@ -93,12 +93,11 @@ namespace EpicProjects.Database
 
                         foreach (XmlNode item in nodelist)
                         {
-                                Model.Task aBrain = new Model.Task(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText);
-                                                
-
-                                brainList.Add(aBrain);
-
-                                 
+                                if(item.Attributes["project"].InnerText == projectName)
+                                {
+                                        Model.Task aBrain = new Model.Task(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText);
+                                        brainList.Add(aBrain);
+                                }
                         }
 
                         return brainList;
@@ -110,26 +109,17 @@ namespace EpicProjects.Database
                         List<Model.AdvancedTask> trainingList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
-                        doc.Load(_projectsSavePath);
+                        doc.Load("Saves/Trainings.xml");
 
-                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
+                        XmlNodeList nodelist = doc.SelectNodes("Trainings/Training");
 
                         foreach (XmlNode item in nodelist)
                         {
-                                if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
-                                {
-                                        XmlNodeList trainings = item[DatabaseValues.TRAININGS].ChildNodes;
+                                if (item.Attributes["project"].InnerText == projectName)
+                                {       
+                                        Model.AdvancedTask aTraining = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText);
 
-                                        foreach (XmlNode training in trainings)
-                                        {
-
-
-                                                Model.AdvancedTask aTraining = new Model.AdvancedTask(training.Attributes[DatabaseValues.NAME].InnerText, training.Attributes[DatabaseValues.DETAILS].InnerText, training.Attributes[DatabaseValues.PRIORITY].InnerText);
-
-
-                                                trainingList.Add(aTraining);
-
-                                        }
+                                            trainingList.Add(aTraining);
                                 }
                         }
 
@@ -143,26 +133,17 @@ namespace EpicProjects.Database
                         List<Model.AdvancedTask> assignmentList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
-                        doc.Load(_projectsSavePath);
+                        doc.Load("Saves/Assignments.xml");
 
-                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
+                        XmlNodeList nodelist = doc.SelectNodes("Assignments/Assignment");
 
                         foreach (XmlNode item in nodelist)
                         {
-                                if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
+                                if (item.Attributes["project"].InnerText == projectName)
                                 {
-                                        XmlNodeList assignments = item[DatabaseValues.ASSIGNMENTS].ChildNodes;
+                                        Model.AdvancedTask anAssignment = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText);
 
-                                        foreach (XmlNode assignment in assignments)
-                                        {
-
-
-                                                Model.AdvancedTask anAssignment = new Model.AdvancedTask(assignment.Attributes[DatabaseValues.NAME].InnerText, assignment.Attributes[DatabaseValues.DETAILS].InnerText, assignment.Attributes[DatabaseValues.PRIORITY].InnerText);
-
-
-                                                assignmentList.Add(anAssignment);
-
-                                        }
+                                        assignmentList.Add(anAssignment);
                                 }
                         }
 
@@ -176,26 +157,17 @@ namespace EpicProjects.Database
                         List<Model.AdvancedTask> maintenanceList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
-                        doc.Load(_projectsSavePath);
+                        doc.Load("Saves/Maintenances.xml");
 
-                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PROJECT_PATH);
+                        XmlNodeList nodelist = doc.SelectNodes("Maintenances/Maintenance");
 
                         foreach (XmlNode item in nodelist)
                         {
-                                if (item.Attributes[DatabaseValues.NAME].InnerText == projectName)
+                                if (item.Attributes["project"].InnerText == projectName)
                                 {
-                                        XmlNodeList maintenances = item[DatabaseValues.MAINTENANCES].ChildNodes;
+                                        Model.AdvancedTask aMaintenance = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText);
 
-                                        foreach (XmlNode maintenance in maintenances)
-                                        {
-
-
-                                                Model.AdvancedTask aMaintenance = new Model.AdvancedTask(maintenance.Attributes[DatabaseValues.NAME].InnerText, maintenance.Attributes[DatabaseValues.DETAILS].InnerText, maintenance.Attributes[DatabaseValues.PRIORITY].InnerText);
-
-
-                                                maintenanceList.Add(aMaintenance);
-
-                                        }
+                                        maintenanceList.Add(aMaintenance);
                                 }
                         }
 
