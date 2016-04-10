@@ -45,7 +45,13 @@ namespace EpicProjects.View
 
                         SetUpWindow(name);
 
+                        this.Closed += ProjectWindow_Closed;
 
+                }
+
+                void ProjectWindow_Closed(object sender, EventArgs e)
+                {
+                        App.Current.Shutdown();
                 }
 
                 private void SetUpWindow(string name)
