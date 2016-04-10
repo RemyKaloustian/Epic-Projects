@@ -8,6 +8,9 @@ using System.Configuration;
 
 using EpicProjects.Constants;
 using System.Xml.Linq;
+using System.Xml;
+using System.IO;
+using System.Windows;
 
 namespace EpicProjects.Database
 {
@@ -21,7 +24,7 @@ namespace EpicProjects.Database
                 public Inserter(string path)
                 {
                         //Setting up the connection settings      
-                       
+
                         _savePath = path;
                 }//Selector()
 
@@ -45,10 +48,10 @@ namespace EpicProjects.Database
 
 
                         root.Add(newProject);
-                     
+
                         //doc.Element("Snippets").Add(root);
                         doc.Save(Paths.PROJECTSSAVE);
-                        
+
                 }//InsertProject()
 
 
@@ -62,7 +65,7 @@ namespace EpicProjects.Database
                 ///// <param name="projectid">id of the dedicated project</param>
                 //public void InsertTask(string name, string deadline, string type, int priority, string projectName)
                 //{
-                      
+
 
                 //}//InsertTask
 
@@ -74,8 +77,30 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertBrainstorming(string name, string details, string project)
                 {
+                        Debug.CW("In InsertBrainstorming(), project = " + project);
 
-                }
+                        XDocument doc = XDocument.Load("Saves/BrainstormingsSave.xml");
+                        XElement root = doc.Root;
+
+                        //Creation of the projects
+                        XElement brain = new XElement("Brainstorming");
+                        brain.Add(new XAttribute("name", name));
+                        brain.Add(new XAttribute("details", details));
+                        brain.Add(new XAttribute("project",project));
+
+                        root.Add(brain);                       
+
+                        doc.Save("Saves/BrainstormingsSave.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                               MessageBox.Show( stringWriter.GetStringBuilder().ToString());
+                        }
+                       
+                }//InsertBrainstorming()
 
 
                 /// <summary>

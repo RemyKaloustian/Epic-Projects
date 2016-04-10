@@ -347,7 +347,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Saves\BrainstormingsSave.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_about.png" />
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_bug.png" />
@@ -357,7 +361,9 @@
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_new.png" />
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_open.png" />
     <Resource Include="Resources\Pictures\WhiteEEEEEE\WHITEEEEEEE_stats.png" />
-    <Resource Include="Saves\ProjectsSave.xml" />
+    <Resource Include="Saves\ProjectsSave.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Pictures\Blue2196F3\BLUE2196F3_about.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
