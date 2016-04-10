@@ -130,7 +130,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public  void LoadBrainstormingAddition()
                 {
 
-                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/1.5, "New Brainstorming", _projectName);
+                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/1.5, ControlsValues.BRAINSTORMING, _projectName, false);
 
                       
 
@@ -139,32 +139,17 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 internal void LoadTrainingAddition()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "NU TRAININg ?";
-                        block.FontSize = 50;
-
-                        this.Children.Add(block);
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.TRAINING, _projectName, true);
                 }
 
                 internal void LoadAssignmentsAddition()
                 {
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "NU ASSIGNMENT ?";
-                        block.FontSize = 50;
-
-                        this.Children.Add(block);
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.ASSIGNMENTS, _projectName, true);
                 }
 
                 internal void LoadMaintenanceAddition()  
-                {                        
-                        this.Children.Clear();
-                        TextBlock block = new TextBlock();
-                        block.Text = "NU MAINTENANCE ?";
-                        block.FontSize = 50;
-
-                        this.Children.Add(block);
+                {
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.MAINTENANCE, _projectName, true);
                 }
 
                 

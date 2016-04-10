@@ -29,7 +29,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.FontSize = 30;
                         _block.FontFamily = FontProvider._lato;
                         _block.Foreground = _theme.GetBackground();
-                        _block.Margin = new Thickness(0, height / 10, 0, 0);
+                        _block.Margin = new Thickness(0, height / 20, 0, 0);
 
                         this.Background = _theme.GetAccentColor();
 

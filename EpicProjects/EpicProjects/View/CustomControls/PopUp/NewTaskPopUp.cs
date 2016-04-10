@@ -12,6 +12,7 @@ namespace EpicProjects.View.CustomControls.PopUp
         public class NewTaskPopUp : PopUp
         {
                 public string _projectName{ get; set; }
+                public string  _section{ get; set; }
 
                 public Separator _separator { get; set; }
 
@@ -26,10 +27,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ValidateButton _validateButton { get; set; }
                 public CancelButton _cancelButton { get; set; }
 
-                public NewTaskPopUp(double width, double height, string content, string projectName)
+                public NewTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced)
                         : base(width,  height,  content)
                 {
                         this.Background = new Theme.CustomTheme().GetPopUpBackground();
+
+                        _block.Text = "New " + content;
+                        _section = content;
 
                         _projectName = projectName;
                         _separator = new Separator();
@@ -83,8 +87,12 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_alertBlock);
                         _container.Children.Add(_detailsBlock);
                         _container.Children.Add(_detailsBox);
-                        _container.Children.Add(_validateButton);
-                        _container.Children.Add(_cancelButton);
+
+                        if (!isAdvanced)
+                        {
+                                _container.Children.Add(_validateButton);
+                                _container.Children.Add(_cancelButton);
+                        }
 
 
 
@@ -92,7 +100,11 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        new TaskMasterChief(_projectName).InsertBrainstorming(_nameBox.Text,_detailsBox.Text);
+                        if (_section == ControlsValues.BRAINSTORMING)
+                        {
+                                new TaskMasterChief(_projectName).InsertBrainstorming(_nameBox.Text, _detailsBox.Text);
+                        }
+                    
                         this.Close();
                 }
 

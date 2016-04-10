@@ -173,7 +173,7 @@ namespace EpicProjects.Database
                         XElement maintenance = new XElement("Maintenance");
                         maintenance.Add(new XAttribute("name", name));
                         maintenance.Add(new XAttribute("details", details));
-
+                        maintenance.Add(new XAttribute("priority", priority));
                         maintenance.Add(new XAttribute("project", project));
 
                         root.Add(maintenance);
