@@ -55,20 +55,7 @@ namespace EpicProjects.Database
                 }//InsertProject()
 
 
-                /// <summary>
-                /// Insert a task in the database
-                /// </summary>
-                /// <param name="name">Name of the task</param>
-                /// <param name="deadline">deadline of the task</param>
-                ///// <param name="type">type of the task</param>
-                ///// <param name="priority">priority of the task</param>
-                ///// <param name="projectid">id of the dedicated project</param>
-                //public void InsertTask(string name, string deadline, string type, int priority, string projectName)
-                //{
-
-
-                //}//InsertTask
-
+           
                 /// <summary>
                 /// Insert a brainstorming in the DB
                 /// </summary>
@@ -111,8 +98,30 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertTraining(string name, string details, string project, string priority)
                 {
+                        Debug.CW("In InsertTraining(), project = " + project);
 
-                }
+                        XDocument doc = XDocument.Load("Saves/Trainings.xml");
+                        XElement root = doc.Root;
+
+                        //Creation of the projects
+                        XElement training = new XElement("Training");
+                        training.Add(new XAttribute("name", name));
+                        training.Add(new XAttribute("details", details));
+                        training.Add(new XAttribute("priority", priority));
+                        training.Add(new XAttribute("project", project));
+
+                        root.Add(training);
+
+                        doc.Save("Saves/Trainings.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//InsertTraining()
 
                 /// <summary>
                 /// Insert an assignment in the DB
