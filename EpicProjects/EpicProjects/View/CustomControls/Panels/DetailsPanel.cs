@@ -174,7 +174,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void SetPriorityLayout(string content)
                 {
                         _prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
-                        _priority.Text = "Priority : " + new PriorityInterpreter(content).Interpret();
+                        _priority.Text = "Priority : " + content;
 
                         _priority.FontFamily = FontProvider._lato;
                         _priority.FontSize = 22;
