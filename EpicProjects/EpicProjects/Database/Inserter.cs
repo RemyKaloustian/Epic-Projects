@@ -79,7 +79,7 @@ namespace EpicProjects.Database
                 {
                         Debug.CW("In InsertBrainstorming(), project = " + project);
 
-                        XDocument doc = XDocument.Load("Saves/BrainstormingsSave.xml");
+                        XDocument doc = XDocument.Load("Saves/Brainstormings.xml");
                         XElement root = doc.Root;
 
                         //Creation of the projects
@@ -90,7 +90,7 @@ namespace EpicProjects.Database
 
                         root.Add(brain);                       
 
-                        doc.Save("Saves/BrainstormingsSave.xml");
+                        doc.Save("Saves/Brainstormings.xml");
 
                         using (var stringWriter = new StringWriter())
                         using (var xmlTextWriter = XmlWriter.Create(stringWriter))
