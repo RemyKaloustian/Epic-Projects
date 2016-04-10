@@ -131,7 +131,29 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertAssignment(string name, string details, string project, string priority)
                 {
+                        Debug.CW("In InsertAssignment(), project = " + project);
 
+                        XDocument doc = XDocument.Load("Saves/Assignments.xml");
+                        XElement root = doc.Root;
+
+                        //Creation of the projects
+                        XElement assignment = new XElement("Assignment");
+                        assignment.Add(new XAttribute("name", name));
+                        assignment.Add(new XAttribute("details", details));
+                        assignment.Add(new XAttribute("priority", priority));
+                        assignment.Add(new XAttribute("project", project));
+
+                        root.Add(assignment);
+
+                        doc.Save("Saves/Assignments.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
                 }
 
                 /// <summary>
