@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.CustomControls.Panels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +28,14 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ValidateButton _validateButton { get; set; }
                 public CancelButton _cancelButton { get; set; }
 
-                public NewTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced)
+                public ContentPanel _contentPanel { get; set; }
+
+                public NewTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced, ContentPanel contentPanel)
                         : base(width,  height,  content)
                 {
                         this.Background = new Theme.CustomTheme().GetPopUpBackground();
+
+                        _contentPanel = contentPanel;
 
                         _block.Text = "New " + content;
                         _section = content;
@@ -103,6 +108,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         if (_section == ControlsValues.BRAINSTORMING)
                         {
                                 new TaskMasterChief(_projectName).InsertBrainstorming(_nameBox.Text, _detailsBox.Text);
+                                _contentPanel.LoadBrainstorming();
                         }
                     
                         this.Close();

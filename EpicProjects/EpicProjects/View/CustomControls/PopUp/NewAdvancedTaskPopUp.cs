@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.CustomControls.Panels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public string  _taskType { get; set; }
 
 
-                public NewAdvancedTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced):base(width,height,content,projectName,isAdvanced)
+                public NewAdvancedTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced, ContentPanel contentPanel):base(width,height,content,projectName,isAdvanced, contentPanel)
                 {
 
                         _priorityBlock = new TextBlock();
@@ -61,16 +62,19 @@ namespace EpicProjects.View.CustomControls.PopUp
                        if(_section == ControlsValues.TRAINING)
                        {
                                new TaskMasterChief(_projectName).InsertTraining(_nameBox.Text, _detailsBox.Text, _priorityBox.Text);
+                               _contentPanel.LoadTraining();
                        }
 
                        else if (_section == ControlsValues.ASSIGNMENTS)
                        {
                                new TaskMasterChief(_projectName).InsertAssignment(_nameBox.Text, _detailsBox.Text, _priorityBox.Text);
+                               _contentPanel.LoadAssignments();
                        }
 
                        else if (_section == ControlsValues.MAINTENANCE)
                        {
                                new TaskMasterChief(_projectName).InsertMaintenance(_nameBox.Text, _detailsBox.Text, _priorityBox.Text);
+                               _contentPanel.LoadMaintenance();
                        }
                 }//_validateButton_MouseDown()
 

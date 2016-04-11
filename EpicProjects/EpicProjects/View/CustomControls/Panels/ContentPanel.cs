@@ -130,26 +130,22 @@ namespace EpicProjects.View.CustomControls.Panels
                 public  void LoadBrainstormingAddition()
                 {
 
-                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/1.5, ControlsValues.BRAINSTORMING, _projectName, false);
-
-                      
-
-                      
+                        NewTaskPopUp newPopUp = new NewTaskPopUp(Dimensions.GetWidth()*0.7,Dimensions.GetHeight()/1.5, ControlsValues.BRAINSTORMING, _projectName, false, this);                      
                 }
 
                 internal void LoadTrainingAddition()
                 {
-                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.TRAINING, _projectName, true);
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.TRAINING, _projectName, true, this);
                 }
 
                 internal void LoadAssignmentsAddition()
                 {
-                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.ASSIGNMENTS, _projectName, true);
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.ASSIGNMENTS, _projectName, true, this);
                 }
 
                 internal void LoadMaintenanceAddition()  
                 {
-                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.MAINTENANCE, _projectName, true);
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.MAINTENANCE, _projectName, true, this);
                 }
 
                 
