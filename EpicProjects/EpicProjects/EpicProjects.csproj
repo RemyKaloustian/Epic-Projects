@@ -108,6 +108,7 @@
     <Compile Include="Controller\PriorityInterpreter.cs" />
     <Compile Include="Controller\ProjectMasterChief.cs" />
     <Compile Include="Controller\RightPanelCoordinator.cs" />
+    <Compile Include="Controller\StateInterpreter.cs" />
     <Compile Include="Controller\TaskMasterChief.cs" />
     <Compile Include="Exception\LaunchException.xaml.cs">
       <DependentUpon>LaunchException.xaml</DependentUpon>

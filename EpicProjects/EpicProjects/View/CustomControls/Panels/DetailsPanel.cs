@@ -21,10 +21,10 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _name { get; set; }
                 public Separator _nameSeparator { get; set; }
                 public TextBlock _priority{ get; set; }
-                public Separator _prioritySeparator { get; set; }   
-                public TextBlock _details { get; set; }
+                public Separator _prioritySeparator { get; set; }                   
                 public TextBlock _stateBlock { get; set; }
-
+                public Separator _stateSeparator { get; set; }
+                public TextBlock _details { get; set; }
                 public CancelButton _quitButton { get; set; }
 
                 public SingleTaskPanel _taskPanel { get; set; }
@@ -140,18 +140,22 @@ namespace EpicProjects.View.CustomControls.Panels
                         _nameSeparator = SetUpSeparator();
                         _prioritySeparator = SetUpSeparator();
                         Constants.Debug.CW("In Details constructor  : prioriy = " + priority);
-                        SetPriorityLayout(priority);
-                        SetUpDetails();
+                        SetPriorityLayout(priority); 
                         SetUpState(state);
+                        _stateSeparator = SetUpSeparator();
+                        SetUpDetails();
+                       
 
                         //Adding the components to the details panel
                         this.Children.Add(_name);
                         this.Children.Add(_nameSeparator);                       
-                        this.SetPriorityLayout(priority);
+                        //this.SetPriorityLayout(priority);
                         this.Children.Add(_priority);
                         this.Children.Add(_prioritySeparator);   
-                        this.Children.Add(_details);
+                        
                         this.Children.Add(_stateBlock);
+                        this.Children.Add(_stateSeparator);
+                        this.Children.Add(_details);
                         this.Children.Add(_quitButton);
                 }
 
@@ -253,10 +257,11 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 internal void SetUpState(string state)
                 {
-                        _stateBlock.Text = "State : " + state;
+                        _stateBlock.Text = "State : " + new StateInterpreter(state).ToUIState();
                         Constants.Debug.CW("In SetupState(), state = " + _stateBlock.Text);
                         _stateBlock.FontFamily = FontProvider._lato;
-                        _stateBlock.FontSize = 20;
+                        _stateBlock.FontSize = 22;
+                        _stateBlock.Width = this.Width * 0.8;
                         _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
                 }
 
