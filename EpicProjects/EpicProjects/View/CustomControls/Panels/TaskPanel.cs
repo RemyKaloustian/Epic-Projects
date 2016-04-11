@@ -114,12 +114,12 @@ namespace EpicProjects.View.CustomControls.Panels
                                 if (!task.IsMouseOver)
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
-                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
                         //Displaying the details panel
-                        _coordinator.ToDetails(taskPanel._task._name ,  taskPanel._task._details , taskPanel,null);
+                        _coordinator.ToDetails(taskPanel._task._name ,  taskPanel._task._details , taskPanel);
                 }//brainStorming_MouseDown()
 
 
@@ -133,17 +133,17 @@ namespace EpicProjects.View.CustomControls.Panels
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
 
-                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel,  taskPanel._advancedTask._priority);                  
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority, taskPanel._advancedTask._state);                  
                 }//Trainings_MouseDown()
 
                 void Assignments_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         SingleAdvancedTaskPanel taskPanel = (SingleAdvancedTaskPanel)sender;
-                        taskPanel.TriggerHover();
+                      taskPanel.TriggerHover();
 
                         foreach (SingleAdvancedTaskPanel task in _assignmentsList)
                         {
@@ -151,11 +151,11 @@ namespace EpicProjects.View.CustomControls.Panels
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
 
-                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority);
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority,  taskPanel._advancedTask._state);
                 }//Assignments_MouseDown()
 
                 void Maintenances_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -168,11 +168,11 @@ namespace EpicProjects.View.CustomControls.Panels
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
 
-                                        task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
-                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority);
+                        _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority, taskPanel._advancedTask._state);
                 }//Maintenances_MouseDown()
 
               

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 
 using EpicProjects.Model;
+using EpicProjects.Constants;
 namespace EpicProjects.View.CustomControls.Panels
 {
 
@@ -20,9 +21,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _advancedTask = aTask;
 
                         _content.Text = _advancedTask._name;
-                        
+                 }
 
-
-                }
+             
         }//class SingleAdvancedTaskPanel
 }//ns

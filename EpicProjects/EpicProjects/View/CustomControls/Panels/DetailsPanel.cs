@@ -14,8 +14,7 @@ namespace EpicProjects.View.CustomControls.Panels
         /// </summary>
         public class DetailsPanel : StackPanel
         {
-                private   string details;
-                private   SingleTaskPanel taskPanel;
+                
 
                 public RightPanelCoordinator _coordinator { get; set; }
 
@@ -24,6 +23,8 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _priority{ get; set; }
                 public Separator _prioritySeparator { get; set; }   
                 public TextBlock _details { get; set; }
+                public TextBlock _stateBlock { get; set; }
+
                 public CancelButton _quitButton { get; set; }
 
                 public SingleTaskPanel _taskPanel { get; set; }
@@ -40,6 +41,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name = new TextBlock();
                         _details = new TextBlock();
                         _priority = new TextBlock();
+                        
+
                         _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
                         _quitButton.Visibility = System.Windows.Visibility.Hidden;
                         _quitButton.MouseDown += _quitButton_MouseDown;
@@ -48,7 +51,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         SetUpSeparator();
                         SetUpPrioritySeparator();
                         SetUpDetails();
-
+                     
                         this.Children.Add(_name);
                         this.Children.Add(_nameSeparator);
                         this.Children.Add(_priority);
@@ -57,7 +60,57 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_quitButton);
                 }
 
-                public    DetailsPanel(string name,string details,SingleTaskPanel taskPanel, RightPanelCoordinator coordinator, string priority)
+
+                /// <summary>
+                /// Is used for brainstormings
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                /// <param name="taskPanel"></param>
+                /// <param name="coordinator"></param>
+                public DetailsPanel(string name, string details, SingleTaskPanel taskPanel, RightPanelCoordinator coordinator)
+                {
+                        //Setting up the details panel properties
+                        this.Orientation = Orientation.Vertical;
+                        this.Width = Dimensions.GetWidth() * 0.27;
+                        this.Height = Dimensions.GetHeight() * 0.8;
+                        this.Background = new Theme.CustomTheme().GetAccentColor();
+
+                        //Setting up the fields
+                        _coordinator = coordinator;
+                        _name = new TextBlock();
+                        _details = new TextBlock();                       
+
+                        _name.Text = name;
+                        _details.Text = details;
+                        _taskPanel = taskPanel;
+                        _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _quitButton.MouseDown += _quitButton_MouseDown;
+
+                        //Setting up the components
+                        SetUpName();
+                        SetUpSeparator();                        
+                        SetUpDetails();
+                        
+
+                        //Adding the components to the details panel
+                        this.Children.Add(_name);
+                        this.Children.Add(_nameSeparator);                       
+                        this.Children.Add(_details);                       
+                        this.Children.Add(_quitButton);
+                }
+
+
+                /// <summary>
+                /// Is used for advanced tasks
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                /// <param name="taskPanel"></param>
+                /// <param name="coordinator"></param>
+                /// <param name="priority"></param>
+                /// <param name="state"></param>
+                public    DetailsPanel(string name,string details,SingleTaskPanel taskPanel, RightPanelCoordinator coordinator, string priority, string state)
                 {
                 // TODO: Complete member initialization
                      
@@ -72,6 +125,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name = new TextBlock();
                         _details = new TextBlock();
                         _priority = new TextBlock();
+                        _stateBlock = new TextBlock();
+                        _prioritySeparator = new Separator();
+                        
 
                         _name.Text = name;
                         _details.Text = details;
@@ -83,7 +139,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         SetUpName();
                         SetUpSeparator();
                         SetUpPrioritySeparator();
+                        SetPriorityLayout(priority);
                         SetUpDetails();
+                        SetUpState(state);
 
                         //Adding the components to the details panel
                         this.Children.Add(_name);
@@ -92,6 +150,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_priority);
                         this.Children.Add(_prioritySeparator);   
                         this.Children.Add(_details);
+                        this.Children.Add(_stateBlock);
                         this.Children.Add(_quitButton);
                 }
 
@@ -173,6 +232,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 /// <param name="content"></param>
                 public void SetPriorityLayout(string content)
                 {
+                        _prioritySeparator = new Separator();
                         _prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
                         _priority.Text = "Priority : " + content;
 
@@ -183,6 +243,14 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priority.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priority.Foreground = new Theme.CustomTheme().GetBackground();
 
+                }
+
+                internal void SetUpState(string state)
+                {
+                        _stateBlock.Text = "State : " + state;
+                        _stateBlock.FontFamily = FontProvider._lato;
+                        _stateBlock.FontSize = 20;
+                        _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
                 }
 
                 /// <summary>

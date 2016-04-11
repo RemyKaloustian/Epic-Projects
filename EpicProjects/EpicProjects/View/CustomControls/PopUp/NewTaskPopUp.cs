@@ -99,8 +99,6 @@ namespace EpicProjects.View.CustomControls.PopUp
                                 _container.Children.Add(_cancelButton);
                         }
 
-
-
                 }
 
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

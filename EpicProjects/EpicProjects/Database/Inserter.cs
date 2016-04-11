@@ -109,6 +109,7 @@ namespace EpicProjects.Database
                         training.Add(new XAttribute("details", details));
                         training.Add(new XAttribute("priority", priority));
                         training.Add(new XAttribute("project", project));
+                        training.Add(new XAttribute("state", States.OPEN));
 
                         root.Add(training);
 
@@ -142,6 +143,7 @@ namespace EpicProjects.Database
                         assignment.Add(new XAttribute("details", details));
                         assignment.Add(new XAttribute("priority", priority));
                         assignment.Add(new XAttribute("project", project));
+                        assignment.Add(new XAttribute("state", States.OPEN));
 
                         root.Add(assignment);
 
@@ -175,6 +177,7 @@ namespace EpicProjects.Database
                         maintenance.Add(new XAttribute("details", details));
                         maintenance.Add(new XAttribute("priority", priority));
                         maintenance.Add(new XAttribute("project", project));
+                        maintenance.Add(new XAttribute("state", States.OPEN));
 
                         root.Add(maintenance);
 

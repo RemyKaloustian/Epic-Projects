@@ -32,11 +32,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 
 
-                        SetUpCheckBox();
+                        //SetUpCheckBox();
 
                         SetUpContent();
 
-                       this.Children.Add(_checkBoxBorder);
+                      // this.Children.Add(_checkBoxBorder);
                         this.Children.Add(_content);
                 }
 
@@ -50,7 +50,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetAccentColor();
                         _task = task;
 
-                        SetUpCheckBox();
+                        //SetUpCheckBox();
 
                         SetUpContent();
 
@@ -74,7 +74,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 private void SetUpCheckBox()
                 {
                         _checkBox = new StackPanel();
-                        _checkBox.Background = new Theme.CustomTheme().GetAccentColor();
+                        //_checkBox.Background = new Theme.CustomTheme().GetAccentColor();
 
                         _checkBoxBorder = new Border();
                         _checkBoxBorder.Width = Dimensions.GetWidth() * 0.02;
@@ -93,7 +93,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         this.Background = new Theme.CustomTheme().GetBackground();
 
-                        _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetAccentColor();
+                       //_checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetAccentColor();
                         _content.Foreground = new Theme.CustomTheme().GetAccentColor();
                 }
 
@@ -101,7 +101,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 
-                        _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
+                       // _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                         _content.Foreground = new Theme.CustomTheme().GetBackground();
                 }
         }

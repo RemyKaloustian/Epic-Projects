@@ -32,8 +32,7 @@ namespace EpicProjects.Constants
                 public static readonly string NAME = "name";
                 public static readonly string DETAILS = "details";
                 public static readonly string PRIORITY = "priority";
-
-
+                public static readonly string STATE = "state";
 
                 public static readonly string STARTDATE = "startdate";
                 public static readonly string ENDDATE = "enddate";

@@ -31,55 +31,114 @@ namespace EpicProjects.Controller
                         _contentPanel._isOnOptions = true;
                 }
 
-                /// <summary>
-                /// Displays the Details panel
-                /// </summary>
-                /// <param name="dp"></param>
-                internal void ToDetails(string name, string details, SingleTaskPanel taskPanel, string priority)
+                internal void ToDetails(string name, string details, SingleTaskPanel taskPanel)
                 {
                         //Removing the options panel so that the right panel can become the details panel
                         _contentPanel.Children.Remove(_contentPanel._optionsPanel);
+                                DetailsPanel dp = new DetailsPanel(name, details, taskPanel, this);
 
                         //If the details panel has not been instantiated
-                        if(_contentPanel._detailsPanel == null)
+                        if (_contentPanel._detailsPanel == null)
                         {
                                 //We create a new details panel and add it to the content panel
-                                DetailsPanel dp = new DetailsPanel(name, details, taskPanel,this, priority);
                                 _contentPanel._detailsPanel = dp;
-                                _contentPanel._detailsPanel.SetPriorityLayout(priority);
+                                _contentPanel.Children.Add(_contentPanel._detailsPanel);
+                        }
+                        else
+                        {
+                                _contentPanel.Children.Remove(_contentPanel._detailsPanel);
+                                _contentPanel._detailsPanel = dp;
                                 _contentPanel.Children.Add(_contentPanel._detailsPanel);  
                         }
                         //If the details panel already exists
-                        else
-                        {
-                              //We set the priority 
-                                _contentPanel._detailsPanel.SetPriorityLayout(priority);
+                        //else
+                        //{
+                        //        //We set the priority 
 
-                                //If we are not on the options panel
-                                if(!_contentPanel._isOnOptions)
-                                {
-                                        //We just change the content of the details panel
-                                        SetUpDetailsContent(name, details, taskPanel, priority);
-                                }
+                        //        //If we are not on the options panel
+                        //        if (!_contentPanel._isOnOptions)
+                        //        {
+                        //                //We just change the content of the details panel
+                        //                SetUpDetailsContent(name, details, taskPanel);
+                        //        }
 
-                                else
-                                {
-                                        SetUpDetailsContent(name, details, taskPanel, priority);
-                                        //We are not on a details panel, so we add the one created to the layout
-                                        _contentPanel.Children.Add(_contentPanel._detailsPanel);
-                                }                                
-                                
-                                if(priority != null)
-                                {
-                                        //There is a priority to display, so we display it
-                                        _contentPanel._detailsPanel.DisplayPriority(priority);
-                                }
+                        //        else
+                        //        {
+                        //                SetUpDetailsContent(name, details, taskPanel);
+                        //                //We are not on a details panel, so we add the one created to the layout
+                        //                _contentPanel.Children.Add(_contentPanel._detailsPanel);
+                        //        }
 
-                        }
+                        //}
 
                         //We are on the details panel, we are no longer on the options panel
                         _contentPanel._isOnOptions = false;
                 }//ToDetails
+
+
+                /// <summary>
+                /// Displays the Details panel, is used for advanced tasks
+                /// </summary>
+                /// <param name="dp"></param>
+                internal void ToDetails(string name, string details, SingleTaskPanel taskPanel, string priority, string state)
+                {
+                        //Removing the options panel so that the right panel can become the details panel
+                        _contentPanel.Children.Remove(_contentPanel._optionsPanel);
+
+                        DetailsPanel dp = new DetailsPanel(name, details, taskPanel,this, priority, state);
+                        //If the details panel has not been instantiated
+                        if(_contentPanel._detailsPanel == null)
+                        {
+                                //We create a new details panel and add it to the content panel
+                                
+                                _contentPanel._detailsPanel = dp;
+                                _contentPanel.Children.Add(_contentPanel._detailsPanel);  
+                        }
+
+                        else
+                        {
+                                _contentPanel.Children.Remove(_contentPanel._detailsPanel);
+                                _contentPanel._detailsPanel = dp;
+                                _contentPanel.Children.Add(_contentPanel._detailsPanel);  
+                        }
+                        //If the details panel already exists
+                        //else
+                        //{
+                        //      //We set the priority 
+                        //        _contentPanel._detailsPanel.SetPriorityLayout(priority);
+
+                        //        //If we are not on the options panel
+                        //        if(!_contentPanel._isOnOptions)
+                        //        {
+                        //                //We just change the content of the details panel
+                        //                SetUpDetailsContent(name, details, taskPanel, priority);
+                        //        }
+
+                        //        else
+                        //        {
+                        //                SetUpDetailsContent(name, details, taskPanel, priority);
+                        //                //We are not on a details panel, so we add the one created to the layout
+                        //                _contentPanel.Children.Add(_contentPanel._detailsPanel);
+                        //        }                                
+                                
+                        //        if(priority != null)
+                        //        {
+                        //                //There is a priority to display, so we display it
+                        //                _contentPanel._detailsPanel.DisplayPriority(priority);
+                        //        }
+
+                        //}
+
+                        //We are on the details panel, we are no longer on the options panel
+                        _contentPanel._isOnOptions = false;
+                }//ToDetails
+
+                private void SetUpDetailsContent(string name, string details, SingleTaskPanel taskPanel)
+                {
+                        _contentPanel._detailsPanel._name.Text = name;
+                        _contentPanel._detailsPanel._details.Text = details;
+                        _contentPanel._detailsPanel._taskPanel = taskPanel;
+                }//SetUpDetailsContent()
 
                 private void SetUpDetailsContent(string name, string details, SingleTaskPanel taskPanel, string priority)
                 {
