@@ -90,19 +90,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Constants\ControlsValues.cs" />
-    <Compile Include="Constants\Dimensions.cs" />
-    <Compile Include="Constants\FontProvider.cs" />
+    <Compile Include="Constants\UI\ControlsValues.cs" />
+    <Compile Include="Constants\Utils\Dimensions.cs" />
+    <Compile Include="Constants\Utils\FontProvider.cs" />
     <Compile Include="Constants\Images\CustomImages.cs" />
-    <Compile Include="Constants\ModelConstants.cs" />
-    <Compile Include="Constants\Palette2.cs" />
-    <Compile Include="Constants\Paths.cs" />
-    <Compile Include="Constants\Priorities.cs" />
-    <Compile Include="Constants\Shortcuts.cs" />
-    <Compile Include="Constants\States.cs" />
-    <Compile Include="Constants\Tooltips.cs" />
-    <Compile Include="Constants\UIStates.cs" />
-    <Compile Include="Constants\WindowsTitle.cs" />
+    <Compile Include="Constants\Model\ModelConstants.cs" />
+    <Compile Include="Constants\Colors\Palette2.cs" />
+    <Compile Include="Constants\Structure\Paths.cs" />
+    <Compile Include="Constants\Model\Priorities.cs" />
+    <Compile Include="Constants\UI\Shortcuts.cs" />
+    <Compile Include="Constants\Model\States.cs" />
+    <Compile Include="Constants\UI\Tooltips.cs" />
+    <Compile Include="Constants\UI\UIStates.cs" />
+    <Compile Include="Constants\UI\WindowsTitle.cs" />
     <Compile Include="Controller\Captain.cs" />
     <Compile Include="Controller\EventCoordinator.cs" />
     <Compile Include="Controller\Masterchief.cs" />
@@ -213,9 +213,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Constants\Brushes.cs" />
-    <Compile Include="Constants\DatabaseValues.cs" />
-    <Compile Include="Constants\Debug.cs" />
+    <Compile Include="Constants\Colors\Brushes.cs" />
+    <Compile Include="Constants\Model\DatabaseValues.cs" />
+    <Compile Include="Constants\Utils\Debug.cs" />
     <Compile Include="Database\DatabaseGuru.cs" />
     <Compile Include="Database\Deleter.cs" />
     <Compile Include="Database\Inserter.cs" />
