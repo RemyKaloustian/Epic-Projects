@@ -210,7 +210,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 private void _updateButton_MouseDownAdvanced(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         this.Children.Remove(_container);
-                        _taskUpdater = new TaskUpdater(_name.Text, _details.Text, _priority.Text,_stateBlock.Text);
+                        _taskUpdater = new TaskUpdater(_name.Text, _details.Text, _priority.Text,_stateBlock.Text, this.Width, this.Height);
                         _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
                         _taskUpdater._applyButton.MouseDown += _applyButton_MouseDownAdvanced;
                         this.Children.Add(_taskUpdater);
