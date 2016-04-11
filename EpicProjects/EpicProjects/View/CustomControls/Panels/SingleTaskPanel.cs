@@ -14,9 +14,6 @@ namespace EpicProjects.View.CustomControls.Panels
         { 
                 public Model.Task _task { get; set; }
 
-                public Border _checkBoxBorder { get; set; }
-                public StackPanel _checkBox { get; set; }
-
                 public TextBlock _content { get; set; }
                 public bool _isSelected { get; set; }
 
@@ -30,13 +27,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.MinHeight = Dimensions.GetHeight() / 20;
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
-
-
-                        //SetUpCheckBox();
-
                         SetUpContent();
-
-                      // this.Children.Add(_checkBoxBorder);
                         this.Children.Add(_content);
                 }
 
@@ -50,13 +41,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetAccentColor();
                         _task = task;
 
-                        //SetUpCheckBox();
-
                         SetUpContent();
 
                         _content.Text = _task._name;
 
-                        //this.Children.Add(_checkBoxBorder);
                         this.Children.Add(_content);
                 }
 
@@ -69,40 +57,19 @@ namespace EpicProjects.View.CustomControls.Panels
                         _content.Foreground = new Theme.CustomTheme().GetBackground();
                         _content.Margin = new System.Windows.Thickness(10, 0, 0, 0);
                         _content.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                }
-
-                private void SetUpCheckBox()
-                {
-                        _checkBox = new StackPanel();
-                        //_checkBox.Background = new Theme.CustomTheme().GetAccentColor();
-
-                        _checkBoxBorder = new Border();
-                        _checkBoxBorder.Width = Dimensions.GetWidth() * 0.02;
-                        _checkBoxBorder.Height = Dimensions.GetWidth() * 0.02;
-                        _checkBoxBorder.Margin = new System.Windows.Thickness(10, 0, 0, 0);
-
-                        _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
-                        _checkBoxBorder.BorderThickness = new System.Windows.Thickness(1);
-
-                        _checkBoxBorder.Child = _checkBox;
-                }
-
-            
+                }            
 
                 internal void TriggerHover()
                 {
                         this.Background = new Theme.CustomTheme().GetBackground();
-
-                       //_checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetAccentColor();
                         _content.Foreground = new Theme.CustomTheme().GetAccentColor();
                 }
 
                 internal void UnHover()
                 {
                         this.Background = new Theme.CustomTheme().GetAccentColor();
-
-                       // _checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                         _content.Foreground = new Theme.CustomTheme().GetBackground();
                 }
-        }
-}
+
+        }//class SingleTaskPanel
+}//ns

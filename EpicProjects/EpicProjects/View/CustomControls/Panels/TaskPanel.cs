@@ -114,7 +114,6 @@ namespace EpicProjects.View.CustomControls.Panels
                                 if (!task.IsMouseOver)
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
-                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
@@ -133,7 +132,6 @@ namespace EpicProjects.View.CustomControls.Panels
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
 
-                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
@@ -152,7 +150,6 @@ namespace EpicProjects.View.CustomControls.Panels
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
 
-                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }
@@ -169,7 +166,6 @@ namespace EpicProjects.View.CustomControls.Panels
                                 {
                                         task.Background = new Theme.CustomTheme().GetAccentColor();
 
-                                        //task._checkBoxBorder.BorderBrush = new Theme.CustomTheme().GetBackground();
                                         task._content.Foreground = new Theme.CustomTheme().GetBackground();
                                 }
                         }

@@ -17,9 +17,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public SingleAdvancedTaskPanel(AdvancedTask aTask):base()
                 { 
-                        //this.Children.Add(_checkBoxBorder);
                         _advancedTask = aTask;
-
                         _content.Text = _advancedTask._name;
                  }
 
