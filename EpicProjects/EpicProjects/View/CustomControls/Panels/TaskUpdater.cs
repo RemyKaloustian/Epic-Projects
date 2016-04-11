@@ -126,35 +126,43 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 private void FillPriorityCombo(string priority)
                 {
+                        Constants.Debug.CW("in FillPriorityCombo(), priority =  " + priority);
                         _priorityCombo.Items.Add(Priorities.NOT_IMPORTANT);
                         _priorityCombo.Items.Add(Priorities.LESS_IMPORTANT);
                         _priorityCombo.Items.Add(Priorities.IMPORTANT);                       
                         _priorityCombo.Items.Add(Priorities.ULTRA_IMPORTANT); 
                         _priorityCombo.Items.Add(Priorities.MOST_IMPORTANT);
 
-                        if(priority == Priorities.NOT_IMPORTANT)
+                        if(priority.Contains(Priorities.NOT_IMPORTANT))
                         {
-                                _priorityCombo.SelectedItem = _priorityCombo.Items[0];                               
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[0];  
+                                Constants.Debug.CW("Priority Not Important, items[0] = " +_priorityCombo.Items[0] );
                         }
 
-                        else if (priority == Priorities.LESS_IMPORTANT)
+                        else if (priority.Contains( Priorities.LESS_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[1];
+                                Constants.Debug.CW("Priority Less Important, items[1] = " + _priorityCombo.Items[1]);
+
                         }
 
-                        else if (priority == Priorities.IMPORTANT)
+                        else if (priority.Contains( Priorities.IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[2];
+                                Constants.Debug.CW("Priority  Important, items[2] = " + _priorityCombo.Items[2]);
+
                         }
 
-                        else if (priority == Priorities.ULTRA_IMPORTANT)
+                        else if (priority.Contains( Priorities.ULTRA_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[3];
+                                Constants.Debug.CW("Priority  Ultra Important, items[3] = " + _priorityCombo.Items[3]);
                         }
 
-                        else if (priority == Priorities.MOST_IMPORTANT)
+                        else if (priority.Contains( Priorities.MOST_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[4];
+                                Constants.Debug.CW("Priority  Most Important, items[4] = " + _priorityCombo.Items[4]);
                         }
                 }//FillPriorityCombo()
 
@@ -165,17 +173,17 @@ namespace EpicProjects.View.CustomControls.Panels
                         _stateCombo.Items.Add(States.UIPROGRESS);
                         _stateCombo.Items.Add(States.UIDONE);
 
-                        if(state == States.OPEN)
+                        if(state.Contains( States.OPEN))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[0];
                         }
 
-                        else if (state == States.PROGRESS)
+                        else if (state.Contains( States.PROGRESS))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[0];
                         }
 
-                        else if (state == States.DONE)
+                        else if (state.Contains( States.DONE))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[0];
                         }
