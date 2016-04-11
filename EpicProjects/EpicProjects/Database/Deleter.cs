@@ -96,5 +96,33 @@ namespace EpicProjects.Database
                         }
                 }//DeleteBrainstorming()
 
+                public void DeleteTraining(string name, string project)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(Paths.TRAININGS_SAVE);
+                        Debug.CW("In Deleter, name = " + name + " , project = " + project);
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.TRAININGS_PATH);
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes[DatabaseValues.PROJECT_LINK].InnerText == project && item.Attributes[DatabaseValues.NAME].InnerText == name)
+                                {
+                                        Debug.CW("Removing item");
+                                        item.ParentNode.RemoveChild(item);
+                                }
+                        }
+
+
+                        doc.Save(Paths.TRAININGS_SAVE);
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//DeleteTraining()
+
         }//class Deleter
 }//ns

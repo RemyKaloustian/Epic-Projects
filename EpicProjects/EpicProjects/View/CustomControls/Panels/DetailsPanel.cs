@@ -200,6 +200,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _updateButton.MouseDown += _updateButton_MouseDownAdvanced;
 
+
+                        _deleteButton = new CancelButton(ControlsValues.DELETE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _deleteButton.MouseDown += _deleteButton_MouseDown;
+
                         _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,20,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
@@ -223,6 +228,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _container.Children.Add(_stateSeparator);
                         _container.Children.Add(_details);
                         _container.Children.Add(_updateButton);
+                        _container.Children.Add(_deleteButton);
                         _container.Children.Add(_quitButton);
 
                         this.Children.Add(_container);
