@@ -116,7 +116,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _container.Children.Add(_quitButton);
 
                         this.Children.Add(_container);
-                }
+                }//Constructor 1 
 
                 void _updateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
@@ -162,6 +162,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 
+                        _container = new StackPanel();
+                        _container.Orientation = System.Windows.Controls.Orientation.Vertical;
                         //Setting up the fields
                         _coordinator = coordinator;
                         _name = new TextBlock();
@@ -174,6 +176,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name.Text = name;
                         _details.Text = details;
                         _taskPanel = taskPanel;
+                        _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _updateButton.MouseDown += _updateButton_MouseDownAdvanced;
+
                         _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
@@ -189,16 +194,54 @@ namespace EpicProjects.View.CustomControls.Panels
                        
 
                         //Adding the components to the details panel
-                        this.Children.Add(_name);
-                        this.Children.Add(_nameSeparator);                       
-                        //this.SetPriorityLayout(priority);
-                        this.Children.Add(_priority);
-                        this.Children.Add(_prioritySeparator);   
+                        _container.Children.Add(_name);
+                        _container.Children.Add(_nameSeparator);                       
+                        _container.Children.Add(_priority);
+                        _container.Children.Add(_prioritySeparator);
+
+                        _container.Children.Add(_stateBlock);
+                        _container.Children.Add(_stateSeparator);
+                        _container.Children.Add(_details);
+                        _container.Children.Add(_updateButton);
+                        _container.Children.Add(_quitButton);
+
+                        this.Children.Add(_container);
+                }//Constructor 2
+
+                private void _updateButton_MouseDownAdvanced(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        this.Children.Remove(_container);
+                        _taskUpdater = new TaskUpdater(_name.Text, _details.Text, _priority.Text,_stateBlock.Text);
+                        _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
+                        _taskUpdater._applyButton.MouseDown += _applyButton_MouseDownAdvanced;
+                        this.Children.Add(_taskUpdater);
+
+                     
+                }
+
+                private void _applyButton_MouseDownAdvanced(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        if (_coordinator._contentPanel._UIState == UIStates.ON_TRAINING)
+                        {
+                                new TaskMasterChief(_coordinator._contentPanel._projectName).UpdateTraining(_name.Text, _taskUpdater._nameBox.Text, _taskUpdater._detailsBox.Text, _taskUpdater._priorityCombo.SelectedItem.ToString(), _taskUpdater._stateCombo.SelectedItem.ToString());
+                                _coordinator._contentPanel.LoadTraining();
+
+                        }
+
+                        else if (_coordinator._contentPanel._UIState == UIStates.ON_ASSIGNMENT)
+                        {
+                                _coordinator._contentPanel.LoadAssignments();
+                        }
+
+                        else if (_coordinator._contentPanel._UIState == UIStates.ON_MAINTENANCE)
+                        {
+                                _coordinator._contentPanel.LoadMaintenance();
+                        }
+
+
+                        this.Children.Remove(_taskUpdater);
+                        this.Children.Add(_container);
                         
-                        this.Children.Add(_stateBlock);
-                        this.Children.Add(_stateSeparator);
-                        this.Children.Add(_details);
-                        this.Children.Add(_quitButton);
                 }
 
                 /// <summary>

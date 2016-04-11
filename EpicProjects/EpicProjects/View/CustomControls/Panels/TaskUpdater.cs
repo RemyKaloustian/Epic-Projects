@@ -10,6 +10,7 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class TaskUpdater : StackPanel
         {
+                //Brainstorming fields
                 public TextBlock _nameBlock { get; set; }
                 public TextBox _nameBox { get; set; }
 
@@ -19,7 +20,21 @@ namespace EpicProjects.View.CustomControls.Panels
                 public ValidateButton _applyButton { get; set; }
                 public CancelButton _nopeButton { get; set; }
 
+                //Advanced fields
 
+                public TextBlock _priorityBlock { get; set; }
+                public ComboBox _priorityCombo { get; set; }
+
+                public TextBlock _stateBlock{ get; set; }
+                public ComboBox _stateCombo { get; set; }
+
+                
+
+                /// <summary>
+                /// Used for brainstormings
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
                 public TaskUpdater(string name, string details)
                 {
                         this.Orientation = Orientation.Vertical;
@@ -52,6 +67,120 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_applyButton);
                         this.Children.Add(_nopeButton);
                 }
+
+
+                /// <summary>
+                /// Used for brainstormings
+                /// </summary>
+                /// <param name="name"></param>
+                /// <param name="details"></param>
+                public TaskUpdater(string name, string details, string priority, string state)
+                {
+                        this.Orientation = Orientation.Vertical;
+
+                        _nameBlock = new TextBlock();
+                        _nameBlock.Text = "Name";
+
+                        _nameBox = new TextBox();
+                        _nameBox.Text = name;
+                        _nameBox.TextWrapping = System.Windows.TextWrapping.Wrap;
+
+                        _detailsBlock = new TextBlock();
+                        _detailsBlock.Text = "Details";
+
+                        _detailsBox = new TextBox();
+                        _detailsBox.Text = details;
+                        _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
+
+                        _priorityBlock = new TextBlock();
+                        _priorityBlock.Text = "Priority";
+
+                        _priorityCombo = new ComboBox();
+
+                        FillPriorityCombo(priority);
+
+                        _stateBlock = new TextBlock();
+                        _stateBlock.Text = "State";
+
+                        _stateCombo = new ComboBox();
+                        FillStateCombo(state);
+
+
+                        _applyButton = new ValidateButton(ControlsValues.APPLY, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _nopeButton = new CancelButton(ControlsValues.NOPE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+
+                        this.Children.Add(_nameBlock);
+                        this.Children.Add(_nameBox);
+                        this.Children.Add(_priorityBlock);
+                        this.Children.Add(_priorityCombo);
+                        this.Children.Add(_stateBlock);
+                        this.Children.Add(_stateCombo);
+                        this.Children.Add(_detailsBlock);
+                        this.Children.Add(_detailsBox);
+
+                        this.Children.Add(_applyButton);
+                        this.Children.Add(_nopeButton);
+                }
+
+                private void FillPriorityCombo(string priority)
+                {
+                        _priorityCombo.Items.Add(Priorities.NOT_IMPORTANT);
+                        _priorityCombo.Items.Add(Priorities.LESS_IMPORTANT);
+                        _priorityCombo.Items.Add(Priorities.IMPORTANT);                       
+                        _priorityCombo.Items.Add(Priorities.ULTRA_IMPORTANT); 
+                        _priorityCombo.Items.Add(Priorities.MOST_IMPORTANT);
+
+                        if(priority == Priorities.NOT_IMPORTANT)
+                        {
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[0];                               
+                        }
+
+                        else if (priority == Priorities.LESS_IMPORTANT)
+                        {
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[1];
+                        }
+
+                        else if (priority == Priorities.IMPORTANT)
+                        {
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[2];
+                        }
+
+                        else if (priority == Priorities.ULTRA_IMPORTANT)
+                        {
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[3];
+                        }
+
+                        else if (priority == Priorities.MOST_IMPORTANT)
+                        {
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[4];
+                        }
+                }//FillPriorityCombo()
+
+
+                private void FillStateCombo(string state)
+                {
+                        _stateCombo.Items.Add(States.UIOPEN);
+                        _stateCombo.Items.Add(States.UIPROGRESS);
+                        _stateCombo.Items.Add(States.UIDONE);
+
+                        if(state == States.OPEN)
+                        {
+                                _stateCombo.SelectedItem = _stateCombo.Items[0];
+                        }
+
+                        else if (state == States.PROGRESS)
+                        {
+                                _stateCombo.SelectedItem = _stateCombo.Items[0];
+                        }
+
+                        else if (state == States.DONE)
+                        {
+                                _stateCombo.SelectedItem = _stateCombo.Items[0];
+                        }
+                }//FillStateCombo()
+
 
 
 

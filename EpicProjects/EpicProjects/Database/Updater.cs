@@ -93,7 +93,37 @@ namespace EpicProjects.Database
                                 xmlTextWriter.Flush();
                                 MessageBox.Show(stringWriter.GetStringBuilder().ToString());
                         }
-                }
+                }//UpdateBrainstorming()
+
+
+                public void UpdateTraining(string name, string newname, string newdetails,string newpriority, string newstate, string project)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load("Saves/Trainings.xml");
+
+                        XmlNodeList nodelist = doc.SelectNodes("Trainings/Training");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes["project"].InnerText == project && item.Attributes["name"].InnerText == name)
+                                {
+                                        item.Attributes["name"].InnerText = newname;
+                                        item.Attributes["details"].InnerText = newdetails;
+                                        item.Attributes["priority"].InnerText = newpriority;
+                                        item.Attributes["state"].InnerText = newstate;
+                                }
+                        }
+
+                        doc.Save("Saves/Trainings.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//UpdateTraining()
 
 
         }//class Updater()

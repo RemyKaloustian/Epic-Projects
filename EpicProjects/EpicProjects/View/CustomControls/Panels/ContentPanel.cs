@@ -23,6 +23,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public bool _firstLoad { get; set; }
                 public bool _isOnOptions { get; set; }
+                public string  _UIState { get; set; }
 
                 public ContentPanel(string name)
                 {
@@ -66,6 +67,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 _firstLoad = false;
                         }
+
+                        _UIState = UIStates.ON_BRAINSTORMING;
                 }//LoadBrainstorming()
 
              
@@ -83,7 +86,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 //Removing the detailsPanel and adding the options panel
                                 InitializeSectionChange();
-                        }                  
+                        }
+
+                        _UIState = UIStates.ON_TRAINING;
                 }//LoadTraining()
 
                 /// <summary>
@@ -98,7 +103,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 //Removing the detailsPanel and adding the options panel
                                 InitializeSectionChange();
-                        }                        
+                        }
+
+                        _UIState = UIStates.ON_ASSIGNMENT;
                 }//LoadAssignments()
 
 
@@ -114,7 +121,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 //Removing the detailsPanel and adding the options panel
                                 InitializeSectionChange();
-                        }                      
+                        }
+
+                        _UIState = UIStates.ON_MAINTENANCE;
                 }//LoadMaintenance()
 
                 /// <summary>
