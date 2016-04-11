@@ -18,6 +18,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public RightPanelCoordinator _coordinator { get; set; }
 
+                public StackPanel _container{ get; set; }
+
                 public TextBlock _name { get; set; }
                 public Separator _nameSeparator { get; set; }
                 public TextBlock _priority{ get; set; }
@@ -25,6 +27,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _stateBlock { get; set; }
                 public Separator _stateSeparator { get; set; }
                 public TextBlock _details { get; set; }
+                public ValidateButton _updateButton { get; set; }
                 public CancelButton _quitButton { get; set; }
 
                 public SingleTaskPanel _taskPanel { get; set; }
@@ -37,11 +40,14 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 
+                    
+
                         _coordinator = coordinator;
                         _name = new TextBlock();
                         _details = new TextBlock();
                         _priority = new TextBlock();
-                        
+
+                      
 
                         _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
                         _quitButton.Visibility = System.Windows.Visibility.Hidden;
@@ -52,13 +58,15 @@ namespace EpicProjects.View.CustomControls.Panels
                         SetUpPrioritySeparator();
                         SetUpDetails();
                      
-                        this.Children.Add(_name);
-                        this.Children.Add(_nameSeparator);
-                        this.Children.Add(_priority);
-                        this.Children.Add(_prioritySeparator);
-                        this.Children.Add(_details);
-                        this.Children.Add(_quitButton);
+                        _container.Children.Add(_name);
+                        _container.Children.Add(_nameSeparator);
+                        _container.Children.Add(_priority);
+                        _container.Children.Add(_prioritySeparator);
+                        _container.Children.Add(_details);
+                        _container.Children.Add(_quitButton);
                 }
+
+              
 
 
                 /// <summary>
@@ -75,6 +83,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
+                        _container = new StackPanel();
+                        _container.Orientation = System.Windows.Controls.Orientation.Vertical;
 
                         //Setting up the fields
                         _coordinator = coordinator;
@@ -84,6 +94,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name.Text = name;
                         _details.Text = details;
                         _taskPanel = taskPanel;
+
+                        _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _updateButton.MouseDown += _updateButton_MouseDown;
+
                         _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
@@ -94,12 +108,20 @@ namespace EpicProjects.View.CustomControls.Panels
                         
 
                         //Adding the components to the details panel
-                        this.Children.Add(_name);
-                        this.Children.Add(_nameSeparator);                       
-                        this.Children.Add(_details);                       
-                        this.Children.Add(_quitButton);
+                        _container.Children.Add(_name);
+                        _container.Children.Add(_nameSeparator);
+                        _container.Children.Add(_details);
+                        _container.Children.Add(_updateButton);
+                        _container.Children.Add(_quitButton);
+
+                        this.Children.Add(_container);
                 }
 
+                void _updateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        this.Children.Remove(_container);
+                        this.Children.Add(new TaskUpdater(_name.Text,_details.Text));
+                }
 
                 /// <summary>
                 /// Is used for advanced tasks
