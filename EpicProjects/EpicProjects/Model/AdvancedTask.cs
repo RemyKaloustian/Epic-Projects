@@ -14,6 +14,7 @@ namespace EpicProjects.Model
                 public AdvancedTask(string name, string details, string priority, string state) : base(name,details)
                 {
                         _priority = priority;
+                        _state = state;
                 }
         }//class AdvancedTask
 }//ns

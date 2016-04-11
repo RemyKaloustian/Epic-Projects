@@ -50,27 +50,6 @@ namespace EpicProjects.Controller
                                 _contentPanel._detailsPanel = dp;
                                 _contentPanel.Children.Add(_contentPanel._detailsPanel);  
                         }
-                        //If the details panel already exists
-                        //else
-                        //{
-                        //        //We set the priority 
-
-                        //        //If we are not on the options panel
-                        //        if (!_contentPanel._isOnOptions)
-                        //        {
-                        //                //We just change the content of the details panel
-                        //                SetUpDetailsContent(name, details, taskPanel);
-                        //        }
-
-                        //        else
-                        //        {
-                        //                SetUpDetailsContent(name, details, taskPanel);
-                        //                //We are not on a details panel, so we add the one created to the layout
-                        //                _contentPanel.Children.Add(_contentPanel._detailsPanel);
-                        //        }
-
-                        //}
-
                         //We are on the details panel, we are no longer on the options panel
                         _contentPanel._isOnOptions = false;
                 }//ToDetails
@@ -82,6 +61,7 @@ namespace EpicProjects.Controller
                 /// <param name="dp"></param>
                 internal void ToDetails(string name, string details, SingleTaskPanel taskPanel, string priority, string state)
                 {
+                        Debug.CW("In ToDetails(), state = " + state);
                         //Removing the options panel so that the right panel can become the details panel
                         _contentPanel.Children.Remove(_contentPanel._optionsPanel);
 
@@ -101,34 +81,7 @@ namespace EpicProjects.Controller
                                 _contentPanel._detailsPanel = dp;
                                 _contentPanel.Children.Add(_contentPanel._detailsPanel);  
                         }
-                        //If the details panel already exists
-                        //else
-                        //{
-                        //      //We set the priority 
-                        //        _contentPanel._detailsPanel.SetPriorityLayout(priority);
-
-                        //        //If we are not on the options panel
-                        //        if(!_contentPanel._isOnOptions)
-                        //        {
-                        //                //We just change the content of the details panel
-                        //                SetUpDetailsContent(name, details, taskPanel, priority);
-                        //        }
-
-                        //        else
-                        //        {
-                        //                SetUpDetailsContent(name, details, taskPanel, priority);
-                        //                //We are not on a details panel, so we add the one created to the layout
-                        //                _contentPanel.Children.Add(_contentPanel._detailsPanel);
-                        //        }                                
-                                
-                        //        if(priority != null)
-                        //        {
-                        //                //There is a priority to display, so we display it
-                        //                _contentPanel._detailsPanel.DisplayPriority(priority);
-                        //        }
-
-                        //}
-
+                    
                         //We are on the details panel, we are no longer on the options panel
                         _contentPanel._isOnOptions = false;
                 }//ToDetails

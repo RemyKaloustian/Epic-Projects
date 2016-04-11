@@ -141,6 +141,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         SetUpPrioritySeparator();
                         SetPriorityLayout(priority);
                         SetUpDetails();
+                        Constants.Debug.CW("In DetailsPanel Constructor : state = " + state);
                         SetUpState(state);
 
                         //Adding the components to the details panel
@@ -248,6 +249,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 internal void SetUpState(string state)
                 {
                         _stateBlock.Text = "State : " + state;
+                        Constants.Debug.CW("In SetupState(), state = " + _stateBlock.Text);
                         _stateBlock.FontFamily = FontProvider._lato;
                         _stateBlock.FontSize = 20;
                         _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
