@@ -29,43 +29,47 @@ namespace EpicProjects.View.CustomControls.Panels
                 public Separator _stateSeparator { get; set; }
                 public TextBlock _details { get; set; }
                 public ValidateButton _updateButton { get; set; }
+                public CancelButton  _deleteButton{ get; set; }
                 public CancelButton _quitButton { get; set; }
 
                 public SingleTaskPanel _taskPanel { get; set; }
 
 
-                public DetailsPanel(RightPanelCoordinator coordinator)
-                {
-                        this.Orientation = Orientation.Vertical;
-                        this.Width = Dimensions.GetWidth() * 0.27;
-                        this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                //public DetailsPanel(RightPanelCoordinator coordinator)
+                //{
+                //        this.Orientation = Orientation.Vertical;
+                //        this.Width = Dimensions.GetWidth() * 0.27;
+                //        this.Height = Dimensions.GetHeight() * 0.8;
+                //        this.Background = new Theme.CustomTheme().GetAccentColor();
 
                     
 
-                        _coordinator = coordinator;
-                        _name = new TextBlock();
-                        _details = new TextBlock();
-                        _priority = new TextBlock();
+                //        _coordinator = coordinator;
+                //        _name = new TextBlock();
+                //        _details = new TextBlock();
+                //        _priority = new TextBlock();
 
                       
 
-                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
-                        _quitButton.Visibility = System.Windows.Visibility.Hidden;
-                        _quitButton.MouseDown += _quitButton_MouseDown;
+                //        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
+                //        _quitButton.Visibility = System.Windows.Visibility.Hidden;
+                //        _quitButton.MouseDown += _quitButton_MouseDown;
 
-                        SetUpName();
-                        SetUpSeparator();
-                        SetUpPrioritySeparator();
-                        SetUpDetails();
+                      
+
+                //        SetUpName();
+                //        SetUpSeparator();
+                //        SetUpPrioritySeparator();
+                //        SetUpDetails();
                      
-                        _container.Children.Add(_name);
-                        _container.Children.Add(_nameSeparator);
-                        _container.Children.Add(_priority);
-                        _container.Children.Add(_prioritySeparator);
-                        _container.Children.Add(_details);
-                        _container.Children.Add(_quitButton);
-                }
+                //        _container.Children.Add(_name);
+                //        _container.Children.Add(_nameSeparator);
+                //        _container.Children.Add(_priority);
+                //        _container.Children.Add(_prioritySeparator);
+                //        _container.Children.Add(_details);
+                        
+                //        _container.Children.Add(_quitButton);
+                //}
 
               
 
@@ -99,6 +103,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _updateButton.MouseDown += _updateButton_MouseDown;
 
+                        _deleteButton = new CancelButton(ControlsValues.DELETE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _deleteButton.MouseDown += _deleteButton_MouseDown;
+
                         _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 30, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
@@ -113,9 +121,22 @@ namespace EpicProjects.View.CustomControls.Panels
                         _container.Children.Add(_nameSeparator);
                         _container.Children.Add(_details);
                         _container.Children.Add(_updateButton);
+                        _container.Children.Add(_deleteButton);
                         _container.Children.Add(_quitButton);
 
                         this.Children.Add(_container);
+                }
+
+                void _deleteButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        new TaskMasterChief(_coordinator._contentPanel._projectName).DeleteBrainstorming(_name.Text);
+                        _coordinator.ToOptions();
+                        Constants.Debug.CW("In Mouse Down, deleting with name = " + _name.Text + "  and project = " + _coordinator._contentPanel._projectName);
+                        if(_coordinator._contentPanel._UIState == UIStates.ON_BRAINSTORMING)
+                        {
+                                Constants.Debug.CW("In MouseDown, UIState is : " + _coordinator._contentPanel._UIState);
+                                _coordinator._contentPanel.LoadBrainstorming();
+                        }
                 }//Constructor 1 
 
                 void _updateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

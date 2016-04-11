@@ -53,6 +53,7 @@ namespace EpicProjects.Constants
 
                 //Paths in XML
                 public static readonly string PROJECT_PATH = "/Projects/Project";
+                public static readonly string BRAINSTORMINGS_PATH = "Brainstormings/Brainstorming";
 
 
 

@@ -8,6 +8,8 @@ using System.Configuration;
 
 using EpicProjects.Constants;
 using System.Xml;
+using System.IO;
+using System.Windows;
 
 /*
  * @Author : Rémy Kaloustian
@@ -23,12 +25,8 @@ namespace EpicProjects.Database
                 //public string _connectionString { get; set; }
                 //public SqlConnection _connection;
 
-                public Deleter(string connectionStr)
+                public Deleter()
                 {
-                        //Setting up the connection settings
-
-                        //this._connection = new SqlConnection(connectionStr);
-
 
                 }//Selector()
 
@@ -69,6 +67,34 @@ namespace EpicProjects.Database
                         }
                         doc.Save(Paths.PROJECTS_SAVE);
                 }//DeleteProject()
+
+                public void DeleteBrainstorming(string name, string project)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(Paths.BRAINSTORMINGS_SAVE);
+                        Debug.CW("In Deleter, name = " + name + " , project = " + project);
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.BRAINSTORMINGS_PATH);
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes[DatabaseValues.PROJECT_LINK].InnerText == project && item.Attributes[DatabaseValues.NAME].InnerText == name)
+                                {
+                                        Debug.CW("Removing item");
+                                        item.ParentNode.RemoveChild(item);
+                                }
+                        }
+
+
+                        doc.Save(Paths.BRAINSTORMINGS_SAVE);
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//DeleteBrainstorming()
 
         }//class Deleter
 }//ns
