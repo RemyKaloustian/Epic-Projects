@@ -89,7 +89,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         //Setting up the components
                         SetUpName();
-                        SetUpSeparator();                        
+                        _nameSeparator = SetUpSeparator();                        
                         SetUpDetails();
                         
 
@@ -137,11 +137,11 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         //Setting up the components
                         SetUpName();
-                        SetUpSeparator();
-                        SetUpPrioritySeparator();
+                        _nameSeparator = SetUpSeparator();
+                        _prioritySeparator = SetUpSeparator();
+                        Constants.Debug.CW("In Details constructor  : prioriy = " + priority);
                         SetPriorityLayout(priority);
                         SetUpDetails();
-                        Constants.Debug.CW("In DetailsPanel Constructor : state = " + state);
                         SetUpState(state);
 
                         //Adding the components to the details panel
@@ -195,12 +195,15 @@ namespace EpicProjects.View.CustomControls.Panels
                 /// <summary>
                 /// Sets up the separator 
                 /// </summary>
-                private void SetUpSeparator()
+                private Separator SetUpSeparator()
                 {
-                        _nameSeparator = new Separator();
-                        _nameSeparator.Width = this.Width * 0.85;
-                        _nameSeparator.Background = new Theme.CustomTheme().GetBackground();
-                        _nameSeparator.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
+                        Separator sep = new Separator();
+                        
+                        sep.Width = this.Width * 0.85;
+                        sep.Background = new Theme.CustomTheme().GetBackground();
+                        sep.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
+
+                        return sep;
                 }
 
                 /// <summary>
@@ -233,14 +236,16 @@ namespace EpicProjects.View.CustomControls.Panels
                 /// <param name="content"></param>
                 public void SetPriorityLayout(string content)
                 {
-                        _prioritySeparator = new Separator();
-                        _prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
+                       // _prioritySeparator = new Separator();
+                        //_prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
                         _priority.Text = "Priority : " + content;
+
+                        Constants.Debug.CW("in SetPriorityLayout : priority = " + _priority.Text);
 
                         _priority.FontFamily = FontProvider._lato;
                         _priority.FontSize = 22;
                         _priority.Width = this.Width * 0.8;
-                        _priority.Visibility = System.Windows.Visibility.Hidden;
+                        //_priority.Visibility = System.Windows.Visibility.Hidden;
                         _priority.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priority.Foreground = new Theme.CustomTheme().GetBackground();
 
