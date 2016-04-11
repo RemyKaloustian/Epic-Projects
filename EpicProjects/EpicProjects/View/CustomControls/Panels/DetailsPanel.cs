@@ -121,7 +121,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 void _updateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         this.Children.Remove(_container);
-                        _taskUpdater = new TaskUpdater(_name.Text, _details.Text);
+                        _taskUpdater = new TaskUpdater(_name.Text, _details.Text, this.Width, this.Height);
                         _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
                         _taskUpdater._applyButton.MouseDown += _applyButton_MouseDown;
                         this.Children.Add(_taskUpdater);
@@ -179,14 +179,13 @@ namespace EpicProjects.View.CustomControls.Panels
                         _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _updateButton.MouseDown += _updateButton_MouseDownAdvanced;
 
-                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
+                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,20,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
                         //Setting up the components
                         SetUpName();
                         _nameSeparator = SetUpSeparator();
                         _prioritySeparator = SetUpSeparator();
-                        Constants.Debug.CW("In Details constructor  : prioriy = " + priority);
                         SetPriorityLayout(priority); 
                         SetUpState(state);
                         _stateSeparator = SetUpSeparator();
@@ -253,7 +252,6 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _taskPanel.UnHover();
                         _coordinator.ToOptions();
-                        Constants.Debug.CW("TO OPTIONS");
                 }
 
                 /// <summary>
@@ -329,7 +327,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         //_prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
                         _priority.Text = "Priority : " + content;
 
-                        Constants.Debug.CW("in SetPriorityLayout : priority = " + _priority.Text);
 
                         _priority.FontFamily = FontProvider._lato;
                         _priority.FontSize = 22;
@@ -343,7 +340,6 @@ namespace EpicProjects.View.CustomControls.Panels
                 internal void SetUpState(string state)
                 {
                         _stateBlock.Text = "State : " + new StateInterpreter(state).ToUIState();
-                        Constants.Debug.CW("In SetupState(), state = " + _stateBlock.Text);
                         _stateBlock.FontFamily = FontProvider._lato;
                         _stateBlock.FontSize = 22;
                         _stateBlock.Width = this.Width * 0.8;

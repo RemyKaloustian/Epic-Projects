@@ -64,7 +64,6 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertBrainstorming(string name, string details, string project)
                 {
-                        Debug.CW("In InsertBrainstorming(), project = " + project);
 
                         XDocument doc = XDocument.Load("Saves/Brainstormings.xml");
                         XElement root = doc.Root;
@@ -98,7 +97,6 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertTraining(string name, string details, string project, string priority)
                 {
-                        Debug.CW("In InsertTraining(), project = " + project);
 
                         XDocument doc = XDocument.Load("Saves/Trainings.xml");
                         XElement root = doc.Root;
@@ -132,7 +130,6 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertAssignment(string name, string details, string project, string priority)
                 {
-                        Debug.CW("In InsertAssignment(), project = " + project);
 
                         XDocument doc = XDocument.Load("Saves/Assignments.xml");
                         XElement root = doc.Root;
@@ -166,7 +163,6 @@ namespace EpicProjects.Database
                 /// <param name="project"></param>
                 public void InsertMaintenance(string name, string details, string project, string priority)
                 {
-                        Debug.CW("In InsertMaintenance(), project = " + project);
 
                         XDocument doc = XDocument.Load("Saves/Maintenances.xml");
                         XElement root = doc.Root;

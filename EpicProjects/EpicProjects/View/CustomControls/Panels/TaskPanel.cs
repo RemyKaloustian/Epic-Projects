@@ -138,7 +138,6 @@ namespace EpicProjects.View.CustomControls.Panels
                                 }
                         }
 
-                        Constants.Debug.CW("In Trainings_MouseDown, state = " + taskPanel._advancedTask._state);
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority, taskPanel._advancedTask._state);                  
                 }//Trainings_MouseDown()
 

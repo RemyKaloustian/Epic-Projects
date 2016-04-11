@@ -106,7 +106,6 @@ namespace EpicProjects.Database
 
                 public List<Model.AdvancedTask> SelectTrainings(string projectName)
                 {
-                        Debug.CW("In SelectTrainings()");
                         List<Model.AdvancedTask> trainingList = new List<Model.AdvancedTask>();
 
                         XmlDocument doc = new XmlDocument();
@@ -118,11 +117,9 @@ namespace EpicProjects.Database
                         {
                                 if (item.Attributes["project"].InnerText == projectName)
                                 {
-                                        Debug.CW("item.priority : " + item.Attributes[DatabaseValues.PRIORITY].InnerText);
 
                                         Model.AdvancedTask aTraining = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText);
-                                        Debug.CW(item.Attributes[DatabaseValues.STATE].InnerText);
-                                        Debug.CW("aTraining.priority : " + aTraining._priority);
+                                       
                                             trainingList.Add(aTraining);
                                 }
                         }
@@ -146,7 +143,6 @@ namespace EpicProjects.Database
                                 if (item.Attributes["project"].InnerText == projectName)
                                 {
                                         Model.AdvancedTask anAssignment = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText);
-                                        Debug.CW( item.Attributes[DatabaseValues.STATE].InnerText);
                                         assignmentList.Add(anAssignment);
                                 }
                         }
@@ -170,7 +166,6 @@ namespace EpicProjects.Database
                                 if (item.Attributes["project"].InnerText == projectName)
                                 {
                                         Model.AdvancedTask aMaintenance = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText);
-                                        Debug.CW("In Selector, state = " + item.Attributes[DatabaseValues.STATE].InnerText);
                                         maintenanceList.Add(aMaintenance);
                                 }
                         }

@@ -35,28 +35,45 @@ namespace EpicProjects.View.CustomControls.Panels
                 /// </summary>
                 /// <param name="name"></param>
                 /// <param name="details"></param>
-                public TaskUpdater(string name, string details)
+                public TaskUpdater(string name, string details, double width, double height)
                 {
                         this.Orientation = Orientation.Vertical;
 
                         _nameBlock = new TextBlock();
                         _nameBlock.Text = "Name";
+                        _nameBlock.FontFamily = FontProvider._lato;
+                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.FontSize = 20;
+                        _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _nameBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
 
                         _nameBox = new TextBox();
                         _nameBox.Text = name;
                         _nameBox.TextWrapping = System.Windows.TextWrapping.Wrap;
+                        _nameBox.FontFamily = FontProvider._lato;
+                        _nameBox.FontSize = 15;
+                        _nameBox.Width = width * 0.8;
 
                         _detailsBlock = new TextBlock();
                         _detailsBlock.Text = "Details";
+                        _detailsBlock.FontFamily = FontProvider._lato;
+                        _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _detailsBlock.FontSize = 20;
+                        _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+
 
                         _detailsBox = new TextBox();
                         _detailsBox.Text = details;
                         _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
+                        _detailsBox.Width = width * 0.8;
+                        _detailsBox.FontFamily = FontProvider._lato;
+                        _detailsBox.FontSize = 15;
 
 
-                        _applyButton = new ValidateButton(ControlsValues.APPLY, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
-                        _nopeButton = new CancelButton(ControlsValues.NOPE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
 
                         this.Children.Add(_nameBlock);
@@ -126,7 +143,6 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 private void FillPriorityCombo(string priority)
                 {
-                        Constants.Debug.CW("in FillPriorityCombo(), priority =  " + priority);
                         _priorityCombo.Items.Add(Priorities.NOT_IMPORTANT);
                         _priorityCombo.Items.Add(Priorities.LESS_IMPORTANT);
                         _priorityCombo.Items.Add(Priorities.IMPORTANT);                       
@@ -136,56 +152,59 @@ namespace EpicProjects.View.CustomControls.Panels
                         if(priority.Contains(Priorities.NOT_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[0];  
-                                Constants.Debug.CW("Priority Not Important, items[0] = " +_priorityCombo.Items[0] );
                         }
 
                         else if (priority.Contains( Priorities.LESS_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[1];
-                                Constants.Debug.CW("Priority Less Important, items[1] = " + _priorityCombo.Items[1]);
 
                         }
 
                         else if (priority.Contains( Priorities.IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[2];
-                                Constants.Debug.CW("Priority  Important, items[2] = " + _priorityCombo.Items[2]);
 
                         }
 
                         else if (priority.Contains( Priorities.ULTRA_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[3];
-                                Constants.Debug.CW("Priority  Ultra Important, items[3] = " + _priorityCombo.Items[3]);
                         }
 
                         else if (priority.Contains( Priorities.MOST_IMPORTANT))
                         {
                                 _priorityCombo.SelectedItem = _priorityCombo.Items[4];
-                                Constants.Debug.CW("Priority  Most Important, items[4] = " + _priorityCombo.Items[4]);
                         }
                 }//FillPriorityCombo()
 
 
                 private void FillStateCombo(string state)
                 {
+                        Constants.Debug.CW("In FillStateCombo, state  = " + state);
+
+
                         _stateCombo.Items.Add(States.UIOPEN);
                         _stateCombo.Items.Add(States.UIPROGRESS);
                         _stateCombo.Items.Add(States.UIDONE);
 
-                        if(state.Contains( States.OPEN))
+                        if(state.Contains( States.UIOPEN))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[0];
+                                Constants.Debug.CW("items 0  = " + _stateCombo.Items[0]);
                         }
 
-                        else if (state.Contains( States.PROGRESS))
+                        else if (state.Contains( States.UIPROGRESS))
                         {
-                                _stateCombo.SelectedItem = _stateCombo.Items[0];
+                                _stateCombo.SelectedItem = _stateCombo.Items[1];
+                                Constants.Debug.CW("items 1  = " + _stateCombo.Items[1]);
+
                         }
 
-                        else if (state.Contains( States.DONE))
+                        else if (state.Contains( States.UIDONE))
                         {
-                                _stateCombo.SelectedItem = _stateCombo.Items[0];
+                                _stateCombo.SelectedItem = _stateCombo.Items[2];
+                                Constants.Debug.CW("items 2  = " + _stateCombo.Items[2]);
+
                         }
                 }//FillStateCombo()
 
