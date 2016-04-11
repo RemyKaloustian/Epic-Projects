@@ -10,6 +10,7 @@ namespace EpicProjects.View.CustomControls.Panels
 {
         public class TaskUpdater : StackPanel
         {
+                #region fields
                 //Brainstorming fields
                 public TextBlock _nameBlock { get; set; }
                 public TextBox _nameBox { get; set; }
@@ -28,8 +29,9 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _stateBlock{ get; set; }
                 public ComboBox _stateCombo { get; set; }
 
-                
+                #endregion
 
+                #region Constructors
                 /// <summary>
                 /// Used for brainstormings
                 /// </summary>
@@ -90,6 +92,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_nopeButton);
                 }
 
+                #endregion
+
+                #region SetUp functions
                 private void SetUpButtons(double width, double height)
                 {
                         _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
@@ -179,6 +184,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priorityBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
+
+                #endregion
 
                 private void FillPriorityCombo(string priority)
                 {
