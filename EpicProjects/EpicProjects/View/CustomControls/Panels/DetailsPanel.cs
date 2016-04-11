@@ -17,6 +17,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 
 
                 public RightPanelCoordinator _coordinator { get; set; }
+                public TaskUpdater _taskUpdater { get; set; }
 
                 public StackPanel _container{ get; set; }
 
@@ -120,7 +121,15 @@ namespace EpicProjects.View.CustomControls.Panels
                 void _updateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         this.Children.Remove(_container);
-                        this.Children.Add(new TaskUpdater(_name.Text,_details.Text));
+                        _taskUpdater = new TaskUpdater(_name.Text, _details.Text);
+                        _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
+                        this.Children.Add(_taskUpdater);
+                }
+
+                void _nopeButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        this.Children.Remove(_taskUpdater);
+                        this.Children.Add(_container);
                 }
 
                 /// <summary>
