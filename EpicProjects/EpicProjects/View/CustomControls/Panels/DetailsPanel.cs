@@ -99,7 +99,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _updateButton.MouseDown += _updateButton_MouseDown;
 
-                        _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 30, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
                         //Setting up the components
@@ -123,7 +123,16 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Remove(_container);
                         _taskUpdater = new TaskUpdater(_name.Text, _details.Text);
                         _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
+                        _taskUpdater._applyButton.MouseDown += _applyButton_MouseDown;
                         this.Children.Add(_taskUpdater);
+                }
+
+                void _applyButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        new TaskMasterChief(_coordinator._contentPanel._projectName).UpdateBrainstorming(_name.Text,_taskUpdater._nameBox.Text,_taskUpdater._detailsBox.Text);
+                        this.Children.Remove(_taskUpdater);
+                        this.Children.Add(_container);
+                        _coordinator._contentPanel.LoadBrainstorming();
                 }
 
                 void _nopeButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -131,6 +140,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Remove(_taskUpdater);
                         this.Children.Add(_container);
                 }
+
+
 
                 /// <summary>
                 /// Is used for advanced tasks

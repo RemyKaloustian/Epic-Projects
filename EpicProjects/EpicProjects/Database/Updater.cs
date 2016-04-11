@@ -8,6 +8,8 @@ using System.Configuration;
 
 using EpicProjects.Constants;
 using System.Xml;
+using System.IO;
+using System.Windows;
 
 /*
  * @Author : Rémy Kaloustian
@@ -64,6 +66,34 @@ namespace EpicProjects.Database
                 {
                        
                 }//UpdateProjectName()
+
+
+                public void UpdateBrainstorming(string name, string newname, string newdetails, string project)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load("Saves/Brainstormings.xml");
+
+                        XmlNodeList nodelist = doc.SelectNodes("Brainstormings/Brainstorming");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes["project"].InnerText == project && item.Attributes["name"].InnerText == name)
+                                {
+                                        item.Attributes["name"].InnerText = newname;
+                                        item.Attributes["details"].InnerText = newdetails;
+                                }
+                        }
+
+                        doc.Save("Saves/Brainstormings.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }
 
 
         }//class Updater()
