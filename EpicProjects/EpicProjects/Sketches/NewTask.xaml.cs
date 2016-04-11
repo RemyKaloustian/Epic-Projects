@@ -31,7 +31,7 @@ namespace EpicProjects.Sketches
 
                 private void CreateButton_Click(object sender, RoutedEventArgs e)
                 {
-                        DatabaseGuru g = new DatabaseGuru(Paths.PROJECTSSAVE);
+                        DatabaseGuru g = new DatabaseGuru(Paths.PROJECTS_SAVE);
 
                        // g._propInserter.InsertTask(TextButton.Text, Deadline.SelectedDate, "formation");
                 }

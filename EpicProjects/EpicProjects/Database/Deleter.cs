@@ -54,7 +54,7 @@ namespace EpicProjects.Database
                 public void DeleteProject(string name)
                 {
                         XmlDocument doc = new XmlDocument();
-                        doc.Load(Paths.PROJECTSSAVE);
+                        doc.Load(Paths.PROJECTS_SAVE);
                         XmlNodeList nodelist = doc.SelectNodes("/Projects/Project");
 
                         foreach (XmlNode item in nodelist)
@@ -67,7 +67,7 @@ namespace EpicProjects.Database
                                         }
                                 }                             
                         }
-                        doc.Save(Paths.PROJECTSSAVE);
+                        doc.Save(Paths.PROJECTS_SAVE);
                 }//DeleteProject()
 
         }//class Deleter

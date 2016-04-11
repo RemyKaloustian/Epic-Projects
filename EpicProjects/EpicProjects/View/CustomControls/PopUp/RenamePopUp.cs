@@ -44,7 +44,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
 
-                        DatabaseGuru guru = new DatabaseGuru( Paths.PROJECTSSAVE);
+                        DatabaseGuru guru = new DatabaseGuru( Paths.PROJECTS_SAVE);
                         guru._propUpdater.UpdateProject(_block.Text, DatabaseValues.NAME, _nameBox.Text);
                         this.Close();
                 }

@@ -28,7 +28,7 @@ namespace EpicProjects.Sketches
 
                 public int _id { get; set; } 
 
-                public DatabaseGuru _g = new DatabaseGuru(Paths.PROJECTSSAVE);
+                public DatabaseGuru _g = new DatabaseGuru(Paths.PROJECTS_SAVE);
 
                 public Project()
                 {
@@ -50,7 +50,7 @@ namespace EpicProjects.Sketches
                 public void ShowProjects()
                 {
 
-                        Database.DatabaseGuru gu = new Database.DatabaseGuru(Paths.PROJECTSSAVE);
+                        Database.DatabaseGuru gu = new Database.DatabaseGuru(Paths.PROJECTS_SAVE);
 
 
                         //List<object> res = gu._propSelector.Select("name", "project");

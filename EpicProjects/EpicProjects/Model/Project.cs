@@ -25,14 +25,14 @@ namespace EpicProjects.Model
 
                 public Project(string name, string startDate, string endDate)
                 {
-                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
+                        _guru = new DatabaseGuru(Paths.PROJECTS_SAVE);
                         _guru._propInserter.InsertProject(name, startDate, endDate);
                 }
 
                 public Project(string name)
                 {
                         _name = name;
-                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
+                        _guru = new DatabaseGuru(Paths.PROJECTS_SAVE);
 
                         //_name = _guru._propSelector.SelectSingleByEquality(DatabaseValues.NAME, DatabaseValues.PROJECT, DatabaseValues.NAME, "AFK");
 

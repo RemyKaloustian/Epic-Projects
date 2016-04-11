@@ -37,11 +37,11 @@ namespace EpicProjects.Database
                 /// <param name="endDate">end date of the project</param>
                 public void InsertProject(string name, string startDate, string endDate)
                 {
-                        XDocument doc = XDocument.Load(Paths.PROJECTSSAVE);
+                        XDocument doc = XDocument.Load(Paths.PROJECTS_SAVE);
                         XElement root = doc.Root;
 
                         //Creation of the projects
-                        XElement newProject = new XElement("Project");
+                        XElement newProject = new XElement(DatabaseValues.PROJECT);
                         newProject.Add(new XAttribute(DatabaseValues.NAME, name));
                         newProject.Add(new XAttribute(DatabaseValues.STARTDATE, startDate));
                         newProject.Add(new XAttribute(DatabaseValues.ENDDATE, endDate));
@@ -50,7 +50,7 @@ namespace EpicProjects.Database
                         root.Add(newProject);
 
                         //doc.Element("Snippets").Add(root);
-                        doc.Save(Paths.PROJECTSSAVE);
+                        doc.Save(Paths.PROJECTS_SAVE);
 
                 }//InsertProject()
 
@@ -65,18 +65,18 @@ namespace EpicProjects.Database
                 public void InsertBrainstorming(string name, string details, string project)
                 {
 
-                        XDocument doc = XDocument.Load("Saves/Brainstormings.xml");
+                        XDocument doc = XDocument.Load(Paths.BRAINSTORMINGS_SAVE);
                         XElement root = doc.Root;
 
                         //Creation of the projects
-                        XElement brain = new XElement("Brainstorming");
-                        brain.Add(new XAttribute("name", name));
-                        brain.Add(new XAttribute("details", details));
-                        brain.Add(new XAttribute("project",project));
+                        XElement brain = new XElement(DatabaseValues.BRAINSTORMING);
+                        brain.Add(new XAttribute(DatabaseValues.NAME, name));
+                        brain.Add(new XAttribute(DatabaseValues.DETAILS, details));
+                        brain.Add(new XAttribute(DatabaseValues.PROJECT_LINK,project));
 
                         root.Add(brain);                       
 
-                        doc.Save("Saves/Brainstormings.xml");
+                        doc.Save(Paths.BRAINSTORMINGS_SAVE);
 
                         using (var stringWriter = new StringWriter())
                         using (var xmlTextWriter = XmlWriter.Create(stringWriter))
@@ -98,20 +98,20 @@ namespace EpicProjects.Database
                 public void InsertTraining(string name, string details, string project, string priority)
                 {
 
-                        XDocument doc = XDocument.Load("Saves/Trainings.xml");
+                        XDocument doc = XDocument.Load(Paths.TRAININGS_SAVE);
                         XElement root = doc.Root;
 
                         //Creation of the projects
-                        XElement training = new XElement("Training");
-                        training.Add(new XAttribute("name", name));
-                        training.Add(new XAttribute("details", details));
-                        training.Add(new XAttribute("priority", priority));
-                        training.Add(new XAttribute("project", project));
-                        training.Add(new XAttribute("state", States.OPEN));
+                        XElement training = new XElement(DatabaseValues.TRAINING);
+                        training.Add(new XAttribute(DatabaseValues.NAME, name));
+                        training.Add(new XAttribute(DatabaseValues.DETAILS, details));
+                        training.Add(new XAttribute(DatabaseValues.PRIORITY, priority));
+                        training.Add(new XAttribute(DatabaseValues.PROJECT_LINK, project));
+                        training.Add(new XAttribute(DatabaseValues.STATE, States.OPEN));
 
                         root.Add(training);
 
-                        doc.Save("Saves/Trainings.xml");
+                        doc.Save(Paths.TRAININGS_SAVE);
 
                         using (var stringWriter = new StringWriter())
                         using (var xmlTextWriter = XmlWriter.Create(stringWriter))
@@ -131,20 +131,20 @@ namespace EpicProjects.Database
                 public void InsertAssignment(string name, string details, string project, string priority)
                 {
 
-                        XDocument doc = XDocument.Load("Saves/Assignments.xml");
+                        XDocument doc = XDocument.Load(Paths.ASSIGNMENTS_SAVE);
                         XElement root = doc.Root;
 
                         //Creation of the projects
-                        XElement assignment = new XElement("Assignment");
-                        assignment.Add(new XAttribute("name", name));
-                        assignment.Add(new XAttribute("details", details));
-                        assignment.Add(new XAttribute("priority", priority));
-                        assignment.Add(new XAttribute("project", project));
-                        assignment.Add(new XAttribute("state", States.OPEN));
+                        XElement assignment = new XElement(DatabaseValues.ASSIGNMENT);
+                        assignment.Add(new XAttribute(DatabaseValues.NAME, name));
+                        assignment.Add(new XAttribute(DatabaseValues.DETAILS, details));
+                        assignment.Add(new XAttribute(DatabaseValues.PRIORITY, priority));
+                        assignment.Add(new XAttribute(DatabaseValues.PROJECT_LINK, project));
+                        assignment.Add(new XAttribute(DatabaseValues.STATE, States.OPEN));
 
                         root.Add(assignment);
 
-                        doc.Save("Saves/Assignments.xml");
+                        doc.Save(Paths.ASSIGNMENTS_SAVE);
 
                         using (var stringWriter = new StringWriter())
                         using (var xmlTextWriter = XmlWriter.Create(stringWriter))
@@ -164,20 +164,20 @@ namespace EpicProjects.Database
                 public void InsertMaintenance(string name, string details, string project, string priority)
                 {
 
-                        XDocument doc = XDocument.Load("Saves/Maintenances.xml");
+                        XDocument doc = XDocument.Load(Paths.MAINTENANCES_SAVE);
                         XElement root = doc.Root;
 
                         //Creation of the projects
-                        XElement maintenance = new XElement("Maintenance");
-                        maintenance.Add(new XAttribute("name", name));
-                        maintenance.Add(new XAttribute("details", details));
-                        maintenance.Add(new XAttribute("priority", priority));
-                        maintenance.Add(new XAttribute("project", project));
-                        maintenance.Add(new XAttribute("state", States.OPEN));
+                        XElement maintenance = new XElement(DatabaseValues.MAINTENANCE);
+                        maintenance.Add(new XAttribute(DatabaseValues.NAME, name));
+                        maintenance.Add(new XAttribute(DatabaseValues.DETAILS, details));
+                        maintenance.Add(new XAttribute(DatabaseValues.PRIORITY, priority));
+                        maintenance.Add(new XAttribute(DatabaseValues.PROJECT_LINK, project));
+                        maintenance.Add(new XAttribute(DatabaseValues.STATE, States.OPEN));
 
                         root.Add(maintenance);
 
-                        doc.Save("Saves/Maintenances.xml");
+                        doc.Save(Paths.MAINTENANCES_SAVE);
 
                         using (var stringWriter = new StringWriter())
                         using (var xmlTextWriter = XmlWriter.Create(stringWriter))

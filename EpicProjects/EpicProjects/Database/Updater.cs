@@ -52,7 +52,7 @@ namespace EpicProjects.Database
                                 }
                         }
 
-                        doc.Save(Paths.PROJECTSSAVE);
+                        doc.Save(Paths.PROJECTS_SAVE);
 
                 }//UpdateProjectName()
 

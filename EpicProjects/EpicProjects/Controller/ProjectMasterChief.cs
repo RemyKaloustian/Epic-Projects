@@ -23,7 +23,7 @@ namespace EpicProjects.Controller
 
                 public ProjectMasterChief()
                 {
-                        _guru = new DatabaseGuru(Paths.PROJECTSSAVE);
+                        _guru = new DatabaseGuru(Paths.PROJECTS_SAVE);
                 }//ProjectMasterChief()
 
 
