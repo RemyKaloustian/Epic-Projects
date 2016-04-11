@@ -223,17 +223,23 @@ namespace EpicProjects.View.CustomControls.Panels
                         if (_coordinator._contentPanel._UIState == UIStates.ON_TRAINING)
                         {
                                 new TaskMasterChief(_coordinator._contentPanel._projectName).UpdateTraining(_name.Text, _taskUpdater._nameBox.Text, _taskUpdater._detailsBox.Text, _taskUpdater._priorityCombo.SelectedItem.ToString(), _taskUpdater._stateCombo.SelectedItem.ToString());
+
+                                Constants.Debug.CW("In Apply Mouse down, _taskUpdater._stateCombo.SelectedItem.ToString() = " + _taskUpdater._stateCombo.SelectedItem.ToString());
                                 _coordinator._contentPanel.LoadTraining();
+
+
 
                         }
 
                         else if (_coordinator._contentPanel._UIState == UIStates.ON_ASSIGNMENT)
                         {
+                                new TaskMasterChief(_coordinator._contentPanel._projectName).UpdateAssignment(_name.Text, _taskUpdater._nameBox.Text, _taskUpdater._detailsBox.Text, _taskUpdater._priorityCombo.SelectedItem.ToString(), _taskUpdater._stateCombo.SelectedItem.ToString());
                                 _coordinator._contentPanel.LoadAssignments();
                         }
 
                         else if (_coordinator._contentPanel._UIState == UIStates.ON_MAINTENANCE)
                         {
+                                new TaskMasterChief(_coordinator._contentPanel._projectName).UpdateMaintenance(_name.Text, _taskUpdater._nameBox.Text, _taskUpdater._detailsBox.Text, _taskUpdater._priorityCombo.SelectedItem.ToString(), _taskUpdater._stateCombo.SelectedItem.ToString());
                                 _coordinator._contentPanel.LoadMaintenance();
                         }
 
@@ -339,7 +345,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 internal void SetUpState(string state)
                 {
-                        _stateBlock.Text = "State : " + new StateInterpreter(state).ToUIState();
+                        //_stateBlock.Text = "State : " + new StateInterpreter(state).ToUIState();
+                       _stateBlock.Text = "State : " + state;
                         _stateBlock.FontFamily = FontProvider._lato;
                         _stateBlock.FontSize = 22;
                         _stateBlock.Width = this.Width * 0.8;

@@ -39,42 +39,11 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         this.Orientation = Orientation.Vertical;
 
-                        _nameBlock = new TextBlock();
-                        _nameBlock.Text = "Name";
-                        _nameBlock.FontFamily = FontProvider._lato;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _nameBlock.FontSize = 20;
-                        _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _nameBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-                        _nameBox = new TextBox();
-                        _nameBox.Text = name;
-                        _nameBox.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _nameBox.FontFamily = FontProvider._lato;
-                        _nameBox.FontSize = 15;
-                        _nameBox.Width = width * 0.8;
-
-                        _detailsBlock = new TextBlock();
-                        _detailsBlock.Text = "Details";
-                        _detailsBlock.FontFamily = FontProvider._lato;
-                        _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _detailsBlock.FontSize = 20;
-                        _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-
-                        _detailsBox = new TextBox();
-                        _detailsBox.Text = details;
-                        _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _detailsBox.Width = width * 0.8;
-                        _detailsBox.FontFamily = FontProvider._lato;
-                        _detailsBox.FontSize = 15;
-
-
-                        _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
-
-                        _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
-
+                        SetUpName();
+                        SetUpNameBox(name, width);
+                        SetUpDetails();
+                        SetUpDetailsBox(details, width);
+                        SetUpButtons(width, height);
 
                         this.Children.Add(_nameBlock);
                         this.Children.Add(_nameBox);
@@ -87,7 +56,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
 
                 /// <summary>
-                /// Used for brainstormings
+                /// Used for advanced tasks
                 /// </summary>
                 /// <param name="name"></param>
                 /// <param name="details"></param>
@@ -95,71 +64,18 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         this.Orientation = Orientation.Vertical;
 
-                        _nameBlock = new TextBlock();
-                        _nameBlock.Text = "Name";
-                        _nameBlock.FontFamily = FontProvider._lato;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _nameBlock.FontSize = 20;
-                        _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _nameBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-                        _nameBox = new TextBox();
-                        _nameBox.Text = name;
-                        _nameBox.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _nameBox.FontFamily = FontProvider._lato;
-                        _nameBox.FontSize = 15;
-                        _nameBox.Width = width * 0.8;
-
-                        _detailsBlock = new TextBlock();
-                        _detailsBlock.Text = "Details";
-                        _detailsBlock.FontFamily = FontProvider._lato;
-                        _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _detailsBlock.FontSize = 20;
-                        _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-                        _detailsBox = new TextBox();
-                        _detailsBox.Text = details;
-                        _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _detailsBox.Width = width * 0.8;
-                        _detailsBox.FontFamily = FontProvider._lato;
-                        _detailsBox.FontSize = 15;
-
-                        _priorityBlock = new TextBlock();
-                        _priorityBlock.Text = "Priority";
-                        _priorityBlock.FontFamily = FontProvider._lato;
-                        _priorityBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _priorityBlock.FontSize = 20;
-                        _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _priorityBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-                        _priorityCombo = new ComboBox();
-                        _priorityCombo.FontFamily = FontProvider._lato;
-                        _priorityCombo.FontSize = 18;
-                        _priorityCombo.Width = width * 0.8;
-
+                        SetUpName();
+                        SetUpNameBox(name, width);
+                        SetUpDetails();
+                        SetUpDetailsBox(details, width);
+                        SetUpButtons(width, height);
+                        SetUpPriorityBlock();
+                        SetUpPriorityCombo(width);
                         FillPriorityCombo(priority);
-
-                        _stateBlock = new TextBlock();
-                        _stateBlock.Text = "State";
-                        _stateBlock.FontFamily = FontProvider._lato;
-                        _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _stateBlock.FontSize = 20;
-                        _stateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _stateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-
-                        _stateCombo = new ComboBox();
-                        _stateCombo.FontFamily = FontProvider._lato;
-                        _stateCombo.FontSize = 18;
-                        _stateCombo.Width = width * 0.8;
+                        SetUpStateBlock();
+                        SetUpStateCombo(width);
                         FillStateCombo(state);
-
-
-                        _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
-
-                        _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
-
+                        SetUpButtons(width, height);
 
                         this.Children.Add(_nameBlock);
                         this.Children.Add(_nameBox);
@@ -172,6 +88,96 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Children.Add(_applyButton);
                         this.Children.Add(_nopeButton);
+                }
+
+                private void SetUpButtons(double width, double height)
+                {
+                        _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                }
+
+                private void SetUpDetailsBox(string details, double width)
+                {
+                        _detailsBox = new TextBox();
+                        _detailsBox.Text = details;
+                        _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
+                        _detailsBox.Width = width * 0.8;
+                        _detailsBox.FontFamily = FontProvider._lato;
+                        _detailsBox.FontSize = 15;
+                }
+
+                private void SetUpDetails()
+                {
+                        _detailsBlock = new TextBlock();
+                        _detailsBlock.Text = "Details";
+                        _detailsBlock.FontFamily = FontProvider._lato;
+                        _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _detailsBlock.FontSize = 20;
+                        _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+
+                }
+
+                private void SetUpNameBox(string name, double width)
+                {
+                        _nameBox = new TextBox();
+                        _nameBox.Text = name;
+                        _nameBox.TextWrapping = System.Windows.TextWrapping.Wrap;
+                        _nameBox.FontFamily = FontProvider._lato;
+                        _nameBox.FontSize = 15;
+                        _nameBox.Width = width * 0.8;
+                }
+
+                private void SetUpName()
+                {
+                        _nameBlock = new TextBlock();
+                        _nameBlock.Text = "Name";
+                        _nameBlock.FontFamily = FontProvider._lato;
+                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.FontSize = 20;
+                        _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _nameBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                }
+
+
+                private void SetUpStateCombo(double width)
+                {
+                        _stateCombo = new ComboBox();
+                        _stateCombo.FontFamily = FontProvider._lato;
+                        _stateCombo.FontSize = 18;
+                        _stateCombo.Width = width * 0.8;
+                }
+
+                private void SetUpStateBlock()
+                {
+                        _stateBlock = new TextBlock();
+                        _stateBlock.Text = "State";
+                        _stateBlock.FontFamily = FontProvider._lato;
+                        _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _stateBlock.FontSize = 20;
+                        _stateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _stateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                }
+
+                private void SetUpPriorityCombo(double width)
+                {
+                        _priorityCombo = new ComboBox();
+                        _priorityCombo.FontFamily = FontProvider._lato;
+                        _priorityCombo.FontSize = 18;
+                        _priorityCombo.Width = width * 0.8;
+                }
+
+                private void SetUpPriorityBlock()
+                {
+
+                        _priorityBlock = new TextBlock();
+                        _priorityBlock.Text = "Priority";
+                        _priorityBlock.FontFamily = FontProvider._lato;
+                        _priorityBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _priorityBlock.FontSize = 20;
+                        _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _priorityBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
 
                 private void FillPriorityCombo(string priority)

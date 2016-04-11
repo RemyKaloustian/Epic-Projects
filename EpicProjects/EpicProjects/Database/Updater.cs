@@ -111,6 +111,7 @@ namespace EpicProjects.Database
                                         item.Attributes["details"].InnerText = newdetails;
                                         item.Attributes["priority"].InnerText = newpriority;
                                         item.Attributes["state"].InnerText = newstate;
+                                        Debug.CW("in UpdateTraining(), state = " + newstate);
                                 }
                         }
 
@@ -124,6 +125,69 @@ namespace EpicProjects.Database
                                 MessageBox.Show(stringWriter.GetStringBuilder().ToString());
                         }
                 }//UpdateTraining()
+
+
+                public void UpdateAssignment(string name, string newname, string newdetails, string newpriority, string newstate, string project)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load("Saves/Assignments.xml");
+
+                        XmlNodeList nodelist = doc.SelectNodes("Assignments/Assignment");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes["project"].InnerText == project && item.Attributes["name"].InnerText == name)
+                                {
+                                        item.Attributes["name"].InnerText = newname;
+                                        item.Attributes["details"].InnerText = newdetails;
+                                        item.Attributes["priority"].InnerText = newpriority;
+                                        item.Attributes["state"].InnerText = newstate;
+                                }
+                        }
+
+                        doc.Save("Saves/Assignments.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//UpdateAssignments()
+
+
+                public void UpdateMaintenance(string name, string newname, string newdetails, string newpriority, string newstate, string project)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load("Saves/Maintenances.xml");
+
+                        XmlNodeList nodelist = doc.SelectNodes("Maintenances/Maintenance");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if (item.Attributes["project"].InnerText == project && item.Attributes["name"].InnerText == name)
+                                {
+                                        item.Attributes["name"].InnerText = newname;
+                                        item.Attributes["details"].InnerText = newdetails;
+                                        item.Attributes["priority"].InnerText = newpriority;
+                                        item.Attributes["state"].InnerText = newstate;
+                                        
+                                }
+                        }
+
+                        doc.Save("Saves/Maintenances.xml");
+
+                        using (var stringWriter = new StringWriter())
+                        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
+                        {
+                                doc.WriteTo(xmlTextWriter);
+                                xmlTextWriter.Flush();
+                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                        }
+                }//UpdateMaintenance()
+
+
 
 
         }//class Updater()
