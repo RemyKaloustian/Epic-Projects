@@ -14,13 +14,15 @@ namespace EpicProjects.Model
         {
                 public string _name { get; set; }
                 public string _details { get; set; }
+                public string _project { get; set; }
                 public DatabaseGuru _guru { get; set; }
 
-                public Task(string name, string details)
+                public Task(string name, string details, string project)
                 {
                         _guru = new DatabaseGuru(Paths.PROJECTS_SAVE);
                         _name = name;
                         _details = details;
+                        _project = project;
                 }//Task()
 
                 public void Update(string name, string newName)

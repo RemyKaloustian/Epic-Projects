@@ -111,6 +111,58 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBox.FontFamily = FontProvider._lato;
                         _nameBox.Height = this.Height * 0.06;
                         _nameBox.FontSize = 20;
+
+                        _nameBox.TextChanged += _nameBox_TextChanged;
+                        _nameBox.GotFocus += _nameBox_GotFocus; ;
+                }
+
+                void _nameBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+                {
+                        CheckName();
+                }
+
+                void _nameBox_TextChanged(object sender, TextChangedEventArgs e)
+                {
+
+                        CheckName();
+                    
+                }
+
+                private void CheckName()
+                {
+                        if (_nameBox.Text.Trim() == "")
+                        {
+                                _alertBlock.Text = "Null input is not valid";
+                                _validateButton.IsEnabled = false;
+                        }
+
+                        else if (!this.IsNameValid())
+                        {
+                                _alertBlock.Text = "this task already exists";
+                                _validateButton.IsEnabled = false;
+                        }
+
+                        else
+                        {
+                                _alertBlock.Text = "Name is valid";
+                                _validateButton.IsEnabled = true;
+                        }
+                }
+
+                private bool IsNameValid()
+                {
+                        if(_contentPanel._UIState == UIStates.ON_BRAINSTORMING)
+                        {
+                                List<Model.Task> tasks = new TaskMasterChief(_projectName).SelectBrainstormings();
+
+                                foreach (Model.Task item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
+                                                return false;
+                                }
+                        }
+
+                        return true;
                 }
 
                 private void SetUpNameBlock()
@@ -135,7 +187,12 @@ namespace EpicProjects.View.CustomControls.PopUp
                 #region Events
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        if (_section == ControlsValues.BRAINSTORMING)
+                        if(_nameBox.Text.Trim() == "")
+                        {
+                                _alertBlock.Text = "Null input is invalid";
+                        }
+
+                        else if (_section == ControlsValues.BRAINSTORMING)
                         {
                                 new TaskMasterChief(_projectName).InsertBrainstorming(_nameBox.Text, _detailsBox.Text);
                                 _contentPanel.LoadBrainstorming();

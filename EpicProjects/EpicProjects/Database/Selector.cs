@@ -95,7 +95,7 @@ namespace EpicProjects.Database
                         {
                                 if(item.Attributes["project"].InnerText == projectName)
                                 {
-                                        Model.Task aBrain = new Model.Task(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText);
+                                        Model.Task aBrain = new Model.Task(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PROJECT_LINK].InnerText);
                                         brainList.Add(aBrain);
                                 }
                         }
@@ -118,7 +118,7 @@ namespace EpicProjects.Database
                                 if (item.Attributes["project"].InnerText == projectName)
                                 {
 
-                                        Model.AdvancedTask aTraining = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText);
+                                        Model.AdvancedTask aTraining = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText, item.Attributes[DatabaseValues.PROJECT_LINK].InnerText);
                                        
                                             trainingList.Add(aTraining);
                                 }
@@ -142,7 +142,7 @@ namespace EpicProjects.Database
                         {
                                 if (item.Attributes["project"].InnerText == projectName)
                                 {
-                                        Model.AdvancedTask anAssignment = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText);
+                                        Model.AdvancedTask anAssignment = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText, item.Attributes[DatabaseValues.PROJECT_LINK].InnerText);
                                         assignmentList.Add(anAssignment);
                                 }
                         }
@@ -165,7 +165,7 @@ namespace EpicProjects.Database
                         {
                                 if (item.Attributes["project"].InnerText == projectName)
                                 {
-                                        Model.AdvancedTask aMaintenance = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText);
+                                        Model.AdvancedTask aMaintenance = new Model.AdvancedTask(item.Attributes[DatabaseValues.NAME].InnerText, item.Attributes[DatabaseValues.DETAILS].InnerText, item.Attributes[DatabaseValues.PRIORITY].InnerText, item.Attributes[DatabaseValues.STATE].InnerText, item.Attributes[DatabaseValues.PROJECT_LINK].InnerText);
                                         maintenanceList.Add(aMaintenance);
                                 }
                         }

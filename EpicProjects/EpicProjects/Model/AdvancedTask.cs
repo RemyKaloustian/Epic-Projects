@@ -11,7 +11,7 @@ namespace EpicProjects.Model
                 public string _priority { get; set; }
                 public string _state { get; set; }
 
-                public AdvancedTask(string name, string details, string priority, string state) : base(name,details)
+                public AdvancedTask(string name, string details, string priority, string state, string project) : base(name,details, project)
                 {
                         _priority = priority;
                         _state = state;
