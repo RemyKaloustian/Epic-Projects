@@ -27,6 +27,7 @@ namespace EpicProjects.Controller
                 public void ToOptions()
                 {
                         _contentPanel.Children.Remove(_contentPanel._detailsPanel);
+                        _contentPanel.Children.Remove(_contentPanel._optionsPanel);
                         _contentPanel.Children.Add(_contentPanel._optionsPanel);
                         _contentPanel._isOnOptions = true;
                 }
@@ -61,6 +62,7 @@ namespace EpicProjects.Controller
                 /// <param name="dp"></param>
                 internal void ToDetails(string name, string details, SingleTaskPanel taskPanel, string priority, string state)
                 {
+                        Debug.CW("In ToDetails for advanced");
                         //Removing the options panel so that the right panel can become the details panel
                         _contentPanel.Children.Remove(_contentPanel._optionsPanel);
 
