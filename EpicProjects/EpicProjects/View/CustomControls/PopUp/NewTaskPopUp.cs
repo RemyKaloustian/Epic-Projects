@@ -95,6 +95,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _detailsBlock.FontFamily = FontProvider._lato;
                         _detailsBlock.Text = "Description";
                         _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
 
                 private void SetUpAlertBlock()
@@ -102,6 +103,9 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _alertBlock = new TextBlock();
                         _alertBlock.FontFamily = FontProvider._open;
                         _alertBlock.FontSize = 20;
+                        _alertBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        double leftMargin = this.Width - _nameBox.Width - ((this.Width - _nameBox.Width)/2);
+                        _alertBlock.Margin = new System.Windows.Thickness(leftMargin, 0, 0, 0);
                 }
 
                 private void SetUpNameBox()
@@ -149,13 +153,51 @@ namespace EpicProjects.View.CustomControls.PopUp
                         }
                 }
 
+                /// <summary>
+                /// Checking if the task is already defined in the current project
+                /// </summary>
+                /// <returns></returns>
                 private bool IsNameValid()
                 {
-                        if(_contentPanel._UIState == UIStates.ON_BRAINSTORMING)
+                        if(_section == ControlsValues.BRAINSTORMING)
                         {
                                 List<Model.Task> tasks = new TaskMasterChief(_projectName).SelectBrainstormings();
 
                                 foreach (Model.Task item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
+                                                return false;
+                                }
+                        }
+
+                        else if(_section ==ControlsValues.TRAINING)
+                        {
+                                List<Model.AdvancedTask> tasks = new TaskMasterChief(_projectName).SelectTrainings();
+
+                                foreach (Model.AdvancedTask item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
+                                                return false;
+                                }
+                        }
+
+                        else if(_section == ControlsValues.ASSIGNMENTS)
+                        {
+                                List<Model.AdvancedTask> tasks = new TaskMasterChief(_projectName).SelectAssignments();
+
+                                foreach (Model.AdvancedTask item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
+                                                return false;
+                                }
+                        }
+
+
+                        else if(_section == ControlsValues.MAINTENANCE)
+                        {
+                                List<Model.AdvancedTask> tasks = new TaskMasterChief(_projectName).SelectMaintenances();
+
+                                foreach (Model.AdvancedTask item in tasks)
                                 {
                                         if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
                                                 return false;
