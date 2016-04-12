@@ -14,8 +14,8 @@ namespace EpicProjects.View.CustomControls.Panels
         /// </summary>
         public class DetailsPanel : StackPanel
         {
-                
 
+                #region fields
                 public RightPanelCoordinator _coordinator { get; set; }
                 public TaskUpdater _taskUpdater { get; set; }
 
@@ -33,45 +33,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public CancelButton _quitButton { get; set; }
 
                 public SingleTaskPanel _taskPanel { get; set; }
-
-
-                //public DetailsPanel(RightPanelCoordinator coordinator)
-                //{
-                //        this.Orientation = Orientation.Vertical;
-                //        this.Width = Dimensions.GetWidth() * 0.27;
-                //        this.Height = Dimensions.GetHeight() * 0.8;
-                //        this.Background = new Theme.CustomTheme().GetAccentColor();
-
-                    
-
-                //        _coordinator = coordinator;
-                //        _name = new TextBlock();
-                //        _details = new TextBlock();
-                //        _priority = new TextBlock();
-
-                      
-
-                //        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,0,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
-                //        _quitButton.Visibility = System.Windows.Visibility.Hidden;
-                //        _quitButton.MouseDown += _quitButton_MouseDown;
-
-                      
-
-                //        SetUpName();
-                //        SetUpSeparator();
-                //        SetUpPrioritySeparator();
-                //        SetUpDetails();
-                     
-                //        _container.Children.Add(_name);
-                //        _container.Children.Add(_nameSeparator);
-                //        _container.Children.Add(_priority);
-                //        _container.Children.Add(_prioritySeparator);
-                //        _container.Children.Add(_details);
-                        
-                //        _container.Children.Add(_quitButton);
-                //}
-
-              
+                #endregion
 
 
                 /// <summary>
@@ -159,7 +121,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         }
 
                         _coordinator.ToOptions();
-                }//Constructor 1 
+                }
 
                 void _updateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
@@ -167,8 +129,84 @@ namespace EpicProjects.View.CustomControls.Panels
                         _taskUpdater = new TaskUpdater(_name.Text, _details.Text, this.Width, this.Height);
                         _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
                         _taskUpdater._applyButton.MouseDown += _applyButton_MouseDown;
+
+                        _taskUpdater._nameBox.TextChanged += HandleTaskUpdater;
                         this.Children.Add(_taskUpdater);
                 }
+
+                private void HandleTaskUpdater(object sender, TextChangedEventArgs e)
+                {
+                        if (_taskUpdater._nameBox.Text.Trim() == "")
+                        {
+                                _taskUpdater._alertBlock.Text = "Null input is not valid";
+                                 _taskUpdater._applyButton.IsEnabled = false;
+                        }
+
+                        else if (!this.IsNameValid())
+                        {
+                                _taskUpdater._alertBlock.Text = "this task already exists";
+                                _taskUpdater._applyButton.IsEnabled = false;
+                        }
+
+                        else
+                        {
+                                _taskUpdater._alertBlock.Text = "Name is valid";
+                                _taskUpdater._applyButton.IsEnabled = true;
+                        }
+                }//HandleTaskUpdater()
+
+
+                private bool IsNameValid()
+                {
+                        if (_coordinator._contentPanel._UIState ==UIStates.ON_BRAINSTORMING )
+                        {
+                                List<Model.Task> tasks = new TaskMasterChief(_coordinator._contentPanel._projectName).SelectBrainstormings();
+
+                                foreach (Model.Task item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _taskUpdater._nameBox.Text.ToLower().Trim() && item._project == _coordinator._contentPanel._projectName)
+                                                return false;
+                                }
+                        }
+
+                        else if (_coordinator._contentPanel._UIState == UIStates.ON_TRAINING)
+                        {
+                                List<Model.AdvancedTask> tasks = new TaskMasterChief(_coordinator._contentPanel._projectName).SelectTrainings();
+
+                                foreach (Model.AdvancedTask item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _taskUpdater._nameBox.Text.ToLower().Trim() && item._project == _coordinator._contentPanel._projectName)
+                                                return false;
+                                }
+                        }
+
+                        else if (_coordinator._contentPanel._UIState == UIStates.ON_ASSIGNMENT)
+                        {
+                                List<Model.AdvancedTask> tasks = new TaskMasterChief(_coordinator._contentPanel._projectName).SelectAssignments();
+
+                                foreach (Model.AdvancedTask item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _taskUpdater._nameBox.Text.ToLower().Trim() && item._project == _coordinator._contentPanel._projectName)
+                                                return false;
+                                }
+                        }
+
+
+                        else if (_coordinator._contentPanel._UIState == UIStates.ON_MAINTENANCE)
+                        {
+                                List<Model.AdvancedTask> tasks = new TaskMasterChief(_coordinator._contentPanel._projectName).SelectMaintenances();
+
+                                foreach (Model.AdvancedTask item in tasks)
+                                {
+                                        if (item._name.ToLower().Trim() == _taskUpdater._nameBox.Text.ToLower().Trim() && item._project == _coordinator._contentPanel._projectName)
+                                                return false;
+                                }
+                        }
+
+                        return true;
+                }
+
+             
 
                 void _applyButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
@@ -183,8 +221,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Remove(_taskUpdater);
                         this.Children.Add(_container);
                 }
-
-
 
                 /// <summary>
                 /// Is used for advanced tasks
@@ -262,6 +298,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _taskUpdater = new TaskUpdater(_name.Text, _details.Text, _priority.Text,_stateBlock.Text, this.Width, this.Height);
                         _taskUpdater._nopeButton.MouseDown += _nopeButton_MouseDown;
                         _taskUpdater._applyButton.MouseDown += _applyButton_MouseDownAdvanced;
+
+                        _taskUpdater._nameBox.TextChanged += HandleTaskUpdater;
                         this.Children.Add(_taskUpdater);
 
                      

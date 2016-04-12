@@ -15,6 +15,8 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _nameBlock { get; set; }
                 public TextBox _nameBox { get; set; }
 
+                public TextBlock _alertBlock { get; set; }
+
                 public TextBlock _detailsBlock { get; set; }
                 public TextBox _detailsBox { get; set; }
 
@@ -43,18 +45,25 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         SetUpName();
                         SetUpNameBox(name, width);
+                        SetUpAlertBlock();
                         SetUpDetails();
                         SetUpDetailsBox(details, width);
                         SetUpButtons(width, height);
 
+
+
+
                         this.Children.Add(_nameBlock);
                         this.Children.Add(_nameBox);
+                        this.Children.Add(_alertBlock);
                         this.Children.Add(_detailsBlock);
                         this.Children.Add(_detailsBox);
 
                         this.Children.Add(_applyButton);
                         this.Children.Add(_nopeButton);
                 }
+
+                
 
 
                 /// <summary>
@@ -68,6 +77,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         SetUpName();
                         SetUpNameBox(name, width);
+                        SetUpAlertBlock();
                         SetUpDetails();
                         SetUpDetailsBox(details, width);
                         SetUpButtons(width, height);
@@ -81,6 +91,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Children.Add(_nameBlock);
                         this.Children.Add(_nameBox);
+                        this.Children.Add(_alertBlock);
                         this.Children.Add(_priorityBlock);
                         this.Children.Add(_priorityCombo);
                         this.Children.Add(_stateBlock);
@@ -100,6 +111,18 @@ namespace EpicProjects.View.CustomControls.Panels
                         _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
                         _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                }
+
+                private void SetUpAlertBlock()
+                {
+                        _alertBlock = new TextBlock();
+                        _alertBlock.FontFamily = FontProvider._open;
+                        _alertBlock.FontSize = 13;
+                        //double leftMargin =  this.Width - _nameBox.Width - ((this.Width - _nameBox.Width) / 2);
+                        //_alertBlock.Margin = new System.Windows.Thickness(leftMargin, 0, 0, 0);
+
+                        _alertBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+
                 }
 
                 private void SetUpDetailsBox(string details, double width)
@@ -132,7 +155,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         _nameBox.FontFamily = FontProvider._lato;
                         _nameBox.FontSize = 15;
                         _nameBox.Width = width * 0.8;
+
                 }
+
+          
 
                 private void SetUpName()
                 {
