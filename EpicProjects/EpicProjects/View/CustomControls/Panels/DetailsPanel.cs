@@ -146,6 +146,12 @@ namespace EpicProjects.View.CustomControls.Panels
                                 _coordinator._contentPanel.LoadTraining();
                         }
 
+                        else if(_coordinator._contentPanel._UIState == UIStates.ON_ASSIGNMENT)
+                        {
+                                new TaskMasterChief(_coordinator._contentPanel._projectName).DeleteAssignment(_name.Text);
+                                _coordinator._contentPanel.LoadAssignments();
+                        }
+
                         _coordinator.ToOptions();
                 }//Constructor 1 
 
