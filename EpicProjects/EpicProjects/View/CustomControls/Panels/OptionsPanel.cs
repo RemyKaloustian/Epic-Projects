@@ -1,4 +1,6 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.CustomControls.Buttons;
+using EpicProjects.View.CustomControls.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +13,8 @@ namespace EpicProjects.View.CustomControls.Panels
         public class OptionsPanel : StackPanel
         {
 
-                public TextBlock _sort { get; set; }
-                public TextBlock  _show{ get; set; }
+                public DefaultButton _sortButton { get; set; }
+                public DefaultButton  _showDoneButton{ get; set; }
                 public OptionsPanel()
                 {
                         this.Orientation = Orientation.Vertical;
@@ -20,14 +22,14 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = new Theme.CustomTheme().GetAccentColor();
 
-                        _sort = new TextBlock();
-                        _sort.Text = "SORT MAH TASKS";
+                        _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment,new Theme.CustomTheme());
 
-                        _show = new TextBlock();
-                        _show.Text = "SHOW MAH DONE STUFF";
 
-                        this.Children.Add(_sort);
-                        this.Children.Add(_show);
+                        _showDoneButton = new DefaultButton("Show done", this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment, new Theme.CustomTheme());
+                       
+
+                        this.Children.Add(_sortButton);
+                        this.Children.Add(_showDoneButton);
                 }
 
         }//class OptionsPanel
