@@ -1,0 +1,43 @@
+﻿<Window x:Class="EpicProjects.Sketches.Light.LightProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LightProject" Height="1080" Width="1920">
+    <Grid Background="WhiteSmoke">
+        <Separator HorizontalAlignment="Left" Height="100" Margin="-299,470,0,0" VerticalAlignment="Top" Width="994" RenderTransformOrigin="0.5,0.5" Background="#FF1ABC9C">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <TextBlock HorizontalAlignment="Left" Margin="38,65,0,0" TextWrapping="Wrap" Text="Menu Item" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,123,0,0" TextWrapping="Wrap" Text="Menu Item" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,191,0,0" TextWrapping="Wrap" Text="Menu Item" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,267,0,0" TextWrapping="Wrap" Text="Menu Item" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="304,38,0,0" TextWrapping="Wrap" Text="And his" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="640,38,0,0" TextWrapping="Wrap" Text="John is " VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1000,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"><Run Text="Name Cena"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1456,38,0,0" TextWrapping="Wrap" Text="Fut FutFut Fut" VerticalAlignment="Top" FontSize="25" Foreground="#FF1ABC9C"/>
+        <StackPanel HorizontalAlignment="Left" Height="944" Margin="200,110,0,-5" VerticalAlignment="Top" Width="1712" Background="#FFEFEBE9">
+            <StackPanel Height="100"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="70" Margin="220,154,0,0" VerticalAlignment="Top" Width="961" Background="WhiteSmoke"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,169,0,0" TextWrapping="Wrap" Text="Twenty feet out easy " VerticalAlignment="Top" Foreground="#FF1ABC9C" FontSize="20"/>
+        <StackPanel HorizontalAlignment="Left" Height="70" Margin="220,230,0,0" VerticalAlignment="Top" Width="961" Background="WhiteSmoke"/>
+        <StackPanel HorizontalAlignment="Left" Height="70" Margin="220,305,0,0" VerticalAlignment="Top" Width="961" Background="WhiteSmoke"/>
+        <StackPanel HorizontalAlignment="Left" Height="70" Margin="220,380,0,0" VerticalAlignment="Top" Width="961" Background="WhiteSmoke"/>
+        <StackPanel HorizontalAlignment="Left" Height="70" Margin="220,455,0,0" VerticalAlignment="Top" Width="961" Background="WhiteSmoke"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,245,0,0" TextWrapping="Wrap" Text="Twenty feet out easy " VerticalAlignment="Top" Foreground="#FF1ABC9C" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,323,0,0" TextWrapping="Wrap" Text="Twenty feet out easy " VerticalAlignment="Top" Foreground="#FF1ABC9C" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,396,0,0" TextWrapping="Wrap" Text="Twenty feet out easy " VerticalAlignment="Top" Foreground="#FF1ABC9C" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,472,0,0" TextWrapping="Wrap" Text="Twenty feet out easy " VerticalAlignment="Top" Foreground="#FF1ABC9C" FontSize="20"/>
+        <StackPanel HorizontalAlignment="Left" Height="52" Margin="1336,316,0,0" VerticalAlignment="Top" Width="352" Background="WhiteSmoke"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1492,323,0,0" TextWrapping="Wrap" Text="Delete" VerticalAlignment="Top" Foreground="#FF1ABC9C" FontSize="20"/>
+        <StackPanel HorizontalAlignment="Left" Height="52" Margin="1336,220,0,0" VerticalAlignment="Top" Width="352" Background="#FF1ABC9C"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1478,230,0,0" TextWrapping="Wrap" Text="Validate" VerticalAlignment="Top" Foreground="#FFEFEBE9" FontSize="20"/>
+
+    </Grid>
+</Window>

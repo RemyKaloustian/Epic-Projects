@@ -1,0 +1,32 @@
+﻿<Window x:Class="EpicProjects.Sketches.Dark.DarkProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DarkProject" Height="1080" Width="1920">
+    <Grid Background="#FF616161">
+        <StackPanel HorizontalAlignment="Left" Height="1039" VerticalAlignment="Top" Width="164" RenderTransformOrigin="0.5,0.46" Background="#FF424242"/>
+        <StackPanel HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="1748" RenderTransformOrigin="0.5,0.46" Background="#FF424242" Margin="164,0,0,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="1136" RenderTransformOrigin="0.5,0.46" Background="#FF424242" Margin="169,152,0,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="1136" RenderTransformOrigin="0.5,0.46" Background="#FF424242" Margin="169,218,0,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="1136" RenderTransformOrigin="0.5,0.46" Background="#FF424242" Margin="169,284,0,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="1136" RenderTransformOrigin="0.5,0.46" Background="#FF424242" Margin="169,350,0,0"/>
+        <StackPanel HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="1136" RenderTransformOrigin="0.5,0.46" Background="#FF424242" Margin="169,416,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,171,0,0" TextWrapping="Wrap" Text="Nice Lil task hangin out" VerticalAlignment="Top" FontSize="20" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,232,0,0" TextWrapping="Wrap" Text="Nice Lil task hangin out" VerticalAlignment="Top" FontSize="20" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,296,0,0" TextWrapping="Wrap" Text="Nice Lil task hangin out" VerticalAlignment="Top" FontSize="20" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,366,0,0" TextWrapping="Wrap" Text="Nice Lil task hangin out" VerticalAlignment="Top" FontSize="20" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,429,0,0" TextWrapping="Wrap" Text="Nice Lil task hangin out" VerticalAlignment="Top" FontSize="20" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,68,0,0" TextWrapping="Wrap" Text="Menu item" VerticalAlignment="Top" FontSize="22" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,128,0,0" TextWrapping="Wrap" Text="Menu item" VerticalAlignment="Top" FontSize="22" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,184,0,0" TextWrapping="Wrap" Text="Menu item" VerticalAlignment="Top" FontSize="22" Foreground="#FFECF0F1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,250,0,0" TextWrapping="Wrap" Text="Menu item" VerticalAlignment="Top" FontSize="22" Foreground="#FFECF0F1"/>
+        <StackPanel HorizontalAlignment="Left" Height="55" Margin="1472,204,0,0" VerticalAlignment="Top" Width="348" Background="#FFBDC3C7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1606,218,0,0" TextWrapping="Wrap" Text="Validate" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <StackPanel HorizontalAlignment="Left" Height="55" Margin="1472,290,0,0" VerticalAlignment="Top" Width="348" Background="#FF424242"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1606,301,0,0" TextWrapping="Wrap" Text="Delete" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="254,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Foreground="#FFECF0F1"><Run Text="And his "/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="695,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Foreground="#FFECF0F1"><Run Text="Name is"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1126,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Foreground="#FFECF0F1"><Run Text="John Cena"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1472,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Foreground="#FFECF0F1"><Run Text="Tu turu tu"/><LineBreak/><Run/></TextBlock>
+
+    </Grid>
+</Window>

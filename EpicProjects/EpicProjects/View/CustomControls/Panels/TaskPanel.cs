@@ -46,13 +46,22 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Clear();
 
                         List<Model.Task> brains = _chief.SelectBrainstormings();
-                        foreach (Model.Task item in brains)
-                        {                               
-                                SingleTaskPanel brainStorming = new SingleTaskPanel(item);
-                                _brainstormingList.Add(brainStorming);
-                                brainStorming.MouseDown += brainStorming_MouseDown;
-                                this.Children.Add(brainStorming);
+
+                        if(brains.Count != 0 )
+                        {
+                                foreach (Model.Task item in brains)
+                                {
+                                        SingleTaskPanel brainStorming = new SingleTaskPanel(item);
+                                        _brainstormingList.Add(brainStorming);
+                                        brainStorming.MouseDown += brainStorming_MouseDown;
+                                        this.Children.Add(brainStorming);
+                                }
                         }
+                        else
+                        {
+                                this.Children.Add(new EmptyTaskPanel(ControlsValues.BRAINSTORMING));
+                        }
+                       
                 }//FillBrainstormings
 
                 public void FillTrainings()

@@ -133,8 +133,14 @@
     <Compile Include="Sketches\Dark\DarkHome.xaml.cs">
       <DependentUpon>DarkHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sketches\Dark\DarkProject.xaml.cs">
+      <DependentUpon>DarkProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sketches\Light\LightHome.xaml.cs">
       <DependentUpon>LightHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sketches\Light\LightProject.xaml.cs">
+      <DependentUpon>LightProject.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sketches\NewProject.xaml.cs">
       <DependentUpon>NewProject.xaml</DependentUpon>
@@ -163,6 +169,7 @@
     <Compile Include="View\CustomControls\Panels\CentralPanel.cs" />
     <Compile Include="View\CustomControls\Panels\ContentPanel.cs" />
     <Compile Include="View\CustomControls\Panels\DetailsPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\EmptyTaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
     <Compile Include="View\CustomControls\Panels\NewTaskPanel.cs" />
@@ -245,7 +252,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Sketches\Dark\DarkProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sketches\Light\LightHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketches\Light\LightProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
