@@ -67,42 +67,73 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void FillTrainings()
                 {
                         this.Children.Clear();
-                        List<Model.AdvancedTask> brains = _chief.SelectTrainings();
-                        foreach (Model.AdvancedTask item in brains)
+                        List<Model.AdvancedTask> trains = _chief.SelectTrainings();
+
+                        if(trains.Count != 0)
                         {
-                                SingleAdvancedTaskPanel training = new SingleAdvancedTaskPanel(item);
-                                _trainingList.Add(training);
-                                training.MouseDown += Trainings_MouseDown;
-                                this.Children.Add(training);
+                                foreach (Model.AdvancedTask item in trains)
+                                {
+                                        SingleAdvancedTaskPanel training = new SingleAdvancedTaskPanel(item);
+                                        _trainingList.Add(training);
+                                        training.MouseDown += Trainings_MouseDown;
+                                        this.Children.Add(training);
+                                }
                         }
+                        else
+                        {
+                                this.Children.Add(new EmptyTaskPanel(ControlsValues.TRAINING));
+
+                        }
+                      
                 }//FillTrainings()
 
                 public void FillAssignments()
                 {
                         this.Children.Clear();
                         List<Model.AdvancedTask> assignments = _chief.SelectAssignments();
-                        foreach (Model.AdvancedTask item in assignments)
-                        {
 
-                                SingleAdvancedTaskPanel assignment = new SingleAdvancedTaskPanel(item);
-                                _assignmentsList.Add(assignment);
-                                assignment.MouseDown += Assignments_MouseDown;
-                                this.Children.Add(assignment);
+                        if(assignments.Count != 0)
+                        {
+                                foreach (Model.AdvancedTask item in assignments)
+                                {
+
+                                        SingleAdvancedTaskPanel assignment = new SingleAdvancedTaskPanel(item);
+                                        _assignmentsList.Add(assignment);
+                                        assignment.MouseDown += Assignments_MouseDown;
+                                        this.Children.Add(assignment);
+                                }
                         }
+
+                        else
+                        {
+                                this.Children.Add(new EmptyTaskPanel(ControlsValues.ASSIGNMENTS));
+
+                        }
+                       
                 }//FillAssignments()
 
                 public void FillMaintenances()
                 {
                         this.Children.Clear();
                         List<Model.AdvancedTask> maintenances = _chief.SelectMaintenances();
-                        foreach (Model.AdvancedTask item in maintenances)
+
+                        if(maintenances.Count != 0)
                         {
-                                
-                                SingleAdvancedTaskPanel maintenance = new SingleAdvancedTaskPanel(item);
-                                _maintenancesList.Add(maintenance);
-                                maintenance.MouseDown += Maintenances_MouseDown;
-                                this.Children.Add(maintenance);
+                                foreach (Model.AdvancedTask item in maintenances)
+                                {
+
+                                        SingleAdvancedTaskPanel maintenance = new SingleAdvancedTaskPanel(item);
+                                        _maintenancesList.Add(maintenance);
+                                        maintenance.MouseDown += Maintenances_MouseDown;
+                                        this.Children.Add(maintenance);
+                                }
                         }
+                        else
+                        {
+                                this.Children.Add(new EmptyTaskPanel(ControlsValues.MAINTENANCE));
+
+                        }
+                      
                 }//FillAssignments()
 
 
