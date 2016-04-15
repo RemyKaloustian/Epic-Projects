@@ -18,7 +18,7 @@ namespace EpicProjects.View.Theme
 
                 public override SolidColorBrush GetBackground()
                 {
-                        return Palette2.GetColor(WindowsPhonePalette.YELLOW);
+                        return Palette2.GetColor(WindowsPhonePalette.TEAL);
                 }
 
                 public override SolidColorBrush GetAccentColor()

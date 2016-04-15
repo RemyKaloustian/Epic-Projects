@@ -51,7 +51,7 @@ namespace EpicProjects.View
                                 SetDimensions();
 
                                 TestFonts t = new TestFonts();
-                                t.Show();
+                               // t.Show();
 
 
                                 FontsHolder.Visibility = System.Windows.Visibility.Hidden;

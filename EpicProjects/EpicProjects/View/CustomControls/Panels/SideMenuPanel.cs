@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.View.CustomControls.Items;
+using EpicProjects.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public SideMenuItem _homeItem { get; set; }
 
+                
+
                 public SideMenuPanel()
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
@@ -50,6 +53,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _homeItem = new SideMenuItem(ControlsValues.HOME,20);
                         _homeItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
+                        _homeItem.MouseDown += _homeItem_MouseDown;
 
 
                         this.Children.Add(_newProjectItem);
@@ -62,6 +66,29 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetBackground();
 
 
+                }
+
+                void _homeItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                       
+                        //App.Current.Windows[1].Hide();
+                        //App.Current.Windows[0].Hide();
+
+                        foreach (Window win in App.Current.Windows)
+                        {
+                               
+                                        win.Hide();
+                            
+                        }
+                        View.Home j = new View.Home();
+                        j.Show();
+
+
+                      
+                       
+                        
+
+                        
                 }
 
         }//class MenuPanel
