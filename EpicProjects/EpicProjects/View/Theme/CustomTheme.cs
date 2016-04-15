@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Colors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,7 @@ namespace EpicProjects.View.Theme
 
                 public override SolidColorBrush GetBackground()
                 {
-                        return (SolidColorBrush)(new BrushConverter().ConvertFrom(Constants.Palette2.BELIZE_HOLE));
+                        return Palette2.GetColor(WindowsPhonePalette.YELLOW);
                 }
 
                 public override SolidColorBrush GetAccentColor()
