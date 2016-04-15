@@ -17,6 +17,7 @@ namespace EpicProjects.View.CustomControls.Panels
         {
                 public string _projectName { get; set; }
                 public TaskPanel _taskPanel { get; set; }
+                public ScrollViewer _scroller{ get; set; }
                 public DetailsPanel  _detailsPanel { get; set; }
                 public OptionsPanel _optionsPanel { get; set; }
                 public StackPanel _rightPanel { get; set; }
@@ -40,9 +41,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         _firstLoad = true;
                         _isOnOptions = true;
                         _projectName = name;
+                        _scroller = new ScrollViewer();
 
                         //Adding children
-                        this.Children.Add(_taskPanel);
+                        _scroller.Content = _taskPanel;
+                        this.Children.Add(_scroller);
                         this.Children.Add(_rightPanel);
 
                         //Loading Brainstormings on beginning by default

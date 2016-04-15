@@ -36,14 +36,14 @@ namespace EpicProjects.View
                 {
                         try
                         {
-                                View.Debug.Debug maDeb = new Debug.Debug();
-                                maDeb.Show();
+                                //View.Debug.Debug maDeb = new Debug.Debug();
+                                //maDeb.Show();
 
-                                Sketches.Dark.DarkProject darkP = new Sketches.Dark.DarkProject();
-                                darkP.Show();
+                                //Sketches.Dark.DarkProject darkP = new Sketches.Dark.DarkProject();
+                                //darkP.Show();
 
-                                Sketches.Light.LightProject lightP = new Sketches.Light.LightProject();
-                                lightP.Show();
+                                //Sketches.Light.LightProject lightP = new Sketches.Light.LightProject();
+                                //lightP.Show();
 
 
                                 InitializeComponent();

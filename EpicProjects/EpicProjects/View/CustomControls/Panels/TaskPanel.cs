@@ -34,6 +34,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         //Setting up fields
                         _chief = new TaskMasterChief(name);
                         _coordinator = coordinator;
+                       
                         _brainstormingList = new List<SingleTaskPanel>();
                         _trainingList = new List<SingleAdvancedTaskPanel>();
                         _assignmentsList = new List<SingleAdvancedTaskPanel>();
@@ -44,7 +45,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void FillBrainstormings()
                 {
                         this.Children.Clear();
-
+                        
                         List<Model.Task> brains = _chief.SelectBrainstormings();
 
                         if(brains.Count != 0 )

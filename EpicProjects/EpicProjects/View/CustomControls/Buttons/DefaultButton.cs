@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EpicProjects.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,8 +30,8 @@ namespace EpicProjects.View.CustomControls.Buttons
 
                 void DefaultButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
-                        _block.Foreground = new Theme.CustomTheme().GetBackground();
+                        this.Background = Palette2.GetColor(Palette2.DEFAULT_HOVER);
+                       // _block.Foreground = new Theme.CustomTheme().GetBackground();
                 }
 
                 public override void SetColor()
