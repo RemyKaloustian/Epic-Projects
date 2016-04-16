@@ -17,8 +17,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ReportBug(double width, double height, string content)
                         : base(width, height, content)
                 {
-                        //System.Diagnostics.Process.Start("http://google.com");
-
+                        this.Background = Palette2.GetColor(Palette2.SILVER);
                         _mail = new TextBlock();
                         _mail.Text = "Send an email to remy.kaloustian@protonmail.com";
                         _mail.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;

@@ -48,6 +48,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _statsItem = new SideMenuItem(ControlsValues.STATS,20);
                         _statsItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
+                        _statsItem.MouseDown += _statsItem_MouseDown;
 
 
                         _bugItem = new SideMenuItem(ControlsValues.REPORT,20);
@@ -70,6 +71,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetBackground();
 
 
+                }
+
+                void _statsItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        StatsPopUp st = new StatsPopUp(Dimensions.GetWidth()*0.6, Dimensions.GetHeight()*0.8, "Stats will be available on the V2 ! ");
                 }
 
                 void _bugItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
