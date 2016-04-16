@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 
 using EpicProjects.Constants.Images;
 using System.Windows;
+using EpicProjects.View.CustomControls.PopUp;
 
 namespace EpicProjects.View.CustomControls.Panels
 {
@@ -38,6 +39,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _newProjectItem = new SideMenuItem(ControlsValues.NEWPROJECT, 20);
                         _newProjectItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
+                        _newProjectItem.MouseDown += _newProjectItem_MouseDown;
 
                         _openProjectItem = new SideMenuItem(ControlsValues.OPENPROJECT,20);
                         _openProjectItem.Padding = new Thickness(this.Width * 0.1,this.Width/8,0,this.Width/8);
@@ -68,27 +70,20 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 }
 
+                void _newProjectItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        NewProjectPopUp newP = new NewProjectPopUp(Dimensions.GetWidth() * 0.6, Dimensions.GetHeight() * 0.8, "New Project");
+                }
+
                 void _homeItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                       
-                        //App.Current.Windows[1].Hide();
-                        //App.Current.Windows[0].Hide();
-
                         foreach (Window win in App.Current.Windows)
-                        {
-                               
-                                        win.Hide();
-                            
+                        {                               
+                                    win.Hide();                            
                         }
+
                         View.Home j = new View.Home();
-                        j.Show();
-
-
-                      
-                       
-                        
-
-                        
+                        j.Show();                       
                 }
 
         }//class MenuPanel
