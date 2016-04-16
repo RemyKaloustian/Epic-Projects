@@ -53,12 +53,12 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 private void SetUpButtons()
                 {
-                        _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _validateButton = new ValidateButton(ControlsValues.CREATE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
                         _validateButton.MouseDown += _validateButton_MouseDown;
                         _validateButton.IsEnabled = false;
 
-                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _cancelButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
                         _cancelButton.MouseDown += _cancelButton_MouseDown;
                 }
@@ -73,7 +73,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 private void SetUpEndDateBlock()
                 {
                         _endDateBlock = new TextBlock();
-                        _endDateBlock.Text = "End date";
+                        _endDateBlock.Text = ControlsValues.ENDATE;
                         _endDateBlock.FontFamily = FontProvider._lato;
                         _endDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _endDateBlock.FontSize = 20;
@@ -91,7 +91,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 private void SetUpStartDateBlock()
                 {
                         _startDateBlock = new TextBlock();
-                        _startDateBlock.Text = "Start date";
+                        _startDateBlock.Text = ControlsValues.STARTDATE;
                         _startDateBlock.FontFamily = FontProvider._lato;
                         _startDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _startDateBlock.FontSize = 20;
@@ -125,7 +125,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 private void SetUpNameBlock()
                 {
                         _nameBlock = new TextBlock();
-                        _nameBlock.Text = "Name";
+                        _nameBlock.Text = ControlsValues.NAME;
                         _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _nameBlock.FontFamily = FontProvider._lato;
                         _nameBlock.FontSize = 20;
@@ -144,20 +144,20 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         if(_nameBox.Text.Trim() == "")
                         {
-                                _alertBlock.Text = "Null input is not allowed.";
+                                _alertBlock.Text = ControlsValues.NULL;
                                 _validateButton.IsEnabled = false;
                         }
 
                         else if(new Checker().IsProjectExisting(_nameBox.Text))
                         {
 
-                                _alertBlock.Text = "There is already a project named like this.";
+                                _alertBlock.Text = ControlsValues.EXISTING_PROJECT;
                                 _validateButton.IsEnabled = false;
                         }
 
                         else
                         {
-                                _alertBlock.Text = "Name is valid";
+                                _alertBlock.Text = ControlsValues.NO_PROBLEMO;
                                 _validateButton.IsEnabled = true;
                         }
                 }
