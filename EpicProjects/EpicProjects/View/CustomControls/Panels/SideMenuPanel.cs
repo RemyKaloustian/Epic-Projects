@@ -52,6 +52,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _bugItem = new SideMenuItem(ControlsValues.REPORT,20);
                         _bugItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
+                        _bugItem.MouseDown += _bugItem_MouseDown;
 
 
                         _homeItem = new SideMenuItem(ControlsValues.HOME,20);
@@ -69,6 +70,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetBackground();
 
 
+                }
+
+                void _bugItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        ReportBug bug = new ReportBug(Dimensions.GetWidth() * 0.6, Dimensions.GetHeight() * 0.8, "Report a bug");
                 }
 
                 void _openProjectItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
