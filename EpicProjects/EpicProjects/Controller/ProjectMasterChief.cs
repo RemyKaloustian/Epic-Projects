@@ -27,6 +27,12 @@ namespace EpicProjects.Controller
                 }//ProjectMasterChief()
 
 
+                public void InsertProject(string name, string startDate, string endDate)
+                {
+                        _guru._propInserter.InsertProject(name, startDate, endDate);
+                }
+
+
                 /// <summary>
                 /// Insert a task in the database using the Guru
                 /// </summary>

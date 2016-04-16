@@ -87,6 +87,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
                         _validateButton.MouseDown += _validateButton_MouseDown;
+                        _validateButton.IsEnabled = false;
 
                         _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
@@ -130,7 +131,33 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
+                        string startDateValue;
+
+                        if (_startDatePicker.SelectedDate == null)
+                        {
+                                startDateValue = "";
+                        }
+                        else
+                        {
+                                startDateValue = _startDatePicker.SelectedDate.Value.ToString();
+                        }
+
+                        string endDateValue ;
+
+                        if (_endDatePicker.SelectedDate == null)
+                        {
+                                endDateValue = "";
+                        }
+                        else
+                        {
+                                endDateValue = _endDatePicker.SelectedDate.Value.ToString();
+                        }
                         
+                 
+                        new ProjectMasterChief().InsertProject(_nameBox.Text, startDateValue, endDateValue);
+
+                        new Captain().ToProject(_nameBox.Text);
+                        this.Close();
                 }
 
                 void _cancelButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
