@@ -152,7 +152,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 internal void LoadAssignmentsAddition()
                 {
-                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.ASSIGNMENTS, _projectName, true, this);
+                        NewAdvancedTaskPopUp newAdvanced = new NewAdvancedTaskPopUp(Dimensions.GetWidth() * 0.7, Dimensions.GetHeight() / 1.2, ControlsValues.ASSIGNMENTS.Remove(ControlsValues.ASSIGNMENTS.Length - 1), _projectName, true, this);
                 }
 
                 internal void LoadMaintenanceAddition()  
