@@ -169,6 +169,7 @@
     <Compile Include="View\CustomControls\Home\ProjectLink.cs" />
     <Compile Include="View\CustomControls\Items\ProjectItem.cs" />
     <Compile Include="View\CustomControls\Items\SideMenuItem.cs" />
+    <Compile Include="View\CustomControls\Items\ThemeItem.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\Panels\CentralPanel.cs" />
     <Compile Include="View\CustomControls\Panels\ContentPanel.cs" />
@@ -204,6 +205,7 @@
     </Compile>
     <Compile Include="View\Layout\ProjectLayoutNinja.cs" />
     <Compile Include="View\Layout\SettingsLayoutNinja.cs" />
+    <Compile Include="View\Layout\ThemeLayoutNinja.cs" />
     <Compile Include="View\Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -219,6 +221,9 @@
     </Compile>
     <Compile Include="View\Windows\TestFonts.xaml.cs">
       <DependentUpon>TestFonts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\Theme.xaml.cs">
+      <DependentUpon>Theme.xaml</DependentUpon>
     </Compile>
     <Page Include="Exception\LaunchException.xaml">
       <SubType>Designer</SubType>
@@ -309,6 +314,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\TestFonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\Theme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

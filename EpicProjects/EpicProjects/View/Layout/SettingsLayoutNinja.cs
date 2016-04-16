@@ -39,6 +39,7 @@ namespace EpicProjects.View.Layout
                         
 
                         _changeThemeButton = new ValidateButton("Change theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _changeThemeButton.MouseDown += _changeThemeButton_MouseDown;
 
                         _backButton = new  CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
                         _backButton.MouseDown += _backButton_MouseDown;
@@ -47,6 +48,11 @@ namespace EpicProjects.View.Layout
                         _container.Children.Add(_separator);
                         _container.Children.Add(_changeThemeButton);
                         _container.Children.Add(_backButton);
+                }
+
+                void _changeThemeButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        new Captain().ToTheme();
                 }
 
                 void _backButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
