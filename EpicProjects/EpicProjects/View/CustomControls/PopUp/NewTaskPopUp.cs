@@ -165,7 +165,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                                 foreach (Model.Task item in tasks)
                                 {
-                                        if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
+                                        if (item._name.ToLower().Trim().Replace(" ",string.Empty) == _nameBox.Text.ToLower().Trim().Replace(" ", string.Empty) && item._project == _projectName)
                                                 return false;
                                 }
                         }

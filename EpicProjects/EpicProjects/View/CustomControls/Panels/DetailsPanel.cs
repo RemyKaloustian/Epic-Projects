@@ -143,7 +143,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         else if (!this.IsNameValid())
                         {
-                                _taskUpdater._alertBlock.Text = "this task already exists";
+                                _taskUpdater._alertBlock.Text = "This task already exists";
                                 _taskUpdater._applyButton.IsEnabled = false;
                         }
 
@@ -163,7 +163,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                                 foreach (Model.Task item in tasks)
                                 {
-                                        if (item._name.ToLower().Trim() == _taskUpdater._nameBox.Text.ToLower().Trim() && item._project == _coordinator._contentPanel._projectName)
+                                        if (item._name.ToLower().Trim().Replace(" ",string.Empty) == _taskUpdater._nameBox.Text.ToLower().Trim().Replace(" ",string.Empty) && item._project == _coordinator._contentPanel._projectName)
                                                 return false;
                                 }
                         }
