@@ -15,7 +15,11 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ScrollViewer _scroller { get; set; }
                 public StackPanel _projectsPanel { get; set; }
 
+                public ValidateButton _openButton{ get; set; }
+                public CancelButton _cancelButton { get; set; }
+
                 public List<ProjectItem> _projectItemList { get; set; }
+                public string  _selectedProject { get; set; }
 
                 public OpenProjectPopUp(double width, double height, string content)
                         : base(width, height, content)
@@ -25,11 +29,11 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _separator.Background = new Theme.CustomTheme().GetBackground();
 
                         _scroller = new ScrollViewer();
+                        _scroller.Height = this.Height*0.6;
 
 
                         _projectsPanel = new StackPanel();
                         _projectsPanel.Orientation = Orientation.Vertical;
-                        _projectsPanel.MinHeight = 400;
 
                         _projectItemList = new List<ProjectItem>();
 
@@ -46,9 +50,33 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _scroller.Content = _projectsPanel;
 
+
+
+                        _openButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _openButton.MouseDown += _openButton_MouseDown;
+                        _openButton.IsEnabled = false;
+
+                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _cancelButton.MouseDown += _cancelButton_MouseDown;
+
                         _container.Children.Add(_separator);
                         _container.Children.Add(_scroller);
 
+                        _container.Children.Add(_openButton);
+                        _container.Children.Add(_cancelButton);
+
+                }
+
+                private void _cancelButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        this.Close();
+                }
+
+                private void _openButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        new Captain().ToProject(_selectedProject);
                 }
 
                 void proj_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -58,6 +86,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                                 if(item.IsMouseOver)
                                 {
                                         item.Hover();
+                                        _selectedProject = item._nameBlock.Text;
+                                        _openButton.IsEnabled = true;
                                 }
 
                                 else
