@@ -137,19 +137,19 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         if (_taskUpdater._nameBox.Text.Trim() == "")
                         {
-                                _taskUpdater._alertBlock.Text = "Null input is not valid";
+                                _taskUpdater._alertBlock.Text = ControlsValues.NAME;
                                  _taskUpdater._applyButton.IsEnabled = false;
                         }
 
                         else if (!this.IsNameValid())
                         {
-                                _taskUpdater._alertBlock.Text = "This task already exists";
+                                _taskUpdater._alertBlock.Text = ControlsValues.EXISTING_TASK;
                                 _taskUpdater._applyButton.IsEnabled = false;
                         }
 
                         else
                         {
-                                _taskUpdater._alertBlock.Text = "Name is valid";
+                                _taskUpdater._alertBlock.Text = ControlsValues.NO_PROBLEMO;
                                 _taskUpdater._applyButton.IsEnabled = true;
                         }
                 }//HandleTaskUpdater()
