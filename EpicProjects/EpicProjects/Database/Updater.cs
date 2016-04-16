@@ -111,7 +111,6 @@ namespace EpicProjects.Database
                                         item.Attributes["details"].InnerText = newdetails;
                                         item.Attributes["priority"].InnerText = newpriority;
                                         item.Attributes["state"].InnerText = newstate;
-                                        Debug.CW("in UpdateTraining(), state = " + newstate);
                                 }
                         }
 

@@ -26,6 +26,11 @@ namespace EpicProjects.Controller
                         _guru = new DatabaseGuru(Paths.PROJECTS_SAVE);
                 }//ProjectMasterChief()
 
+                public List<string> GetProjects()
+                {
+                        return _guru._propSelector.SelectProjects();
+                }
+
 
                 public void InsertProject(string name, string startDate, string endDate)
                 {

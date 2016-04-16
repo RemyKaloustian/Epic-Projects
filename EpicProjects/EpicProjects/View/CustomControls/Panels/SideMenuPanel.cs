@@ -43,6 +43,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _openProjectItem = new SideMenuItem(ControlsValues.OPENPROJECT,20);
                         _openProjectItem.Padding = new Thickness(this.Width * 0.1,this.Width/8,0,this.Width/8);
+                        _openProjectItem.MouseDown += _openProjectItem_MouseDown;
 
 
                         _statsItem = new SideMenuItem(ControlsValues.STATS,20);
@@ -68,6 +69,12 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = new Theme.CustomTheme().GetBackground();
 
 
+                }
+
+                void _openProjectItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        Constants.Debug.CW("Opening the pop up");
+                        OpenProjectPopUp op = new OpenProjectPopUp(Dimensions.GetWidth() * 0.6, Dimensions.GetHeight() * 0.8, "Open project");
                 }
 
                 void _newProjectItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

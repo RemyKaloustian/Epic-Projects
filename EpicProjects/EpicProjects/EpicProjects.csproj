@@ -167,6 +167,7 @@
     <Compile Include="View\CustomControls\Home\OpenProjectPanel.cs" />
     <Compile Include="View\CustomControls\Home\ProjectBlock.cs" />
     <Compile Include="View\CustomControls\Home\ProjectLink.cs" />
+    <Compile Include="View\CustomControls\Items\ProjectItem.cs" />
     <Compile Include="View\CustomControls\Items\SideMenuItem.cs" />
     <Compile Include="View\CustomControls\NewProjectPanel.cs" />
     <Compile Include="View\CustomControls\Panels\CentralPanel.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="View\CustomControls\PopUp\NewProjectPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NewTaskPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NullInputPopUp.cs" />
+    <Compile Include="View\CustomControls\PopUp\OpenProjectPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\PopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\RenamePopUp.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />

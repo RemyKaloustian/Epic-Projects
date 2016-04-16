@@ -92,13 +92,12 @@ namespace EpicProjects.View.CustomControls.Panels
                 void _deleteButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                        
-                        Constants.Debug.CW("In Mouse Down, deleting with name = " + _name.Text + "  and project = " + _coordinator._contentPanel._projectName);
+                        
 
                         if(_coordinator._contentPanel._UIState == UIStates.ON_BRAINSTORMING)
                         { 
                                 new TaskMasterChief(_coordinator._contentPanel._projectName).DeleteBrainstorming(_name.Text);
                                
-                                Constants.Debug.CW("In MouseDown, UIState is : " + _coordinator._contentPanel._UIState);
                                 _coordinator._contentPanel.LoadBrainstorming();
                         }
 
@@ -311,7 +310,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 new TaskMasterChief(_coordinator._contentPanel._projectName).UpdateTraining(_name.Text, _taskUpdater._nameBox.Text, _taskUpdater._detailsBox.Text, _taskUpdater._priorityCombo.SelectedItem.ToString(), _taskUpdater._stateCombo.SelectedItem.ToString());
 
-                                Constants.Debug.CW("In Apply Mouse down, _taskUpdater._stateCombo.SelectedItem.ToString() = " + _taskUpdater._stateCombo.SelectedItem.ToString());
+                               
                                 _coordinator._contentPanel.LoadTraining();
 
 

@@ -72,14 +72,12 @@ namespace EpicProjects.Database
                 {
                         XmlDocument doc = new XmlDocument();
                         doc.Load(Paths.BRAINSTORMINGS_SAVE);
-                        Debug.CW("In Deleter, name = " + name + " , project = " + project);
                         XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.BRAINSTORMINGS_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 if (item.Attributes[DatabaseValues.PROJECT_LINK].InnerText == project && item.Attributes[DatabaseValues.NAME].InnerText == name)
                                 {
-                                        Debug.CW("Removing item");
                                         item.ParentNode.RemoveChild(item);
                                 }
                         }
@@ -100,14 +98,12 @@ namespace EpicProjects.Database
                 {
                         XmlDocument doc = new XmlDocument();
                         doc.Load(Paths.TRAININGS_SAVE);
-                        Debug.CW("In Deleter, name = " + name + " , project = " + project);
                         XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.TRAININGS_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 if (item.Attributes[DatabaseValues.PROJECT_LINK].InnerText == project && item.Attributes[DatabaseValues.NAME].InnerText == name)
                                 {
-                                        Debug.CW("Removing item");
                                         item.ParentNode.RemoveChild(item);
                                 }
                         }
@@ -130,14 +126,12 @@ namespace EpicProjects.Database
                 {
                         XmlDocument doc = new XmlDocument();
                         doc.Load(Paths.ASSIGNMENTS_SAVE);
-                        Debug.CW("In Deleter, name = " + name + " , project = " + project);
                         XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.ASSIGNMENTS_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 if (item.Attributes[DatabaseValues.PROJECT_LINK].InnerText == project && item.Attributes[DatabaseValues.NAME].InnerText == name)
                                 {
-                                        Debug.CW("Removing item");
                                         item.ParentNode.RemoveChild(item);
                                 }
                         }
@@ -159,14 +153,12 @@ namespace EpicProjects.Database
                 {
                         XmlDocument doc = new XmlDocument();
                         doc.Load(Paths.MAINTENANCES_SAVE);
-                        Debug.CW("In Deleter, name = " + name + " , project = " + project);
                         XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.MAINTENANCES_PATH);
 
                         foreach (XmlNode item in nodelist)
                         {
                                 if (item.Attributes[DatabaseValues.PROJECT_LINK].InnerText == project && item.Attributes[DatabaseValues.NAME].InnerText == name)
                                 {
-                                        Debug.CW("Removing item");
                                         item.ParentNode.RemoveChild(item);
                                 }
                         }

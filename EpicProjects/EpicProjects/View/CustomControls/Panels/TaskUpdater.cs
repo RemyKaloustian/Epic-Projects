@@ -252,7 +252,6 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 private void FillStateCombo(string state)
                 {
-                        Constants.Debug.CW("In FillStateCombo, state  = " + state);
 
 
                         _stateCombo.Items.Add(States.UIOPEN);
@@ -262,20 +261,17 @@ namespace EpicProjects.View.CustomControls.Panels
                         if(state.Contains( States.UIOPEN))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[0];
-                                Constants.Debug.CW("items 0  = " + _stateCombo.Items[0]);
                         }
 
                         else if (state.Contains( States.UIPROGRESS))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[1];
-                                Constants.Debug.CW("items 1  = " + _stateCombo.Items[1]);
 
                         }
 
                         else if (state.Contains( States.UIDONE))
                         {
                                 _stateCombo.SelectedItem = _stateCombo.Items[2];
-                                Constants.Debug.CW("items 2  = " + _stateCombo.Items[2]);
 
                         }
                 }//FillStateCombo()
