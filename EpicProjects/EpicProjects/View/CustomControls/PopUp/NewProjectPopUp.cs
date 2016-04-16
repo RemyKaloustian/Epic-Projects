@@ -28,71 +28,15 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         this.Background = Palette2.GetColor(WindowsPhonePalette.STEEL);
 
-                        _separator = new Separator();
-                        _separator.Width = this.Width * 0.5;
-                        _separator.Background = new Theme.CustomTheme().GetBackground();
-
-                        _nameBlock = new TextBlock();
-                        _nameBlock.Text = "Name";
-                        _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _nameBlock.FontFamily = FontProvider._lato;
-                        _nameBlock.FontSize = 20;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _nameBlock.Margin = new System.Windows.Thickness(0, 30, 0, 0);
-
-
-                        _nameBox = new TextBox();
-                        _nameBox.Width = this.Width * 0.5;
-                        _nameBox.FontFamily = FontProvider._lato;
-                        _nameBox.FontSize = 15;
-                        _nameBox.Height = this.Height * 0.05;
-                        _nameBox.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _nameBox.TextChanged += _nameBox_TextChanged;
-
-                        _alertBlock = new TextBlock();
-                        _alertBlock.FontFamily = FontProvider._open;
-                        _alertBlock.FontSize = 15;
-                        _alertBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        double left = this.Width - _nameBox.Width - ((this.Width - _nameBox.Width) / 2);
-
-                        _alertBlock.Margin = new System.Windows.Thickness(left, 0, 0, 0);
-
-
-                        _startDateBlock = new TextBlock();
-                        _startDateBlock.Text = "Start date";
-                        _startDateBlock.FontFamily = FontProvider._lato;
-                        _startDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _startDateBlock.FontSize = 20;
-                        _startDateBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _startDateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-                        _startDatePicker = new DatePicker();
-                        _startDatePicker.Width = this.Width * 0.5;
-                        _startDatePicker.Height = this.Height * 0.05;
-
-
-                        _endDateBlock = new TextBlock();
-                        _endDateBlock.Text = "End date";
-                        _endDateBlock.FontFamily = FontProvider._lato;
-                        _endDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _endDateBlock.FontSize = 20;
-                        _endDateBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                        _endDateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
-
-
-                        _endDatePicker = new DatePicker();
-                        _endDatePicker.Width = this.Width * 0.5;
-                        _endDatePicker.Height = this.Height * 0.05;
-
-                        _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
-
-                        _validateButton.MouseDown += _validateButton_MouseDown;
-                        _validateButton.IsEnabled = false;
-
-                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
-
-                        _cancelButton.MouseDown += _cancelButton_MouseDown;
-
+                        SetUpSeparator();
+                        SetUpNameBlock();
+                        SetUpNameBox();
+                        SetUpAlertBlock();
+                        SetUpStartDateBlock();
+                        SetUpStartPicker();
+                        SetUpEndDateBlock();
+                        SetUpEndPicker();
+                        SetUpButtons();
 
                         _container.Children.Add(_separator);
                         _container.Children.Add(_nameBlock);
@@ -105,6 +49,95 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_validateButton);
                         _container.Children.Add(_cancelButton);
 
+                }
+
+                private void SetUpButtons()
+                {
+                        _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _validateButton.MouseDown += _validateButton_MouseDown;
+                        _validateButton.IsEnabled = false;
+
+                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+
+                        _cancelButton.MouseDown += _cancelButton_MouseDown;
+                }
+
+                private void SetUpEndPicker()
+                {
+                        _endDatePicker = new DatePicker();
+                        _endDatePicker.Width = this.Width * 0.5;
+                        _endDatePicker.Height = this.Height * 0.05;
+                }
+
+                private void SetUpEndDateBlock()
+                {
+                        _endDateBlock = new TextBlock();
+                        _endDateBlock.Text = "End date";
+                        _endDateBlock.FontFamily = FontProvider._lato;
+                        _endDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _endDateBlock.FontSize = 20;
+                        _endDateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _endDateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                }
+
+                private void SetUpStartPicker()
+                {
+                        _startDatePicker = new DatePicker();
+                        _startDatePicker.Width = this.Width * 0.5;
+                        _startDatePicker.Height = this.Height * 0.05;
+                }
+
+                private void SetUpStartDateBlock()
+                {
+                        _startDateBlock = new TextBlock();
+                        _startDateBlock.Text = "Start date";
+                        _startDateBlock.FontFamily = FontProvider._lato;
+                        _startDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _startDateBlock.FontSize = 20;
+                        _startDateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _startDateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                }
+
+                private void SetUpAlertBlock()
+                {
+
+                        _alertBlock = new TextBlock();
+                        _alertBlock.FontFamily = FontProvider._open;
+                        _alertBlock.FontSize = 15;
+                        _alertBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        double left = this.Width - _nameBox.Width - ((this.Width - _nameBox.Width) / 2);
+
+                        _alertBlock.Margin = new System.Windows.Thickness(left, 0, 0, 0);
+                }
+
+                private void SetUpNameBox()
+                {
+                        _nameBox = new TextBox();
+                        _nameBox.Width = this.Width * 0.5;
+                        _nameBox.FontFamily = FontProvider._lato;
+                        _nameBox.FontSize = 15;
+                        _nameBox.Height = this.Height * 0.05;
+                        _nameBox.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _nameBox.TextChanged += _nameBox_TextChanged;
+                }
+
+                private void SetUpNameBlock()
+                {
+                        _nameBlock = new TextBlock();
+                        _nameBlock.Text = "Name";
+                        _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _nameBlock.FontFamily = FontProvider._lato;
+                        _nameBlock.FontSize = 20;
+                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.Margin = new System.Windows.Thickness(0, 30, 0, 0);
+                }
+
+                private void SetUpSeparator()
+                {
+                        _separator = new Separator();
+                        _separator.Width = this.Width * 0.5;
+                        _separator.Background = new Theme.CustomTheme().GetBackground();
                 }
 
                 void _nameBox_TextChanged(object sender, TextChangedEventArgs e)
