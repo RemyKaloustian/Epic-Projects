@@ -15,7 +15,7 @@ namespace EpicProjects.View.CustomControls.Items
                 public ProjectItem(double height, string content)
                 {
                         this.Height = height;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = Palette2.GetColor(Palette2.SILVER);
                         
                         
 
@@ -24,7 +24,8 @@ namespace EpicProjects.View.CustomControls.Items
                         _nameBlock.FontFamily = FontProvider._lato;
                         _nameBlock.FontSize = 17;
                         _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
-                      //  _nameBlock.Foreground = Palette2.GetColor(Palette2.ORANGE);
+                        _nameBlock.Margin = new System.Windows.Thickness(40, 0, 0, 0);
+                        _nameBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
 
                         this.Children.Add(_nameBlock);
 
@@ -38,7 +39,7 @@ namespace EpicProjects.View.CustomControls.Items
 
                 public void Unhover()
                 {
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = Palette2.GetColor(Palette2.SILVER);
                         _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
                 }
 

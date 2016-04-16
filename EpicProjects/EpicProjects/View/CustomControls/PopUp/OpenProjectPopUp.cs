@@ -1,4 +1,6 @@
-﻿using EpicProjects.Controller;
+﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Colors;
+using EpicProjects.Controller;
 using EpicProjects.View.CustomControls.Items;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public OpenProjectPopUp(double width, double height, string content)
                         : base(width, height, content)
                 {
+                        this.Background = Palette2.GetColor(Palette2.SILVER);
+
                         _separator = new Separator();
                         _separator.Width = this.Width * 0.5;
                         _separator.Background = new Theme.CustomTheme().GetBackground();
@@ -34,6 +38,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _projectsPanel = new StackPanel();
                         _projectsPanel.Orientation = Orientation.Vertical;
+                        _projectsPanel.Margin = new System.Windows.Thickness(0, 30, 0, 0);
 
                         _projectItemList = new List<ProjectItem>();
 
@@ -52,12 +57,12 @@ namespace EpicProjects.View.CustomControls.PopUp
 
 
 
-                        _openButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _openButton = new ValidateButton("Open", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
                         _openButton.MouseDown += _openButton_MouseDown;
                         _openButton.IsEnabled = false;
 
-                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 14, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
 
                         _cancelButton.MouseDown += _cancelButton_MouseDown;
 
