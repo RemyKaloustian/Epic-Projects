@@ -47,6 +47,7 @@ namespace EpicProjects.View
 
 
                                 InitializeComponent();
+                                this.Show();
                                 SetFonts();
                                 SetDimensions();
 

@@ -203,6 +203,7 @@
       <DependentUpon>Debug.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Layout\ProjectLayoutNinja.cs" />
+    <Compile Include="View\Layout\SettingsLayoutNinja.cs" />
     <Compile Include="View\Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -213,6 +214,9 @@
     </Compile>
     <Compile Include="View\Theme\CustomTheme.cs" />
     <Compile Include="View\Theme\Theme.cs" />
+    <Compile Include="View\Windows\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\TestFonts.xaml.cs">
       <DependentUpon>TestFonts.xaml</DependentUpon>
     </Compile>
@@ -297,6 +301,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\ProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

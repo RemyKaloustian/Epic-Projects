@@ -191,6 +191,7 @@ namespace EpicProjects.View.Layout
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
                         _settingsItem = new HomeItem(ControlsValues.SETTINGS, Shortcuts.SETTINGS, _theme, _containerPanel.Width / 5, "");
+                        _settingsItem.MouseDown += _settingsItem_MouseDown;
 
                         _itemsPanel.Children.Add(_settingsItem);
 
@@ -216,6 +217,11 @@ namespace EpicProjects.View.Layout
                         //Bacause it would be displayed horizontally
                         _containerPanel.Children.Add(_itemsSeparator);
 
+                }
+
+                void _settingsItem_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        new Captain().ToSettings("home");
                 }
 
                 private void SetUpLatestTitle()
