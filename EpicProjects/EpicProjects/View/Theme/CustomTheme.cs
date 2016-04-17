@@ -11,25 +11,21 @@ namespace EpicProjects.View.Theme
 {
         public class CustomTheme : Theme
         {
-                public CustomTheme()
-                {
-
-                }//CustomTheme()
+                
 
                 public override SolidColorBrush GetBackground()
                 {
-                        return Palette2.GetColor(WindowsPhonePalette.TEAL);
+                        return GetColor(_accent);
                 }
 
                 public override SolidColorBrush GetAccentColor()
                 {
-                        return (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
+                        return GetColor("#f5f5f5");
                 }
 
                 public SolidColorBrush GetPopUpBackground()
                 {
-                        return (SolidColorBrush)(new BrushConverter().ConvertFrom("#b0bec5"));
-
+                        return GetColor(_accent);
                 }
 
                 public override FontFamily GetTitleFont()
@@ -48,5 +44,15 @@ namespace EpicProjects.View.Theme
                 }
 
 
+
+                public override SolidColorBrush GetValidateColor()
+                {
+                        return GetBackground();
+                }
+
+                public override SolidColorBrush GetHoverColor()
+                {
+                        return GetAccentColor();
+                }
         }//class CustomTheme
 }//ns

@@ -206,6 +206,8 @@
     <Compile Include="View\Layout\ProjectLayoutNinja.cs" />
     <Compile Include="View\Layout\SettingsLayoutNinja.cs" />
     <Compile Include="View\Layout\ThemeLayoutNinja.cs" />
+    <Compile Include="View\Theme\DarkTheme.cs" />
+    <Compile Include="View\Theme\LightTheme.cs" />
     <Compile Include="View\Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -486,6 +488,9 @@
     <Resource Include="Saves\Maintenances.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Saves\Theme.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
