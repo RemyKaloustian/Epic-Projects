@@ -208,6 +208,7 @@
     <Compile Include="View\Layout\ThemeLayoutNinja.cs" />
     <Compile Include="View\Theme\DarkTheme.cs" />
     <Compile Include="View\Theme\LightTheme.cs" />
+    <Compile Include="View\Theme\ThemeSelector.cs" />
     <Compile Include="View\Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
