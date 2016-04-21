@@ -21,8 +21,13 @@ namespace EpicProjects.View.Layout
                 public ValidateButton _changeThemeButton { get; set; }
                 public CancelButton _backButton { get; set; }
 
+                public string _previous { get; set; }
+
                 public SettingsLayoutNinja(double width, double height, string previous)
                 {
+                        _previous = previous;   
+
+
                         _container = new StackPanel();
                         _container.Orientation = Orientation.Vertical;
 
@@ -53,7 +58,7 @@ namespace EpicProjects.View.Layout
 
                 void _changeThemeButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        new Captain().ToTheme();
+                        new Captain().ToTheme(_previous);
                 }
 
                 void _backButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

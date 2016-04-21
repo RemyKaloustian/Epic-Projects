@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using EpicProjects.View.CustomControls;
 using EpicProjects.View.CustomControls.Items;
 using EpicProjects.View.Theme;
@@ -22,11 +23,15 @@ namespace EpicProjects.View.Layout
 
                 public List<ThemeItem> _themeItemlist { get; set; }
 
+                public string _selectedTheme { get; set; }
+                public string _previous { get; set; }
 
 
 
-                public ThemeLayoutNinja()
+                public ThemeLayoutNinja(string previous)
                 {
+
+                        _previous = previous;
                         _container = new StackPanel();
                         _container.Orientation = Orientation.Vertical;
 
@@ -52,19 +57,24 @@ namespace EpicProjects.View.Layout
                         _themesPanel.Children.Add(dark);
                         _themeItemlist.Add(dark);
                         dark.MouseDown += ThemeItem_MouseDown;
+                        dark.MouseDown += dark_MouseDown;
 
                         ThemeItem light = new ThemeItem("Light", Palette2.LIGHT_GRAY);
                         _themesPanel.Children.Add(light);
                         _themeItemlist.Add(light);
                         light.MouseDown += ThemeItem_MouseDown;
+                        light.MouseDown += light_MouseDown;
 
 
                         ThemeItem custom = new ThemeItem("Custom", Palette2.ALIZARIN);
                         _themesPanel.Children.Add(custom);
                         _themeItemlist.Add(custom);
                         custom.MouseDown += ThemeItem_MouseDown;
+                        custom.MouseDown += custom_MouseDown;
 
                         _changeColor = new  ValidateButton("Change accent color", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight()* 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _changeColor.IsEnabled = false;
+                        _changeColor.MouseDown += _changeColor_MouseDown;
 
 
                         _container.Children.Add(_titleBlock);
@@ -75,8 +85,36 @@ namespace EpicProjects.View.Layout
 
                 }
 
+                void _changeColor_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        
+                        new Captain().ToSettings(_previous);
+                }
+
+                void custom_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        _selectedTheme = Themes.CUSTOM;
+                        ThemeSelector.ChangeThemeType(Themes.CUSTOM);
+                }
+
+                void light_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        _selectedTheme = Themes.LIGHT;
+                        ThemeSelector.ChangeThemeType(Themes.LIGHT);
+
+                }
+
+                void dark_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        _selectedTheme = Themes.DARK;
+                        ThemeSelector.ChangeThemeType(Themes.DARK);
+
+                }
+
                 void ThemeItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
+                        _changeColor.IsEnabled = true;
+
                         foreach (var item in _themeItemlist)
                         {
                                 if (item.IsMouseOver)

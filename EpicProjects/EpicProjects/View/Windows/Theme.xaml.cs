@@ -22,21 +22,21 @@ namespace EpicProjects.View.Windows
         /// </summary>
         public partial class Theme : Window
         {
-                public Theme()
+                public Theme(string previous)
                 {
                         InitializeComponent();
                         this.Show();
                         SetUpWindow("Theme selection");
 
-                        SetUpLayout();
+                        SetUpLayout(previous);
                         ThemeSelector.InitializeTheme();
 
 
                 }
 
-                private void SetUpLayout()
+                private void SetUpLayout(string previous)
                 {
-                        Grid.Children.Add(new ThemeLayoutNinja().GetLayout());
+                        Grid.Children.Add(new ThemeLayoutNinja(previous).GetLayout());
                 }
 
                 private void SetUpWindow(string name)

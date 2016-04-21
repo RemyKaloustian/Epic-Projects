@@ -78,6 +78,41 @@ namespace EpicProjects.View.Theme
                         return type;
                 }//ReadThemeType()
 
+                public static void ChangeThemeType(string newType)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(DatabaseValues.THEME_SAVE);
+
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.THEME_TYPE_PATH);
+
+                        foreach (XmlNode item in nodelist)
+                        {
+
+                                 item.Attributes[DatabaseValues.TYPE].InnerText = newType;
+
+                        }
+
+                        doc.Save(DatabaseValues.THEME_SAVE);
+                }//ChangeThemeType()
+
+                public static void ChangeAccent(string accent)
+                {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(DatabaseValues.THEME_SAVE);
+
+                        XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.THEME_ACCENT_PATH);
+
+                        foreach (XmlNode item in nodelist)
+                        {
+
+                                item.Attributes[DatabaseValues.VALUE].InnerText = accent;
+
+                        }
+
+                        doc.Save(DatabaseValues.THEME_SAVE);
+
+                }//ChangeAccent()
+
                 public  static SolidColorBrush  GetBackground()
                 {
                         return _theme.GetBackground();
