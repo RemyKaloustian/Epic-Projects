@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public BadPerson()
                 {
 
-                        Theme.Theme th = new Theme.CustomTheme();
+                        
                         this.Width = Dimensions.GetWidth() / 4;
                         this.Height = Dimensions.GetHeight() / 5;
 
@@ -32,10 +33,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _block.FontSize = 30;
                         _block.FontFamily = FontProvider._lato;
-                        _block.Foreground = th.GetAccentColor();
+                        _block.Foreground = ThemeSelector.GetAccentColor();
                         _block.Margin = new Thickness(0, this.Height / 10, 0, 0);
 
-                        _badButton = new CancelButton(ControlsValues.BAD, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center, th);
+                        _badButton = new CancelButton(ControlsValues.BAD, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center);
                         _badButton.MouseDown += _badButton_MouseDown;
 
                         _container = new StackPanel();

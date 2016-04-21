@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,9 +109,9 @@ namespace EpicProjects.View.CustomControls.Panels
                 #region SetUp functions
                 private void SetUpButtons(double width, double height)
                 {
-                        _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _applyButton = new ValidateButton(ControlsValues.APPLY, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
 
-                        _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _nopeButton = new CancelButton(ControlsValues.NOPE, width * 0.7, height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
                 }
 
                 private void SetUpAlertBlock()
@@ -140,7 +141,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsBlock = new TextBlock();
                         _detailsBlock.Text = "Details";
                         _detailsBlock.FontFamily = FontProvider._lato;
-                        _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _detailsBlock.Foreground = ThemeSelector.GetBackground();
                         _detailsBlock.FontSize = 20;
                         _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
@@ -165,7 +166,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _nameBlock = new TextBlock();
                         _nameBlock.Text = "Name";
                         _nameBlock.FontFamily = FontProvider._lato;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.Foreground = ThemeSelector.GetBackground();
                         _nameBlock.FontSize = 20;
                         _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _nameBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
@@ -185,7 +186,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _stateBlock = new TextBlock();
                         _stateBlock.Text = "State";
                         _stateBlock.FontFamily = FontProvider._lato;
-                        _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _stateBlock.Foreground = ThemeSelector.GetBackground();
                         _stateBlock.FontSize = 20;
                         _stateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _stateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
@@ -205,7 +206,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priorityBlock = new TextBlock();
                         _priorityBlock.Text = "Priority";
                         _priorityBlock.FontFamily = FontProvider._lato;
-                        _priorityBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _priorityBlock.Foreground = ThemeSelector.GetBackground();
                         _priorityBlock.FontSize = 20;
                         _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priorityBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);

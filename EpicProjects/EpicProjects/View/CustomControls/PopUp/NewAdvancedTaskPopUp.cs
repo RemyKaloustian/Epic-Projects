@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls.Panels;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _priorityBlock = new TextBlock();
                         _priorityBlock.Text = "Priority";
-                        _priorityBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _priorityBlock.Foreground = ThemeSelector.GetBackground();
                         _priorityBlock.FontFamily = FontProvider._lato;
                         _priorityBlock.FontSize = 25;
                         _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;

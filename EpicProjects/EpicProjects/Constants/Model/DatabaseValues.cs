@@ -42,7 +42,7 @@ namespace EpicProjects.Constants
                 public static readonly string STARTDATE = "startdate";
                 public static readonly string ENDDATE = "enddate";
                 public static readonly string TYPE = "type";
-
+                public static readonly string VALUE= "value";
                 //XML used fields 
 
                
@@ -58,8 +58,9 @@ namespace EpicProjects.Constants
                 public static readonly string ASSIGNMENTS_PATH = "Assignments/Assignment";
                 public static readonly string MAINTENANCES_PATH = "Maintenances/Maintenance";
 
-
-
+                public static readonly string THEME_TYPE_PATH = "Theme/Type";
+                public static readonly string THEME_SAVE = "Saves/Theme.xml";
+                public static readonly string THEME_ACCENT_PATH = "Theme/Accent";
                  
 
         }//class Database

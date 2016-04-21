@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace EpicProjects.View.CustomControls.Home
                         this.FontSize = fontSize;
                         this.FontFamily = FontProvider._proxima;
 
-                        this.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        this.Foreground = ThemeSelector.GetAccentColor();
 
                         
                 }

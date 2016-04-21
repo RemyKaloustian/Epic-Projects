@@ -81,7 +81,7 @@ namespace EpicProjects.View.Layout
 
                         _remyBlock = new TextBlock();
                         _remyBlock.Text = "Created by Rémy Kaloustian | remykaloustian.com";
-                        _remyBlock.Foreground = _theme.GetAccentColor();
+                        _remyBlock.Foreground = ThemeSelector.GetAccentColor();
                         _remyBlock.FontFamily = FontProvider._lato;
                         _remyBlock.FontSize = 20;
                         _remyBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -90,7 +90,7 @@ namespace EpicProjects.View.Layout
 
                         _siteBlock = new TextBlock();
                         _siteBlock.Text = "http://remykaloustian.com/epicprojects (Coming soon)";
-                        _siteBlock.Foreground = _theme.GetAccentColor();
+                        _siteBlock.Foreground = ThemeSelector.GetAccentColor();
                         _siteBlock.FontFamily = FontProvider._lato;
                         _siteBlock.FontSize = 20;
                         _siteBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -134,7 +134,7 @@ namespace EpicProjects.View.Layout
 
 
                         _mainPanel.Children.Add(_containerPanel);
-                        _mainPanel.Background = _theme.GetBackground();
+                        _mainPanel.Background = ThemeSelector.GetBackground();
                 }
 
                 private void SetUpWindowTitle()
@@ -142,7 +142,7 @@ namespace EpicProjects.View.Layout
                         _windowTitle.Text = "EPIC PROJECTS";
                         _windowTitle.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _windowTitle.FontFamily = FontProvider._code;
-                        _windowTitle.Foreground = _theme.GetAccentColor();
+                        _windowTitle.Foreground = ThemeSelector.GetAccentColor();
                         _windowTitle.FontSize = 82;
                         _windowTitle.Padding = new System.Windows.Thickness(0, Convert.ToDouble(Dimensions.GetHeight() / 40), 0, 0);
                 }
@@ -152,7 +152,7 @@ namespace EpicProjects.View.Layout
                         _catchPhrase.Text = "Lead your projects like a winner.";
                         _catchPhrase.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _catchPhrase.FontFamily = FontProvider._edmond;
-                        _catchPhrase.Foreground = _theme.GetAccentColor();
+                        _catchPhrase.Foreground = ThemeSelector.GetAccentColor();
                         _catchPhrase.FontSize = 40;
                         _catchPhrase.Padding = new System.Windows.Thickness(0, Convert.ToDouble(Dimensions.GetHeight() / 50), 0, Convert.ToDouble(Dimensions.GetHeight() / 50));
                 }
@@ -179,7 +179,7 @@ namespace EpicProjects.View.Layout
                         SetUpCatchPhrase();
 
                         _headerSeparator.Width = _containerPanel.Width;
-                        _headerSeparator.Background = _theme.GetAccentColor();
+                        _headerSeparator.Background = ThemeSelector.GetAccentColor();
 
                         FillHeader();
                 }
@@ -190,24 +190,24 @@ namespace EpicProjects.View.Layout
                         _itemsPanel.Orientation = Orientation.Horizontal;
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
-                        _settingsItem = new HomeItem(ControlsValues.SETTINGS, Shortcuts.SETTINGS, _theme, _containerPanel.Width / 5, "");
+                        _settingsItem = new HomeItem(ControlsValues.SETTINGS, Shortcuts.SETTINGS, _containerPanel.Width / 5, "");
                         _settingsItem.MouseDown += _settingsItem_MouseDown;
 
                         _itemsPanel.Children.Add(_settingsItem);
 
-                        _newProjectItem = new HomeItem(ControlsValues.OPENPROJECT, Shortcuts.OPEN, _theme, _containerPanel.Width / 5, "");
+                        _newProjectItem = new HomeItem(ControlsValues.OPENPROJECT, Shortcuts.OPEN, _containerPanel.Width / 5, "");
 
                         _itemsPanel.Children.Add(_newProjectItem);
 
-                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, Shortcuts.NEW, _theme, _containerPanel.Width / 5, "");
+                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, Shortcuts.NEW, _containerPanel.Width / 5, "");
                         _itemsPanel.Children.Add(_openProjectItem);
 
-                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, Shortcuts.DOC, _theme, _containerPanel.Width / 5, ""));
-                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _theme, _containerPanel.Width / 5, ""));
+                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, Shortcuts.DOC, _containerPanel.Width / 5, ""));
+                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _containerPanel.Width / 5, ""));
 
                         _itemsSeparator = new Separator();
                         _itemsSeparator.Width = _containerPanel.Width;
-                        _itemsSeparator.Background = _theme.GetAccentColor();
+                        _itemsSeparator.Background = ThemeSelector.GetAccentColor();
                         _itemsSeparator.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 20, 0, 0);
 
 
@@ -232,7 +232,7 @@ namespace EpicProjects.View.Layout
                         _latestBlock.FontFamily = FontProvider._edmond;
                         _latestBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _latestBlock.FontSize = 45;
-                        _latestBlock.Foreground = _theme.GetAccentColor();
+                        _latestBlock.Foreground = ThemeSelector.GetAccentColor();
                         _latestBlock.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
                         _latestProjectsPanel.Children.Add(_latestBlock);
@@ -244,7 +244,7 @@ namespace EpicProjects.View.Layout
 
                         foreach (var item in latestProjects)
                         {
-                                ProjectLink link = new ProjectLink(item, _theme.GetAccentColor());
+                                ProjectLink link = new ProjectLink(item, ThemeSelector.GetAccentColor());
                                 _latestProjectsPanel.Children.Add(link);
                         }
                 }
@@ -254,7 +254,7 @@ namespace EpicProjects.View.Layout
 
                         _latestSeparator = new Separator();
                         _latestSeparator.Width = _containerPanel.Width;
-                        _latestSeparator.Background = _theme.GetAccentColor();
+                        _latestSeparator.Background = ThemeSelector.GetAccentColor();
                         _latestSeparator.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
                         _latestProjectsPanel.Children.Add(_latestSeparator);
@@ -277,7 +277,7 @@ namespace EpicProjects.View.Layout
                         _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
                         _quitProjectButton.MouseEnter += _quitProjectButton_MouseEnter;
                         _quitProjectButton.MouseLeave += _quitProjectButton_MouseLeave;
-                        _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton,_theme, _containerPanel.Width);
+                        _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton, _containerPanel.Width);
                         ReloadLayout();
                         return _mainPanel;
                        
@@ -285,7 +285,7 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetOpenProjectPanel()
                 {
-                        OpenProjectPanel openProjectPanel = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.SelectProjects(),_theme, _containerPanel.Width);
+                        OpenProjectPanel openProjectPanel = new CustomControls.Home.OpenProjectPanel(_chief._guru._propSelector.SelectProjects(), _containerPanel.Width);
 
                         _subContainer = openProjectPanel;
 

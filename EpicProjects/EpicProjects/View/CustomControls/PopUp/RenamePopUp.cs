@@ -30,10 +30,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBox.FontSize = 15;
                         _nameBox.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
-                        _validateButton = new ValidateButton(ControlsValues.COOL, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center, _theme);
+                        _validateButton = new ValidateButton(ControlsValues.COOL, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center);
                         _validateButton.MouseDown += _validateButton_MouseDown;
 
-                         _cancelButton = new CancelButton(ControlsValues.NEVER_MIND, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center, _theme);
+                         _cancelButton = new CancelButton(ControlsValues.NEVER_MIND, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center);
                          _cancelButton.MouseDown += _cancelButton_MouseDown;
 
                          _container.Children.Add(_nameBox);

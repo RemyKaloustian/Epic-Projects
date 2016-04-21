@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace EpicProjects.View.CustomControls
         {
                 public TextBlock _block { get; set; }
 
-                public CustomButton(string content, double width, double height, System.Windows.Thickness margin, System.Windows.Thickness padding, HorizontalAlignment hAlign, Theme.Theme theme)
+                public CustomButton(string content, double width, double height, System.Windows.Thickness margin, System.Windows.Thickness padding, HorizontalAlignment hAlign)
                 {
                         _block = new TextBlock();
                         _block.Text = content;
@@ -28,7 +29,7 @@ namespace EpicProjects.View.CustomControls
                         _block.Padding = padding;
                         _block.FontSize = 25;
                         _block.FontFamily = FontProvider._lato;
-                        _block.Foreground = theme.GetAccentColor();
+                        _block.Foreground = ThemeSelector.GetAccentColor();
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
                         this.Children.Add(_block);

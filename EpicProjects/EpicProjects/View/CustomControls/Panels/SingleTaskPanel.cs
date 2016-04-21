@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.MinHeight = Dimensions.GetHeight() / 20;
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
                         SetUpContent();
                         this.Children.Add(_content);
                 }
@@ -38,7 +39,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.MinHeight = Dimensions.GetHeight() / 20;
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
                         _task = task;
 
                         SetUpContent();
@@ -54,21 +55,21 @@ namespace EpicProjects.View.CustomControls.Panels
                         _content = new TextBlock();
                         _content.FontFamily = FontProvider._lato;
                         _content.FontSize = 20;
-                        _content.Foreground = new Theme.CustomTheme().GetBackground();
+                        _content.Foreground = ThemeSelector.GetBackground();
                         _content.Margin = new System.Windows.Thickness(10, 0, 0, 0);
                         _content.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 }            
 
                 internal void TriggerHover()
                 {
-                        this.Background = new Theme.CustomTheme().GetBackground();
-                        _content.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
+                        _content.Foreground = ThemeSelector.GetAccentColor();
                 }
 
                 internal void UnHover()
                 {
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
-                        _content.Foreground = new Theme.CustomTheme().GetBackground();
+                        this.Background = ThemeSelector.GetAccentColor();
+                        _content.Foreground = ThemeSelector.GetBackground();
                 }
 
         }//class SingleTaskPanel

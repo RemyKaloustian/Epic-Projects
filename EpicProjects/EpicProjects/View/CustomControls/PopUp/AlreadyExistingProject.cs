@@ -15,7 +15,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 public AlreadyExistingProject(double width, double height, string content) : base ( width,  height, content)
                 {
-                        _validateButton = new ValidateButton(ControlsValues.NO_PROBLEMO, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _validateButton = new ValidateButton(ControlsValues.NO_PROBLEMO, this.Width * 0.75, this.Width / 6, new Thickness(0, this.Width / 20, 0, 0), new Thickness(0, this.Width / 30, 0, 0), HorizontalAlignment.Center);
                         _validateButton.MouseDown += _validateButton_MouseDown;
 
                         _container.Children.Add(_validateButton);

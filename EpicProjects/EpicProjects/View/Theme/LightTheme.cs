@@ -9,6 +9,11 @@ namespace EpicProjects.View.Theme
 {
         public   class LightTheme : Theme
         {
+
+                public LightTheme(string accent): base (accent)
+                {
+
+                }
                 public override System.Windows.Media.SolidColorBrush GetBackground()
                 {
                         return this.GetColor("#f5f5f5");

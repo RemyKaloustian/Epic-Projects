@@ -19,6 +19,7 @@ using EpicProjects.View.CustomControls;
 using EpicProjects.View.Layout;
 using EpicProjects.View.Windows;
 using EpicProjects.Exception;
+using EpicProjects.View.Theme;
 
 namespace EpicProjects.View
 {
@@ -50,6 +51,7 @@ namespace EpicProjects.View
                                 this.Show();
                                 SetFonts();
                                 SetDimensions();
+                                ThemeSelector.InitializeTheme();
 
                                 TestFonts t = new TestFonts();
                                // t.Show();
@@ -72,7 +74,7 @@ namespace EpicProjects.View
                         catch (System.Exception e)
                         {
 
-                                LaunchException l = new LaunchException(e.Message, e.StackTrace.ToString(), e.Data.Values.ToString());
+                                LaunchException l = new LaunchException(e.Message, e.ToString(), e.Data.Values.ToString());
                         }
 
 

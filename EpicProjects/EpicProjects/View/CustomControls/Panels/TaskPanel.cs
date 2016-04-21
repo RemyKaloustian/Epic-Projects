@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,8 +155,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 if (!task.IsMouseOver)
                                 {
-                                        task.Background = new Theme.CustomTheme().GetAccentColor();
-                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                        task.Background = ThemeSelector.GetAccentColor();
+                                        task._content.Foreground = ThemeSelector.GetBackground();
                                 }
                         }
                         //Displaying the details panel
@@ -171,9 +172,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 if (!task.IsMouseOver)
                                 {
-                                        task.Background = new Theme.CustomTheme().GetAccentColor();
+                                        task.Background = ThemeSelector.GetAccentColor();
 
-                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                        task._content.Foreground = ThemeSelector.GetBackground();
                                 }
                         }
 
@@ -189,9 +190,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 if (!task.IsMouseOver)
                                 {
-                                        task.Background = new Theme.CustomTheme().GetAccentColor();
+                                        task.Background = ThemeSelector.GetAccentColor();
 
-                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                        task._content.Foreground = ThemeSelector.GetBackground();
                                 }
                         }
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority,  taskPanel._advancedTask._state);
@@ -205,9 +206,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         {
                                 if (!task.IsMouseOver)
                                 {
-                                        task.Background = new Theme.CustomTheme().GetAccentColor();
+                                        task.Background = ThemeSelector.GetAccentColor();
 
-                                        task._content.Foreground = new Theme.CustomTheme().GetBackground();
+                                        task._content.Foreground = ThemeSelector.GetBackground();
                                 }
                         }
                         _coordinator.ToDetails(taskPanel._advancedTask._name, taskPanel._advancedTask._details, taskPanel, taskPanel._advancedTask._priority, taskPanel._advancedTask._state);

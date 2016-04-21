@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls.PopUp;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,22 +43,22 @@ namespace EpicProjects.View.CustomControls.Home
                 public List<ProjectBlock> _blockList { get; set; }
                 #endregion
 
-                public OpenProjectPanel(List<string> projectsName, Theme.Theme theme, double width)
+                public OpenProjectPanel(List<string> projectsName, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
                         _chief = new Masterchief();
                         _width = width;
-                        _theme = theme;
+                       
 
                         SetUpProjectsListPanel(width);
                         SetUpProjectsPanel();
-                        SetUpOpenBlock(theme, width);
-                        SetUpBlocks(projectsName, theme, width);
+                        SetUpOpenBlock( width);
+                        SetUpBlocks(projectsName, width);
                         SetUpNavigationPanel(width);
-                        SetUpLeaveButton(theme, width);
-                        SetUpActionsPanel(theme, width);
+                        SetUpLeaveButton(width);
+                        SetUpActionsPanel(width);
 
                         AddControls();
                 }
@@ -72,14 +73,14 @@ namespace EpicProjects.View.CustomControls.Home
                         this.Children.Add(_actionsPanel);
                 }
 
-                private void SetUpActionsPanel(Theme.Theme theme, double width)
+                private void SetUpActionsPanel(double width)
                 {
                         _actionsPanel = new StackPanel();
                         _actionsPanel.Orientation = System.Windows.Controls.Orientation.Vertical;
 
-                        SetUpOpenButton(theme, width);
-                        SetUpDeleteButton(theme, width);
-                        SetUpRenameButton(theme, width);
+                        SetUpOpenButton( width);
+                        SetUpDeleteButton(width);
+                        SetUpRenameButton(width);
 
                         _actionsPanel.Children.Add(_openButton);
                         _actionsPanel.Children.Add(_deleteButton);
@@ -87,27 +88,27 @@ namespace EpicProjects.View.CustomControls.Home
                         _actionsPanel.Margin = new System.Windows.Thickness(width / 20, 0, 0, 0);
                 }
 
-                private void SetUpRenameButton(Theme.Theme theme, double width)
+                private void SetUpRenameButton( double width)
                 {
-                        _renameButton = new AlternativeButton(ControlsValues.RENAME, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                        _renameButton = new AlternativeButton(ControlsValues.RENAME, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center);
 
                         _renameButton.MouseDown += _renameButton_MouseDown;
                 }
 
                 
 
-                private void SetUpDeleteButton(Theme.Theme theme, double width)
+                private void SetUpDeleteButton(double width)
                 {
-                        _deleteButton = new CancelButton(ControlsValues.DELETE, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                        _deleteButton = new CancelButton(ControlsValues.DELETE, width / 5, width / 30, new System.Windows.Thickness(0, width / 70, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center);
 
                         _deleteButton.MouseDown += _deleteButton_MouseDown;
                 }
 
 
 
-                private void SetUpOpenButton(Theme.Theme theme, double width)
+                private void SetUpOpenButton( double width)
                 {
-                        _openButton = new ValidateButton(ControlsValues.OPEN, width / 5, width / 30, new System.Windows.Thickness(0, width / 50, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                        _openButton = new ValidateButton(ControlsValues.OPEN, width / 5, width / 30, new System.Windows.Thickness(0, width / 50, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center);
                         _openButton.MouseDown += _openButton_MouseDown;
                 }
 
@@ -118,14 +119,14 @@ namespace EpicProjects.View.CustomControls.Home
                         _navigationPanel.Height = width / 10;
                 }
 
-                private void SetUpBlocks(List<string> projectsName, Theme.Theme theme, double width)
+                private void SetUpBlocks(List<string> projectsName, double width)
                 {
 
                         _blockList = new List<ProjectBlock>();
 
                         foreach (var item in projectsName)
                         {
-                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, width / 50, theme);
+                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, width / 50);
 
                                 block.MouseDown += block_MouseDown;
 
@@ -135,14 +136,14 @@ namespace EpicProjects.View.CustomControls.Home
                         }
                 }
 
-                private void SetUpOpenBlock(Theme.Theme theme, double width)
+                private void SetUpOpenBlock( double width)
                 {
                         _openBlock = new TextBlock();
                         _openBlock.Text = ControlsValues.OPEN_PROJECT_TITLE;
                         _openBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _openBlock.FontFamily = FontProvider._edmond;
                         _openBlock.FontSize = 30;
-                        _openBlock.Foreground = theme.GetAccentColor();
+                        _openBlock.Foreground = ThemeSelector.GetAccentColor();
                         _openBlock.Margin = new System.Windows.Thickness(0, 0, 0, width / 30);
                 }
 
@@ -169,7 +170,7 @@ namespace EpicProjects.View.CustomControls.Home
 
                         foreach (var item in projects)
                         {
-                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, _width / 50, _theme);
+                                ProjectBlock block = new ProjectBlock(item.ToString(), _projectsListPanel.Width, _width / 50);
 
                                 block.MouseDown += block_MouseDown;
 
@@ -211,7 +212,7 @@ namespace EpicProjects.View.CustomControls.Home
                         }
                         else
                         {
-                                NullInputPopUp p = new NullInputPopUp(_theme);
+                                NullInputPopUp p = new NullInputPopUp();
                         }
                 }
 
@@ -248,9 +249,9 @@ namespace EpicProjects.View.CustomControls.Home
                         _selectedBlock = null;
                 }
 
-                private void SetUpLeaveButton(Theme.Theme theme, double width)
+                private void SetUpLeaveButton( double width)
                 {
-                        _leaveButton = new CancelButton(ControlsValues.LEAVE, width / 2, width / 30, new System.Windows.Thickness(0, width / 50, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center, theme);
+                        _leaveButton = new CancelButton(ControlsValues.LEAVE, width / 2, width / 30, new System.Windows.Thickness(0, width / 50, 0, 0), new System.Windows.Thickness(0, width / 200, 0, 0), System.Windows.HorizontalAlignment.Center);
 
 
                         _leaveButton.MouseEnter += _leaveButton_MouseEnter;

@@ -2,6 +2,7 @@
 using EpicProjects.Constants.Colors;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls.Items;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _separator = new Separator();
                         _separator.Width = this.Width * 0.5;
-                        _separator.Background = new Theme.CustomTheme().GetBackground();
+                        _separator.Background = ThemeSelector.GetBackground();
 
                         _scroller = new ScrollViewer();
                         _scroller.Height = this.Height*0.6;
@@ -57,12 +58,12 @@ namespace EpicProjects.View.CustomControls.PopUp
 
 
 
-                        _openButton = new ValidateButton(ControlsValues.OPEN, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _openButton = new ValidateButton(ControlsValues.OPEN, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
                         _openButton.MouseDown += _openButton_MouseDown;
                         _openButton.IsEnabled = false;
 
-                        _cancelButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 14, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _cancelButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 14, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
                         _cancelButton.MouseDown += _cancelButton_MouseDown;
 

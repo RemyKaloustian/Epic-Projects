@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,11 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public StackPanel _container { get; set; }
                 public TextBlock _block { get; set; }
 
-                public Theme.Theme _theme { get; set; }
+                
 
                 public PopUp(double width, double height, string content)
                 {
-                        _theme = new Theme.CustomTheme();
+                     
 
                         _container = new StackPanel();
                         _container.Orientation = Orientation.Vertical;
@@ -28,10 +29,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _block.FontSize = 30;
                         _block.FontFamily = FontProvider._lato;
-                        _block.Foreground = _theme.GetBackground();
+                        _block.Foreground = ThemeSelector.GetBackground();
                         _block.Margin = new Thickness(0, height / 20, 0, 0);
 
-                        this.Background = _theme.GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
 
 
                       this.Width = width;

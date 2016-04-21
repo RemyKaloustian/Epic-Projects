@@ -10,8 +10,8 @@ namespace EpicProjects.View.CustomControls.Home
 {
         public class AlternativeButton : CustomButton
         {
-                public AlternativeButton(string content, double width, double height, System.Windows.Thickness margin, System.Windows.Thickness padding, HorizontalAlignment hAlign, Theme.Theme theme)
-                        : base(content, width, height, margin, padding, hAlign, theme)
+                public AlternativeButton(string content, double width, double height, System.Windows.Thickness margin, System.Windows.Thickness padding, HorizontalAlignment hAlign)
+                        : base(content, width, height, margin, padding, hAlign)
                 {
                         this.MouseEnter += AlternativeButton_MouseEnter;
                         this.MouseLeave += AlternativeButton_MouseLeave;

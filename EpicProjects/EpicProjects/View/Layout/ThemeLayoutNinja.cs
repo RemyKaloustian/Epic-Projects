@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.View.CustomControls;
 using EpicProjects.View.CustomControls.Items;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,13 +34,13 @@ namespace EpicProjects.View.Layout
                         _titleBlock.Text = "Theme selection";
                         _titleBlock.FontFamily = FontProvider._lato;
                         _titleBlock.FontSize = 25;
-                        _titleBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _titleBlock.Foreground = ThemeSelector.GetBackground();
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
 
                         _separator = new Separator();
                         _separator.Width = Dimensions.GetWidth() * 0.5;
-                        _separator.Background = new Theme.CustomTheme().GetBackground();
+                        _separator.Background = ThemeSelector.GetBackground();
 
                         _themesPanel = new StackPanel();
                         _themesPanel.Orientation = Orientation.Horizontal;
@@ -63,7 +64,7 @@ namespace EpicProjects.View.Layout
                         _themeItemlist.Add(custom);
                         custom.MouseDown += ThemeItem_MouseDown;
 
-                        _changeColor = new  ValidateButton("Change accent color", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight()* 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _changeColor = new  ValidateButton("Change accent color", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight()* 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
 
                         _container.Children.Add(_titleBlock);

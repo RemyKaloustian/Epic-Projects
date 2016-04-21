@@ -10,6 +10,10 @@ namespace EpicProjects.View.Theme
 {
         public class DarkTheme : Theme
         {
+                public DarkTheme(string accent): base(accent)
+                {
+
+                }
 
                 public override System.Windows.Media.SolidColorBrush GetBackground()
                 {

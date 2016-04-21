@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Constants.Colors;
 using EpicProjects.Controller;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,12 +54,12 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 private void SetUpButtons()
                 {
-                        _validateButton = new ValidateButton(ControlsValues.CREATE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _validateButton = new ValidateButton(ControlsValues.CREATE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
                         _validateButton.MouseDown += _validateButton_MouseDown;
                         _validateButton.IsEnabled = false;
 
-                        _cancelButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _cancelButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
                         _cancelButton.MouseDown += _cancelButton_MouseDown;
                 }
@@ -77,7 +78,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _endDateBlock.FontFamily = FontProvider._lato;
                         _endDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _endDateBlock.FontSize = 20;
-                        _endDateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _endDateBlock.Foreground = ThemeSelector.GetBackground();
                         _endDateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
 
@@ -95,7 +96,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _startDateBlock.FontFamily = FontProvider._lato;
                         _startDateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _startDateBlock.FontSize = 20;
-                        _startDateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _startDateBlock.Foreground = ThemeSelector.GetBackground();
                         _startDateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
 
@@ -105,7 +106,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _alertBlock = new TextBlock();
                         _alertBlock.FontFamily = FontProvider._open;
                         _alertBlock.FontSize = 15;
-                        _alertBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _alertBlock.Foreground = ThemeSelector.GetBackground();
                         double left = this.Width - _nameBox.Width - ((this.Width - _nameBox.Width) / 2);
 
                         _alertBlock.Margin = new System.Windows.Thickness(left, 0, 0, 0);
@@ -129,7 +130,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _nameBlock.FontFamily = FontProvider._lato;
                         _nameBlock.FontSize = 20;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.Foreground = ThemeSelector.GetBackground();
                         _nameBlock.Margin = new System.Windows.Thickness(0, 30, 0, 0);
                 }
 
@@ -137,7 +138,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         _separator = new Separator();
                         _separator.Width = this.Width * 0.5;
-                        _separator.Background = new Theme.CustomTheme().GetBackground();
+                        _separator.Background = ThemeSelector.GetBackground();
                 }
 
                 void _nameBox_TextChanged(object sender, TextChangedEventArgs e)

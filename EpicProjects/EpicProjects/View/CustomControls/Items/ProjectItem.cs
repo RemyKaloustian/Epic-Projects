@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace EpicProjects.View.CustomControls.Items
                         _nameBlock.Text = content;
                         _nameBlock.FontFamily = FontProvider._lato;
                         _nameBlock.FontSize = 17;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.Foreground = ThemeSelector.GetBackground();
                         _nameBlock.Margin = new System.Windows.Thickness(40, 0, 0, 0);
                         _nameBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
 
@@ -33,14 +34,14 @@ namespace EpicProjects.View.CustomControls.Items
 
                 public void Hover()
                 {
-                        this.Background = new Theme.CustomTheme().GetBackground();
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
+                        _nameBlock.Foreground = ThemeSelector.GetAccentColor();
                 }
 
                 public void Unhover()
                 {
                         this.Background = Palette2.GetColor(Palette2.SILVER);
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.Foreground = ThemeSelector.GetBackground();
                 }
 
 

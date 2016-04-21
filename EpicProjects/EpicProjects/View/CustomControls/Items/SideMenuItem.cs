@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace EpicProjects.View.CustomControls.Items
                         this.Text = content;
                         this.FontSize = fontSize;
                         this.FontFamily = FontProvider._proxima;
-                        this.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        this.Foreground = ThemeSelector.GetAccentColor();
 
                         this.MouseEnter += SideMenuItem_MouseEnter;
                         this.MouseLeave += SideMenuItem_MouseLeave;
@@ -25,16 +26,16 @@ namespace EpicProjects.View.CustomControls.Items
 
                 void SideMenuItem_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        this.Foreground = new Theme.CustomTheme().GetAccentColor();
-                        this.Background = new Theme.CustomTheme().GetBackground();
+                        this.Foreground = ThemeSelector.GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
                 }
 
                 void SideMenuItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
                        
 
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
-                        this.Foreground = new Theme.CustomTheme().GetBackground();
+                        this.Background = ThemeSelector.GetAccentColor();
+                        this.Foreground = ThemeSelector.GetBackground();
                 }
 
 

@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Width = Dimensions.GetWidth() * 0.9;
                        // this.Height = Dimensions.GetWidth() * 0.2;
 
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
                         _brainstormingItem = new HeaderItem(ControlsValues.BRAINSTORMING);
 
                         _trainingItem = new HeaderItem(ControlsValues.TRAINING);

@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls.Panels;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public NewTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced, ContentPanel contentPanel)
                         : base(width,  height,  content)
                 {
-                        this.Background = new Theme.CustomTheme().GetPopUpBackground();
+                        this.Background = ThemeSelector.GetPopUpBackground();
                         _contentPanel = contentPanel;
                         _block.Text = "New " + content;
                         _section = content;
@@ -68,10 +69,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                 #region SetUp
                 private void SetUpButtons()
                 {
-                        _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _validateButton.MouseDown += _validateButton_MouseDown;
 
-                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
                         _cancelButton.MouseDown += _cancelButton_MouseDown;
                 }
@@ -94,7 +95,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _detailsBlock.FontSize = 25;
                         _detailsBlock.FontFamily = FontProvider._lato;
                         _detailsBlock.Text = "Description";
-                        _detailsBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _detailsBlock.Foreground = ThemeSelector.GetBackground();
                         _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
 
@@ -103,7 +104,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _alertBlock = new TextBlock();
                         _alertBlock.FontFamily = FontProvider._open;
                         _alertBlock.FontSize = 20;
-                        _alertBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _alertBlock.Foreground = ThemeSelector.GetBackground();
                         double leftMargin = this.Width - _nameBox.Width - ((this.Width - _nameBox.Width)/2);
                         _alertBlock.Margin = new System.Windows.Thickness(leftMargin, 0, 0, 0);
                 }
@@ -214,14 +215,14 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBlock.FontFamily = FontProvider._lato;
                         _nameBlock.FontSize = 25;
                         _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _nameBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _nameBlock.Foreground = ThemeSelector.GetBackground();
                 }
 
                 private void SetUpSeparator()
                 {
                         _separator = new Separator();
                         _separator.Width = this.Width / 2;
-                        _separator.Background = new Theme.CustomTheme().GetBackground();
+                        _separator.Background = ThemeSelector.GetBackground();
                         _separator.Margin = new System.Windows.Thickness(0, 10, 0, 50);
                 }
                 #endregion

@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.View.CustomControls.Buttons;
 using EpicProjects.View.CustomControls.Home;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,12 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
 
-                        _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment,new Theme.CustomTheme());
+                        _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment);
 
 
-                        _showDoneButton = new DefaultButton("Show done", this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment, new Theme.CustomTheme());
+                        _showDoneButton = new DefaultButton("Show done", this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment);
                        
 
                         this.Children.Add(_sortButton);

@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.View.Layout;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace EpicProjects.View.Windows
                         SetUpWindow("Theme selection");
 
                         SetUpLayout();
+                        ThemeSelector.InitializeTheme();
+
 
                 }
 

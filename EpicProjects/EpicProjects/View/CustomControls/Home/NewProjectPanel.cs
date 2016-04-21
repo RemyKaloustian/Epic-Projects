@@ -10,6 +10,7 @@ using EpicProjects.Constants;
 using EpicProjects.Controller;
 using System.Windows;
 using EpicProjects.View.CustomControls.PopUp;
+using EpicProjects.View.Theme;
 
 namespace EpicProjects.View.CustomControls.Home
 {
@@ -37,12 +38,12 @@ namespace EpicProjects.View.CustomControls.Home
                 public double _containerWidth { get; set; }
                 #endregion
 
-                public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, Theme.Theme theme, double width)
+                public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                         _containerWidth = width;
                         //this.Background = new SolidColorBrush(Colors.Chartreuse);
-                        _theme = theme;
+                        
                         _chief = new Masterchief();
 
                         _titleBlock = new TextBlock();
@@ -86,7 +87,7 @@ SetUpCheckBlock();
                         quitBlock.FontSize = 25;
                         quitBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
                         quitBlock.FontFamily =FontProvider._lato;
-                        quitBlock.Foreground = _theme.GetAccentColor();
+                        quitBlock.Foreground = ThemeSelector.GetAccentColor();
                         quitBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
 
@@ -105,7 +106,7 @@ SetUpCheckBlock();
                         createBlock.Text = "Go on !";
                         createBlock.FontFamily = FontProvider._lato;
                         createBlock.FontSize = 25;
-                        createBlock.Foreground = _theme.GetAccentColor();
+                        createBlock.Foreground = ThemeSelector.GetAccentColor();
                         createBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
 
 
@@ -127,16 +128,16 @@ SetUpCheckBlock();
                 {
                         if (_nameBox.Text == "" || _nameBox.Text == "Name of your project here")
                         {
-                                NullInputPopUp popup = new NullInputPopUp(_theme);
+                                NullInputPopUp popup = new NullInputPopUp();
                         }
 
                         else if (  _startDatePicker.SelectedDate == null)
                         {
-                                NullInputPopUp popup = new NullInputPopUp(_theme);
+                                NullInputPopUp popup = new NullInputPopUp();
                         }
                         else if (_endDatePicker.SelectedDate == null  )
                         {
-                                NullInputPopUp popup = new NullInputPopUp(_theme);
+                                NullInputPopUp popup = new NullInputPopUp();
                         }
 
                         else if(isExistingProject(_nameBox.Text))
@@ -176,7 +177,7 @@ SetUpCheckBlock();
                 {
                         _startDateBlock.Text = ControlsValues.STARTDATE;
                         _startDateBlock.FontFamily = FontProvider._lato;
-                        _startDateBlock.Foreground = _theme.GetAccentColor();
+                        _startDateBlock.Foreground = ThemeSelector.GetAccentColor();
                         _startDateBlock.FontSize = 25;
 
 
@@ -185,7 +186,7 @@ SetUpCheckBlock();
                         _endDateBlock.FontFamily = FontProvider._lato;
                         _endDateBlock.FontSize = 25;
                         _endDateBlock.Margin = new Thickness(_containerWidth- _nameBox.Width - (_containerWidth - _nameBox.Width) / 2, _containerWidth/90, 0, 0);
-                        _endDateBlock.Foreground = _theme.GetAccentColor();
+                        _endDateBlock.Foreground = ThemeSelector.GetAccentColor();
                 }
 
                 private void SetUpEndDatePicker(double width)
@@ -269,7 +270,7 @@ SetUpCheckBlock();
                         _titleBlock.FontFamily = FontProvider._edmond;
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.FontSize = 25;
-                        _titleBlock.Foreground = _theme.GetAccentColor();
+                        _titleBlock.Foreground = ThemeSelector.GetAccentColor();
                         _titleBlock.Margin = new System.Windows.Thickness(0, width / 40, 0, width / 60);
                         
                 }

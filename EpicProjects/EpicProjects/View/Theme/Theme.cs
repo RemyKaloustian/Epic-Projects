@@ -17,15 +17,16 @@ namespace EpicProjects.View.Theme
                 public  string _hover { get; set; }
                 public  string _popUpBackground { get; set; }
 
+                public Theme()
+                {
+                        _accent = "#0050ef";
+                }
+
                 public Theme(string accent)
                 {
                         _accent = accent;
                 }
 
-
-             
-
-                #region UselessNow
 
                 public abstract SolidColorBrush GetBackground();
 
@@ -39,6 +40,8 @@ namespace EpicProjects.View.Theme
 
                 public SolidColorBrush GetColor(string color)
                 {
+
+                        Constants.Debug.CW("In GetColor, color = " + color);
                         return (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
                 }
 
@@ -48,6 +51,5 @@ namespace EpicProjects.View.Theme
 
                 public abstract uint GetFontSize();
 
-                #endregion
         }//class Theme
 }//ns

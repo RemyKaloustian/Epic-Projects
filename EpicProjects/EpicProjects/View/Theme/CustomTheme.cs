@@ -11,48 +11,62 @@ namespace EpicProjects.View.Theme
 {
         public class CustomTheme : Theme
         {
-                
+                public CustomTheme()
+                {
+
+                }
+
+                public CustomTheme(string accent) : base(accent)
+                {   
+                        _background = accent;
+
+                        _accent = "#f5f5f5";
+                        _hover = "#f5f5f5";
+                        _popUpBackground = "#2c3e50";
+                        _validate = "#2ecc71";
+                }
 
                 public override SolidColorBrush GetBackground()
                 {
-                        return GetColor(_accent);
+                        return GetColor(_background);
                 }
 
                 public override SolidColorBrush GetAccentColor()
                 {
-                        return GetColor("#f5f5f5");
-                }
-
-                public SolidColorBrush GetPopUpBackground()
-                {
                         return GetColor(_accent);
                 }
 
+                public  override SolidColorBrush GetPopUpBackground()
+                {
+                        return GetColor(_popUpBackground);
+                }
+
+                public override SolidColorBrush GetValidateColor()
+                {
+                        return GetColor(_validate);
+                }
+
+                public override SolidColorBrush GetHoverColor()
+                {
+                        return GetColor(_hover);
+                }
+
+
+
+
                 public override FontFamily GetTitleFont()
                 {
-                        return new FontFamily("Segoe UI");
+                        throw new NotImplementedException();
                 }
 
                 public override FontFamily GetTextFont()
                 {
-                        return new FontFamily("Lato Light");
+                        throw new NotImplementedException();
                 }
 
                 public override uint GetFontSize()
                 {
                         throw new NotImplementedException();
-                }
-
-
-
-                public override SolidColorBrush GetValidateColor()
-                {
-                        return GetBackground();
-                }
-
-                public override SolidColorBrush GetHoverColor()
-                {
-                        return GetAccentColor();
                 }
         }//class CustomTheme
 }//ns

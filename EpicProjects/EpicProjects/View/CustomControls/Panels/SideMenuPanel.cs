@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using EpicProjects.Constants.Images;
 using System.Windows;
 using EpicProjects.View.CustomControls.PopUp;
+using EpicProjects.View.Theme;
 
 namespace EpicProjects.View.CustomControls.Panels
 {
@@ -68,7 +69,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_homeItem);
                       
 
-                        this.Background = new Theme.CustomTheme().GetBackground();
+                        this.Background = ThemeSelector.GetBackground();
 
 
                 }

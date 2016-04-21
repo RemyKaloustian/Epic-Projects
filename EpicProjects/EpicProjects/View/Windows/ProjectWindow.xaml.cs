@@ -18,6 +18,7 @@ using EpicProjects.Controller;
 using EpicProjects.View.CustomControls;
 
 using EpicProjects.View.Layout;
+using EpicProjects.View.Theme;
 
 namespace EpicProjects.View
 {
@@ -37,6 +38,8 @@ namespace EpicProjects.View
                 public ProjectWindow(string name)
                 {
                         InitializeComponent();
+                        ThemeSelector.InitializeTheme();
+
 
                         _ninja = new ProjectLayoutNinja(name);
                         _container = _ninja.GetLayout();

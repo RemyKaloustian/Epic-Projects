@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace EpicProjects.View.CustomControls.Buttons
 {
         public class DefaultButton : CustomButton
         {
-                public DefaultButton(string content, double width, double height, System.Windows.Thickness margin, System.Windows.Thickness padding, HorizontalAlignment hAlign, Theme.Theme theme)
-                        : base(content, width, height, margin, padding, hAlign, theme)
+                public DefaultButton(string content, double width, double height, System.Windows.Thickness margin, System.Windows.Thickness padding, HorizontalAlignment hAlign)
+                        : base(content, width, height, margin, padding, hAlign)
                 {
-                        this.Background = new Theme.CustomTheme().GetBackground();
-                        _block.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        this.Background =ThemeSelector.GetBackground();
+                        _block.Foreground = ThemeSelector.GetAccentColor();
 
                         this.MouseEnter += DefaultButton_MouseEnter;
                         this.MouseLeave += DefaultButton_MouseLeave;
@@ -24,14 +25,14 @@ namespace EpicProjects.View.CustomControls.Buttons
 
                 void DefaultButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        this.Background = new Theme.CustomTheme().GetBackground();
-                        _block.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
+                        _block.Foreground = ThemeSelector.GetAccentColor();
                 }
 
                 void DefaultButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
                         this.Background = Palette2.GetColor(Palette2.DEFAULT_HOVER);
-                       // _block.Foreground = new Theme.CustomTheme().GetBackground();
+                       // _block.Foreground = ThemeSelector.GetBackground();
                 }
 
                 public override void SetColor()

@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,19 +30,19 @@ namespace EpicProjects.View.Layout
                         _titleBlock.Text = "Settings";
                         _titleBlock.FontFamily = FontProvider._lato;
                         _titleBlock.FontSize = 25;
-                        _titleBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _titleBlock.Foreground = ThemeSelector.GetBackground();
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.Margin = new System.Windows.Thickness(0, 30, 0, 10);
 
                         _separator = new Separator();
                         _separator.Width = width * 0.5;
-                        _separator.Background = new Theme.CustomTheme().GetBackground();
+                        _separator.Background = ThemeSelector.GetBackground();
                         
 
-                        _changeThemeButton = new ValidateButton("Change theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _changeThemeButton = new ValidateButton("Change theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _changeThemeButton.MouseDown += _changeThemeButton_MouseDown;
 
-                        _backButton = new  CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _backButton = new  CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _backButton.MouseDown += _backButton_MouseDown;
 
                         _container.Children.Add(_titleBlock);

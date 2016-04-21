@@ -1,9 +1,13 @@
 ﻿using EpicProjects.Constants;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace EpicProjects.View.CustomControls.PopUp
@@ -36,7 +40,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _detailsBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
 
 
-                        _sendButton = new ValidateButton("Send this mail right now", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _sendButton = new ValidateButton("Send this mail right now", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _sendButton.MouseDown += _sendButton_MouseDown;
 
                         _container.Children.Add(_mail);
@@ -46,8 +50,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _sendButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        this.Close();
-                        System.Diagnostics.Process.Start("http://google.com");
+                      Process.Start(string.Format("mailto:{0}?subject={1}&body={2}", "remy.kaloustian@gmail.com", "bug lol", "blabla" ));
                 }
         }//class ReportBug
 }//ns

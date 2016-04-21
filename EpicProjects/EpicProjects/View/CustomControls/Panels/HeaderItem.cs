@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,20 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                       //  this.Height = Dimensions.GetHeight() / 10;
                         this.Width = Dimensions.GetWidth() * 0.9 / 4;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
 
                         _content = new TextBlock();
                         _content.Text = content;
                         _content.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _content.FontFamily = FontProvider._proxima;
                         _content.FontSize = 20;
-                        _content.Foreground = new Theme.CustomTheme().GetBackground();
-                        _content.Background = new Theme.CustomTheme().GetAccentColor();
+                        _content.Foreground = ThemeSelector.GetBackground();
+                        _content.Background = ThemeSelector.GetAccentColor();
                         _content.Margin = new System.Windows.Thickness(0, Dimensions.GetHeight() / 40, 0, Dimensions.GetHeight() / 40);
 
                         _underline = new StackPanel();
                         _underline.Height = Dimensions.GetHeight() / 200;
-                        _underline.Background = new Theme.CustomTheme().GetAccentColor();
+                        _underline.Background = ThemeSelector.GetAccentColor();
 
                         _addPanel = new StackPanel();
 
@@ -42,11 +43,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         _addContent.FontFamily = FontProvider._bariol;
                         _addContent.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _addContent.FontSize = 40;
-                        _addContent.Foreground = new Theme.CustomTheme().GetBackground();
+                        _addContent.Foreground = ThemeSelector.GetBackground();
 
                         _addPanel.Children.Add(_addContent);
                         _addPanel.Width = this.Width;
-                        _addPanel.Background = new Theme.CustomTheme().GetAccentColor();
+                        _addPanel.Background = ThemeSelector.GetAccentColor();
 
                         this.Children.Add(_content);
                         this.Children.Add(_underline);
@@ -66,8 +67,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void _add_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _addContent.Foreground = new Theme.CustomTheme().GetBackground();
-                        _addPanel.Background = new Theme.CustomTheme().GetAccentColor();
+                        _addContent.Foreground = ThemeSelector.GetBackground();
+                        _addPanel.Background = ThemeSelector.GetAccentColor();
                 }
 
                 void _add_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
@@ -75,21 +76,21 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         
 
-                        _addPanel.Background = new Theme.CustomTheme().GetBackground();
-                        _addContent.Foreground = new Theme.CustomTheme().GetAccentColor();
+                        _addPanel.Background = ThemeSelector.GetBackground();
+                        _addContent.Foreground = ThemeSelector.GetAccentColor();
 
                      
                 }
 
                 void HeaderItem_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _underline.Background = new Theme.CustomTheme().GetAccentColor();
+                        _underline.Background = ThemeSelector.GetAccentColor();
                 }
 
                 void HeaderItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
                        
-                                _underline.Background = new Theme.CustomTheme().GetBackground();
+                                _underline.Background = ThemeSelector.GetBackground();
                 }
 
                

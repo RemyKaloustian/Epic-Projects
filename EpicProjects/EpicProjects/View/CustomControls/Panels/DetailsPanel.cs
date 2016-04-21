@@ -1,5 +1,6 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
                         _container = new StackPanel();
                         _container.Orientation = System.Windows.Controls.Orientation.Vertical;
 
@@ -62,14 +63,14 @@ namespace EpicProjects.View.CustomControls.Panels
                         _details.Text = details;
                         _taskPanel = taskPanel;
 
-                        _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
                         _updateButton.MouseDown += _updateButton_MouseDown;
 
-                        _deleteButton = new CancelButton(ControlsValues.DELETE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _deleteButton = new CancelButton(ControlsValues.DELETE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
 
                         _deleteButton.MouseDown += _deleteButton_MouseDown;
 
-                        _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 30, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _quitButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 30, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
                         //Setting up the components
@@ -238,7 +239,7 @@ namespace EpicProjects.View.CustomControls.Panels
                          this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = new Theme.CustomTheme().GetAccentColor();
+                        this.Background = ThemeSelector.GetAccentColor();
 
                         _container = new StackPanel();
                         _container.Orientation = System.Windows.Controls.Orientation.Vertical;
@@ -254,15 +255,15 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name.Text = name;
                         _details.Text = details;
                         _taskPanel = taskPanel;
-                        _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _updateButton = new ValidateButton(ControlsValues.UPDATE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
                         _updateButton.MouseDown += _updateButton_MouseDownAdvanced;
 
 
-                        _deleteButton = new CancelButton(ControlsValues.DELETE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center, new Theme.CustomTheme());
+                        _deleteButton = new CancelButton(ControlsValues.DELETE, this.Width * 0.6, this.Height * 0.05, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), System.Windows.HorizontalAlignment.Center);
 
                         _deleteButton.MouseDown += _deleteButton_MouseDown;
 
-                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,20,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center,new Theme.CustomTheme());
+                        _quitButton = new CancelButton(ControlsValues.CLOSE,this.Width*0.6,this.Height*0.05,new System.Windows.Thickness(0,20,0,0), new System.Windows.Thickness(0,0,0,0), System.Windows.HorizontalAlignment.Center);
                         _quitButton.MouseDown += _quitButton_MouseDown;
 
                         //Setting up the components
@@ -357,7 +358,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _details.Width = this.Width * 0.8;
                         _details.MinHeight = 100;
                         _details.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _details.Foreground = new Theme.CustomTheme().GetBackground();
+                        _details.Foreground = ThemeSelector.GetBackground();
                 }
 
                 /// <summary>
@@ -367,7 +368,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _prioritySeparator = new Separator();
                         _prioritySeparator.Width = this.Width * 0.85;
-                        _prioritySeparator.Background = new Theme.CustomTheme().GetBackground();
+                        _prioritySeparator.Background = ThemeSelector.GetBackground();
                         _prioritySeparator.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
                 }
 
@@ -379,7 +380,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         Separator sep = new Separator();
                         
                         sep.Width = this.Width * 0.85;
-                        sep.Background = new Theme.CustomTheme().GetBackground();
+                        sep.Background = ThemeSelector.GetBackground();
                         sep.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
 
                         return sep;
@@ -396,7 +397,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name.FontSize = 28;
                         _name.Width = this.Width * 0.8;
                         _name.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _name.Foreground = new Theme.CustomTheme().GetBackground();
+                        _name.Foreground = ThemeSelector.GetBackground();
                         _name.Margin = new System.Windows.Thickness(0, this.Height * 0.015, 0, 0);
                 }
 
@@ -425,7 +426,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priority.Width = this.Width * 0.8;
                         //_priority.Visibility = System.Windows.Visibility.Hidden;
                         _priority.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _priority.Foreground = new Theme.CustomTheme().GetBackground();
+                        _priority.Foreground = ThemeSelector.GetBackground();
 
                 }
 
@@ -436,7 +437,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _stateBlock.FontFamily = FontProvider._lato;
                         _stateBlock.FontSize = 22;
                         _stateBlock.Width = this.Width * 0.8;
-                        _stateBlock.Foreground = new Theme.CustomTheme().GetBackground();
+                        _stateBlock.Foreground = ThemeSelector.GetBackground();
                 }
 
                 /// <summary>
