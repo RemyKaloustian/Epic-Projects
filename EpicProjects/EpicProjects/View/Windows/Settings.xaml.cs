@@ -26,11 +26,12 @@ namespace EpicProjects.View.Windows
 
                 public Settings(string previous)
                 {
+                        ThemeSelector.InitializeTheme();
                         InitializeComponent();
                         this.Show();
                         SetUpWindow("Settings");
                         SetLayout(previous);
-                        ThemeSelector.InitializeTheme();
+                        
 
                 }
 

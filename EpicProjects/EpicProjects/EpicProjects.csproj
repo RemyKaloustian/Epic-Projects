@@ -167,6 +167,7 @@
     <Compile Include="View\CustomControls\Home\OpenProjectPanel.cs" />
     <Compile Include="View\CustomControls\Home\ProjectBlock.cs" />
     <Compile Include="View\CustomControls\Home\ProjectLink.cs" />
+    <Compile Include="View\CustomControls\Items\ColorItem.cs" />
     <Compile Include="View\CustomControls\Items\ProjectItem.cs" />
     <Compile Include="View\CustomControls\Items\SideMenuItem.cs" />
     <Compile Include="View\CustomControls\Items\ThemeItem.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="View\CustomControls\Panels\TaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\TaskUpdater.cs" />
     <Compile Include="View\CustomControls\Panels\TitlesPanel.cs" />
+    <Compile Include="View\CustomControls\PopUp\AccentSelectionPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\AlreadyExistingProject.cs" />
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
     <Compile Include="View\CustomControls\PopUp\NewAdvancedTaskPopUp.cs" />

@@ -46,6 +46,7 @@ namespace EpicProjects.View.Layout
 
                         _changeThemeButton = new ValidateButton("Change theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _changeThemeButton.MouseDown += _changeThemeButton_MouseDown;
+                        _changeThemeButton._block.VerticalAlignment = System.Windows.VerticalAlignment.Center;
 
                         _backButton = new  CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _backButton.MouseDown += _backButton_MouseDown;
