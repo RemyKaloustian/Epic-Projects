@@ -84,5 +84,7 @@ namespace EpicProjects.View.Theme
                 {
                         return GetColor("#e0e0e0");
                 }
-        }
+
+
+        }//class LightTheme
 }

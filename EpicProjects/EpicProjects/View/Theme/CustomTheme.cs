@@ -91,12 +91,12 @@ namespace EpicProjects.View.Theme
 
                 public override SolidColorBrush GetContentBackground()
                 {
-                        throw new NotImplementedException();
+                        return GetColor("#e0e0e0");
                 }
 
                 public override Brush GetButtonHoverColor()
                 {
-                        throw new NotImplementedException();
+                        return GetBackground();
                 }
         }//class CustomTheme
 }//ns
