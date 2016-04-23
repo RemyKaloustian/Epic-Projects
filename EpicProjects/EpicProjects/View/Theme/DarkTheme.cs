@@ -57,7 +57,9 @@ namespace EpicProjects.View.Theme
 
                 public override System.Windows.Media.SolidColorBrush GetHighlightColor()
                 {
-                        return GetColor("#f5f5f5");
+                        if(_accent == WindowsPhonePalette.LIGHT_GREY)
+                                return GetColor(WindowsPhonePalette.TEAL);
+                        return GetColor(WindowsPhonePalette.LIGHT_GREY);
                 }
 
                 public override System.Windows.Media.SolidColorBrush GetButtonColor()
@@ -77,7 +79,7 @@ namespace EpicProjects.View.Theme
 
                 public override System.Windows.Media.SolidColorBrush GetContentBackground()
                 {
-                        return GetPopUpBackground();
+                        return GetColor("#647687");
                 }
         }
 }

@@ -123,6 +123,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _colorsList.Add(WindowsPhonePalette.TEAL);
                         _colorsList.Add(WindowsPhonePalette.VIOLET);
                         _colorsList.Add(WindowsPhonePalette.YELLOW);
+                        _colorsList.Add(WindowsPhonePalette.LIGHT_GREY);
+
                         
                 }
 

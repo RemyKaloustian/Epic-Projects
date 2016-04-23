@@ -239,7 +239,7 @@ namespace EpicProjects.View.CustomControls.Panels
                          this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = ThemeSelector.GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
 
                         _container = new StackPanel();
                         _container.Orientation = System.Windows.Controls.Orientation.Vertical;
@@ -358,7 +358,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _details.Width = this.Width * 0.8;
                         _details.MinHeight = 100;
                         _details.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _details.Foreground = ThemeSelector.GetBackground();
+                        _details.Foreground = ThemeSelector.GetAccentColor();
                 }
 
                 /// <summary>
@@ -368,7 +368,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _prioritySeparator = new Separator();
                         _prioritySeparator.Width = this.Width * 0.85;
-                        _prioritySeparator.Background = ThemeSelector.GetBackground();
+                        _prioritySeparator.Background = ThemeSelector.GetAccentColor();
                         _prioritySeparator.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
                 }
 
@@ -380,7 +380,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         Separator sep = new Separator();
                         
                         sep.Width = this.Width * 0.85;
-                        sep.Background = ThemeSelector.GetBackground();
+                        sep.Background = ThemeSelector.GetAccentColor();
                         sep.Margin = new System.Windows.Thickness(0, this.Height * 0.025, 0, this.Height * 0.025);
 
                         return sep;
@@ -397,7 +397,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _name.FontSize = 28;
                         _name.Width = this.Width * 0.8;
                         _name.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _name.Foreground = ThemeSelector.GetBackground();
+                        _name.Foreground = ThemeSelector.GetAccentColor();
                         _name.Margin = new System.Windows.Thickness(0, this.Height * 0.015, 0, 0);
                 }
 
@@ -426,7 +426,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priority.Width = this.Width * 0.8;
                         //_priority.Visibility = System.Windows.Visibility.Hidden;
                         _priority.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _priority.Foreground = ThemeSelector.GetBackground();
+                        _priority.Foreground = ThemeSelector.GetAccentColor();
 
                 }
 
@@ -437,7 +437,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _stateBlock.FontFamily = FontProvider._lato;
                         _stateBlock.FontSize = 22;
                         _stateBlock.Width = this.Width * 0.8;
-                        _stateBlock.Foreground = ThemeSelector.GetBackground();
+                        _stateBlock.Foreground = ThemeSelector.GetAccentColor();
                 }
 
                 /// <summary>

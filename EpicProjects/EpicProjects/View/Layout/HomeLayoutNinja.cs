@@ -149,7 +149,7 @@ namespace EpicProjects.View.Layout
 
                 private void SetUpCatchPhrase()
                 {
-                        _catchPhrase.Text = "Lead your projects like a winner.";
+                        _catchPhrase.Text = "Lead your projects like a boss.";
                         _catchPhrase.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _catchPhrase.FontFamily = FontProvider._edmond;
                         _catchPhrase.Foreground = ThemeSelector.GetAccentColor();
@@ -269,12 +269,12 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetNewProjectPanel()
                 {
-                        _createProjectButton = new ValidateButton("Go On !", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _createProjectButton = new ValidateButton("Go On !", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 10), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _createProjectButton.MouseDown += _createProjectButton_MouseDown;
                         _createProjectButton.MouseEnter += _createProjectButton_MouseEnter;
                         _createProjectButton.MouseLeave += _createProjectButton_MouseLeave;
 
-                        _quitProjectButton = new CancelButton("Never mind", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _quitProjectButton = new CancelButton("Never mind", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
                         _quitProjectButton.MouseEnter += _quitProjectButton_MouseEnter;
                         _quitProjectButton.MouseLeave += _quitProjectButton_MouseLeave;
