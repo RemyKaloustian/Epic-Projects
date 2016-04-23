@@ -20,6 +20,7 @@ using EpicProjects.View.Layout;
 using EpicProjects.View.Windows;
 using EpicProjects.Exception;
 using EpicProjects.View.Theme;
+using EpicProjects.View.CustomControls.PopUp;
 
 namespace EpicProjects.View
 {
@@ -138,6 +139,23 @@ namespace EpicProjects.View
                         {
                                 if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
                                         _mainPanel = _ninja.GetOpenProjectPanel();
+                        }
+
+
+                        if (e.Key == Key.S)
+                        {
+                                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                                        new Captain().ToSettings("home");
+                        }
+
+
+
+                        if (e.Key == Key.B)
+                        {
+                                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                                {
+                                        ReportBug rep = new ReportBug(Dimensions.GetWidth() * 0.5, Dimensions.GetHeight() * 0.8, "Report a bug");
+                                }
                         }
 
                 }

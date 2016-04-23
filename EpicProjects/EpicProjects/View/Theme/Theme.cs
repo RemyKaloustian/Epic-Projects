@@ -53,7 +53,6 @@ namespace EpicProjects.View.Theme
                 public SolidColorBrush GetColor(string color)
                 {
 
-                        Constants.Debug.CW("In GetColor, color = " + color);
                         return (SolidColorBrush)(new BrushConverter().ConvertFrom(color));
                 }
 
