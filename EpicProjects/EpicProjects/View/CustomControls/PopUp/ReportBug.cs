@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,8 +19,12 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public TextBlock _detailsBlock { get; set; }
                 public TextBox _mailBox { get; set; }
                 public TextBox _bugBox { get; set; }
+
+                public TextBlock _mailSendingBlock { get; set; }
                 public ValidateButton _sendButton { get; set; }
                 public CancelButton _closeButton { get; set; }
+
+                public MailSendingPopUp _mailSendingPopUp { get; set; }
 
                 public ReportBug(double width, double height, string content)
                         : base(width, height, content)
@@ -65,6 +70,15 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _bugBox.TextChanged += _bugBox_TextChanged;
 
 
+                        _mailSendingBlock = new TextBlock();
+                        _mailSendingBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _mailSendingBlock.FontFamily = FontProvider._lato;
+                        _mailSendingBlock.FontSize = 25;
+                        _mailSendingBlock.Margin = new System.Windows.Thickness(0, 5, 0, 0);
+                        _mailSendingBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
+                        _mailSendingBlock.Foreground = ThemeSelector.GetAccentColor();
+                        _mailSendingBlock.Text = "Sending the mail might take a few seconds.";
+
                         _sendButton = new ValidateButton("Send this mail right now", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _sendButton.IsEnabled = false;
                         _sendButton.MouseDown += _sendButton_MouseDown;
@@ -77,6 +91,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_detailsBlock);
                         _container.Children.Add(_mailBox);
                         _container.Children.Add(_bugBox);
+                        _container.Children.Add(_mailSendingBlock);
                         _container.Children.Add(_sendButton);
                         _container.Children.Add(_closeButton);
                 }
@@ -115,12 +130,15 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _sendButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
+                        //_mailSendingPopUp = new MailSendingPopUp(this.Width * 0.5, this.Height * 0.5, "Sending mail, hold tight");
+                        //_mailSendingPopUp.Show();
+
                         using (MailMessage mail = new MailMessage())
                         {
                                 mail.From = new MailAddress("email@gmail.com");
                                 mail.To.Add("remy.kaloustian@gmail.com");
                                 mail.Subject = "EPIC PROJECTS - BUG REPORT";
-                                mail.Body =  _mailBox.Text + "\n" + _bugBox.Text + "</h6>";
+                                mail.Body = _mailBox.Text + "\n" + _bugBox.Text + "</h6>";
                                 mail.IsBodyHtml = true;
 
                                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
@@ -131,6 +149,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                                 }
                         }
 
+                        // _mailSendingPopUp.Close();
                         this.Close();
 
                 }//_sendButton_MouseDown()
