@@ -11,6 +11,7 @@ namespace EpicProjects.View.Theme
 {
         public class ThemeSelector
         {
+                public static SolidColorBrush _lastSavedAccent;
                 public static Theme  _theme{ get; set; }
                 public static string _accent  { get; set; }
 
@@ -23,6 +24,7 @@ namespace EpicProjects.View.Theme
                         {
                                 _theme = new LightTheme(_accent);
                                 Constants.Debug.CW("Theme is Light, accent is " + _accent);
+                                _lastSavedAccent = _theme.GetAccentColor();
                         }
 
 
@@ -30,12 +32,14 @@ namespace EpicProjects.View.Theme
                         {
                                 _theme = new DarkTheme(_accent);
                                 Constants.Debug.CW("Theme is Dark, accent is " + _accent);
+                                _lastSavedAccent = _theme.GetAccentColor();
                         }
 
                         else if(type == Themes.CUSTOM)
                         {
                                 _theme = new CustomTheme(_accent);
                                 Constants.Debug.CW("Theme is Custom, accent is " + _accent);
+                                _lastSavedAccent = _theme.GetBackground();
                         }
 
                 }//InitializeTheme()

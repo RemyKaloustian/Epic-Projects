@@ -67,20 +67,20 @@ namespace EpicProjects.View.Layout
 
                         _themeItemlist = new List<ThemeItem>();
 
-                        ThemeItem dark = new ThemeItem("Dark", Palette2.MIDNIGHT_BLUE);
+                        ThemeItem dark = new ThemeItem("Dark", Palette2.GetColor("#2c3e50"),ThemeSelector._lastSavedAccent);
                         _themesPanel.Children.Add(dark);
                         _themeItemlist.Add(dark);
                         dark.MouseDown += ThemeItem_MouseDown;
                         dark.MouseDown += dark_MouseDown;
 
-                        ThemeItem light = new ThemeItem("Light", Palette2.LIGHT_GRAY);
+                        ThemeItem light = new ThemeItem("Light", Palette2.GetColor("#f5f5f5"), ThemeSelector._lastSavedAccent);
                         _themesPanel.Children.Add(light);
                         _themeItemlist.Add(light);
                         light.MouseDown += ThemeItem_MouseDown;
                         light.MouseDown += light_MouseDown;
 
 
-                        ThemeItem custom = new ThemeItem("Custom", Palette2.ALIZARIN);
+                        ThemeItem custom = new ThemeItem("Custom", ThemeSelector._lastSavedAccent,Palette2.GetColor("#f5f5f5"));
                         _themesPanel.Children.Add(custom);
                         _themeItemlist.Add(custom);
                         custom.MouseDown += ThemeItem_MouseDown;
