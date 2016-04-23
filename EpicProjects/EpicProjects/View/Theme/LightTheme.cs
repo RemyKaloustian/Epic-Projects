@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Colors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,17 +57,17 @@ namespace EpicProjects.View.Theme
 
                 public override System.Windows.Media.SolidColorBrush GetHighlightColor()
                 {
-                        throw new NotImplementedException();
+                        return GetColor(WindowsPhonePalette.STEEL);
                 }
 
                 public override System.Windows.Media.SolidColorBrush GetButtonColor()
                 {
-                        throw new NotImplementedException();
+                        return GetAccentColor();
                 }
 
                 public override System.Windows.Media.SolidColorBrush GetButtonContentColor()
                 {
-                        throw new NotImplementedException();
+                        return GetColor(WindowsPhonePalette.LIGHT_GREY);
                 }
 
                 public override System.Windows.Media.SolidColorBrush GetAlertColor()
@@ -76,7 +77,12 @@ namespace EpicProjects.View.Theme
 
                 public override System.Windows.Media.SolidColorBrush GetContentBackground()
                 {
-                        throw new NotImplementedException();
+                        return GetColor("#eeeeee");
+                }
+
+                public override System.Windows.Media.Brush GetButtonHoverColor()
+                {
+                        return GetColor("#e0e0e0");
                 }
         }
 }

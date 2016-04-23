@@ -64,6 +64,9 @@ namespace EpicProjects.View.Theme
                 public abstract uint GetFontSize();
 
 
-                
+
+
+                public abstract Brush GetButtonHoverColor();
+               
         }//class Theme
 }//ns

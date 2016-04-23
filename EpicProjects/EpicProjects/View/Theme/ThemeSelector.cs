@@ -166,5 +166,10 @@ namespace EpicProjects.View.Theme
                 {
                         return _theme.GetContentBackground();
                 }
+
+                internal static Brush GetButtonHoverColor()
+                {
+                        return _theme.GetButtonHoverColor();
+                }
         }//class ThemeSelector
 }//ns

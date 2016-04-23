@@ -81,5 +81,10 @@ namespace EpicProjects.View.Theme
                 {
                         return GetColor("#647687");
                 }
+
+                public override System.Windows.Media.Brush GetButtonHoverColor()
+                {
+                        return GetButtonContentColor();
+                }
         }
 }

@@ -93,5 +93,10 @@ namespace EpicProjects.View.Theme
                 {
                         throw new NotImplementedException();
                 }
+
+                public override Brush GetButtonHoverColor()
+                {
+                        throw new NotImplementedException();
+                }
         }//class CustomTheme
 }//ns

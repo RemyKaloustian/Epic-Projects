@@ -27,7 +27,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public CancelButton _cancelButton{ get; set; }
                 public NewProjectPopUp(double width, double height, string content) : base(width,height,content)
                 {
-                        this.Background = Palette2.GetColor(WindowsPhonePalette.STEEL);
+                        this.Background = ThemeSelector.GetPopUpBackground();
 
                         SetUpSeparator();
                         SetUpNameBlock();

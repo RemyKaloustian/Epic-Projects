@@ -45,7 +45,7 @@ namespace EpicProjects.View.CustomControls
 
                 void CustomButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        this.Background = ThemeSelector.GetButtonContentColor();
+                        this.Background = ThemeSelector.GetButtonHoverColor();
                         _block.Foreground = ThemeSelector.GetButtonColor();
                 }
 
