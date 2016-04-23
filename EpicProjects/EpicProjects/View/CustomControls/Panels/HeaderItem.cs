@@ -21,20 +21,20 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                       //  this.Height = Dimensions.GetHeight() / 10;
                         this.Width = Dimensions.GetWidth() * 0.9 / 4;
-                        this.Background = ThemeSelector.GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
 
                         _content = new TextBlock();
                         _content.Text = content;
                         _content.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _content.FontFamily = FontProvider._proxima;
                         _content.FontSize = 20;
-                        _content.Foreground = ThemeSelector.GetBackground();
-                        _content.Background = ThemeSelector.GetAccentColor();
+                        _content.Foreground = ThemeSelector.GetAccentColor();
+                        _content.Background = ThemeSelector.GetBackground();
                         _content.Margin = new System.Windows.Thickness(0, Dimensions.GetHeight() / 40, 0, Dimensions.GetHeight() / 40);
 
                         _underline = new StackPanel();
                         _underline.Height = Dimensions.GetHeight() / 200;
-                        _underline.Background = ThemeSelector.GetAccentColor();
+                        _underline.Background = ThemeSelector.GetBackground();
 
                         _addPanel = new StackPanel();
 
@@ -43,11 +43,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         _addContent.FontFamily = FontProvider._bariol;
                         _addContent.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _addContent.FontSize = 40;
-                        _addContent.Foreground = ThemeSelector.GetBackground();
+                        _addContent.Foreground = ThemeSelector.GetAccentColor();
 
                         _addPanel.Children.Add(_addContent);
                         _addPanel.Width = this.Width;
-                        _addPanel.Background = ThemeSelector.GetAccentColor();
+                        _addPanel.Background = ThemeSelector.GetBackground();
 
                         this.Children.Add(_content);
                         this.Children.Add(_underline);
@@ -67,8 +67,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void _add_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _addContent.Foreground = ThemeSelector.GetBackground();
-                        _addPanel.Background = ThemeSelector.GetAccentColor();
+                        _addContent.Foreground = ThemeSelector.GetAccentColor();
+                        _addPanel.Background = ThemeSelector.GetBackground();
                 }
 
                 void _add_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
@@ -76,21 +76,21 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         
 
-                        _addPanel.Background = ThemeSelector.GetBackground();
-                        _addContent.Foreground = ThemeSelector.GetAccentColor();
+                        _addPanel.Background = ThemeSelector.GetAccentColor();
+                        _addContent.Foreground = ThemeSelector.GetBackground();
 
                      
                 }
 
                 void HeaderItem_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
                 {
-                        _underline.Background = ThemeSelector.GetAccentColor();
+                        _underline.Background = ThemeSelector.GetBackground();
                 }
 
                 void HeaderItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
                        
-                                _underline.Background = ThemeSelector.GetBackground();
+                                _underline.Background = ThemeSelector.GetAccentColor();
                 }
 
                

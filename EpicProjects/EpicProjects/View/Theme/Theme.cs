@@ -20,6 +20,7 @@ namespace EpicProjects.View.Theme
                 public Theme()
                 {
                         _accent = "#0050ef";
+                        _popUpBackground = "#bdbdbd";
                 }
 
                 public Theme(string accent)
@@ -38,6 +39,17 @@ namespace EpicProjects.View.Theme
 
                 public abstract SolidColorBrush GetPopUpBackground();
 
+                public abstract SolidColorBrush GetHighlightColor();
+
+                public abstract SolidColorBrush GetButtonColor();
+
+                public abstract SolidColorBrush GetButtonContentColor();
+
+                public abstract SolidColorBrush GetAlertColor();
+
+                public abstract SolidColorBrush GetContentBackground();
+               
+
                 public SolidColorBrush GetColor(string color)
                 {
 
@@ -51,5 +63,7 @@ namespace EpicProjects.View.Theme
 
                 public abstract uint GetFontSize();
 
+
+                
         }//class Theme
 }//ns

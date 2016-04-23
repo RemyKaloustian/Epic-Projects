@@ -21,7 +21,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = ThemeSelector.GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
 
                         _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment);
 

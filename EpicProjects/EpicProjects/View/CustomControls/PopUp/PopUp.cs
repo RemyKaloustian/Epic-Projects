@@ -32,7 +32,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.Foreground = ThemeSelector.GetBackground();
                         _block.Margin = new Thickness(0, height / 20, 0, 0);
 
-                        this.Background = ThemeSelector.GetAccentColor();
+                        this.Background = ThemeSelector.GetPopUpBackground();
 
 
                       this.Width = width;

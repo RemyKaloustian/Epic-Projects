@@ -59,7 +59,7 @@ namespace EpicProjects.View.CustomControls.Home
                 void HomeItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
                 {
 
-                        _title.Foreground = Palette2.GetColor(Palette2.EMERALD);
+                        _title.Foreground = ThemeSelector.GetHighlightColor();
                 }
         }//class HomeItem
 }//ns

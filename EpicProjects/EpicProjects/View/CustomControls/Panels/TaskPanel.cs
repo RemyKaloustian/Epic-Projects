@@ -30,7 +30,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Margin = new System.Windows.Thickness(0, 0, 10, 0);
                         this.Width = Dimensions.GetWidth() * 0.6;
                         this.MinHeight = Dimensions.GetHeight() * 0.8;
-                        this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
+                        //this.Background = ThemeSelector.GetPopUpBackground();
 
                         //Setting up fields
                         _chief = new TaskMasterChief(name);

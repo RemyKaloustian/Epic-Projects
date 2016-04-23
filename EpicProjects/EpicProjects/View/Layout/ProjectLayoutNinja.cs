@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Model;
 using EpicProjects.View.CustomControls.Panels;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace EpicProjects.View.Layout
                 {
                         _project = new Project(name);
                         _name = name;
+
+                       
                 }
 
                 public override System.Windows.Controls.StackPanel GetLayout()
@@ -28,7 +31,7 @@ namespace EpicProjects.View.Layout
                       
                        _menuPanel = new SideMenuPanel();
                        _centralPanel = new CentralPanel(_name);
-                      
+                       _centralPanel.Background = ThemeSelector.GetContentBackground();
 
                        StackPanel container = new StackPanel();
                        container.Orientation = Orientation.Horizontal;

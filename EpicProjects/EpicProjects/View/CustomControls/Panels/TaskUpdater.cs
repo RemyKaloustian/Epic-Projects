@@ -43,6 +43,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TaskUpdater(string name, string details, double width, double height)
                 {
                         this.Orientation = Orientation.Vertical;
+                        this.Background = ThemeSelector.GetBackground();
 
                         SetUpName();
                         SetUpNameBox(name, width);

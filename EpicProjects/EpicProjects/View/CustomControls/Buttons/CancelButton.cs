@@ -12,23 +12,23 @@ namespace EpicProjects.View.CustomControls
         {
                 public CancelButton(string content, double width, double height, System.Windows.Thickness margin,System.Windows.Thickness padding, HorizontalAlignment hAlign ) : base(content,width, height, margin , padding,hAlign)
                 {
-                        this.MouseEnter += CancelButton_MouseEnter;
-                        this.MouseLeave += CancelButton_MouseLeave;
+                        //this.MouseEnter += CancelButton_MouseEnter;
+                        //this.MouseLeave += CancelButton_MouseLeave;
                 }
 
-                void CancelButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-                {
-                        this.Background = Palette2.GetColor(Palette2.CANCEL);
-                }
+                //void CancelButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+                //{
+                //        this.Background = Palette2.GetColor(Palette2.CANCEL);
+                //}
 
-                void CancelButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-                {
-                        this.Background = Palette2.GetColor(Palette2.CANCEL_HOVER);
-                }
+                //void CancelButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+                //{
+                //        this.Background = Palette2.GetColor(Palette2.CANCEL_HOVER);
+                //}
 
-                public override void SetColor()
-                {
-                        this.Background = Palette2.GetColor(Palette2.CANCEL);
-                }
+                //public override void SetColor()
+                //{
+                //        this.Background = Palette2.GetColor(Palette2.CANCEL);
+                //}
         }
 }

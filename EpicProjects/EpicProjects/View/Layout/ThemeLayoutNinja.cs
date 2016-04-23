@@ -88,7 +88,7 @@ namespace EpicProjects.View.Layout
 
 
                         _colorTitle = new TextBlock();
-                        _colorTitle.Text = "Theme selection";
+                        _colorTitle.Text = "Color selection";
                         _colorTitle.FontFamily = FontProvider._lato;
                         _colorTitle.FontSize = 25;
                         _colorTitle.Foreground = ThemeSelector.GetBackground();

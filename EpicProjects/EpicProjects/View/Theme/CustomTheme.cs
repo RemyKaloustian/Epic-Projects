@@ -22,7 +22,7 @@ namespace EpicProjects.View.Theme
 
                         _accent = "#f5f5f5";
                         _hover = "#f5f5f5";
-                        _popUpBackground = "#2c3e50";
+                        _popUpBackground = "#bdbdbd";
                         _validate = "#2ecc71";
                 }
 
@@ -65,6 +65,31 @@ namespace EpicProjects.View.Theme
                 }
 
                 public override uint GetFontSize()
+                {
+                        throw new NotImplementedException();
+                }
+
+                public override SolidColorBrush GetHighlightColor()
+                {
+                        return GetColor(Palette2.MIDNIGHT_BLUE);
+                }
+
+                public override SolidColorBrush GetButtonColor()
+                {
+                        return GetAccentColor();
+                }
+
+                public override SolidColorBrush GetButtonContentColor()
+                {
+                        return GetBackground();
+                }
+
+                public override SolidColorBrush GetAlertColor()
+                {
+                        return GetBackground();
+                }
+
+                public override SolidColorBrush GetContentBackground()
                 {
                         throw new NotImplementedException();
                 }

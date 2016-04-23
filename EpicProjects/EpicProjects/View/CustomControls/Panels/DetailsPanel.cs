@@ -50,7 +50,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
-                        this.Background = ThemeSelector.GetAccentColor();
+                        this.Background = ThemeSelector.GetBackground();
                         _container = new StackPanel();
                         _container.Orientation = System.Windows.Controls.Orientation.Vertical;
 

@@ -23,22 +23,40 @@ namespace EpicProjects.View.CustomControls
                         this.Width = width;
                         this.Height = height;
                         this.Margin = margin;
+                        this.Background = ThemeSelector.GetButtonColor();
                         
                         this.HorizontalAlignment = hAlign;
 
                         _block.Padding = padding;
                         _block.FontSize = 25;
                         _block.FontFamily = FontProvider._lato;
-                        _block.Foreground = ThemeSelector.GetAccentColor();
+                        _block.Foreground = ThemeSelector.GetButtonContentColor();
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
+
                         this.Children.Add(_block);
+
+                        this.MouseLeave += CustomButton_MouseLeave;
+                        this.MouseEnter += CustomButton_MouseEnter;
                     
 
-                        this.SetColor();
+                        //this.SetColor();
                 }
 
-                public abstract void SetColor();
+                void CustomButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+                {
+                        this.Background = ThemeSelector.GetButtonContentColor();
+                        _block.Foreground = ThemeSelector.GetButtonColor();
+                }
+
+                void CustomButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+                {
+                        this.Background = ThemeSelector.GetButtonColor();
+                        _block.Foreground = ThemeSelector.GetButtonContentColor();
+                }
+
+
+                //public  void SetColor();
 
 
         }//class CustomButton

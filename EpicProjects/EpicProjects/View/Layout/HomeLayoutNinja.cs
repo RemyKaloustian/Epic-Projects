@@ -49,8 +49,8 @@ namespace EpicProjects.View.Layout
                 public TextBlock _remyBlock { get; set; }
                 public TextBlock _siteBlock{ get; set; }
 
-                public StackPanel _createProjectButton { get; set; }
-                public StackPanel  _quitProjectButton{ get; set; }
+                public ValidateButton _createProjectButton { get; set; }
+                public CancelButton  _quitProjectButton{ get; set; }
 
                 public HomeLayoutNinja()
                 {
@@ -269,11 +269,12 @@ namespace EpicProjects.View.Layout
 
                 public StackPanel GetNewProjectPanel()
                 {
-                        _createProjectButton = new StackPanel();
+                        _createProjectButton = new ValidateButton("Go On !", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _createProjectButton.MouseDown += _createProjectButton_MouseDown;
                         _createProjectButton.MouseEnter += _createProjectButton_MouseEnter;
                         _createProjectButton.MouseLeave += _createProjectButton_MouseLeave;
-                        _quitProjectButton = new StackPanel();
+
+                        _quitProjectButton = new CancelButton("Never mind", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
                         _quitProjectButton.MouseEnter += _quitProjectButton_MouseEnter;
                         _quitProjectButton.MouseLeave += _quitProjectButton_MouseLeave;
@@ -321,22 +322,22 @@ namespace EpicProjects.View.Layout
 
                 void _quitProjectButton_MouseLeave(object sender, MouseEventArgs e)
                 {
-                        _quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
+                       // _quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
                 }
 
                 void _quitProjectButton_MouseEnter(object sender, MouseEventArgs e)
                 {
-                        _quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL_HOVER));
+                        //_quitProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL_HOVER));
                 }
 
                 void _createProjectButton_MouseLeave(object sender, MouseEventArgs e)
                 {
-                        _createProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE));
+                        //_createProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE));
                 }
 
                 void _createProjectButton_MouseEnter(object sender, MouseEventArgs e)
                 {
-                        _createProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE_HOVER));
+                        //_createProjectButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE_HOVER));
                 }
 
                 void _quitProjectButton_MouseDown(object sender, MouseButtonEventArgs e)

@@ -28,8 +28,8 @@ namespace EpicProjects.View.CustomControls.Home
 
                 public StackPanel _actionsPanel { get; set; }
 
-                public StackPanel _createButton { get; set; }
-                public StackPanel _quitButton { get; set; }
+                public ValidateButton _createButton { get; set; }
+                public CancelButton _quitButton { get; set; }
 
                 public Theme.Theme _theme { get; set; }
 
@@ -38,7 +38,7 @@ namespace EpicProjects.View.CustomControls.Home
                 public double _containerWidth { get; set; }
                 #endregion
 
-                public NewProjectPanel(StackPanel createProjectButton, StackPanel quitProjectButton, double width)
+                public NewProjectPanel(ValidateButton createProjectButton, CancelButton quitProjectButton, double width)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                         _containerWidth = width;
@@ -80,45 +80,45 @@ SetUpCheckBlock();
 
            
 
-                private void SetUpQuitButton(StackPanel quitProjectButton, double width)
+                private void SetUpQuitButton(CancelButton quitProjectButton, double width)
                 {
                         TextBlock quitBlock = new TextBlock();
-                        quitBlock.Text = "Forget it...";
-                        quitBlock.FontSize = 25;
-                        quitBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
-                        quitBlock.FontFamily =FontProvider._lato;
-                        quitBlock.Foreground = ThemeSelector.GetAccentColor();
-                        quitBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        //quitBlock.Text = "Forget it...";
+                        //quitBlock.FontSize = 25;
+                        //quitBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
+                        //quitBlock.FontFamily =FontProvider._lato;
+                        //quitBlock.Foreground = ThemeSelector.GetAccentColor();
+                        //quitBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
 
-                        _quitButton = quitProjectButton;
-                        _quitButton.Children.Add(quitBlock);
-                        _quitButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _quitButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
-                        _quitButton.Margin = new System.Windows.Thickness(0, 0, 0, width / 60);
-                        _quitButton.Width = width / 2;
-                        _quitButton.Height = width / 30;
+                        //_quitButton = quitProjectButton;
+                        //_quitButton.Children.Add(quitBlock);
+                        //_quitButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        //_quitButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.CANCEL));
+                        //_quitButton.Margin = new System.Windows.Thickness(0, 0, 0, width / 60);
+                        //_quitButton.Width = width / 2;
+                        //_quitButton.Height = width / 30;
                 }
 
-                private void SetUpCreateProjectButton(StackPanel createProjectButton, double width)
+                private void SetUpCreateProjectButton(ValidateButton createProjectButton, double width)
                 {
                         TextBlock createBlock = new TextBlock();
-                        createBlock.Text = "Go on !";
-                        createBlock.FontFamily = FontProvider._lato;
-                        createBlock.FontSize = 25;
-                        createBlock.Foreground = ThemeSelector.GetAccentColor();
-                        createBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
+                        //createBlock.Text = "Go on !";
+                        //createBlock.FontFamily = FontProvider._lato;
+                        //createBlock.FontSize = 25;
+                        //createBlock.Foreground = ThemeSelector.GetAccentColor();
+                        //createBlock.Padding = new System.Windows.Thickness(0, Convert.ToUInt16(_endDatePicker.Height / 3), 0, 0);
 
 
-                        createBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        //createBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
                         _createButton = createProjectButton;
-                        _createButton.Children.Add(createBlock);
-                        _createButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _createButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE));
-                        _createButton.Width = width / 2;
-                        _createButton.Height = width / 30;
-                        _createButton.Margin = new System.Windows.Thickness(0, width / 60, 0, width / 60);
+                        //_createButton.Children.Add(createBlock);
+                        //_createButton.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        //_createButton.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Palette2.VALIDATE));
+                        //_createButton.Width = width / 2;
+                        //_createButton.Height = width / 30;
+                        //_createButton.Margin = new System.Windows.Thickness(0, width / 60, 0, width / 60);
                         _createButton.MouseDown += _createButton_MouseDown;
 
 
@@ -231,6 +231,7 @@ SetUpCheckBlock();
                         _checkBlock.Margin = new Thickness(leftMargin, 0, 0, 0);
                         _checkBlock.FontFamily = FontProvider._aleo;
                         _checkBlock.FontSize = 20;
+                        _checkBlock.Foreground = ThemeSelector.GetAlertColor() ;
                         
                 }
 
@@ -242,7 +243,7 @@ SetUpCheckBlock();
                         {
                                 _createButton.IsEnabled = false;
                                 _checkBlock.Text = ControlsValues.NULL;
-                                _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
+                                
                         }
                         else
                         {
@@ -250,7 +251,6 @@ SetUpCheckBlock();
                                 {
                                         _checkBlock.Text = ControlsValues.VALID;
                                         _createButton.IsEnabled = true;
-                                        _checkBlock.Foreground = Palette2.GetColor(Palette2.TURQUOISE);
 
                                 }
 
@@ -258,7 +258,6 @@ SetUpCheckBlock();
                                 {
                                         _checkBlock.Text = ControlsValues.EXISTING_PROJECT;
                                         _createButton.IsEnabled = false;
-                                        _checkBlock.Foreground = Palette2.GetColor(Palette2.MIDNIGHT_BLUE);
 
                                 }
                         }

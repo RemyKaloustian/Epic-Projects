@@ -141,5 +141,30 @@ namespace EpicProjects.View.Theme
                 {
                         return _theme.GetPopUpBackground();
                 }
+
+                public static SolidColorBrush GetHighlightColor()
+                {
+                        return _theme.GetHighlightColor();
+                }
+
+                public static SolidColorBrush GetButtonColor()
+                {
+                        return _theme.GetButtonColor();
+                }
+
+                public static SolidColorBrush GetButtonContentColor()
+                {
+                        return _theme.GetButtonContentColor();
+                }
+
+                public static SolidColorBrush GetAlertColor()
+                {
+                        return _theme.GetAlertColor();
+                }
+
+                internal static Brush GetContentBackground()
+                {
+                        return _theme.GetContentBackground();
+                }
         }//class ThemeSelector
 }//ns

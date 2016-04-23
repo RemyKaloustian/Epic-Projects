@@ -51,6 +51,7 @@ namespace EpicProjects.View.Windows
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
                         this.WindowState = WindowState.Maximized;
                         this.Title = name;
+                        this.Background = ThemeSelector.GetPopUpBackground();
                 }
 
 

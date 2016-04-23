@@ -53,5 +53,30 @@ namespace EpicProjects.View.Theme
                 {
                         throw new NotImplementedException();
                 }
+
+                public override System.Windows.Media.SolidColorBrush GetHighlightColor()
+                {
+                        throw new NotImplementedException();
+                }
+
+                public override System.Windows.Media.SolidColorBrush GetButtonColor()
+                {
+                        throw new NotImplementedException();
+                }
+
+                public override System.Windows.Media.SolidColorBrush GetButtonContentColor()
+                {
+                        throw new NotImplementedException();
+                }
+
+                public override System.Windows.Media.SolidColorBrush GetAlertColor()
+                {
+                        return GetAccentColor();
+                }
+
+                public override System.Windows.Media.SolidColorBrush GetContentBackground()
+                {
+                        throw new NotImplementedException();
+                }
         }
 }
