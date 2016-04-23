@@ -50,7 +50,69 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _sendButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                      Process.Start(string.Format("mailto:{0}?subject={1}&body={2}", "remy.kaloustian@gmail.com", "bug lol", "blabla" ));
+                       ///////////////////TEST 1 
+                        //  MailMessage message = new MailMessage();
+                        //message.Subject = "EPIC PROJECTS - BUG REPORT";
+                        //message.From = new MailAddress("remy.kaloustian@gmail.com");
+                        //message.Body ="THER S A BUG MATE";
+                        //message.To.Add("remy.kaloustian@gmail.com");
+
+                        //SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                        //smtp.Credentials = new NetworkCredential("remy.kaloustian", "9y2svy18");
+                        //smtp.EnableSsl = true;
+                        //smtp.Port = 587;
+                        //smtp.Send(message);
+
+
+                          ///////////////////TEST 2
+
+                        //MailMessage mail = new MailMessage();
+                        //SmtpClient Smtpclient = new SmtpClient("smtp.gmail.com");
+
+                        //mail.From = new MailAddress("remy.kaloustian@gmail.com");
+                        //mail.To.Add("remy.kaloustian@gmail.com");
+                        //mail.Subject = "Test Mail";
+                        //mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                        //Smtpclient.Port = 587;
+                        //Smtpclient.Credentials = new System.Net.NetworkCredential("remy.kaloustian@gmail.com", "9y2svy18");
+                        //Smtpclient.EnableSsl = true;
+                        //Smtpclient.UseDefaultCredentials = false;
+
+                        //Smtpclient.Send(mail);
+                        //MessageBox.Show("mail Send");
+
+                        /////TEST 3
+                        //MailMessage mail = new MailMessage("remy.kaloustian@gmail.com", "remy.kaloustian@gmail.com");
+                        //SmtpClient client = new SmtpClient();
+                        //client.Port = 25;
+                        //client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        //client.UseDefaultCredentials = false;
+                        //client.Host = "smtp.google.com";
+                        //mail.Subject = "this is a test email.";
+                        //mail.Body = "this is my test email body";
+                        //client.Send(mail);
+
+                        ///////TEST 4 
+                        using (MailMessage mail = new MailMessage())
+                        {
+                                mail.From = new MailAddress("email@gmail.com");
+                                mail.To.Add("remy.kaloustian@gmail.com");
+                                mail.Subject = "Hello World";
+                                mail.Body = "<h1>Hello</h1>";
+                                mail.IsBodyHtml = true;
+
+                                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                                {
+                                        smtp.Credentials = new NetworkCredential("remy.kaloustian@gmail.com", "9y2svy18");
+                                        smtp.EnableSsl = true;
+                                        smtp.Send(mail);
+                                }
+                        }
+
                 }
+
+
+                
         }//class ReportBug
 }//ns
