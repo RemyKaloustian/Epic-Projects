@@ -24,7 +24,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ValidateButton _sendButton { get; set; }
                 public CancelButton _closeButton { get; set; }
 
-                public MailSendingPopUp _mailSendingPopUp { get; set; }
+                public FailSendingPopUp _mailSendingPopUp { get; set; }
 
                 public ReportBug(double width, double height, string content)
                         : base(width, height, content)
@@ -133,25 +133,35 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         //_mailSendingPopUp = new MailSendingPopUp(this.Width * 0.5, this.Height * 0.5, "Sending mail, hold tight");
                         //_mailSendingPopUp.Show();
-
-                        using (MailMessage mail = new MailMessage())
+                        try
                         {
-                                mail.From = new MailAddress("email@gmail.com");
-                                mail.To.Add("remy.kaloustian@gmail.com");
-                                mail.Subject = "EPIC PROJECTS - BUG REPORT";
-                                mail.Body = _mailBox.Text + "\n" + _bugBox.Text + "</h6>";
-                                mail.IsBodyHtml = true;
-
-                                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                                using (MailMessage mail = new MailMessage())
                                 {
-                                        smtp.Credentials = new NetworkCredential("remy.kaloustian@gmail.com", "9y2svy18");
-                                        smtp.EnableSsl = true;
-                                        smtp.Send(mail);
-                                }
-                        }
+                                        mail.From = new MailAddress("email@gmail.com");
+                                        mail.To.Add("remy.kaloustian@gmail.com");
+                                        mail.Subject = "EPIC PROJECTS - BUG REPORT";
+                                        mail.Body = _mailBox.Text + "\n" + _bugBox.Text + "</h6>";
+                                        mail.IsBodyHtml = true;
 
-                        // _mailSendingPopUp.Close();
-                        this.Close();
+
+                                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                                        {
+                                                smtp.Credentials = new NetworkCredential("remy.kaloustian@gmail.com", "9y2svy18");
+                                                smtp.EnableSsl = true;
+                                                smtp.Send(mail);
+                                        }
+                                }
+
+                                // _mailSendingPopUp.Close();
+                                this.Close();
+                        }
+                        catch (System.Exception)
+                        {
+                                FailSendingPopUp p = new FailSendingPopUp(Dimensions.GetWidth()*0.5, Dimensions.GetHeight()*0.4,"Oops...");
+                                p.Show();
+                                this.Close();
+                        }
+                      
 
                 }//_sendButton_MouseDown()
 

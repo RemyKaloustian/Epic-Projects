@@ -189,7 +189,7 @@
     <Compile Include="View\CustomControls\PopUp\AccentSelectionPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\AlreadyExistingProject.cs" />
     <Compile Include="View\CustomControls\PopUp\BadPerson.cs" />
-    <Compile Include="View\CustomControls\PopUp\MailSendingPopUp.cs" />
+    <Compile Include="View\CustomControls\PopUp\FailSendingPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NewAdvancedTaskPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NewProjectPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NewTaskPopUp.cs" />
