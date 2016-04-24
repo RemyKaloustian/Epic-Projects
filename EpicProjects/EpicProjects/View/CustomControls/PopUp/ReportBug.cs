@@ -46,6 +46,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _detailsBlock.FontSize = 19;
                         _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                         _detailsBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
+                        _detailsBlock.TextAlignment = TextAlignment.Justify;
 
 
 
