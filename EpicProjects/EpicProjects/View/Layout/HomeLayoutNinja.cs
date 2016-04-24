@@ -13,6 +13,7 @@ using EpicProjects.View.CustomControls.Home;
 using EpicProjects.Controller;
 using System.Windows.Input;
 using System.Windows;
+using EpicProjects.View.CustomControls.PopUp;
 
 
 namespace EpicProjects.View.Layout
@@ -206,7 +207,7 @@ namespace EpicProjects.View.Layout
 
 
                         _itemsPanel.Children.Add(new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _containerPanel.Width / 5, ""));
-
+                        _itemsPanel.MouseDown += _itemsPanel_MouseDown;
                         _itemsSeparator = new Separator();
                         _itemsSeparator.Width = _containerPanel.Width;
                         _itemsSeparator.Background = ThemeSelector.GetAccentColor();
@@ -219,6 +220,12 @@ namespace EpicProjects.View.Layout
                         //Bacause it would be displayed horizontally
                         _containerPanel.Children.Add(_itemsSeparator);
 
+                }
+
+                void _itemsPanel_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        ReportBug rep = new ReportBug(Dimensions.GetWidth()*0.5, Dimensions.GetHeight()*0.8, "Report a bug");
+                        rep.Show();
                 }
 
                 void _settingsItem_MouseDown(object sender, MouseButtonEventArgs e)
