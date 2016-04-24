@@ -29,6 +29,9 @@ namespace EpicProjects.Constants.Colors
                 public static readonly string MAUVE = "#76608A";
                 public static readonly string SIENNA = "#87794E";
                 public static readonly string LIGHT_GREY = "#f5f5f5";
+                public static readonly string SOLID_GREY = "#bdbdbd";
+
+
                
 
         }

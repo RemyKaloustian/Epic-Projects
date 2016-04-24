@@ -205,9 +205,10 @@ namespace EpicProjects.View.Layout
 
                         _itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, Shortcuts.DOC, _containerPanel.Width / 5, ""));
 
+                        HomeItem report = new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _containerPanel.Width / 5, "");
+                        _itemsPanel.Children.Add(report);
+                        report.MouseDown += report_MouseDown;
 
-                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _containerPanel.Width / 5, ""));
-                        _itemsPanel.MouseDown += _itemsPanel_MouseDown;
                         _itemsSeparator = new Separator();
                         _itemsSeparator.Width = _containerPanel.Width;
                         _itemsSeparator.Background = ThemeSelector.GetAccentColor();
@@ -222,11 +223,13 @@ namespace EpicProjects.View.Layout
 
                 }
 
-                void _itemsPanel_MouseDown(object sender, MouseButtonEventArgs e)
+                void report_MouseDown(object sender, MouseButtonEventArgs e)
                 {
-                        ReportBug rep = new ReportBug(Dimensions.GetWidth()*0.5, Dimensions.GetHeight()*0.8, "Report a bug");
+                        ReportBug rep = new ReportBug(Dimensions.GetWidth() * 0.5, Dimensions.GetHeight() * 0.8, "Report a bug");
                         rep.Show();
                 }
+
+              
 
                 void _settingsItem_MouseDown(object sender, MouseButtonEventArgs e)
                 {

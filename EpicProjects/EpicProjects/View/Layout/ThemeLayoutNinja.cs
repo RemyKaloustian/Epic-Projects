@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Colors;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls;
 using EpicProjects.View.CustomControls.Buttons;
@@ -67,20 +68,52 @@ namespace EpicProjects.View.Layout
 
                         _themeItemlist = new List<ThemeItem>();
 
+
+
                         ThemeItem dark = new ThemeItem("Dark", Palette2.GetColor("#2c3e50"),ThemeSelector._lastSavedAccent);
                         _themesPanel.Children.Add(dark);
                         _themeItemlist.Add(dark);
                         dark.MouseDown += ThemeItem_MouseDown;
                         dark.MouseDown += dark_MouseDown;
 
-                        ThemeItem light = new ThemeItem("Light", Palette2.GetColor("#f5f5f5"), ThemeSelector._lastSavedAccent);
+                        string color = "#f5f5f5";
+
+                        Constants.Debug.CW("The accent color is : " + ThemeSelector._accent);
+
+                        Constants.Debug.CW("Comparison result : " + (ThemeSelector._accent == color));
+
+                        ThemeItem light = null;
+
+                        if (ThemeSelector._accent == color)
+                        {
+                                color = Palette2.MIDNIGHT_BLUE;
+                                 light = new ThemeItem("Light", Palette2.GetColor(WindowsPhonePalette.LIGHT_GREY) , Palette2.GetColor(color));
+                        }
+                        else
+                        {
+                                light = new ThemeItem("Light", Palette2.GetColor("#f5f5f5"), ThemeSelector._lastSavedAccent);
+                        }
+
+                        
                         _themesPanel.Children.Add(light);
                         _themeItemlist.Add(light);
                         light.MouseDown += ThemeItem_MouseDown;
                         light.MouseDown += light_MouseDown;
 
 
-                        ThemeItem custom = new ThemeItem("Custom", ThemeSelector._lastSavedAccent,Palette2.GetColor("#f5f5f5"));
+                         color = "#f5f5f5";
+                         ThemeItem custom = null;
+                         if (ThemeSelector._accent == color)
+                         {
+                                 color = WindowsPhonePalette.SOLID_GREY;  
+                                 custom = new ThemeItem("Custom", Palette2.GetColor(color), Palette2.GetColor(WindowsPhonePalette.LIGHT_GREY));
+
+                         }
+
+                         else
+                         {
+                                 custom = new ThemeItem("Custom", ThemeSelector._lastSavedAccent, Palette2.GetColor("#f5f5f5"));
+                         }
                         _themesPanel.Children.Add(custom);
                         _themeItemlist.Add(custom);
                         custom.MouseDown += ThemeItem_MouseDown;
