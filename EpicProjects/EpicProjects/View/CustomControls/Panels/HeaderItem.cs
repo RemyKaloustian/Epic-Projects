@@ -33,7 +33,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _content.Margin = new System.Windows.Thickness(0, Dimensions.GetHeight() / 40, 0, Dimensions.GetHeight() / 40);
 
                         _underline = new StackPanel();
-                        _underline.Height = Dimensions.GetHeight() / 200;
+                        //_underline.Height = Dimensions.GetHeight() / 200;
+                        _underline.Height = 2;
                         _underline.Background = ThemeSelector.GetBackground();
 
                         _addPanel = new StackPanel();
