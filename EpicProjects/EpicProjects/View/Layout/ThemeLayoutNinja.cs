@@ -30,6 +30,7 @@ namespace EpicProjects.View.Layout
                 public DefaultButton _changeColor { get; set; }
 
                 public ValidateButton _applyButton { get; set; }
+                public CancelButton _cancelButton{ get; set; }
 
 
 
@@ -139,6 +140,9 @@ namespace EpicProjects.View.Layout
                         _applyButton = new ValidateButton("Apply Changes", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _applyButton.MouseDown += _applyButton_MouseDown;
 
+                        _cancelButton = new CancelButton("Cancel", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0,0 , 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _cancelButton.MouseDown += _cancelButton_MouseDown;
+
 
 
                         _container.Children.Add(_titleBlock);
@@ -148,8 +152,14 @@ namespace EpicProjects.View.Layout
                         _container.Children.Add(_colorSeparator);
                         _container.Children.Add(_changeColor);
                         _container.Children.Add(_applyButton);
+                        _container.Children.Add(_cancelButton);
 
 
+                }
+
+                void _cancelButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        new Captain().ToSettings(_previous);
                 }
 
                 void _applyButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -161,7 +171,22 @@ namespace EpicProjects.View.Layout
 
                         if (_selectedColor != null)
                         {
-                                ThemeSelector.ChangeAccent(_accentP._selectedColor);
+                                //Light Theme case with selected accent f5f5f5 : if light grey is selected and the current theme is Light or the new theme is light
+                                if(_accentP._selectedColor == WindowsPhonePalette.LIGHT_GREY &&( (_selectedTheme == null && ThemeSelector._theme.GetType() == typeof (LightTheme ) || (_selectedTheme == Themes.LIGHT))))
+                                {
+                                        ThemeSelector.ChangeAccent(WindowsPhonePalette.SOLID_GREY);
+                                }
+                                //Custom Theme case
+                                else if (_accentP._selectedColor == WindowsPhonePalette.LIGHT_GREY && (_selectedTheme == null && ThemeSelector._theme.GetType() == typeof(CustomTheme) || (_selectedTheme == Themes.CUSTOM)))
+                                {
+                                        ThemeSelector.ChangeAccent(WindowsPhonePalette.SOLID_GREY);
+
+                                }
+                                else
+                                {
+                                        ThemeSelector.ChangeAccent(_accentP._selectedColor);
+
+                                }
                         }
 
                         new Captain().ToSettings(_previous);
