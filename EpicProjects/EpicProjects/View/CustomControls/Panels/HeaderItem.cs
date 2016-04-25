@@ -29,7 +29,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _content.FontFamily = FontProvider._proxima;
                         _content.FontSize = 20;
                         _content.Foreground = ThemeSelector.GetAccentColor();
-                        _content.Background = ThemeSelector.GetBackground();
+                        //_content.Background = ThemeSelector.GetBackground();
                         _content.Margin = new System.Windows.Thickness(0, Dimensions.GetHeight() / 40, 0, Dimensions.GetHeight() / 40);
 
                         _underline = new StackPanel();
