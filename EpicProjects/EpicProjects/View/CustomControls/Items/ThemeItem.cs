@@ -37,7 +37,7 @@ namespace EpicProjects.View.CustomControls.Items
 
                 public void Hover()
                 {
-                        this.Background = Palette2.GetColor(WindowsPhonePalette.INDiGO);
+                        this.Background = Palette2.GetColor(Palette2.SILVER);
                 }
 
                 public void Unhover()

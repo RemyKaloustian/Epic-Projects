@@ -22,7 +22,7 @@ namespace EpicProjects.View.Theme
 
                         _accent = "#f5f5f5";
                         _hover = "#f5f5f5";
-                        _popUpBackground = "#bdbdbd";
+                        _popUpBackground =Palette2.CONCRETE;
                         _validate = "#2ecc71";
                 }
 
@@ -86,7 +86,7 @@ namespace EpicProjects.View.Theme
 
                 public override SolidColorBrush GetAlertColor()
                 {
-                        return GetBackground();
+                        return GetAccentColor();
                 }
 
                 public override SolidColorBrush GetContentBackground()
