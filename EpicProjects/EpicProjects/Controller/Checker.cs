@@ -18,7 +18,7 @@ namespace EpicProjects.Controller
 
                         foreach (var item in projects)
                         {
-                                if (newProject.Trim().ToLower() == item.Trim().ToLower())
+                                if (newProject.Trim().ToLower().Replace(" ", String.Empty) == item.Trim().ToLower().Replace(" ", String.Empty))
                                         return true;
                         }
 
