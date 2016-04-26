@@ -158,18 +158,7 @@ SetUpCheckBlock();
 
                 private bool isExistingProject(string projectName)
                 {
-                        List<string> existingProjects = _chief.SelectProjects();
-
-                        foreach (string item in existingProjects)
-                        {
-                                if (item.ToLower() == _nameBox.Text.ToLower())
-                                {
-                                       
-                                        return true;
-                                }
-                        }
-
-                        return false;
+                        return new Checker().IsProjectExisting(projectName);
                 }
 
 
