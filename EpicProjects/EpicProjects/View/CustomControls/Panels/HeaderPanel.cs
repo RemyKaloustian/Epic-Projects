@@ -23,6 +23,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         _titlesPanel = new TitlesPanel();
 
                         this.Children.Add(_titlesPanel);
+
+                        this.HighlightBrainstorming();
                 }
 
 
