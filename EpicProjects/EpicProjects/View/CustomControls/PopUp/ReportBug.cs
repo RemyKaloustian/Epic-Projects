@@ -77,7 +77,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _mailSendingBlock.FontSize = 25;
                         _mailSendingBlock.Margin = new System.Windows.Thickness(0, 5, 0, 0);
                         _mailSendingBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
-                        _mailSendingBlock.Foreground = ThemeSelector.GetAccentColor();
+                        _mailSendingBlock.Foreground = ThemeSelector.GetButtonContentColor();
                         _mailSendingBlock.Text = "Sending the mail might take a few seconds.";
 
                         _sendButton = new ValidateButton("Send this mail right now", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
