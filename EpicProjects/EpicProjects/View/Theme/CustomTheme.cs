@@ -96,7 +96,7 @@ namespace EpicProjects.View.Theme
 
                 public override Brush GetButtonHoverColor()
                 {
-                        return GetBackground();
+                        return GetColor("#bdbdbd");
                 }
         }//class CustomTheme
 }//ns

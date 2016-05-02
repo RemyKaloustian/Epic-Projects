@@ -191,21 +191,21 @@ namespace EpicProjects.View.Layout
                         _itemsPanel.Orientation = Orientation.Horizontal;
                         _itemsPanel.Margin = new System.Windows.Thickness(0, _containerPanel.Height / 30, 0, 0);
 
-                        _settingsItem = new HomeItem(ControlsValues.SETTINGS, Shortcuts.SETTINGS, _containerPanel.Width / 5, "");
+                        _settingsItem = new HomeItem(ControlsValues.SETTINGS, Shortcuts.SETTINGS, _containerPanel.Width / 4, "");
                         _settingsItem.MouseDown += _settingsItem_MouseDown;
 
                         _itemsPanel.Children.Add(_settingsItem);
 
-                        _newProjectItem = new HomeItem(ControlsValues.OPENPROJECT, Shortcuts.OPEN, _containerPanel.Width / 5, "");
+                        _newProjectItem = new HomeItem(ControlsValues.OPENPROJECT, Shortcuts.OPEN, _containerPanel.Width / 4, "");
 
                         _itemsPanel.Children.Add(_newProjectItem);
 
-                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, Shortcuts.NEW, _containerPanel.Width / 5, "");
+                        _openProjectItem = new HomeItem(ControlsValues.NEWPROJECT, Shortcuts.NEW, _containerPanel.Width / 4, "");
                         _itemsPanel.Children.Add(_openProjectItem);
 
-                        _itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, Shortcuts.DOC, _containerPanel.Width / 5, ""));
+                        //_itemsPanel.Children.Add(new HomeItem(ControlsValues.DOCUMENTATION, Shortcuts.DOC, _containerPanel.Width / 5, ""));
 
-                        HomeItem report = new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _containerPanel.Width / 5, "");
+                        HomeItem report = new HomeItem(ControlsValues.REPORT, Shortcuts.BUG, _containerPanel.Width / 4, "");
                         _itemsPanel.Children.Add(report);
                         report.MouseDown += report_MouseDown;
 
