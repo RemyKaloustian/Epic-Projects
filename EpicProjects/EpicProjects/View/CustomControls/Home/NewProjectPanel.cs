@@ -218,7 +218,7 @@ SetUpCheckBlock();
                 {
                         double leftMargin = _containerWidth- _nameBox.Width-(_containerWidth-_nameBox.Width)/2;
                         _checkBlock.Margin = new Thickness(leftMargin, 0, 0, 0);
-                        _checkBlock.FontFamily = FontProvider._aleo;
+                        _checkBlock.FontFamily = FontProvider._lato;
                         _checkBlock.FontSize = 20;
                         _checkBlock.Foreground = ThemeSelector.GetAlertColor() ;
                         
