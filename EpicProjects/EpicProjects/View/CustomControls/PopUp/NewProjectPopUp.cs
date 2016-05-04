@@ -69,6 +69,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _endDatePicker = new DatePicker();
                         _endDatePicker.Width = this.Width * 0.5;
                         _endDatePicker.Height = this.Height * 0.05;
+                        _endDatePicker.FontSize = 20;
                 }
 
                 private void SetUpEndDateBlock()
@@ -87,6 +88,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _startDatePicker = new DatePicker();
                         _startDatePicker.Width = this.Width * 0.5;
                         _startDatePicker.Height = this.Height * 0.05;
+                        _startDatePicker.FontSize = 20;
                 }
 
                 private void SetUpStartDateBlock()
