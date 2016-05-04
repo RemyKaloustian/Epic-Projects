@@ -21,12 +21,13 @@ namespace EpicProjects.View.CustomControls.Panels
                 public DetailsPanel  _detailsPanel { get; set; }
                 public OptionsPanel _optionsPanel { get; set; }
                 public StackPanel _rightPanel { get; set; }
+                public HeaderPanel _headerPanel { get; set; }
 
                 public bool _firstLoad { get; set; }
                 public bool _isOnOptions { get; set; }
                 public string  _UIState { get; set; }
 
-                public ContentPanel(string name)
+                public ContentPanel(string name, HeaderPanel headerPanel)
                 {
                         //Setting properties
                         this.Height = Dimensions.GetHeight()*0.75;
@@ -42,6 +43,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _isOnOptions = true;
                         _projectName = name;
                         _scroller = new ScrollViewer();
+                        _headerPanel = headerPanel;
 
                         //Adding children
                         _scroller.Content = _taskPanel;
@@ -59,6 +61,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         //Fill the layout with brainstormings 
                         _taskPanel.FillBrainstormings();
+                        _headerPanel.HighlightBrainstorming();
                         //If it's not the first time we show brainstormings and the details panel is on
                         if(!_firstLoad && !_isOnOptions)
                         {
@@ -83,6 +86,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         //Fill the layout with trainings
                         _taskPanel.FillTrainings();
+                        _headerPanel.HighlightTraining();
 
                         //If the options panel is off
                         if(!_isOnOptions)
@@ -101,6 +105,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         //Fill the layout with assignments
                         _taskPanel.FillAssignments();
+                        _headerPanel.HighlightAssignments();
                         //If the options panel is off
                         if(!_isOnOptions)
                         {
@@ -119,6 +124,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         //Fill the layout with maintenance
                         _taskPanel.FillMaintenances();
+                        _headerPanel.HighlightMaintenance();
                         //If the options panel is off
                         if(!_isOnOptions)
                         {

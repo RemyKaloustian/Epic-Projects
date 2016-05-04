@@ -42,7 +42,7 @@ namespace EpicProjects.Controller
                                 _contentPanel.LoadMaintenanceAddition();
                         else
                         {
-                                _headerPanel.HighlightMaintenance();
+                                //_headerPanel.HighlightMaintenance();
                                 _contentPanel.LoadMaintenance();
 
                         }
@@ -55,7 +55,7 @@ namespace EpicProjects.Controller
                                 _contentPanel.LoadAssignmentsAddition();
                         else
                         {
-                                _headerPanel.HighlightAssignments();
+                                //_headerPanel.HighlightAssignments();
                                _contentPanel.LoadAssignments(); 
 
                         }
@@ -68,7 +68,7 @@ namespace EpicProjects.Controller
                                 _contentPanel.LoadTrainingAddition();
                         else
                         {
-                                _headerPanel.HighlightTraining();
+                               // _headerPanel.HighlightTraining();
                                 _contentPanel.LoadTraining();
 
                         }
@@ -81,7 +81,7 @@ namespace EpicProjects.Controller
                                 _contentPanel.LoadBrainstormingAddition();
                         else
                         {
-                                _headerPanel.HighlightBrainstorming();
+                                //_headerPanel.HighlightBrainstorming();
                                 _contentPanel.LoadBrainstorming();
 
                         }

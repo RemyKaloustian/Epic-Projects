@@ -24,7 +24,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Background = Palette2.GetColor(Palette2.LIGHT_GRAY);
 
                         _headerPanel = new HeaderPanel();
-                        _contentPanel = new ContentPanel(name);
+                        _contentPanel = new ContentPanel(name, _headerPanel);
 
                         _eventC = new EventCoordinator(_headerPanel, _contentPanel);
 
