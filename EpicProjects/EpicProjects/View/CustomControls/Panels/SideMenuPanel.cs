@@ -20,6 +20,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
         public class SideMenuPanel : StackPanel
         {
+                public string _project { get; set; }
+
                 public SideMenuItem _newProjectItem { get; set; }
 
                 public SideMenuItem _openProjectItem { get; set; }
@@ -30,13 +32,16 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public SideMenuItem _homeItem { get; set; }
 
+                public SideMenuItem _settingsItem { get; set; }
+
                 
 
-                public SideMenuPanel()
+                public SideMenuPanel(string project)
                 {
                         this.Orientation = System.Windows.Controls.Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.1;
                         this.Height = Dimensions.GetHeight();
+                        _project = project;
 
                         _newProjectItem = new SideMenuItem(ControlsValues.NEWPROJECT, 20);
                         _newProjectItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
@@ -61,17 +66,27 @@ namespace EpicProjects.View.CustomControls.Panels
                         _homeItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
                         _homeItem.MouseDown += _homeItem_MouseDown;
 
+                        _settingsItem = new SideMenuItem(ControlsValues.SETTINGS, 20);
+                        _settingsItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
+                        _settingsItem.MouseDown += _settingsItem_MouseDown;
+
 
                         this.Children.Add(_newProjectItem);
                         this.Children.Add(_openProjectItem);
                         this.Children.Add(_statsItem);
                         this.Children.Add(_bugItem);
                         this.Children.Add(_homeItem);
+                        this.Children.Add(_settingsItem);
                       
 
                         this.Background = ThemeSelector.GetBackground();
 
 
+                }
+
+                void _settingsItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        Settings s = new Settings(_project);
                 }
 
                 void _statsItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

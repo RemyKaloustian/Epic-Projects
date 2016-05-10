@@ -29,7 +29,7 @@ namespace EpicProjects.View.Layout
                 public override System.Windows.Controls.StackPanel GetLayout()
                 {
                       
-                       _menuPanel = new SideMenuPanel();
+                       _menuPanel = new SideMenuPanel(_name);
                        _centralPanel = new CentralPanel(_name);
                        _centralPanel.Background = ThemeSelector.GetContentBackground();
 

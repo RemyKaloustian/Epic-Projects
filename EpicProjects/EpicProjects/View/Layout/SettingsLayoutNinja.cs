@@ -64,7 +64,16 @@ namespace EpicProjects.View.Layout
 
                 void _backButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        new Captain().ToHome();
+                        if(_previous.ToLower() == "home")
+                        {
+                                new Captain().ToHome();
+
+                        }
+
+                        else
+                        {
+                                new Captain().ToProject(_previous);
+                        }
                 }
 
                 public override StackPanel GetLayout()

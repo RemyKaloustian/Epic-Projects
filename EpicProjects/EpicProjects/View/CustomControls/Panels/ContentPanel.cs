@@ -86,6 +86,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         //Fill the layout with trainings
                         _taskPanel.FillTrainings();
+                        //Changing the highlighting
                         _headerPanel.HighlightTraining();
 
                         //If the options panel is off
