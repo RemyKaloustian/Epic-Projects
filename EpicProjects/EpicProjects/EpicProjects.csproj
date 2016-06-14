@@ -119,6 +119,7 @@
     <Compile Include="Exception\NullInputException.cs" />
     <Compile Include="Model\AdvancedTask.cs" />
     <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\Ratio.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Sketches\Custom\CustomDoc.xaml.cs">
       <DependentUpon>CustomDoc.xaml</DependentUpon>
@@ -156,6 +157,7 @@
     <Compile Include="Sketches\ProjectSketch.xaml.cs">
       <DependentUpon>ProjectSketch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Stats\StatsWarrior.cs" />
     <Compile Include="View\CustomControls\Buttons\CancelButton.cs" />
     <Compile Include="View\CustomControls\Buttons\CustomButton.cs" />
     <Compile Include="View\CustomControls\Buttons\DefaultButton.cs" />
