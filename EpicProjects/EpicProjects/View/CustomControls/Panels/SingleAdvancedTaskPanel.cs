@@ -22,6 +22,9 @@ namespace EpicProjects.View.CustomControls.Panels
                 public TextBlock _priority { get; set; }
                 public TextBlock _state { get; set; }
 
+                public Separator _prioritySeparator { get; set; }
+                public Separator _stateSeparator { get; set; }
+
                 public SingleAdvancedTaskPanel(AdvancedTask aTask):base()
                 { 
                         _advancedTask = aTask;
@@ -30,7 +33,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         SetUpPriority();
                         SetUpState();
 
-                        this.Children.Add(_priority); 
+                       // SetUpSeparators();
+
+                        //this.Children.Add(_prioritySeparator);
+                        this.Children.Add(_priority);
+                        //this.Children.Add(_stateSeparator);
                         this.Children.Add(_state);
 
                  }
@@ -43,7 +50,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priority.Foreground = ThemeSelector.GetAccentColor();
                         _priority.Margin = new System.Windows.Thickness(10, 0, 0, 0);
                         _priority.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+                       // _priority.Width = Dimensions.GetWidth() * 0.1;
 
+                        //_priority.Margin = new System.Windows.Thickness(Dimensions.GetWidth() * 0.6 * 0.8, 0, 0, 0);
                         if(_advancedTask._priority == Priorities.NOT_IMPORTANT)
                         {
                                 _priority.Text = "\u2606";
@@ -61,12 +70,12 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         else if (_advancedTask._priority == Priorities.ULTRA_IMPORTANT)
                         {
-                                _priority.Text = "\u2606 \u2606 \u2606";
+                                _priority.Text = "\u2606 \u2606 \u2606 \u2606";
                         }
 
                         else if (_advancedTask._priority == Priorities.MOST_IMPORTANT)
                         {
-                                _priority.Text = "\u2606 \u2606";
+                                _priority.Text = "\u2606 \u2606 \u2606 \u2606 \u2606";
                         }
                 }
 
@@ -97,7 +106,20 @@ namespace EpicProjects.View.CustomControls.Panels
                         }
                 }
 
+                private void SetUpSeparators()
+                {
+                        _prioritySeparator = new Separator();
+                        
+                        _prioritySeparator.Foreground = ThemeSelector.GetAccentColor();
 
+                        _prioritySeparator.Height = 30;
+
+
+                        _stateSeparator = new Separator();
+                        _stateSeparator.Foreground = ThemeSelector.GetAccentColor();
+
+                        _stateSeparator.Height = 30;
+                }
 
              
         }//class SingleAdvancedTaskPanel

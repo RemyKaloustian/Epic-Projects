@@ -61,7 +61,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _content.Foreground = ThemeSelector.GetAccentColor();
                         _content.Margin = new System.Windows.Thickness(10, 0, 0, 0);
                         _content.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                        _content.Width = this.Width * 0.6;
+                        _content.Width = Dimensions.GetWidth() * 0.6 * 0.8;
                 }            
 
                 internal void TriggerHover()
