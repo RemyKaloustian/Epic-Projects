@@ -18,7 +18,7 @@ namespace EpicProjects.View.CustomControls.Items
                 {
                         this.Height = height;
                         this.Background = Palette2.GetColor(Palette2.SILVER);
-                        
+                        this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         
 
                         _nameBlock = new TextBlock();
@@ -48,12 +48,15 @@ namespace EpicProjects.View.CustomControls.Items
                 {
                         this.Background = ThemeSelector.GetBackground();
                         _nameBlock.Foreground = ThemeSelector.GetAccentColor();
+                        _ratioBlock.Foreground = ThemeSelector.GetAccentColor();
+
                 }
 
                 public void Unhover()
                 {
                         this.Background = Palette2.GetColor(Palette2.SILVER);
                         _nameBlock.Foreground = ThemeSelector.GetBackground();
+                        _ratioBlock.Foreground = ThemeSelector.GetBackground();
                 }
 
 
