@@ -67,7 +67,6 @@ namespace EpicProjects.View.Layout
                         if(_previous.ToLower() == "home")
                         {
                                 new Captain().ToHome();
-
                         }
 
                         else

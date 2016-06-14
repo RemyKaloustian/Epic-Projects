@@ -77,10 +77,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_bugItem);
                         this.Children.Add(_homeItem);
                         this.Children.Add(_settingsItem);
-                      
 
                         this.Background = ThemeSelector.GetBackground();
-
 
                 }
 
