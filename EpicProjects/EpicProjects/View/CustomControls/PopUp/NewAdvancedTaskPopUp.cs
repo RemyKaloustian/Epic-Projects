@@ -23,6 +23,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public NewAdvancedTaskPopUp(double width, double height, string content, string projectName, bool isAdvanced, ContentPanel contentPanel):base(width,height,content,projectName,isAdvanced, contentPanel)
                 {
 
+                        _nameBox.MaxLength = 80;
+
                         _priorityBlock = new TextBlock();
                         _priorityBlock.Text = "Priority";
                         _priorityBlock.Foreground = ThemeSelector.GetBackground();
