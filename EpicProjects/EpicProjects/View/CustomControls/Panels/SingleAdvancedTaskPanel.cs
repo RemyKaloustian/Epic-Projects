@@ -30,7 +30,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         SetUpPriority();
                         SetUpState();
 
-                        this.Children.Add(_priority);
+                        this.Children.Add(_priority); 
+                        this.Children.Add(_state);
+
                  }
 
                 private void SetUpPriority()
@@ -71,7 +73,28 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 private void SetUpState()
                 {
+                        _state = new TextBlock();
+                        _state.FontFamily = FontProvider._lato;
+                        _state.FontSize = 20;
+                        _state.Foreground = ThemeSelector.GetAccentColor();
+                        _state.Margin = new System.Windows.Thickness(10, 0, 0, 0);
+                        _state.VerticalAlignment = System.Windows.VerticalAlignment.Center;
 
+                        if(_advancedTask._state == States.OPEN)
+                        {
+                                _state.Text = "O";
+                        }
+
+                        else if (_advancedTask._state == States.PROGRESS)
+                        {
+                                _state.Text = "IP";
+                               
+                        }
+
+                        else if (_advancedTask._state == States.DONE)
+                        {
+                                _state.Text = "D";
+                        }
                 }
 
 
