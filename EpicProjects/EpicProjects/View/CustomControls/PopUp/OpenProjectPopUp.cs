@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Constants.Colors;
 using EpicProjects.Controller;
+using EpicProjects.Stats;
 using EpicProjects.View.CustomControls.Items;
 using EpicProjects.View.Theme;
 using System;
@@ -48,7 +49,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         foreach (var item in projects)
                         {
                                 Constants.Debug.CW("project = " + item);
-                                ProjectItem proj = new ProjectItem(this.Height * 0.05, item);
+                                ProjectItem proj = new ProjectItem(this.Height * 0.05, item, new StatsWarrior().GetAdvancedTasksRatio(item));
                                 _projectItemList.Add(proj);
                                 _projectsPanel.Children.Add(proj);
                                 proj.MouseDown += proj_MouseDown;
