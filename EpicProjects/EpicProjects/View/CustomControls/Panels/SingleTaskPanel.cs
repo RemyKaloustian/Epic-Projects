@@ -16,6 +16,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public Model.Task _task { get; set; }
 
                 public TextBlock _content { get; set; }
+               
                 public bool _isSelected { get; set; }
 
                 /// <summary>
@@ -29,6 +30,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.Background = ThemeSelector.GetBackground();
                         SetUpContent();
+                        //SetUpPriority();
+                        //SetUpState();
                         this.Children.Add(_content);
                 }
 
@@ -58,6 +61,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _content.Foreground = ThemeSelector.GetAccentColor();
                         _content.Margin = new System.Windows.Thickness(10, 0, 0, 0);
                         _content.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+                        _content.Width = this.Width * 0.6;
                 }            
 
                 internal void TriggerHover()
