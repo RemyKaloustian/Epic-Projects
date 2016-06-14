@@ -131,16 +131,8 @@ namespace EpicProjects.Database
                 public void InsertAssignment(string name, string details, string project, string priority)
                 {
 
-                        Console.WriteLine("In Inserter.InsertAssignment(), with parameters "+
-                                "name = " + name + 
-                                "project = " + project+
-                                "details = " + details + 
-                                "priority = " + priority                         
-                                );
-
                         XDocument doc = XDocument.Load(Paths.ASSIGNMENTS_SAVE);
 
-                        Console.WriteLine("In Inserter.InsertAssignments(), path = " + Paths.ASSIGNMENTS_SAVE);
                         XElement root = doc.Root;
 
                         //Creation of the projects

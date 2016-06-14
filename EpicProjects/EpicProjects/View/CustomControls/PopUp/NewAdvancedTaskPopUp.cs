@@ -60,7 +60,6 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        Console.WriteLine("The current section is  : " + _section);
 
                        if(_section == ControlsValues.TRAINING)
                        {
@@ -70,7 +69,6 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                        else if (ControlsValues.ASSIGNMENTS.Contains(_section))
                        {
-                               Console.WriteLine("The section is equal to " + ControlsValues.ASSIGNMENTS);
                                new TaskMasterChief(_projectName).InsertAssignment(_nameBox.Text, _detailsBox.Text, _priorityBox.Text);
                                _contentPanel.LoadAssignments();
                        }
