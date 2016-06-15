@@ -49,17 +49,14 @@ namespace EpicProjects.View
 
 
                                 InitializeComponent();
-                                this.Show();
                                 SetFonts();
                                 SetDimensions();
                                 ThemeSelector.InitializeTheme();
-
                                 TestFonts t = new TestFonts();
-                               // t.Show();
+                                // t.Show();
 
 
                                 FontsHolder.Visibility = System.Windows.Visibility.Hidden;
-
                                 _chief = new Masterchief();
                                 _ninja = new HomeLayoutNinja();
                                 _mainPanel = new StackPanel();
@@ -69,9 +66,9 @@ namespace EpicProjects.View
 
                                 this.KeyDown += Home_KeyDown;
                                 SetClickHandling();
+                                this.Show();
 
-
-                        }
+                        }//try
                         catch (System.Exception e)
                         {
 
@@ -98,7 +95,7 @@ namespace EpicProjects.View
                         FontProvider._droid = Xdroid.FontFamily;
                         FontProvider._consolas = Xconsolas.FontFamily;
                         FontProvider._mido = Xmido.FontFamily;
-                }
+                }//SetFonts()
 
 
 
@@ -116,7 +113,7 @@ namespace EpicProjects.View
                         this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
                         this.WindowState = WindowState.Maximized;
                         this.Title = WindowsTitle.HOME_TITLE;
-                }
+                }//Setdimensions()
 
                 private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)
                 {

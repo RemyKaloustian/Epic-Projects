@@ -29,7 +29,6 @@ namespace EpicProjects.Database
                        return projects;
                }//GetLatestProjects()
 
-
                public static void InsertLastProject(string project)
                {
                        List<string> latestProjects = GetLatestProjects();
@@ -68,7 +67,6 @@ namespace EpicProjects.Database
 
                }//InsertLastProject()
 
-
                private static void PrintList(List<string> maList)
                {
                        for (int i = 0; i < maList.Count; i++)
@@ -76,6 +74,46 @@ namespace EpicProjects.Database
                                Constants.Debug.CW("i = " + i + " : " + maList[i]);
                        }
                }//PrintList()
+
+               public static void SetOpening(bool opening)
+               {
+
+                       XmlDocument doc = new XmlDocument();
+                       doc.Load("Saves/Preferences.xml");
+
+                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ProjectOpening");
+
+                       foreach (XmlNode item in nodelist)
+                       {
+
+                               item.Attributes["value"].InnerText = opening.ToString();
+
+                       }
+
+                       doc.Save("Saves/Preferences.xml");
+
+               }//SetOpening()
+
+               public static bool GetOpening()
+               {
+                       XmlDocument doc = new XmlDocument();
+                       doc.Load("Saves/Preferences.xml");
+
+                       bool isProjectOpening = false;
+
+                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ProjectOpening");
+
+                       foreach (XmlNode item in nodelist)
+                       {
+                               if (item.Attributes["value"].InnerText == "True")
+                                       isProjectOpening = true;
+                       }
+
+                       Constants.Debug.CW("In Getopening(), projectOpening = " + isProjectOpening.ToString());
+
+                       return isProjectOpening;
+
+               }//GetOpening()
 
         }//class Preferences
 }//ns

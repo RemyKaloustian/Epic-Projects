@@ -46,6 +46,7 @@ namespace EpicProjects.View.Layout
                 public StackPanel _latestProjectsPanel { get; set; }
                 public TextBlock _latestBlock { get; set; }
                 public Separator _latestSeparator { get; set; }
+                public ValidateButton _projectOpening{ get; set; }
 
                 public StackPanel _footerPanel { get; set; }
                 public TextBlock _remyBlock { get; set; }
@@ -117,11 +118,33 @@ namespace EpicProjects.View.Layout
 
                         SetUpLatestTitle();                        
                         SetUpLatestProjectsNames();
+
+                        _projectOpening = new ValidateButton("Open the app on last project", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 10), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+
+                        _projectOpening.MouseDown += _projectOpening_MouseDown;
+                        //_latestProjectsPanel.Children.Add(_projectOpening);
+
                         SetUpLatestSeparator();
+
 
                         _subContainer.Children.Add(_latestProjectsPanel);
 
                         _containerPanel.Children.Add(_subContainer);
+                }
+
+                void _projectOpening_MouseDown(object sender, MouseButtonEventArgs e)
+                {
+                        if(_projectOpening._block.Text == "Open the app on last project")
+                        {
+                                _projectOpening._block.Text = "Show the home page on opening";
+                                Preferences.SetOpening(false);
+                        }
+                        else
+                        {
+                                _projectOpening._block.Text = "Open the app on last project";
+                                Preferences.SetOpening(true);
+
+                        }
                 }
 
                 #region SetUp
