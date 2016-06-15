@@ -39,13 +39,17 @@ namespace EpicProjects.View.CustomControls.PopUp
                          _container.Children.Add(_nameBox);
                          _container.Children.Add(_validateButton);
                          _container.Children.Add(_cancelButton);
+
+                         this.Show();
                 }
 
                 void _validateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-
+                        Console.WriteLine("In validate button MouseDown");
                         DatabaseGuru guru = new DatabaseGuru( Paths.PROJECTS_SAVE);
+                        Console.WriteLine("Projects save is : " + Paths.PROJECTS_SAVE);
                         guru._propUpdater.UpdateProject(_block.Text, DatabaseValues.NAME, _nameBox.Text);
+                        Console.WriteLine("_block.Text = " + _block.Text + "\n DatabaseValues.NAME : " + DatabaseValues.NAME + "\n_nameBox.Text : " + _nameBox.Text);
                         this.Close();
                 }
 
@@ -53,9 +57,6 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         this.Close();
                 }
-
-
-
 
 
         }//class RenamePopUp

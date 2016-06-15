@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls;
+using EpicProjects.View.CustomControls.PopUp;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace EpicProjects.View.Layout
                 public Separator _separator { get; set; }
 
                 public ValidateButton _changeThemeButton { get; set; }
+                public ValidateButton _renameButton{ get; set; }
                 public CancelButton _backButton { get; set; }
 
                 public string _previous { get; set; }
@@ -27,10 +29,51 @@ namespace EpicProjects.View.Layout
                 {
                         _previous = previous;   
 
-
                         _container = new StackPanel();
                         _container.Orientation = Orientation.Vertical;
 
+                        SetUpTitleBlock();
+                        SetUpSeparator(width);
+                        SetUpButtons(width, height, previous);
+
+                        _container.Children.Add(_titleBlock);
+                        _container.Children.Add(_separator);
+                        _container.Children.Add(_changeThemeButton);
+
+
+                        //For the moment not useful
+                        //if(previous != "home")
+                        //{
+                        //        _container.Children.Add(_renameButton);
+
+                        //}
+                        _container.Children.Add(_backButton);
+                }//ctor()
+
+                private void SetUpButtons(double width, double height, string previous)
+                {
+                        _changeThemeButton = new ValidateButton("Change theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _changeThemeButton.MouseDown += _changeThemeButton_MouseDown;
+                        _changeThemeButton._block.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+
+                        _backButton = new CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _backButton.MouseDown += _backButton_MouseDown;
+
+                        
+                        _renameButton = new ValidateButton("Rename project", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _renameButton.MouseDown += _renameButton_MouseDown;
+                }//SetUpButtons()
+
+               
+                private void SetUpSeparator(double width)
+                {
+                        _separator = new Separator();
+                        _separator.Width = width * 0.5;
+                        _separator.Background = ThemeSelector.GetBackground();
+                }//SetUpSeparator()
+
+                private void SetUpTitleBlock()
+                {
                         _titleBlock = new TextBlock();
                         _titleBlock.Text = "Settings";
                         _titleBlock.FontFamily = FontProvider._lato;
@@ -38,29 +81,18 @@ namespace EpicProjects.View.Layout
                         _titleBlock.Foreground = ThemeSelector.GetBackground();
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.Margin = new System.Windows.Thickness(0, 30, 0, 10);
-
-                        _separator = new Separator();
-                        _separator.Width = width * 0.5;
-                        _separator.Background = ThemeSelector.GetBackground();
-                        
-
-                        _changeThemeButton = new ValidateButton("Change theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
-                        _changeThemeButton.MouseDown += _changeThemeButton_MouseDown;
-                        _changeThemeButton._block.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-
-                        _backButton = new  CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
-                        _backButton.MouseDown += _backButton_MouseDown;
-
-                        _container.Children.Add(_titleBlock);
-                        _container.Children.Add(_separator);
-                        _container.Children.Add(_changeThemeButton);
-                        _container.Children.Add(_backButton);
-                }
+                }//SetUpTitleBlock()
 
                 void _changeThemeButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         new Captain().ToTheme(_previous);
                 }
+
+                void _renameButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        RenamePopUp pop = new RenamePopUp(Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.5, _previous);
+                }
+
 
                 void _backButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
@@ -78,6 +110,7 @@ namespace EpicProjects.View.Layout
                 public override StackPanel GetLayout()
                 {
                         return _container;
-                }
+                }//GetLayout()
+
         }///class SettingsLayoutNinja
 }//ns
