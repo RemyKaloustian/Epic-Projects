@@ -32,18 +32,16 @@ namespace EpicProjects.View.Layout
                 public ValidateButton _applyButton { get; set; }
                 public CancelButton _cancelButton{ get; set; }
 
-
-
-                public int MyProperty { get; set; }
-
                 public List<ThemeItem> _themeItemlist { get; set; }
 
                 public string _selectedTheme { get; set; }
                 public string  _selectedColor{ get; set; }
                 public string _previous { get; set; }
 
-
-
+                /// <summary>
+                /// Constructor
+                /// </summary>
+                /// <param name="previous">The previous project</param>
                 public ThemeLayoutNinja(string previous)
                 {
 
@@ -51,21 +49,11 @@ namespace EpicProjects.View.Layout
                         _container = new StackPanel();
                         _container.Orientation = Orientation.Vertical;
 
-                        _titleBlock = new TextBlock();
-                        _titleBlock.Text = "Theme selection";
-                        _titleBlock.FontFamily = FontProvider._lato;
-                        _titleBlock.FontSize = 25;
-                        _titleBlock.Foreground = ThemeSelector.GetBackground();
-                        _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _titleBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                        SetUpTitleBlock();
 
-                        _separator = new Separator();
-                        _separator.Width = Dimensions.GetWidth() * 0.5;
-                        _separator.Background = ThemeSelector.GetBackground();
+                        SetUpSeparator();
 
-                        _themesPanel = new StackPanel();
-                        _themesPanel.Orientation = Orientation.Horizontal;
-                        _themesPanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        SetUpThemesPanel();
 
                         _themeItemlist = new List<ThemeItem>();
 
@@ -121,30 +109,12 @@ namespace EpicProjects.View.Layout
                         custom.MouseDown += custom_MouseDown;
 
 
-                        _colorTitle = new TextBlock();
-                        _colorTitle.Text = "Color selection";
-                        _colorTitle.FontFamily = FontProvider._lato;
-                        _colorTitle.FontSize = 25;
-                        _colorTitle.Foreground = ThemeSelector.GetBackground();
-                        _colorTitle.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _colorTitle.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                        SetUpColorTitle();
 
-                        _colorSeparator = new Separator();
-                        _colorSeparator.Width = Dimensions.GetWidth() * 0.5;
-                        _colorSeparator.Background = ThemeSelector.GetBackground();
+                        SetUpColorSeparator();
 
-                        _changeColor = new  DefaultButton("Change accent color", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight()* 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
-                        _changeColor.MouseDown += _changeColor_MouseDown;
-
-
-                        _applyButton = new ValidateButton("Apply Changes", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
-                        _applyButton.MouseDown += _applyButton_MouseDown;
-
-                        _cancelButton = new CancelButton("Cancel", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0,0 , 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
-                        _cancelButton.MouseDown += _cancelButton_MouseDown;
-
-
-
+                        SetUpButtons();
+                        
                         _container.Children.Add(_titleBlock);
                         _container.Children.Add(_separator);
                         _container.Children.Add(_themesPanel);
@@ -155,6 +125,63 @@ namespace EpicProjects.View.Layout
                         _container.Children.Add(_cancelButton);
 
 
+                }
+
+                private void SetUpButtons()
+                {
+                        _changeColor = new DefaultButton("Change accent color", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _changeColor.MouseDown += _changeColor_MouseDown;
+
+
+                        _applyButton = new ValidateButton("Apply Changes", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _applyButton.MouseDown += _applyButton_MouseDown;
+
+                        _cancelButton = new CancelButton("Cancel", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _cancelButton.MouseDown += _cancelButton_MouseDown;
+                }
+
+                private void SetUpColorSeparator()
+                {
+                        _colorSeparator = new Separator();
+                        _colorSeparator.Width = Dimensions.GetWidth() * 0.5;
+                        _colorSeparator.Background = ThemeSelector.GetBackground();
+                }
+
+                private void SetUpColorTitle()
+                {
+                        _colorTitle = new TextBlock();
+                        _colorTitle.Text = "Color selection";
+                        _colorTitle.FontFamily = FontProvider._lato;
+                        _colorTitle.FontSize = 25;
+                        _colorTitle.Foreground = ThemeSelector.GetBackground();
+                        _colorTitle.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _colorTitle.Margin = new System.Windows.Thickness(0, 20, 0, 0);
+                }
+
+                private void SetUpThemesPanel()
+                {
+                        _themesPanel = new StackPanel();
+                        _themesPanel.Orientation = Orientation.Horizontal;
+                        _themesPanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                }
+
+                private void SetUpSeparator()
+                {
+                        _separator = new Separator();
+                        _separator.Width = Dimensions.GetWidth() * 0.5;
+                        _separator.Background = ThemeSelector.GetBackground();
+                }
+
+                private void SetUpTitleBlock()
+                {
+
+                        _titleBlock = new TextBlock();
+                        _titleBlock.Text = "Theme selection";
+                        _titleBlock.FontFamily = FontProvider._lato;
+                        _titleBlock.FontSize = 25;
+                        _titleBlock.Foreground = ThemeSelector.GetBackground();
+                        _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _titleBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
 
                 void _cancelButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -239,12 +266,12 @@ namespace EpicProjects.View.Layout
                                         item.Unhover();
                                 }
                         }
-                }
+                }//ThemeItem_MouseDown()
 
                 public override StackPanel GetLayout()
                 {
                         return _container;
-                }
+                }//GetLayout()
 
         }//class LayoutNinja
 }//ns
