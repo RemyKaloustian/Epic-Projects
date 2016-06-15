@@ -20,5 +20,8 @@ namespace EpicProjects.Constants
                 public static readonly string IMPORTANT = "Important";
                 public static readonly string ULTRA_IMPORTANT = "Ultra important";
                 public static readonly string MOST_IMPORTANT = "Most important thing in life";
+
+                public static readonly string STAR = "\u2606 ";
+
         }//class Priorities
 }//ns

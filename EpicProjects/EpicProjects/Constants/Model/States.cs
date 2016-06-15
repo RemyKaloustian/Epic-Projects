@@ -16,5 +16,13 @@ namespace EpicProjects.Constants
                 public static readonly string UIPROGRESS = "In progress";
                 public static readonly string UIDONE = "Done";
 
+
+
+                public static readonly string SYMBOL_DONE = "D";
+                public static readonly string SYMBOL_INPROGRESS = "IP";
+                public static readonly string SYMBOL_OPEN= "O";
+
+
+
         }//class States
 }//ns

@@ -53,31 +53,41 @@ namespace EpicProjects.View.CustomControls.Panels
                        // _priority.Width = Dimensions.GetWidth() * 0.1;
 
                         //_priority.Margin = new System.Windows.Thickness(Dimensions.GetWidth() * 0.6 * 0.8, 0, 0, 0);
+                        int nbStar = 0;
+
                         if(_advancedTask._priority == Priorities.NOT_IMPORTANT)
                         {
-                                _priority.Text = "\u2606";
+                                nbStar = 1;
                         }
 
                         else if (_advancedTask._priority == Priorities.LESS_IMPORTANT)
                         {
-                                _priority.Text = "\u2606 \u2606";
+                                nbStar = 2;
                         }
 
                         else if (_advancedTask._priority == Priorities.IMPORTANT)
                         {
-                                _priority.Text = "\u2606 \u2606 \u2606";
+                                nbStar = 3;
+                               
                         }
 
                         else if (_advancedTask._priority == Priorities.ULTRA_IMPORTANT)
                         {
-                                _priority.Text = "\u2606 \u2606 \u2606 \u2606";
+                                nbStar = 4;
                         }
 
                         else if (_advancedTask._priority == Priorities.MOST_IMPORTANT)
                         {
-                                _priority.Text = "\u2606 \u2606 \u2606 \u2606 \u2606";
+                                nbStar = 5;
                         }
-                }
+
+
+                        for (int i = 0; i < nbStar; i++)
+                        {
+                                _priority.Text += Priorities.STAR;
+                        }
+
+                }//SetUpPriority()
 
 
                 private void SetUpState()
@@ -91,18 +101,18 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         if(_advancedTask._state == States.OPEN)
                         {
-                                _state.Text = "O";
+                                _state.Text = States.SYMBOL_OPEN;
                         }
 
                         else if (_advancedTask._state == States.PROGRESS)
                         {
-                                _state.Text = "IP";
+                                _state.Text = States.SYMBOL_INPROGRESS;
                                
                         }
 
                         else if (_advancedTask._state == States.DONE)
                         {
-                                _state.Text = "D";
+                                _state.Text = States.SYMBOL_DONE;
                         }
                 }
 
