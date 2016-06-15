@@ -17,7 +17,7 @@ namespace EpicProjects.View.CustomControls.Items
                 public ProjectItem(double height, string content, string ratio)
                 {
                         this.Height = height;
-                        this.Background = Palette2.GetColor(Palette2.SILVER);
+                        this.Background = ThemeSelector.GetPopUpBackground();
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.Margin = new System.Windows.Thickness(100,0,0,0);
 
@@ -61,7 +61,7 @@ namespace EpicProjects.View.CustomControls.Items
 
                 public void Unhover()
                 {
-                        this.Background = Palette2.GetColor(Palette2.SILVER);
+                        this.Background = ThemeSelector.GetPopUpBackground();
                         _nameBlock.Foreground = ThemeSelector.GetBackground();
                         _ratioBlock.Foreground = ThemeSelector.GetBackground();
                 }//Unhover()

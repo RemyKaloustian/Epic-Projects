@@ -27,7 +27,7 @@ namespace EpicProjects.View.CustomControls.Items
                         _themeName.Foreground = contentColor;
                         _themeName.Width = Dimensions.GetWidth()/3.5;
                         _themeName.Height = Dimensions.GetHeight() * 0.2;
-                        _themeName.Margin = new System.Windows.Thickness(10, 10, 10, 10);
+                        _themeName.Margin = new System.Windows.Thickness(5, 5, 5, 5);
 
                         _themeName.Background = background;
 
@@ -37,7 +37,7 @@ namespace EpicProjects.View.CustomControls.Items
 
                 public void Hover()
                 {
-                        this.Background = Palette2.GetColor(Palette2.SILVER);
+                        this.Background = Palette2.GetColor(Palette2.ALIZARIN);
                 }
 
                 public void Unhover()
