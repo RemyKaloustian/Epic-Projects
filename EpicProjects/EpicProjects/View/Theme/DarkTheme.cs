@@ -37,7 +37,7 @@ namespace EpicProjects.View.Theme
 
                 public override System.Windows.Media.SolidColorBrush GetPopUpBackground()
                 {
-                        return GetColor(Palette2.ASBESTOS);
+                        return GetColor(Palette2.SILVER);
                 }
 
                 public override System.Windows.Media.FontFamily GetTitleFont()

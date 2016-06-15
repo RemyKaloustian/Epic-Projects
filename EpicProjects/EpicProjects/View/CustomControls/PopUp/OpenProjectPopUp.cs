@@ -28,7 +28,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public OpenProjectPopUp(double width, double height, string content)
                         : base(width, height, content)
                 {
-                        this.Background = Palette2.GetColor(Palette2.SILVER);
+                        this.Background = ThemeSelector.GetPopUpBackground();
 
                         _separator = new Separator();
                         _separator.Width = this.Width * 0.5;

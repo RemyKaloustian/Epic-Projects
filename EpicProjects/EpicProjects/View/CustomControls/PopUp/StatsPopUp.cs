@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public StatsPopUp(double width, double height, string content)
                         : base(width, height, content)
                 {
-                        this.Background = Palette2.GetColor(Palette2.SILVER);
+                        this.Background = ThemeSelector.GetPopUpBackground();
                         _closeButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 14, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
                         _closeButton.MouseDown += _closeButton_MouseDown;

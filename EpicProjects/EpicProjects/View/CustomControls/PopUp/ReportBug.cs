@@ -29,7 +29,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public ReportBug(double width, double height, string content)
                         : base(width, height, content)
                 {
-                        this.Background = Palette2.GetColor(Palette2.SILVER);
+                        this.Background = ThemeSelector.GetPopUpBackground();
                         _mail = new TextBlock();
                         _mail.Text = "Send an email to remy.kaloustian@protonmail.com";
                         _mail.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;

@@ -22,7 +22,7 @@ namespace EpicProjects.View.Theme
 
                         _accent = "#f5f5f5";
                         _hover = "#f5f5f5";
-                        _popUpBackground =Palette2.CONCRETE;
+                        _popUpBackground =Palette2.SILVER;
                         _validate = "#2ecc71";
                 }
 
