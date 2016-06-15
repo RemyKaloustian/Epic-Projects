@@ -14,6 +14,7 @@ using EpicProjects.Controller;
 using System.Windows.Input;
 using System.Windows;
 using EpicProjects.View.CustomControls.PopUp;
+using EpicProjects.Database;
 
 
 namespace EpicProjects.View.Layout
@@ -252,7 +253,7 @@ namespace EpicProjects.View.Layout
 
                 private void SetUpLatestProjectsNames()
                 {
-                        List<string> latestProjects = _chief.GetLatestProjects().GetRange(0, 3);
+                        List<string> latestProjects = Preferences.GetLatestProjects();
 
                         foreach (var item in latestProjects)
                         {

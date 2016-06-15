@@ -113,6 +113,7 @@
     <Compile Include="Controller\RightPanelCoordinator.cs" />
     <Compile Include="Controller\StateInterpreter.cs" />
     <Compile Include="Controller\TaskMasterChief.cs" />
+    <Compile Include="Database\Preferences.cs" />
     <Compile Include="Exception\LaunchException.xaml.cs">
       <DependentUpon>LaunchException.xaml</DependentUpon>
     </Compile>
@@ -498,6 +499,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Saves\Theme.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Saves\Preferences.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
