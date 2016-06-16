@@ -27,11 +27,28 @@ namespace EpicProjects.View.CustomControls.Panels
 
 
                         _showDoneButton = new DefaultButton("Show done", this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment);
+                        _showDoneButton.MouseDown += _showDoneButton_MouseDown;
                        
 
                         this.Children.Add(_sortButton);
                         this.Children.Add(_showDoneButton);
                 }
+
+                void _showDoneButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        if(_showDoneButton._block.Text == "Show done")
+                        {
+                                _showDoneButton._block.Text = "Hide done";
+                        }
+                        else
+                        {
+                                _showDoneButton._block.Text = "Show done";
+
+                        }
+                }//_showDoneButton_MouseDown()
+
+
+
 
         }//class OptionsPanel
 }//ns
