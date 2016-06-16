@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Database;
 using EpicProjects.View.CustomControls.Buttons;
 using EpicProjects.View.CustomControls.Home;
 using EpicProjects.View.Theme;
@@ -39,10 +40,12 @@ namespace EpicProjects.View.CustomControls.Panels
                         if(_showDoneButton._block.Text == "Show done")
                         {
                                 _showDoneButton._block.Text = "Hide done";
+                                Preferences.SetShowDone(true);
                         }
                         else
                         {
                                 _showDoneButton._block.Text = "Show done";
+                                Preferences.SetShowDone(false);
 
                         }
                 }//_showDoneButton_MouseDown()

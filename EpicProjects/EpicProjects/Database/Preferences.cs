@@ -136,5 +136,26 @@ namespace EpicProjects.Database
                        return showdone;
                }//GetShowDone()
 
+
+               internal static void SetShowDone(bool showDone)
+               {
+                       XmlDocument doc = new XmlDocument();
+                       doc.Load("Saves/Preferences.xml");
+
+                       bool showdone = false;
+
+                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ShowDone");
+
+                       foreach (XmlNode item in nodelist)
+                       {
+                               item.Attributes["value"].InnerText =showDone.ToString() ;
+                       }
+
+                       Constants.Debug.CW("In Getopening(), projectOpening = " + showdone.ToString());
+
+                       doc.Save("Saves/Preferences.xml");
+
+
+               }//SetShowDone()
         }//class Preferences
 }//ns
