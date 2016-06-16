@@ -27,7 +27,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment);
 
 
-                        _showDoneButton = new DefaultButton("Show done", this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment);
+                        _showDoneButton = new DefaultButton(this.GetShowDoneContent(), this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment);
                         _showDoneButton.MouseDown += _showDoneButton_MouseDown;
                        
 
@@ -35,17 +35,35 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Children.Add(_showDoneButton);
                 }
 
+                private string GetShowDoneContent()
+                {
+                        string content = "Show done";
+                        if(Preferences.GetShowDone())
+                        {
+                                Constants.Printer.CW("In GetShowDoneContent(), Preferences.GetShowDone() = " + Preferences.GetShowDone());
+                                content = "Hide done";
+                        }
+
+                        Constants.Printer.CW("content =" + content);
+                        return content;
+                }
+
                 void _showDoneButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         if(_showDoneButton._block.Text == "Show done")
                         {
-                                _showDoneButton._block.Text = "Hide done";
+                                _showDoneButton._block.Text = "Hide done";   
+                                Constants.Printer.CW("Setting show done to true");
+
                                 Preferences.SetShowDone(true);
                         }
                         else
                         {
-                                _showDoneButton._block.Text = "Show done";
+                                _showDoneButton._block.Text = "Show done"; 
+                                Constants.Printer.CW("Setting show done to false");
+
                                 Preferences.SetShowDone(false);
+
 
                         }
                 }//_showDoneButton_MouseDown()

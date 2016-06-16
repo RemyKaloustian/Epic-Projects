@@ -67,9 +67,9 @@ namespace EpicProjects.View.Layout
 
                         string color = "#f5f5f5";
 
-                        Constants.Debug.CW("The accent color is : " + ThemeSelector._accent);
+                        Constants.Printer.CW("The accent color is : " + ThemeSelector._accent);
 
-                        Constants.Debug.CW("Comparison result : " + (ThemeSelector._accent == color));
+                        Constants.Printer.CW("Comparison result : " + (ThemeSelector._accent == color));
 
                         ThemeItem light = null;
 

@@ -33,16 +33,13 @@ namespace EpicProjects.Database
                {
                        List<string> latestProjects = GetLatestProjects();
 
-                       Constants.Debug.CW("Getting the latest Projects");
                        PrintList(latestProjects);
-                       Constants.Debug.CW("Inserting the last project");
 
                        if(!latestProjects.Contains(project))
                        {
                                latestProjects.Insert(0, project);
 
                                PrintList(latestProjects);
-                               Constants.Debug.CW("removing the oldest Projects");
 
                                latestProjects.RemoveAt(3);
                                PrintList(latestProjects);
@@ -54,7 +51,6 @@ namespace EpicProjects.Database
 
                                foreach (XmlNode item in nodelist)
                                {
-                                       Constants.Debug.CW("Should add " + latestProjects[i]);
                                        item.Attributes[DatabaseValues.NAME].InnerText = latestProjects[i];
                                        ++i;
                                }
@@ -71,7 +67,7 @@ namespace EpicProjects.Database
                {
                        for (int i = 0; i < maList.Count; i++)
                        {
-                               Constants.Debug.CW("i = " + i + " : " + maList[i]);
+                               Constants.Printer.CW("i = " + i + " : " + maList[i]);
                        }
                }//PrintList()
 
@@ -109,8 +105,6 @@ namespace EpicProjects.Database
                                        isProjectOpening = true;
                        }
 
-                       Constants.Debug.CW("In Getopening(), projectOpening = " + isProjectOpening.ToString());
-
                        return isProjectOpening;
 
                }//GetOpening()
@@ -118,6 +112,7 @@ namespace EpicProjects.Database
 
                public static bool GetShowDone()
                {
+                       Printer.CW("In GetShowDOne()");
                        XmlDocument doc = new XmlDocument();
                        doc.Load("Saves/Preferences.xml");
 
@@ -128,10 +123,13 @@ namespace EpicProjects.Database
                        foreach (XmlNode item in nodelist)
                        {
                                if (item.Attributes["value"].InnerText == "True")
+                               {
+                                       Printer.CW("value = " + item.Attributes["value"].InnerText);
                                        showdone = true;
+                               }
                        }
 
-                       Constants.Debug.CW("In Getopening(), projectOpening = " + showdone.ToString());
+                       Constants.Printer.CW("showdone = " + showdone.ToString());
 
                        return showdone;
                }//GetShowDone()
@@ -142,7 +140,7 @@ namespace EpicProjects.Database
                        XmlDocument doc = new XmlDocument();
                        doc.Load("Saves/Preferences.xml");
 
-                       bool showdone = false;
+                       
 
                        XmlNodeList nodelist = doc.SelectNodes("/Preferences/ShowDone");
 
@@ -151,7 +149,7 @@ namespace EpicProjects.Database
                                item.Attributes["value"].InnerText =showDone.ToString() ;
                        }
 
-                       Constants.Debug.CW("In Getopening(), projectOpening = " + showdone.ToString());
+                       Constants.Printer.CW("In Getopening(), projectOpening = " + showDone.ToString());
 
                        doc.Save("Saves/Preferences.xml");
 
