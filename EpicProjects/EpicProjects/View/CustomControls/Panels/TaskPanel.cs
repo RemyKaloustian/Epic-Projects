@@ -96,7 +96,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void FillAssignments()
                 {
                         this.Children.Clear();
-                        List<Model.AdvancedTask> assignments = _chief.SelectAssignments();
+                        List<Model.AdvancedTask> assignments = new Sorter().SortAssignments(_chief);
 
                         if(assignments.Count != 0)
                         {

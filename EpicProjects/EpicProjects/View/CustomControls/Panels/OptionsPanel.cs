@@ -64,20 +64,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                                 Preferences.SetShowDone(true);
 
-
-                                if (_uiState == UIStates.ON_TRAINING)
-                                {
-                                        _taskPanel.FillTrainings();
-                                }
-                                else if(_uiState == UIStates.ON_ASSIGNMENT)
-                                {
-                                        _taskPanel.FillAssignments();
-                                }
-
-                                else if(_uiState == UIStates.ON_MAINTENANCE)
-                                {
-                                        _taskPanel.FillMaintenances();
-                                }
+                                FillOnState();
                         }
                         else
                         {
@@ -86,26 +73,28 @@ namespace EpicProjects.View.CustomControls.Panels
 
                                 Preferences.SetShowDone(false);
 
-                                if (_uiState == UIStates.ON_TRAINING)
-                                {
-                                        _taskPanel.FillTrainings();
-                                }
-                                else if (_uiState == UIStates.ON_ASSIGNMENT)
-                                {
-                                        _taskPanel.FillAssignments();
-                                }
-
-                                else if (_uiState == UIStates.ON_MAINTENANCE)
-                                {
-                                        _taskPanel.FillMaintenances();
-                                }
-
+                                FillOnState();
 
                         }
                 }//_showDoneButton_MouseDown()
 
+                private void FillOnState()
+                {
 
+                        if (_uiState == UIStates.ON_TRAINING)
+                        {
+                                _taskPanel.FillTrainings();
+                        }
+                        else if (_uiState == UIStates.ON_ASSIGNMENT)
+                        {
+                                _taskPanel.FillAssignments();
+                        }
 
+                        else if (_uiState == UIStates.ON_MAINTENANCE)
+                        {
+                                _taskPanel.FillMaintenances();
+                        }
+                }//FillOnState()
 
         }//class OptionsPanel
 }//ns
