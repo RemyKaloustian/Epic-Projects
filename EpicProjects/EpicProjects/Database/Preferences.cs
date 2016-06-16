@@ -67,7 +67,7 @@ namespace EpicProjects.Database
                {
                        for (int i = 0; i < maList.Count; i++)
                        {
-                               Constants.Printer.CW("i = " + i + " : " + maList[i]);
+                               //Constants.Debug.CW("i = " + i + " : " + maList[i]);
                        }
                }//PrintList()
 
@@ -112,7 +112,7 @@ namespace EpicProjects.Database
 
                public static bool GetShowDone()
                {
-                       Printer.CW("In GetShowDOne()");
+                       //Debug.CW("In GetShowDOne()");
                        XmlDocument doc = new XmlDocument();
                        doc.Load("Saves/Preferences.xml");
 
@@ -124,12 +124,12 @@ namespace EpicProjects.Database
                        {
                                if (item.Attributes["value"].InnerText == "True")
                                {
-                                       Printer.CW("value = " + item.Attributes["value"].InnerText);
+                                       //Debug.CW("value = " + item.Attributes["value"].InnerText);
                                        showdone = true;
                                }
                        }
 
-                       Constants.Printer.CW("showdone = " + showdone.ToString());
+                       //Constants.Debug.CW("showdone = " + showdone.ToString());
 
                        return showdone;
                }//GetShowDone()
@@ -149,7 +149,7 @@ namespace EpicProjects.Database
                                item.Attributes["value"].InnerText =showDone.ToString() ;
                        }
 
-                       Constants.Printer.CW("In Getopening(), projectOpening = " + showDone.ToString());
+                       //Constants.Debug.CW("In Getopening(), projectOpening = " + showDone.ToString());
 
                        doc.Save("Saves/Preferences.xml");
 

@@ -48,7 +48,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         foreach (var item in projects)
                         {
-                                Constants.Printer.CW("project = " + item);
+                                //Constants.Debug.CW("project = " + item);
                                 ProjectItem proj = new ProjectItem(this.Height * 0.05, item, new StatsWarrior().GetAdvancedTasksRatio(item));
                                 _projectItemList.Add(proj);
                                 _projectsPanel.Children.Add(proj);

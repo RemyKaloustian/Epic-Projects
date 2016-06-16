@@ -36,8 +36,9 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         //Setting fields
                         RightPanelCoordinator coord = new RightPanelCoordinator(this);
-                        _optionsPanel = new OptionsPanel();                        
-                        _taskPanel = new TaskPanel(_detailsPanel,name,coord);
+                        _taskPanel = new TaskPanel(_detailsPanel,name,coord);        
+                        _optionsPanel = new OptionsPanel(_taskPanel);                        
+
                         _rightPanel = _optionsPanel;
                         _firstLoad = true;
                         _isOnOptions = true;
@@ -75,6 +76,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         }
 
                         _UIState = UIStates.ON_BRAINSTORMING;
+                        _optionsPanel._uiState = _UIState;
                 }//LoadBrainstorming()
 
              
@@ -97,6 +99,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         }
 
                         _UIState = UIStates.ON_TRAINING;
+                        _optionsPanel._uiState = _UIState;
+
                 }//LoadTraining()
 
                 /// <summary>
@@ -115,6 +119,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         }
 
                         _UIState = UIStates.ON_ASSIGNMENT;
+                        _optionsPanel._uiState = _UIState;
+
                 }//LoadAssignments()
 
 
@@ -134,6 +140,8 @@ namespace EpicProjects.View.CustomControls.Panels
                         }
 
                         _UIState = UIStates.ON_MAINTENANCE;
+                        _optionsPanel._uiState = _UIState;
+
                 }//LoadMaintenance()
 
                 /// <summary>

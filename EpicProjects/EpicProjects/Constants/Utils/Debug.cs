@@ -15,7 +15,7 @@ namespace EpicProjects.Constants
         /// <summary>
         /// This class exists because typing System.Diagnostics.Debug.Writeline() makes my hands bleed
         /// </summary>
-        public static class Printer
+        public static class Debug
         {
                 //Writes display on the output
                 public static void CW(string display)

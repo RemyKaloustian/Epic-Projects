@@ -17,12 +17,19 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public DefaultButton _sortButton { get; set; }
                 public DefaultButton  _showDoneButton{ get; set; }
-                public OptionsPanel()
+
+                public TaskPanel  _taskPanel{ get; set; }
+
+                public string  _uiState{ get; set; }
+
+                public OptionsPanel( TaskPanel taskpanel)
                 {
                         this.Orientation = Orientation.Vertical;
                         this.Width = Dimensions.GetWidth() * 0.27;
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = ThemeSelector.GetBackground();
+
+                        _taskPanel = taskpanel;
 
                         _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment);
 
@@ -40,11 +47,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         string content = "Show done";
                         if(Preferences.GetShowDone())
                         {
-                                Constants.Printer.CW("In GetShowDoneContent(), Preferences.GetShowDone() = " + Preferences.GetShowDone());
+                                //Constants.Debug.CW("In GetShowDoneContent(), Preferences.GetShowDone() = " + Preferences.GetShowDone());
                                 content = "Hide done";
                         }
 
-                        Constants.Printer.CW("content =" + content);
+                        //Constants.Debug.CW("content =" + content);
                         return content;
                 }
 
@@ -53,16 +60,45 @@ namespace EpicProjects.View.CustomControls.Panels
                         if(_showDoneButton._block.Text == "Show done")
                         {
                                 _showDoneButton._block.Text = "Hide done";   
-                                Constants.Printer.CW("Setting show done to true");
+                                //Constants.Debug.CW("Setting show done to true");
 
                                 Preferences.SetShowDone(true);
+
+
+                                if (_uiState == UIStates.ON_TRAINING)
+                                {
+                                        _taskPanel.FillTrainings();
+                                }
+                                else if(_uiState == UIStates.ON_ASSIGNMENT)
+                                {
+                                        _taskPanel.FillAssignments();
+                                }
+
+                                else if(_uiState == UIStates.ON_MAINTENANCE)
+                                {
+                                        _taskPanel.FillMaintenances();
+                                }
                         }
                         else
                         {
                                 _showDoneButton._block.Text = "Show done"; 
-                                Constants.Printer.CW("Setting show done to false");
+                                //Constants.Debug.CW("Setting show done to false");
 
                                 Preferences.SetShowDone(false);
+
+                                if (_uiState == UIStates.ON_TRAINING)
+                                {
+                                        _taskPanel.FillTrainings();
+                                }
+                                else if (_uiState == UIStates.ON_ASSIGNMENT)
+                                {
+                                        _taskPanel.FillAssignments();
+                                }
+
+                                else if (_uiState == UIStates.ON_MAINTENANCE)
+                                {
+                                        _taskPanel.FillMaintenances();
+                                }
 
 
                         }

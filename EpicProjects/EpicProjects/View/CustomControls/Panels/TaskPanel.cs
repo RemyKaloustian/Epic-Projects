@@ -69,10 +69,14 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void FillTrainings()
                 {
                         this.Children.Clear();
-                        List<Model.AdvancedTask> trains = _chief.SelectTrainings();
+                        //List<Model.AdvancedTask> trains = _chief.SelectTrainings();
+
+
+                        List<Model.AdvancedTask> trains = new Sorter().SortTrainings(_chief);
 
                         if(trains.Count != 0)
                         {
+                                Constants.Debug.CW("In FillTrainings(), count > 0  = " + trains.Count);
                                 foreach (Model.AdvancedTask item in trains)
                                 {
                                         SingleAdvancedTaskPanel training = new SingleAdvancedTaskPanel(item);

@@ -99,7 +99,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void _openProjectItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        Constants.Printer.CW("Opening the pop up");
+                        //Constants.Debug.CW("Opening the pop up");
                         OpenProjectPopUp op = new OpenProjectPopUp(Dimensions.GetWidth() * 0.6, Dimensions.GetHeight() * 0.8, "Open project");
                 }
 
