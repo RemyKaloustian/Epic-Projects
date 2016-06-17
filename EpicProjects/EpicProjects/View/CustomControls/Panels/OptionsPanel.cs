@@ -87,11 +87,10 @@ namespace EpicProjects.View.CustomControls.Panels
                         string content = "Show done";
                         if(Preferences.GetShowDone())
                         {
-                                //Constants.Debug.CW("In GetShowDoneContent(), Preferences.GetShowDone() = " + Preferences.GetShowDone());
+                                
                                 content = "Hide done";
                         }
 
-                        //Constants.Debug.CW("content =" + content);
                         return content;
                 }
 
@@ -100,7 +99,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         if(_showDoneButton._block.Text == "Show done")
                         {
                                 _showDoneButton._block.Text = "Hide done";   
-                                //Constants.Debug.CW("Setting show done to true");
 
                                 Preferences.SetShowDone(true);
 
@@ -109,7 +107,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         else
                         {
                                 _showDoneButton._block.Text = "Show done"; 
-                                //Constants.Debug.CW("Setting show done to false");
 
                                 Preferences.SetShowDone(false);
 
@@ -138,14 +135,12 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public void HideButtons()
                 {
-                        Constants.Debug.CW("Hiding buttons");
                         _sortButton.Visibility = System.Windows.Visibility.Hidden;
                         _showDoneButton.Visibility = System.Windows.Visibility.Hidden;
                 }//HideButtons()
 
                 public  void ShowButtons()
                 {
-                        Constants.Debug.CW("Showing the buttons");
                         _sortButton.Visibility = System.Windows.Visibility.Visible;
                         _showDoneButton.Visibility = System.Windows.Visibility.Visible;
                 }

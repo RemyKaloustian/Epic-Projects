@@ -23,7 +23,6 @@ namespace EpicProjects.View.Theme
                         if(type == Themes.LIGHT)
                         {
                                 _theme = new LightTheme(_accent);
-                                //Constants.Debug.CW("Theme is Light, accent is " + _accent);
                                 _lastSavedAccent = _theme.GetAccentColor();
                         }
 
@@ -31,14 +30,12 @@ namespace EpicProjects.View.Theme
                         else if(type == Themes.DARK)
                         {
                                 _theme = new DarkTheme(_accent);
-                                //Constants.Debug.CW("Theme is Dark, accent is " + _accent);
                                 _lastSavedAccent = _theme.GetAccentColor();
                         }
 
                         else if(type == Themes.CUSTOM)
                         {
                                 _theme = new CustomTheme(_accent);
-                                //Constants.Debug.CW("Theme is Custom, accent is " + _accent);
                                 _lastSavedAccent = _theme.GetBackground();
                         }
 

@@ -124,12 +124,10 @@ namespace EpicProjects.Database
                        {
                                if (item.Attributes["value"].InnerText == "True")
                                {
-                                       //Debug.CW("value = " + item.Attributes["value"].InnerText);
                                        showdone = true;
                                }
                        }
 
-                       //Constants.Debug.CW("showdone = " + showdone.ToString());
 
                        return showdone;
                }//GetShowDone()
@@ -149,7 +147,6 @@ namespace EpicProjects.Database
                                item.Attributes["value"].InnerText =showDone.ToString() ;
                        }
 
-                       //Constants.Debug.CW("In Getopening(), projectOpening = " + showDone.ToString());
 
                        doc.Save("Saves/Preferences.xml");
 
@@ -171,7 +168,6 @@ namespace EpicProjects.Database
                                item.Attributes["value"].InnerText =option;
                        }
 
-                       //Constants.Debug.CW("In Getopening(), projectOpening = " + showDone.ToString());
 
                        doc.Save("Saves/Preferences.xml");
 
@@ -193,7 +189,6 @@ namespace EpicProjects.Database
                            
                        }
 
-                       //Constants.Debug.CW("showdone = " + showdone.ToString());
 
                        return option;
                }//GetSort()
