@@ -61,7 +61,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void LoadBrainstorming()
                 {
                         //Fill the layout with brainstormings 
-                        _taskPanel.FillBrainstormings();
+                        _taskPanel.FillBrainstormings(_optionsPanel);
                         _headerPanel.HighlightBrainstorming();
                         //If it's not the first time we show brainstormings and the details panel is on
                         if(!_firstLoad && !_isOnOptions)
@@ -87,7 +87,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void LoadTraining()
                 {
                         //Fill the layout with trainings
-                        _taskPanel.FillTrainings();
+                        _taskPanel.FillTrainings(_optionsPanel);
                         //Changing the highlighting
                         _headerPanel.HighlightTraining();
 
@@ -100,7 +100,6 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _UIState = UIStates.ON_TRAINING;
                         _optionsPanel._uiState = _UIState;
-
                 }//LoadTraining()
 
                 /// <summary>
@@ -109,7 +108,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void LoadAssignments()
                 {
                         //Fill the layout with assignments
-                        _taskPanel.FillAssignments();
+                        _taskPanel.FillAssignments(_optionsPanel);
                         _headerPanel.HighlightAssignments();
                         //If the options panel is off
                         if(!_isOnOptions)
@@ -130,7 +129,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 public void LoadMaintenance()
                 {
                         //Fill the layout with maintenance
-                        _taskPanel.FillMaintenances();
+                        _taskPanel.FillMaintenances(_optionsPanel);
                         _headerPanel.HighlightMaintenance();
                         //If the options panel is off
                         if(!_isOnOptions)

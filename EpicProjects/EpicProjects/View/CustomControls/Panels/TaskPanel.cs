@@ -43,8 +43,9 @@ namespace EpicProjects.View.CustomControls.Panels
                 }
 
 
-                public void FillBrainstormings()
+                public void FillBrainstormings(OptionsPanel optionsPanel)
                 {
+                        optionsPanel.HideButtons();
                         this.Children.Clear();
                         
                         List<Model.Task> brains = _chief.SelectBrainstormings();
@@ -66,8 +67,9 @@ namespace EpicProjects.View.CustomControls.Panels
                        
                 }//FillBrainstormings
 
-                public void FillTrainings()
+                public void FillTrainings(OptionsPanel optionsPanel)
                 {
+                        optionsPanel.ShowButtons();
                         this.Children.Clear();
                         //List<Model.AdvancedTask> trains = _chief.SelectTrainings();
 
@@ -76,7 +78,6 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         if(trains.Count != 0)
                         {
-                                Constants.Debug.CW("In FillTrainings(), count > 0  = " + trains.Count);
                                 foreach (Model.AdvancedTask item in trains)
                                 {
                                         SingleAdvancedTaskPanel training = new SingleAdvancedTaskPanel(item);
@@ -93,8 +94,9 @@ namespace EpicProjects.View.CustomControls.Panels
                       
                 }//FillTrainings()
 
-                public void FillAssignments()
+                public void FillAssignments(OptionsPanel optionsPanel)
                 {
+                        optionsPanel.ShowButtons();
                         this.Children.Clear();
                         List<Model.AdvancedTask> assignments = new Sorter().SortAssignments(_chief);
 
@@ -118,8 +120,9 @@ namespace EpicProjects.View.CustomControls.Panels
                        
                 }//FillAssignments()
 
-                public void FillMaintenances()
+                public void FillMaintenances(OptionsPanel optionsPanel)
                 {
+                        optionsPanel.ShowButtons();
                         this.Children.Clear();
                         List<Model.AdvancedTask> maintenances = _chief.SelectMaintenances();
 

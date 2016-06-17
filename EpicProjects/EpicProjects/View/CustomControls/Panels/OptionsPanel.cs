@@ -37,9 +37,11 @@ namespace EpicProjects.View.CustomControls.Panels
                         _showDoneButton = new DefaultButton(this.GetShowDoneContent(), this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment);
                         _showDoneButton.MouseDown += _showDoneButton_MouseDown;
                        
+                      
+                              this.Children.Add(_sortButton);
+                              this.Children.Add(_showDoneButton);
 
-                        this.Children.Add(_sortButton);
-                        this.Children.Add(_showDoneButton);
+                       
                 }
 
                 private string GetShowDoneContent()
@@ -83,18 +85,32 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         if (_uiState == UIStates.ON_TRAINING)
                         {
-                                _taskPanel.FillTrainings();
+                                _taskPanel.FillTrainings(this);
                         }
                         else if (_uiState == UIStates.ON_ASSIGNMENT)
                         {
-                                _taskPanel.FillAssignments();
+                                _taskPanel.FillAssignments(this);
                         }
 
                         else if (_uiState == UIStates.ON_MAINTENANCE)
                         {
-                                _taskPanel.FillMaintenances();
+                                _taskPanel.FillMaintenances(this);
                         }
                 }//FillOnState()
+
+                public void HideButtons()
+                {
+                        Constants.Debug.CW("Hiding buttons");
+                        _sortButton.Visibility = System.Windows.Visibility.Hidden;
+                        _showDoneButton.Visibility = System.Windows.Visibility.Hidden;
+                }//HideButtons()
+
+                public  void ShowButtons()
+                {
+                        Constants.Debug.CW("Showing the buttons");
+                        _sortButton.Visibility = System.Windows.Visibility.Visible;
+                        _showDoneButton.Visibility = System.Windows.Visibility.Visible;
+                }
 
         }//class OptionsPanel
 }//ns

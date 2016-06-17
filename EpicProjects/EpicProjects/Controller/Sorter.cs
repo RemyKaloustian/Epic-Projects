@@ -22,21 +22,16 @@ namespace EpicProjects.Controller
                         List<AdvancedTask> trainings= chief.SelectTrainings();
 
                         List<AdvancedTask> finalTrainings = new List<AdvancedTask>();
-                        Constants.Debug.CW("In SortTrainings, count  = " + trainings.Count);
                         foreach (AdvancedTask item in trainings)
                         {
-                                Constants.Debug.CW("Name = " + item._name);
                         }
 
                         for (int i = 0; i < trainings.Count; ++i)
                         {
-                                Constants.Debug.CW("i = " + i + "| name =  " + trainings[i]._name + " | " +
-                                                "state =" + trainings[i]._state + " | " +
-                                                "shodone = " + Preferences.GetShowDone());
+                               
                                 if (trainings[i]._state == States.DONE && Preferences.GetShowDone())
                                 {
                                         finalTrainings.Add(trainings[i]);
-                                        Constants.Debug.CW("Removing this item");
                                 }
                                 else if(trainings[i]._state != States.DONE)
                                 {
@@ -60,11 +55,9 @@ namespace EpicProjects.Controller
 
                         //}
 
-                        Constants.Debug.CW("After the sort");
 
                         foreach (AdvancedTask item in finalTrainings)
                         {
-                                Constants.Debug.CW(item._name);
                         }
 
                         return finalTrainings;
@@ -77,21 +70,16 @@ namespace EpicProjects.Controller
                         List<AdvancedTask> assignments = chief.SelectAssignments();
 
                         List<AdvancedTask> finalAssignments = new List<AdvancedTask>();
-                        Constants.Debug.CW("In SortTrainings, count  = " + assignments.Count);
                         foreach (AdvancedTask item in assignments)
                         {
-                                Constants.Debug.CW("Name = " + item._name);
                         }
 
                         for (int i = 0; i < assignments.Count; ++i)
                         {
-                                Constants.Debug.CW("i = " + i + "| name =  " + assignments[i]._name + " | " +
-                                                "state =" + assignments[i]._state + " | " +
-                                                "shodone = " + Preferences.GetShowDone());
+                                
                                 if (assignments[i]._state == States.DONE && Preferences.GetShowDone())
                                 {
                                         finalAssignments.Add(assignments[i]);
-                                        Constants.Debug.CW("Removing this item");
                                 }
                                 else if (assignments[i]._state != States.DONE)
                                 {
@@ -115,11 +103,9 @@ namespace EpicProjects.Controller
 
                         //}
 
-                        Constants.Debug.CW("After the sort");
 
                         foreach (AdvancedTask item in finalAssignments)
                         {
-                                Constants.Debug.CW(item._name);
                         }
 
                         return finalAssignments;
