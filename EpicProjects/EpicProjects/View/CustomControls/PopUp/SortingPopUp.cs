@@ -20,14 +20,17 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         this.Background = ThemeSelector.GetPopUpBackground();
 
-                        _sortImportanceButton = new ValidateButton("Sort by importance", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _sortImportanceButton = new ValidateButton("Sort by importance", this.Width * 0.5, this.Height * 0.09, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _sortImportanceButton.MouseDown += _sortButton_MouseDown;
+                        _sortImportanceButton.MinHeight = 50;
 
-                        _sortStateButton = new ValidateButton("Sort by state", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _sortStateButton = new ValidateButton("Sort by state", this.Width * 0.5, this.Height * 0.09, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _sortStateButton.MouseDown += _sortButton_MouseDown;
+                        _sortStateButton.MinHeight = 50;
 
-                        _sortCreationButton = new ValidateButton("Sort by creation date", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _sortCreationButton = new ValidateButton("Sort by creation date", this.Width * 0.5, this.Height * 0.09, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _sortCreationButton.MouseDown += _sortButton_MouseDown;
+                        _sortCreationButton.MinHeight = 50;
                                
 
 

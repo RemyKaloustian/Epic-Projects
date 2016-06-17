@@ -26,6 +26,7 @@ namespace EpicProjects.View.CustomControls
                         this.Margin = margin;
                         this.Background = ThemeSelector.GetButtonColor();
                         
+                        
                         this.HorizontalAlignment = hAlign;
 
                         _block.Padding = padding;
