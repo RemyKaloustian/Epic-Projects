@@ -249,7 +249,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         else if (priority.Contains( Priorities.MOST_IMPORTANT))
                         {
-                                _priorityCombo.SelectedItem = _priorityCombo.Items[4];
+                                _priorityCombo.SelectedItem = _priorityCombo.Items[3];
                         }
                 }//FillPriorityCombo()
 

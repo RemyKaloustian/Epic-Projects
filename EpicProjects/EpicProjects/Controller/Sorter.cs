@@ -22,7 +22,7 @@ namespace EpicProjects.Controller
                 {
                         List<AdvancedTask> advancedTasks = new List<AdvancedTask>();
 
-                        if(section == UIStates.ON_TRAINING)
+                        if (section == UIStates.ON_TRAINING)
                         {
                                 advancedTasks = chief.SelectTrainings();
                         }
@@ -37,7 +37,7 @@ namespace EpicProjects.Controller
 
                         advancedTasks = this.SpecificSorting(advancedTasks);
 
-                        List<AdvancedTask> finalTasks = new List<AdvancedTask>();                      
+                        List<AdvancedTask> finalTasks = new List<AdvancedTask>();
 
                         for (int i = 0; i < advancedTasks.Count; ++i)
                         {
@@ -59,12 +59,12 @@ namespace EpicProjects.Controller
 
                 private List<AdvancedTask> SpecificSorting(List<AdvancedTask> advancedTasks)
                 {
-                        if(Preferences.GetSort() == Sorting.IMPORTANCE)
+                        if (Preferences.GetSort() == Sorting.IMPORTANCE)
                         {
                                 advancedTasks = this.SortByImportance(advancedTasks);
                         }
 
-                        else if(Preferences.GetSort() == Sorting.STATE)
+                        else if (Preferences.GetSort() == Sorting.STATE)
                         {
                                 //advancedTasks = this.SortByState(advancedTasks);
                         }
@@ -75,11 +75,58 @@ namespace EpicProjects.Controller
 
                 private List<AdvancedTask> SortByImportance(List<AdvancedTask> advancedTasks)
                 {
-                        return null;
-                }
+                        List<AdvancedTask> notImportant = new List<AdvancedTask>();
+                        List<AdvancedTask> lessImportant = new List<AdvancedTask>();
+                        List<AdvancedTask> important = new List<AdvancedTask>();
+                        List<AdvancedTask> mostImportant = new List<AdvancedTask>();
+
+                        foreach (AdvancedTask item in advancedTasks)
+	                {
+		                if(item._priority == Priorities.NOT_IMPORTANT)
+                                {
+                                        notImportant.Add(item);
+                                }
+
+                                else if(item._priority == Priorities.LESS_IMPORTANT)
+                                {
+                                        lessImportant.Add(item);
+                                }
+                                else if (item._priority == Priorities.IMPORTANT)
+	                        {
+		                        important.Add(item);
+	                        }
+                                else if(item._priority == Priorities.MOST_IMPORTANT)
+                                {
+                                        mostImportant.Add(item);
+                                }
+	                 }//foreach
+
+                        List<AdvancedTask> finalTasks = new List<AdvancedTask>();
+
+                        foreach (AdvancedTask item in mostImportant)
+	                {
+		                finalTasks.Add(item);
+	                }
+
+                        foreach (AdvancedTask item in important)
+	                {
+		                finalTasks.Add(item);
+	                }
+
+                        foreach (AdvancedTask item in lessImportant)
+	                {
+		                finalTasks.Add(item);
+	                }
+
+                        foreach (AdvancedTask item in notImportant)
+	                {
+		                finalTasks.Add(item);
+	                }
 
 
-                
+                        return finalTasks;
+                }//SortByImportance()
+
 
         }//class Sorter()
 }//ns

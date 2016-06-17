@@ -69,6 +69,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 void _sortImportanceButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         Preferences.SetSort(Sorting.IMPORTANCE);
+                        FillOnState();
                         
                 }
 
