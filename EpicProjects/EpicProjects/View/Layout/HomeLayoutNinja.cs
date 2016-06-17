@@ -92,7 +92,7 @@ namespace EpicProjects.View.Layout
 
 
                         _siteBlock = new TextBlock();
-                        _siteBlock.Text = "http://remykaloustian.com/epicprojects (Coming soon)";
+                        _siteBlock.Text = "http://remykaloustian.com/epic";
                         _siteBlock.Foreground = ThemeSelector.GetAccentColor();
                         _siteBlock.FontFamily = FontProvider._lato;
                         _siteBlock.FontSize = 20;
@@ -306,16 +306,31 @@ namespace EpicProjects.View.Layout
                 public StackPanel GetNewProjectPanel()
                 {
                         _createProjectButton = new ValidateButton("Go On !", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 30, 0, 10), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _createProjectButton.MaxHeight = 60;
                         _createProjectButton.MouseDown += _createProjectButton_MouseDown;
                         _createProjectButton.MouseEnter += _createProjectButton_MouseEnter;
                         _createProjectButton.MouseLeave += _createProjectButton_MouseLeave;
 
                         _quitProjectButton = new CancelButton("Never mind", Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.07, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _quitProjectButton.MaxHeight = 60;
                         _quitProjectButton.MouseDown += _quitProjectButton_MouseDown;
                         _quitProjectButton.MouseEnter += _quitProjectButton_MouseEnter;
                         _quitProjectButton.MouseLeave += _quitProjectButton_MouseLeave;
-                        _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton, _containerPanel.Width);
-                        ReloadLayout();
+
+
+                        //Creating the new proejct panel 
+
+                        if(Dimensions.GetWidth() > 1900)
+                        {
+                                _subContainer = new CustomControls.Home.NewProjectPanel(_createProjectButton, _quitProjectButton, _containerPanel.Width);
+                                ReloadLayout();
+                        }
+
+                        else
+                        {
+                                NewProjectPopUp newp = new NewProjectPopUp(Dimensions.GetWidth()*0.5,Dimensions.GetHeight()*0.8, "New project");
+                        }
+                        
                         return _mainPanel;
                        
                 }
