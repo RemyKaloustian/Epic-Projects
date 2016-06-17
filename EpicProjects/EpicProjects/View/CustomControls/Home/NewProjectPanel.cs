@@ -255,7 +255,7 @@ SetUpCheckBlock();
                 private void SetUpTitleBlock(double width)
                 {
                         _titleBlock.Text = ControlsValues.NEW_PROJECT_TITLE;
-                        _titleBlock.FontFamily = FontProvider._edmond;
+                        _titleBlock.FontFamily = FontProvider._proxima;
                         _titleBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _titleBlock.FontSize = 25;
                         _titleBlock.Foreground = ThemeSelector.GetAccentColor();

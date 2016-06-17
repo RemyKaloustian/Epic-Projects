@@ -141,7 +141,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _openBlock = new TextBlock();
                         _openBlock.Text = ControlsValues.OPEN_PROJECT_TITLE;
                         _openBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _openBlock.FontFamily = FontProvider._edmond;
+                        _openBlock.FontFamily = FontProvider._proxima;
                         _openBlock.FontSize = 30;
                         _openBlock.Foreground = ThemeSelector.GetAccentColor();
                         _openBlock.Margin = new System.Windows.Thickness(0, 0, 0, width / 30);
