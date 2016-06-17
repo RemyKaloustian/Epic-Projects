@@ -56,7 +56,41 @@ namespace EpicProjects.Controller
                         }
 
                         return size;
-                }
+                }//GetSideMenuTextSize()
+
+
+                public static int GetTaskDetailsSize()
+                {
+                        int size = 15;
+                        if (Dimensions.GetWidth() >= 1900)
+                        {
+                                size = 28;
+                        }
+
+                        else if (Dimensions.GetWidth() < 1900 && Dimensions.GetWidth() > 1200)
+                        {
+                                size = 20;
+                        }
+
+                        return size;
+                }//GetSideMenuTextSize()
+
+
+                public static int GetPriorityAndStateSize()
+                {
+                        int size = 12;
+                        if (Dimensions.GetWidth() >= 1900)
+                        {
+                                size = 22;
+                        }
+
+                        else if (Dimensions.GetWidth() < 1900 && Dimensions.GetWidth() > 1200)
+                        {
+                                size = 16;
+                        }
+
+                        return size;
+                }//GetSideMenuTextSize()
 
 
         }//class Responsive

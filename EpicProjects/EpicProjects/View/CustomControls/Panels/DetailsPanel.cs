@@ -394,7 +394,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         _name.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _name.FontFamily = FontProvider._lato;
-                        _name.FontSize = 28;
+                        _name.FontSize = Responsive.GetTaskDetailsSize();
                         _name.Width = this.Width * 0.8;
                         _name.TextWrapping = System.Windows.TextWrapping.Wrap;
                         _name.Foreground = ThemeSelector.GetAccentColor();
@@ -420,9 +420,9 @@ namespace EpicProjects.View.CustomControls.Panels
                         //_prioritySeparator.Visibility = System.Windows.Visibility.Hidden;
                         _priority.Text = "Priority : " + content;
 
-
+                        _priority.TextWrapping = System.Windows.TextWrapping.Wrap;
                         _priority.FontFamily = FontProvider._lato;
-                        _priority.FontSize = 22;
+                        _priority.FontSize = Responsive.GetPriorityAndStateSize();
                         _priority.Width = this.Width * 0.8;
                         //_priority.Visibility = System.Windows.Visibility.Hidden;
                         _priority.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
@@ -435,7 +435,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         //_stateBlock.Text = "State : " + new StateInterpreter(state).ToUIState();
                        _stateBlock.Text = "State : " + state;
                         _stateBlock.FontFamily = FontProvider._lato;
-                        _stateBlock.FontSize = 22;
+                        _stateBlock.FontSize = Responsive.GetPriorityAndStateSize();
                         _stateBlock.Width = this.Width * 0.8;
                         _stateBlock.Foreground = ThemeSelector.GetAccentColor();
                 }
