@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -147,7 +148,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsBlock.Text = "Details";
                         _detailsBlock.FontFamily = FontProvider._lato;
                         _detailsBlock.Foreground = ThemeSelector.GetAccentColor();
-                        _detailsBlock.FontSize = 20;
+                        _detailsBlock.FontSize = Responsive.GetSideMenuTextSize();
                         _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
 
@@ -172,7 +173,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _nameBlock.Text = "Name";
                         _nameBlock.FontFamily = FontProvider._lato;
                         _nameBlock.Foreground = ThemeSelector.GetAccentColor();
-                        _nameBlock.FontSize = 20;
+                        _nameBlock.FontSize = Responsive.GetSideMenuTextSize();
                         _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _nameBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
@@ -182,7 +183,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _stateCombo = new ComboBox();
                         _stateCombo.FontFamily = FontProvider._lato;
-                        _stateCombo.FontSize = 18;
+                        _stateCombo.FontSize = Responsive.GetComboSize();
                         _stateCombo.Width = width * 0.8;
                 }
 
@@ -192,7 +193,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _stateBlock.Text = "State";
                         _stateBlock.FontFamily = FontProvider._lato;
                         _stateBlock.Foreground = ThemeSelector.GetAccentColor();
-                        _stateBlock.FontSize = 20;
+                        _stateBlock.FontSize = Responsive.GetSideMenuTextSize();
                         _stateBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _stateBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }
@@ -201,7 +202,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _priorityCombo = new ComboBox();
                         _priorityCombo.FontFamily = FontProvider._lato;
-                        _priorityCombo.FontSize = 18;
+                        _priorityCombo.FontSize = Responsive.GetComboSize();
                         _priorityCombo.Width = width * 0.8;
                 }
 
@@ -212,7 +213,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priorityBlock.Text = "Priority";
                         _priorityBlock.FontFamily = FontProvider._lato;
                         _priorityBlock.Foreground = ThemeSelector.GetAccentColor();
-                        _priorityBlock.FontSize = 20;
+                        _priorityBlock.FontSize = Responsive.GetSideMenuTextSize();
                         _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priorityBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                 }

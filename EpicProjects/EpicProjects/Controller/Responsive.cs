@@ -73,7 +73,7 @@ namespace EpicProjects.Controller
                         }
 
                         return size;
-                }//GetSideMenuTextSize()
+                }//GetTaskDetailsSize()
 
 
                 public static int GetPriorityAndStateSize()
@@ -90,7 +90,7 @@ namespace EpicProjects.Controller
                         }
 
                         return size;
-                }//GetSideMenuTextSize()
+                }//GetPriorityAndStateSize()
 
                 public static int GetTaskDescriptionSize()
                 {
@@ -106,7 +106,20 @@ namespace EpicProjects.Controller
                         }
 
                         return size;
-                }//GetSideMenuTextSize()
+                }//GetTaskDescriptionSize()
+
+
+                public static int GetComboSize()
+                {
+                        int size = 12;
+                        if (Dimensions.GetWidth() >= 1900)
+                        {
+                                size = 18;
+                        }
+
+                        return size;
+                }
+
 
         }//class Responsive
 }//ns
