@@ -91,6 +91,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constants\Colors\WindowsPhonePalette.cs" />
+    <Compile Include="Constants\Model\Sorting.cs" />
     <Compile Include="Constants\UI\ControlsValues.cs" />
     <Compile Include="Constants\Utils\Dimensions.cs" />
     <Compile Include="Constants\Utils\FontProvider.cs" />
