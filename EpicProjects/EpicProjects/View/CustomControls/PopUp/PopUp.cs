@@ -19,7 +19,14 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 public PopUp(double width, double height, string content)
                 {
-                     
+                        this.Width = width;
+                        this.Height = height;
+                        this.WindowStyle = System.Windows.WindowStyle.None;
+                        this.ResizeMode = System.Windows.ResizeMode.NoResize;
+                        this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+                        this.Background = ThemeSelector.GetPopUpBackground();
+
+                        this.Deactivated += PopUp_Deactivated;
 
                         _container = new StackPanel();
                         _container.Orientation = Orientation.Vertical;
@@ -32,20 +39,17 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _block.Foreground = ThemeSelector.GetBackground();
                         _block.Margin = new Thickness(0, height / 20, 0, 0);
 
-                        this.Background = ThemeSelector.GetPopUpBackground();
-
-
-                      this.Width = width;
-                        this.Height = height;
-                        this.WindowStyle = System.Windows.WindowStyle.None;
-                        this.ResizeMode = System.Windows.ResizeMode.NoResize;
-                        this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-
                         _container.Children.Add(_block);
 
                         this.AddChild(_container);
                         this.Show();
 
-                }//PopUp
+                }
+
+                void PopUp_Deactivated(object sender, EventArgs e)
+                {
+                        this.Hide();
+                }
+
         }//class PopUp
 }//ns
