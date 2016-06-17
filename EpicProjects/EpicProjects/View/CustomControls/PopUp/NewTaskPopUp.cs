@@ -84,6 +84,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _detailsBox.Width = this.Width * 0.5;
                         _detailsBox.FontFamily = FontProvider._lato;
                         _detailsBox.Height = this.Height * 0.2;
+                        _detailsBlock.MaxHeight = 200;
                         _detailsBox.FontSize = 16;
                         _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
                 }
@@ -92,7 +93,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         _detailsBlock = new TextBlock();
                         _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _detailsBlock.FontSize = 25;
+                        _detailsBlock.FontSize = Responsive.GetButtonTextSize();
                         _detailsBlock.FontFamily = FontProvider._lato;
                         _detailsBlock.Text = "Description";
                         _detailsBlock.Foreground = ThemeSelector.GetBackground();
@@ -103,7 +104,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         _alertBlock = new TextBlock();
                         _alertBlock.FontFamily = FontProvider._open;
-                        _alertBlock.FontSize = 20;
+                        _alertBlock.FontSize = Responsive.GetSideMenuTextSize();
                         _alertBlock.Foreground = ThemeSelector.GetBackground();
                         double leftMargin = this.Width - _nameBox.Width - ((this.Width - _nameBox.Width)/2);
                         _alertBlock.Margin = new System.Windows.Thickness(leftMargin, 0, 0, 0);
@@ -114,8 +115,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBox = new TextBox();
                         _nameBox.Width = this.Width * 0.5;
                         _nameBox.FontFamily = FontProvider._lato;
-                        _nameBox.Height = this.Height * 0.06;
-                        _nameBox.FontSize = 20;
+                       // _nameBox.Height = this.Height * 0.06;
+                        _nameBox.FontSize = Responsive.GetSideMenuTextSize();
 
                         _nameBox.TextChanged += _nameBox_TextChanged;
                         _nameBox.GotFocus += _nameBox_GotFocus; ;
@@ -215,7 +216,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _nameBlock = new TextBlock();
                         _nameBlock.Text = "Name  ";
                         _nameBlock.FontFamily = FontProvider._lato;
-                        _nameBlock.FontSize = 25;
+                        _nameBlock.FontSize = Responsive.GetButtonTextSize();
                         _nameBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _nameBlock.Foreground = ThemeSelector.GetBackground();
                 }

@@ -29,13 +29,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _priorityBlock.Text = "Priority";
                         _priorityBlock.Foreground = ThemeSelector.GetBackground();
                         _priorityBlock.FontFamily = FontProvider._lato;
-                        _priorityBlock.FontSize = 25;
+                        _priorityBlock.FontSize = Responsive.GetButtonTextSize();
                         _priorityBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _priorityBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
 
                         _priorityBox = new ComboBox();
                         _priorityBox.Width = this.Width * 0.4;
-                        _priorityBox.FontSize = 20;
+                        _priorityBox.FontSize = Responsive.GetComboSize();
                         _priorityBox.FontFamily = FontProvider._lato;
                         _priorityBox.Items.Add(Priorities.NOT_IMPORTANT);
                         _priorityBox.Items.Add(Priorities.LESS_IMPORTANT);
