@@ -33,7 +33,7 @@ namespace EpicProjects.View.CustomControls.Home
                         _itemBlock = new TextBlock();
                         _itemBlock.Text = text;
                         _itemBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _itemBlock.FontFamily = FontProvider._bariol;
+                        _itemBlock.FontFamily = FontProvider._lato;
                         _itemBlock.FontSize = 20;
                         _itemBlock.Foreground = ThemeSelector.GetAccentColor(); 
                         _itemBlock.Margin = new System.Windows.Thickness(0, 15, 0, 0);

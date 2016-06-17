@@ -176,7 +176,7 @@ namespace EpicProjects.View.Layout
                 {
                         _catchPhrase.Text = "Lead your projects like a boss.";
                         _catchPhrase.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                        _catchPhrase.FontFamily = FontProvider._edmond;
+                        _catchPhrase.FontFamily = FontProvider._proxima;
                         _catchPhrase.Foreground = ThemeSelector.GetAccentColor();
                         _catchPhrase.FontSize = 40;
                         _catchPhrase.Padding = new System.Windows.Thickness(0, Convert.ToDouble(Dimensions.GetHeight() / 50), 0, Convert.ToDouble(Dimensions.GetHeight() / 50));
@@ -265,7 +265,7 @@ namespace EpicProjects.View.Layout
 
                         _latestBlock = new TextBlock();
                         _latestBlock.Text = "Latest Projects";
-                        _latestBlock.FontFamily = FontProvider._edmond;
+                        _latestBlock.FontFamily = FontProvider._proxima;
                         _latestBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _latestBlock.FontSize = 45;
                         _latestBlock.Foreground = ThemeSelector.GetAccentColor();
