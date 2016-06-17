@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _content = new TextBlock();
                         _content.FontFamily = FontProvider._lato;
-                        _content.FontSize = 20;
+                        _content.FontSize = Responsive.GetSideMenuTextSize();
                         _content.Foreground = ThemeSelector.GetAccentColor();
                         _content.Margin = new System.Windows.Thickness(10, 0, 0, 0);
                         _content.VerticalAlignment = System.Windows.VerticalAlignment.Center;
