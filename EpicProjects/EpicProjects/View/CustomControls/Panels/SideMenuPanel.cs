@@ -13,6 +13,7 @@ using EpicProjects.Constants.Images;
 using System.Windows;
 using EpicProjects.View.CustomControls.PopUp;
 using EpicProjects.View.Theme;
+using EpicProjects.Controller;
 
 namespace EpicProjects.View.CustomControls.Panels
 {
@@ -43,30 +44,30 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Height = Dimensions.GetHeight();
                         _project = project;
 
-                        _newProjectItem = new SideMenuItem(ControlsValues.NEWPROJECT, 20);
+                        _newProjectItem = new SideMenuItem(ControlsValues.NEWPROJECT, Responsive.GetSideMenuTextSize());
                         _newProjectItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
                         _newProjectItem.MouseDown += _newProjectItem_MouseDown;
 
-                        _openProjectItem = new SideMenuItem(ControlsValues.OPENPROJECT,20);
+                        _openProjectItem = new SideMenuItem(ControlsValues.OPENPROJECT,Responsive.GetSideMenuTextSize());
                         _openProjectItem.Padding = new Thickness(this.Width * 0.1,this.Width/8,0,this.Width/8);
                         _openProjectItem.MouseDown += _openProjectItem_MouseDown;
 
 
-                        _statsItem = new SideMenuItem(ControlsValues.STATS,20);
+                        _statsItem = new SideMenuItem(ControlsValues.STATS,Responsive.GetSideMenuTextSize());
                         _statsItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
                         _statsItem.MouseDown += _statsItem_MouseDown;
 
 
-                        _bugItem = new SideMenuItem(ControlsValues.REPORT,20);
+                        _bugItem = new SideMenuItem(ControlsValues.REPORT,Responsive.GetSideMenuTextSize());
                         _bugItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
                         _bugItem.MouseDown += _bugItem_MouseDown;
 
 
-                        _homeItem = new SideMenuItem(ControlsValues.HOME,20);
+                        _homeItem = new SideMenuItem(ControlsValues.HOME,Responsive.GetSideMenuTextSize());
                         _homeItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
                         _homeItem.MouseDown += _homeItem_MouseDown;
 
-                        _settingsItem = new SideMenuItem(ControlsValues.SETTINGS, 20);
+                        _settingsItem = new SideMenuItem(ControlsValues.SETTINGS, Responsive.GetSideMenuTextSize());
                         _settingsItem.Padding = new Thickness(this.Width * 0.1, this.Width / 8, 0, this.Width / 8);
                         _settingsItem.MouseDown += _settingsItem_MouseDown;
 

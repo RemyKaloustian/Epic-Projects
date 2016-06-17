@@ -42,6 +42,22 @@ namespace EpicProjects.Controller
                         return size;
                 }//GetPopUpTextSize()
 
+                public static int GetSideMenuTextSize()
+                {
+                        int size = 12;
+                        if (Dimensions.GetWidth() >= 1900)
+                        {
+                                size = 20;
+                        }
+
+                        else if (Dimensions.GetWidth() < 1900 && Dimensions.GetWidth() > 1200)
+                        {
+                                size = 15;
+                        }
+
+                        return size;
+                }
+
 
         }//class Responsive
 }//ns
