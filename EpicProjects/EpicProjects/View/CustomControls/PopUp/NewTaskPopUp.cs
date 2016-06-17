@@ -160,6 +160,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                 /// <returns></returns>
                 private bool IsNameValid()
                 {
+                        Constants.Debug.CW("SECTION : " + _section);
+
                         if(_section == ControlsValues.BRAINSTORMING)
                         {
                                 List<Model.Task> tasks = new TaskMasterChief(_projectName).SelectBrainstormings();
@@ -182,13 +184,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                                 }
                         }
 
-                        else if(_section == ControlsValues.ASSIGNMENTS)
+                        else if( ControlsValues.ASSIGNMENTS.Contains(_section))
                         {
                                 List<Model.AdvancedTask> tasks = new TaskMasterChief(_projectName).SelectAssignments();
 
                                 foreach (Model.AdvancedTask item in tasks)
                                 {
-                                        if (item._name.ToLower().Trim() == _nameBox.Text.ToLower().Trim() && item._project == _projectName)
+                                        if (item._name.ToLower().Trim().Replace(" ", string.Empty) == _nameBox.Text.ToLower().Trim().Replace(" ", string.Empty) && item._project == _projectName)
                                                 return false;
                                 }
                         }
