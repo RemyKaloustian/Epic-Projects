@@ -136,6 +136,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         _detailsBox.Text = details;
                         _detailsBox.TextWrapping = System.Windows.TextWrapping.Wrap;
                         _detailsBox.Width = width * 0.8;
+                        _detailsBox.MaxHeight = 300;
                         _detailsBox.FontFamily = FontProvider._lato;
                         _detailsBox.FontSize = 15;
                 }

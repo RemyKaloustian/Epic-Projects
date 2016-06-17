@@ -354,9 +354,10 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         _details.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _details.FontFamily = FontProvider._lato;
-                        _details.FontSize = 15;
+                        _details.FontSize = Responsive.GetTaskDescriptionSize();
                         _details.Width = this.Width * 0.8;
                         _details.MinHeight = 100;
+                        _details.Padding = new System.Windows.Thickness(0, 0, 0, 15);
                         _details.TextWrapping = System.Windows.TextWrapping.Wrap;
                         _details.Foreground = ThemeSelector.GetAccentColor();
                 }

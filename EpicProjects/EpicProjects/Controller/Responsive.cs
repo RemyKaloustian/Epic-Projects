@@ -92,6 +92,21 @@ namespace EpicProjects.Controller
                         return size;
                 }//GetSideMenuTextSize()
 
+                public static int GetTaskDescriptionSize()
+                {
+                        int size = 11;
+                        if (Dimensions.GetWidth() >= 1900)
+                        {
+                                size = 15;
+                        }
+
+                        else if (Dimensions.GetWidth() < 1900 && Dimensions.GetWidth() > 1200)
+                        {
+                                size = 12;
+                        }
+
+                        return size;
+                }//GetSideMenuTextSize()
 
         }//class Responsive
 }//ns
