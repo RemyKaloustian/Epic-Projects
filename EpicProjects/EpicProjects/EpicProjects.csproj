@@ -111,6 +111,7 @@
     <Compile Include="Controller\Masterchief.cs" />
     <Compile Include="Controller\PriorityInterpreter.cs" />
     <Compile Include="Controller\ProjectMasterChief.cs" />
+    <Compile Include="Controller\Responsive.cs" />
     <Compile Include="Controller\RightPanelCoordinator.cs" />
     <Compile Include="Controller\Sorter.cs" />
     <Compile Include="Controller\StateInterpreter.cs" />

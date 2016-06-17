@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -39,11 +40,11 @@ namespace EpicProjects.View.CustomControls.PopUp
 
 
                         _detailsBlock = new TextBlock();
-                        _detailsBlock.Text = "Please be specific and precise when describing the bug you encountered. Just saying \"Your app bugs\" won't help. Make sure to specify the window you were on, the section you were on, what you did, what happened, and what you think should have happened. \n\n \t Please type in your mail address so that we can answer  you.";
+                        _detailsBlock.Text = "Please be specific and precise when describing the bug you encountered. Just saying \"Your app bugs\" won't help. Make sure to specify the window you were on, the section you were on, what you did, what happened, and what you think should have happened. \n\n  Please type in your mail address so that we can answer  you.";
                         _detailsBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _detailsBlock.FontFamily = FontProvider._lato;
                         _detailsBlock.Width = this.Width * 0.6;
-                        _detailsBlock.FontSize = 19;
+                        _detailsBlock.FontSize = Responsive.GetPopUpTextSize();
                         _detailsBlock.Margin = new System.Windows.Thickness(0, 20, 0, 0);
                         _detailsBlock.TextWrapping = System.Windows.TextWrapping.Wrap;
                         _detailsBlock.TextAlignment = TextAlignment.Justify;

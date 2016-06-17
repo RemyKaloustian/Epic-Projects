@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace EpicProjects.View.CustomControls
                         this.HorizontalAlignment = hAlign;
 
                         _block.Padding = padding;
-                        _block.FontSize = 25;
+                        _block.FontSize = Responsive.GetButtonTextSize();
                         _block.FontFamily = FontProvider._lato;
                         _block.Foreground = ThemeSelector.GetButtonContentColor();
                         _block.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
