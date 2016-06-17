@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Model;
 using EpicProjects.Database;
 using EpicProjects.View.CustomControls.Buttons;
 using EpicProjects.View.CustomControls.Home;
@@ -56,17 +57,19 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void _sortCreationButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        throw new NotImplementedException();
+                        Preferences.SetSort(Sorting.CREATION);
                 }
 
                 void _sortStateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        throw new NotImplementedException();
+                        Preferences.SetSort(Sorting.STATE);
+                        ;
                 }
 
                 void _sortImportanceButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        throw new NotImplementedException();
+                        Preferences.SetSort(Sorting.IMPORTANCE);
+                        
                 }
 
                 void _sortButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -155,5 +155,27 @@ namespace EpicProjects.Database
 
 
                }//SetShowDone()
+
+
+               public static void SetSort(string option)
+               {
+                       XmlDocument doc = new XmlDocument();
+                       doc.Load("Saves/Preferences.xml");
+
+
+
+                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/Sort");
+
+                       foreach (XmlNode item in nodelist)
+                       {
+                               item.Attributes["value"].InnerText =option;
+                       }
+
+                       //Constants.Debug.CW("In Getopening(), projectOpening = " + showDone.ToString());
+
+                       doc.Save("Saves/Preferences.xml");
+
+               }
+
         }//class Preferences
 }//ns
