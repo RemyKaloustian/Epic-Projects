@@ -58,12 +58,15 @@ namespace EpicProjects.View.CustomControls.Panels
                 void _sortCreationButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         Preferences.SetSort(Sorting.CREATION);
+                        FillOnState();
+
                 }
 
                 void _sortStateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         Preferences.SetSort(Sorting.STATE);
-                        ;
+                        FillOnState();
+
                 }
 
                 void _sortImportanceButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -76,6 +79,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 void _sortButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
                         _sortingPU.Show();
+
                 }
 
                 private string GetShowDoneContent()

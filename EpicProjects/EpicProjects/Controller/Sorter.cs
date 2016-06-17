@@ -66,7 +66,7 @@ namespace EpicProjects.Controller
 
                         else if (Preferences.GetSort() == Sorting.STATE)
                         {
-                                //advancedTasks = this.SortByState(advancedTasks);
+                                advancedTasks = this.SortByState(advancedTasks);
                         }
 
                         return advancedTasks;
@@ -126,6 +126,48 @@ namespace EpicProjects.Controller
 
                         return finalTasks;
                 }//SortByImportance()
+
+
+                private List<AdvancedTask> SortByState(List<AdvancedTask> advancedTasks)
+                {
+                        List<AdvancedTask> open = new List<AdvancedTask>();
+                        List<AdvancedTask> inprogress = new List<AdvancedTask>();
+                        List<AdvancedTask> done = new List<AdvancedTask>();
+
+                        List<AdvancedTask> finalTasks = new List<AdvancedTask>();
+                        foreach (AdvancedTask item in advancedTasks)
+                        {
+                                if(item._state == States.OPEN)
+                                {
+                                        open.Add(item);
+                                }
+                                else if(item._state == States.PROGRESS)
+                                {
+                                        inprogress.Add(item);
+                                }
+                                else if(item._state == States.DONE)
+                                {
+                                        done.Add(item);
+                                }
+                        }//foreach
+
+                        foreach (AdvancedTask item in open)
+                        {
+                                finalTasks.Add(item);
+                        }
+
+                        foreach (AdvancedTask item in inprogress)
+                        {
+                                finalTasks.Add(item);
+                        }
+
+                        foreach (AdvancedTask item in done)
+                        {
+                                finalTasks.Add(item);
+                        }
+
+                        return finalTasks;
+                }//SortByState()
 
 
         }//class Sorter()
