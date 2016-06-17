@@ -203,6 +203,7 @@
     <Compile Include="View\CustomControls\PopUp\PopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\RenamePopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\ReportBug.cs" />
+    <Compile Include="View\CustomControls\PopUp\SortingPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\StatsPopUp.cs" />
     <Compile Include="View\CustomControls\ProjectsPanel.cs" />
     <Compile Include="View\CustomControls\Project\MenuItem.cs" />

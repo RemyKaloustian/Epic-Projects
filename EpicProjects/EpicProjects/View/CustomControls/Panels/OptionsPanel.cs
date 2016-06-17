@@ -2,6 +2,7 @@
 using EpicProjects.Database;
 using EpicProjects.View.CustomControls.Buttons;
 using EpicProjects.View.CustomControls.Home;
+using EpicProjects.View.CustomControls.PopUp;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 public TaskPanel  _taskPanel{ get; set; }
 
+                public SortingPopUp _sortingPU { get; set; }
+
                 public string  _uiState{ get; set; }
 
                 public OptionsPanel( TaskPanel taskpanel)
@@ -29,9 +32,13 @@ namespace EpicProjects.View.CustomControls.Panels
                         this.Height = Dimensions.GetHeight() * 0.8;
                         this.Background = ThemeSelector.GetBackground();
 
+                        _sortingPU = new SortingPopUp(Dimensions.GetWidth() * 0.3, Dimensions.GetHeight() * 0.5, "Sorting options");
+                        _sortingPU.Hide();
+
                         _taskPanel = taskpanel;
 
                         _sortButton = new DefaultButton("Sort",this.Width/2,this.Height/20, new System.Windows.Thickness(0,20,0,0),new System.Windows.Thickness(0,0,0,0),HorizontalAlignment);
+                        _sortButton.MouseDown += _sortButton_MouseDown;
 
 
                         _showDoneButton = new DefaultButton(this.GetShowDoneContent(), this.Width / 2, this.Height / 20, new System.Windows.Thickness(0, 20, 0, 0), new System.Windows.Thickness(0, 0, 0, 0), HorizontalAlignment);
@@ -42,6 +49,11 @@ namespace EpicProjects.View.CustomControls.Panels
                               this.Children.Add(_showDoneButton);
 
                        
+                }
+
+                void _sortButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        _sortingPU.Show();
                 }
 
                 private string GetShowDoneContent()
