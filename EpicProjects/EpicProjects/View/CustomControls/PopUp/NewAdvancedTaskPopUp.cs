@@ -41,7 +41,6 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _priorityBox.Items.Add(Priorities.LESS_IMPORTANT);
                         _priorityBox.Items.Add(Priorities.IMPORTANT);
                         _priorityBox.Items.Add(Priorities.MOST_IMPORTANT);
-                        _priorityBox.Items.Add(Priorities.ULTRA_IMPORTANT);
                         _priorityBox.SelectedItem = _priorityBox.Items[2];
 
 

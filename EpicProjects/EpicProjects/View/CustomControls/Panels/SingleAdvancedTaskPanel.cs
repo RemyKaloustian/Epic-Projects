@@ -71,14 +71,9 @@ namespace EpicProjects.View.CustomControls.Panels
                                
                         }
 
-                        else if (_advancedTask._priority == Priorities.ULTRA_IMPORTANT)
-                        {
-                                nbStar = 4;
-                        }
-
                         else if (_advancedTask._priority == Priorities.MOST_IMPORTANT)
                         {
-                                nbStar = 5;
+                                nbStar = 4;
                         }
 
 

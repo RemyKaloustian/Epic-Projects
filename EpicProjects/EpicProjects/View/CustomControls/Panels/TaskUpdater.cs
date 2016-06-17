@@ -223,7 +223,6 @@ namespace EpicProjects.View.CustomControls.Panels
                         _priorityCombo.Items.Add(Priorities.NOT_IMPORTANT);
                         _priorityCombo.Items.Add(Priorities.LESS_IMPORTANT);
                         _priorityCombo.Items.Add(Priorities.IMPORTANT);                       
-                        _priorityCombo.Items.Add(Priorities.ULTRA_IMPORTANT); 
                         _priorityCombo.Items.Add(Priorities.MOST_IMPORTANT);
 
                         if(priority.Contains(Priorities.NOT_IMPORTANT))
@@ -243,10 +242,10 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         }
 
-                        else if (priority.Contains( Priorities.ULTRA_IMPORTANT))
-                        {
-                                _priorityCombo.SelectedItem = _priorityCombo.Items[3];
-                        }
+                        //else if (priority.Contains( Priorities.ULTRA_IMPORTANT))
+                        //{
+                        //        _priorityCombo.SelectedItem = _priorityCombo.Items[3];
+                        //}
 
                         else if (priority.Contains( Priorities.MOST_IMPORTANT))
                         {

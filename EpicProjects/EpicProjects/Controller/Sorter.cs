@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Model;
 using EpicProjects.Database;
 using EpicProjects.Model;
 using System;
@@ -34,6 +35,8 @@ namespace EpicProjects.Controller
                                 advancedTasks = chief.SelectMaintenances();
                         }
 
+                        advancedTasks = this.SpecificSorting(advancedTasks);
+
                         List<AdvancedTask> finalTasks = new List<AdvancedTask>();                      
 
                         for (int i = 0; i < advancedTasks.Count; ++i)
@@ -52,56 +55,31 @@ namespace EpicProjects.Controller
 
                         return finalTasks;
 
-                }//SortTrainings()
+                }
 
-
-                public List<AdvancedTask> SortAssignments(TaskMasterChief chief)
+                private List<AdvancedTask> SpecificSorting(List<AdvancedTask> advancedTasks)
                 {
-                        List<AdvancedTask> assignments = chief.SelectAssignments();
-
-                        List<AdvancedTask> finalAssignments = new List<AdvancedTask>();
-                        foreach (AdvancedTask item in assignments)
+                        if(Preferences.GetSort() == Sorting.IMPORTANCE)
                         {
+                                advancedTasks = this.SortByImportance(advancedTasks);
                         }
 
-                        for (int i = 0; i < assignments.Count; ++i)
+                        else if(Preferences.GetSort() == Sorting.STATE)
                         {
-                                
-                                if (assignments[i]._state == States.DONE && Preferences.GetShowDone())
-                                {
-                                        finalAssignments.Add(assignments[i]);
-                                }
-                                else if (assignments[i]._state != States.DONE)
-                                {
-                                        finalAssignments.Add(assignments[i]);
-
-                                }
-
+                                //advancedTasks = this.SortByState(advancedTasks);
                         }
 
-                        //foreach(AdvancedTask item in trainings)
-                        //{
-                        //        Constants.Debug.CW("name =  " + item._name + " | " +
-                        //                        "state =" + item._state + " | " +
-                        //                        "shodone = " + Preferences.GetShowDone());
-                        //        if (item._state == States.DONE && !Preferences.GetShowDone())
-                        //        {
-
-                        //                trainings.Remove(item);
-                        //                Constants.Debug.CW("Removing this item");
-                        //        }
-
-                        //}
-
-
-                        foreach (AdvancedTask item in finalAssignments)
-                        {
-                        }
-
-                        return finalAssignments;
-
+                        return advancedTasks;
                 }//SortTrainings()
 
+
+                private List<AdvancedTask> SortByImportance(List<AdvancedTask> advancedTasks)
+                {
+                        return null;
+                }
+
+
+                
 
         }//class Sorter()
 }//ns

@@ -25,10 +25,7 @@ namespace EpicProjects.Controller
                                 return Priorities.LESS_IMPORTANT;
 
                         else if (_code == Priorities.IMPORTANT_CODE)
-                                return Priorities.IMPORTANT;
-
-                        else if (_code == Priorities.ULTRA_IMPORTANT_CODE)
-                                return Priorities.ULTRA_IMPORTANT;
+                                return Priorities.IMPORTANT;                        
 
                         else if (_code == Priorities.MOST_IMPORTANT_CODE)
                                 return Priorities.MOST_IMPORTANT;
