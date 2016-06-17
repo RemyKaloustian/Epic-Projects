@@ -62,7 +62,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _bugBox = new TextBox();
                         _bugBox.Width = this.Width * 0.5;
-                        _bugBox.Height = this.Height * 0.3;
+                        _bugBox.Height = this.Height * 0.1;
                         _bugBox.FontFamily = FontProvider._lato;
                         _bugBox.FontSize = 15;
                         _bugBox.TextWrapping = TextWrapping.Wrap;
