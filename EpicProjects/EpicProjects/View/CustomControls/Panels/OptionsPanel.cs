@@ -48,7 +48,25 @@ namespace EpicProjects.View.CustomControls.Panels
                               this.Children.Add(_sortButton);
                               this.Children.Add(_showDoneButton);
 
+                              _sortingPU._sortImportanceButton.MouseDown += _sortImportanceButton_MouseDown;
+                              _sortingPU._sortStateButton.MouseDown += _sortStateButton_MouseDown;
+                              _sortingPU._sortCreationButton.MouseDown += _sortCreationButton_MouseDown;
                        
+                }
+
+                void _sortCreationButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        throw new NotImplementedException();
+                }
+
+                void _sortStateButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        throw new NotImplementedException();
+                }
+
+                void _sortImportanceButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        throw new NotImplementedException();
                 }
 
                 void _sortButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

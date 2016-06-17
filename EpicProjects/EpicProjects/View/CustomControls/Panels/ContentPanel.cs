@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Model;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls.PopUp;
 using System;
