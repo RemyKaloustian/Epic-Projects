@@ -17,50 +17,40 @@ namespace EpicProjects.Controller
                 }
 
 
-                public List<AdvancedTask> SortTrainings(TaskMasterChief chief)
+                public List<AdvancedTask> Sort(TaskMasterChief chief, string section)
                 {
-                        List<AdvancedTask> trainings= chief.SelectTrainings();
+                        List<AdvancedTask> advancedTasks = new List<AdvancedTask>();
 
-                        List<AdvancedTask> finalTrainings = new List<AdvancedTask>();
-                        foreach (AdvancedTask item in trainings)
+                        if(section == UIStates.ON_TRAINING)
                         {
+                                advancedTasks = chief.SelectTrainings();
+                        }
+                        else if (section == UIStates.ON_ASSIGNMENT)
+                        {
+                                advancedTasks = chief.SelectAssignments();
+                        }
+                        else if (section == UIStates.ON_MAINTENANCE)
+                        {
+                                advancedTasks = chief.SelectMaintenances();
                         }
 
-                        for (int i = 0; i < trainings.Count; ++i)
+                        List<AdvancedTask> finalTasks = new List<AdvancedTask>();                      
+
+                        for (int i = 0; i < advancedTasks.Count; ++i)
                         {
-                               
-                                if (trainings[i]._state == States.DONE && Preferences.GetShowDone())
+
+                                if (advancedTasks[i]._state == States.DONE && Preferences.GetShowDone())
                                 {
-                                        finalTrainings.Add(trainings[i]);
+                                        finalTasks.Add(advancedTasks[i]);
                                 }
-                                else if(trainings[i]._state != States.DONE)
+                                else if (advancedTasks[i]._state != States.DONE)
                                 {
-                                        finalTrainings.Add(trainings[i]);
+                                        finalTasks.Add(advancedTasks[i]);
 
                                 }
-
                         }
 
-                        //foreach(AdvancedTask item in trainings)
-                        //{
-                        //        Constants.Debug.CW("name =  " + item._name + " | " +
-                        //                        "state =" + item._state + " | " +
-                        //                        "shodone = " + Preferences.GetShowDone());
-                        //        if (item._state == States.DONE && !Preferences.GetShowDone())
-                        //        {
-
-                        //                trainings.Remove(item);
-                        //                Constants.Debug.CW("Removing this item");
-                        //        }
-
-                        //}
-
-
-                        foreach (AdvancedTask item in finalTrainings)
-                        {
-                        }
-
-                        return finalTrainings;
+                        return finalTasks;
 
                 }//SortTrainings()
 

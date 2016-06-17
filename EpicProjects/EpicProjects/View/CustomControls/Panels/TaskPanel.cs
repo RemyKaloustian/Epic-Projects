@@ -74,7 +74,7 @@ namespace EpicProjects.View.CustomControls.Panels
                         //List<Model.AdvancedTask> trains = _chief.SelectTrainings();
 
 
-                        List<Model.AdvancedTask> trains = new Sorter().SortTrainings(_chief);
+                        List<Model.AdvancedTask> trains = new Sorter().Sort(_chief, UIStates.ON_TRAINING);
 
                         if(trains.Count != 0)
                         {
@@ -98,7 +98,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         optionsPanel.ShowButtons();
                         this.Children.Clear();
-                        List<Model.AdvancedTask> assignments = new Sorter().SortAssignments(_chief);
+                        List<Model.AdvancedTask> assignments = new Sorter().Sort(_chief, UIStates.ON_ASSIGNMENT);
 
                         if(assignments.Count != 0)
                         {
@@ -124,7 +124,7 @@ namespace EpicProjects.View.CustomControls.Panels
                 {
                         optionsPanel.ShowButtons();
                         this.Children.Clear();
-                        List<Model.AdvancedTask> maintenances = _chief.SelectMaintenances();
+                        List<Model.AdvancedTask> maintenances = new Sorter().Sort(_chief, UIStates.ON_MAINTENANCE);
 
                         if(maintenances.Count != 0)
                         {
