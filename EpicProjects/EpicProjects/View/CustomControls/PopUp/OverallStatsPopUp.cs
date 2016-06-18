@@ -39,7 +39,32 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _projectsDNB = 0;
 
                         SetUpProjectsPanel();
+                        SetUpProjectsIPPanel();
+                        SetUpDPanel();
 
+                        _container.Children.Add(_projectsPanel);
+                        _container.Children.Add(_projectsIPPanel);
+                        _container.Children.Add(_projectsDPanel);
+
+                }
+
+                private void SetUpDPanel()
+                {
+                        _projectsDPanel = new StackPanel();
+                        _projectsDPanel.Orientation = Orientation.Horizontal;
+
+                        _projectsDNumber = new TextBlock();
+                        _projectsDNumber.Text = _projectsDNB.ToString();
+
+                        _projectsD = new TextBlock();
+                        _projectsD.Text = " projects finished.";
+
+                        _projectsDPanel.Children.Add(_projectsDNumber);
+                        _projectsDPanel.Children.Add(_projectsD);
+                }
+
+                private void SetUpProjectsIPPanel()
+                {
                         _projectsIPPanel = new StackPanel();
                         _projectsIPPanel.Orientation = Orientation.Horizontal;
 
@@ -50,11 +75,6 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _projectsIPPanel.Children.Add(_projectsIPNumber);
                         _projectsIPPanel.Children.Add(_projectsIP);
-
-                        _container.Children.Add(_projectsPanel);
-                        _container.Children.Add(_projectsIPPanel);
-
-
                 }
 
                 private int GetProjectsIP()
