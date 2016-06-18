@@ -12,9 +12,9 @@ namespace EpicProjects.View.CustomControls.PopUp
 {
         public class OverallStatsPopUp : PopUp
         {
-                public int _projectsNB{ get; set; }
-                public int _projectsIPNB{ get; set; }
-                public int _projectsDNB{ get; set; }
+                public double _projectsNB{ get; set; }
+                public double _projectsIPNB{ get; set; }
+                public double _projectsDNB{ get; set; }
 
                 public StackPanel _projectsPanel { get; set; }
                 public TextBlock _projectsNumber { get; set; }
@@ -27,6 +27,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public StackPanel _projectsDPanel { get; set; }
                 public TextBlock _projectsDNumber { get; set; }
                 public TextBlock _projectsD { get; set; }
+
+                public StackPanel _graphPanel{ get; set; }
+                public StackPanel _donePanel{ get; set; }
+                public StackPanel _IPPanel{ get; set; }
 
                 public List<string> _projectsList { get; set; }
 
@@ -42,9 +46,42 @@ namespace EpicProjects.View.CustomControls.PopUp
                         SetUpProjectsIPPanel();
                         SetUpDPanel();
 
+                        _graphPanel = new StackPanel();
+                        _graphPanel.Orientation = Orientation.Horizontal;
+                        _graphPanel.Height = 50;
+
+                        _donePanel = new StackPanel();
+                        _donePanel.Width = this.Width * (_projectsDNB / _projectsNB);
+
+                        Constants.Debug.CW("this.Width = " + this.Width);
+                        Constants.Debug.CW("_projectsDNB / _projectsNB" + _projectsDNB / _projectsNB);
+                        Constants.Debug.CW("this.Width *(_projectsDNB / _projectsNB)" + this.Width * (_projectsDNB / _projectsNB));
+
+                        //_donePanel.Width = 100;
+                        _donePanel.Height = 50;
+                        _donePanel.Background = Palette2.GetColor(Palette2.EMERALD);
+
+                        _IPPanel = new StackPanel();
+                        _IPPanel.Width = this.Width * (_projectsIPNB / _projectsNB);
+                        Constants.Debug.CW("this.Width = " + this.Width);
+                        Constants.Debug.CW("_projectsIPNB " + _projectsIPNB);
+                        Constants.Debug.CW( "_projectsNB" +   _projectsNB);
+
+                        Constants.Debug.CW("_projectsIPNB / _projectsNB" + _projectsIPNB / _projectsNB);
+                        Constants.Debug.CW("this.Width *(_projectsIPNB / _projectsNB)" + this.Width * (_projectsIPNB / _projectsNB));
+
+                        //_IPPanel.Width = 100;
+                        _IPPanel.Height = 50;
+                        _IPPanel.Background = Palette2.GetColor(Palette2.ALIZARIN);
+
+                        _graphPanel.Children.Add(_donePanel);
+                        _graphPanel.Children.Add(_IPPanel);
+
                         _container.Children.Add(_projectsPanel);
                         _container.Children.Add(_projectsIPPanel);
                         _container.Children.Add(_projectsDPanel);
+                        _container.Children.Add(_graphPanel);
+
 
                 }
 
@@ -69,7 +106,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _projectsIPPanel.Orientation = Orientation.Horizontal;
 
                         _projectsIPNumber = new TextBlock();
-                        _projectsIPNumber.Text = GetProjectsIP().ToString();
+                        _projectsIPNB = GetProjectsIP();
+                        _projectsIPNumber.Text = _projectsIPNB.ToString();
                         _projectsIP = new TextBlock();
                         _projectsIP.Text = " projects in progress.";
 
@@ -77,12 +115,12 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _projectsIPPanel.Children.Add(_projectsIP);
                 }
 
-                private int GetProjectsIP()
+                private double GetProjectsIP()
                 {
                         return _projectsNB - GetProjectsD();
                 }
 
-                private int GetProjectsD()
+                private double GetProjectsD()
                 {
                         foreach (string project in _projectsList)
                         {
