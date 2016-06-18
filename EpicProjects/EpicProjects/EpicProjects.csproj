@@ -201,6 +201,7 @@
     <Compile Include="View\CustomControls\PopUp\NewTaskPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\NullInputPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\OpenProjectPopUp.cs" />
+    <Compile Include="View\CustomControls\PopUp\OverallStatsPopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\PopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\RenamePopUp.cs" />
     <Compile Include="View\CustomControls\PopUp\ReportBug.cs" />
