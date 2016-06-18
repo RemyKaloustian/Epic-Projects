@@ -46,6 +46,7 @@ namespace EpicProjects.Constants
 
                 public static readonly string DEFAULT_HOVER = "#19B5FE";
 
+                public static readonly string THIN_GRAY = "#f5f5f5";
 
 
                 public static readonly string LIGHT_GRAY = "#cfd8dc";

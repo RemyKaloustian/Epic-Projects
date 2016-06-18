@@ -121,5 +121,20 @@ namespace EpicProjects.Controller
                 }
 
 
+
+                internal static double GetNumberSize()
+                {
+                        int size = 18;
+                        if (Dimensions.GetWidth() >= 1900)
+                        {
+                                size = 25;
+                        }
+                        else if (Dimensions.GetWidth() < 1900 && Dimensions.GetWidth() > 1200)
+                        {
+                                size = 22;
+                        }
+                        return size;
+
+                }//GetNumberSize()
         }//class Responsive
 }//ns

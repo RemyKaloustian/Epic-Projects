@@ -162,6 +162,8 @@
       <DependentUpon>ProjectSketch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stats\StatsWarrior.cs" />
+    <Compile Include="View\CustomControls\Blocks\NumberBlock.cs" />
+    <Compile Include="View\CustomControls\Blocks\StatsBlock.cs" />
     <Compile Include="View\CustomControls\Buttons\CancelButton.cs" />
     <Compile Include="View\CustomControls\Buttons\CustomButton.cs" />
     <Compile Include="View\CustomControls\Buttons\DefaultButton.cs" />

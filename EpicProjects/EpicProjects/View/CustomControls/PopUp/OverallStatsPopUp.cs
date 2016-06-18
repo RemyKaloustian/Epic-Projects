@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Database;
 using EpicProjects.Model;
+using EpicProjects.View.CustomControls.Blocks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public double _projectsNB{ get; set; }
                 public double _projectsIPNB{ get; set; }
                 public double _projectsDNB{ get; set; }
+
+                public Separator _separator { get; set; }
 
                 public StackPanel _projectsPanel { get; set; }
                 public TextBlock _projectsNumber { get; set; }
@@ -46,48 +49,18 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _projectsIPNB = 0;
                         _projectsDNB = 0;
 
+                        _separator = new Separator();
+                        _separator.Width = this.Width * 0.6;
+                        _separator.Background = Palette2.GetColor(Palette2.THIN_GRAY);
+
                         SetUpProjectsPanel();
                         SetUpProjectsIPPanel();
                         SetUpDPanel();
 
-                        _percentagePanel = new StackPanel();
-                        _percentagePanel.Orientation = Orientation.Horizontal;
+                        SetUpPercentagePanel();
+                        SetUpGraphPanel();
 
-                        _percentageNB = new TextBlock();
-                        _percentageNB.Text = Convert.ToInt64(_projectsDNB / _projectsNB * 100).ToString();
-
-
-                        _percentageText = new TextBlock();
-                        _percentageText.Text = "% of finished projects (YAY ! ).";
-
-                        _percentagePanel.Children.Add(_percentageNB);
-                        _percentagePanel.Children.Add(_percentageText);
-
-
-                        _graphPanel = new StackPanel();
-                        _graphPanel.Orientation = Orientation.Horizontal;
-                        _graphPanel.Height = 50;
-
-                        _donePanel = new StackPanel();
-                        _donePanel.Width = this.Width * (_projectsDNB / _projectsNB);
-
-                     
-
-                        //_donePanel.Width = 100;
-                        _donePanel.Height = 50;
-                        _donePanel.Background = Palette2.GetColor(Palette2.EMERALD);
-
-                        _IPPanel = new StackPanel();
-                        _IPPanel.Width = this.Width * (_projectsIPNB / _projectsNB);
-                      
-
-                        //_IPPanel.Width = 100;
-                        _IPPanel.Height = 50;
-                        _IPPanel.Background = Palette2.GetColor(Palette2.ALIZARIN);
-
-                        _graphPanel.Children.Add(_donePanel);
-                        _graphPanel.Children.Add(_IPPanel);
-
+                        _container.Children.Add(_separator);
                         _container.Children.Add(_projectsPanel);
                         _container.Children.Add(_projectsIPPanel);
                         _container.Children.Add(_projectsDPanel);
@@ -97,16 +70,63 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 }
 
+                private void SetUpGraphPanel()
+                {
+                        _graphPanel = new StackPanel();
+                        _graphPanel.Orientation = Orientation.Horizontal;
+                        _graphPanel.Height = 50;
+                        _graphPanel.Margin = new System.Windows.Thickness(5, 0, 5, 0);
+
+                        _donePanel = new StackPanel();
+                        _donePanel.Width = this.Width * (_projectsDNB / _projectsNB);
+
+
+
+                        //_donePanel.Width = 100;
+                        _donePanel.Height = 50;
+                        _donePanel.Background = Palette2.GetColor(Palette2.EMERALD);
+
+                        _IPPanel = new StackPanel();
+                        _IPPanel.Width = this.Width * (_projectsIPNB / _projectsNB);
+
+
+                        //_IPPanel.Width = 100;
+                        _IPPanel.Height = 50;
+                        _IPPanel.Background = Palette2.GetColor(Palette2.ALIZARIN);
+
+                        _graphPanel.Children.Add(_donePanel);
+                        _graphPanel.Children.Add(_IPPanel);
+                }
+
+                private void SetUpPercentagePanel()
+                {
+                        _percentagePanel = new StackPanel();
+                        _percentagePanel.Orientation = Orientation.Horizontal;
+                        _percentagePanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+
+                        _percentageNB = new NumberBlock();
+                        _percentageNB.Text = Convert.ToInt64(_projectsDNB / _projectsNB * 100).ToString();
+
+
+                        _percentageText = new StatsBlock();
+                        _percentageText.Text = "% of finished projects (YAY ! ).";
+                        _percentageText.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
+
+                        _percentagePanel.Children.Add(_percentageNB);
+                        _percentagePanel.Children.Add(_percentageText);
+                }
+
                 private void SetUpDPanel()
                 {
                         _projectsDPanel = new StackPanel();
                         _projectsDPanel.Orientation = Orientation.Horizontal;
-
-                        _projectsDNumber = new TextBlock();
+                        _projectsDPanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _projectsDNumber = new NumberBlock();
                         _projectsDNumber.Text = _projectsDNB.ToString();
 
-                        _projectsD = new TextBlock();
+                        _projectsD = new StatsBlock();
                         _projectsD.Text = " projects finished.";
+                        _projectsD.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
 
                         _projectsDPanel.Children.Add(_projectsDNumber);
                         _projectsDPanel.Children.Add(_projectsD);
@@ -116,12 +136,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         _projectsIPPanel = new StackPanel();
                         _projectsIPPanel.Orientation = Orientation.Horizontal;
-
-                        _projectsIPNumber = new TextBlock();
+                        _projectsIPPanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                        _projectsIPNumber = new NumberBlock();
                         _projectsIPNB = GetProjectsIP();
                         _projectsIPNumber.Text = _projectsIPNB.ToString();
-                        _projectsIP = new TextBlock();
+                        _projectsIP = new StatsBlock();
                         _projectsIP.Text = " projects in progress.";
+                        _projectsIP.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
 
                         _projectsIPPanel.Children.Add(_projectsIPNumber);
                         _projectsIPPanel.Children.Add(_projectsIP);
@@ -189,14 +210,15 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         _projectsPanel = new StackPanel();
                         _projectsPanel.Orientation = Orientation.Horizontal;
-
+                        _projectsPanel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                         _projectsList = new Selector(Paths.PROJECTS_SAVE).SelectProjects();
-                        _projects = new TextBlock();
+                        _projects = new StatsBlock();
 
                         _projectsNB = _projectsList.Count;
-                        _projectsNumber = new TextBlock();
+                        _projectsNumber = new NumberBlock();
                         _projectsNumber.Text = _projectsNB.ToString();
                         _projects.Text = " projects.";
+                        _projects.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
 
                         _projectsPanel.Children.Add(_projectsNumber);
                         _projectsPanel.Children.Add(_projects);
