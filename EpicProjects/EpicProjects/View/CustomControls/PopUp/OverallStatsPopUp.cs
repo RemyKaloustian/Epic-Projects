@@ -28,6 +28,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public TextBlock _projectsDNumber { get; set; }
                 public TextBlock _projectsD { get; set; }
 
+                public StackPanel _percentagePanel{ get; set; }
+                public TextBlock _percentageNB{ get; set; }
+                public TextBlock  _percentageText{ get; set; }
+
                 public StackPanel _graphPanel{ get; set; }
                 public StackPanel _donePanel{ get; set; }
                 public StackPanel _IPPanel{ get; set; }
@@ -46,6 +50,20 @@ namespace EpicProjects.View.CustomControls.PopUp
                         SetUpProjectsIPPanel();
                         SetUpDPanel();
 
+                        _percentagePanel = new StackPanel();
+                        _percentagePanel.Orientation = Orientation.Horizontal;
+
+                        _percentageNB = new TextBlock();
+                        _percentageNB.Text = Convert.ToInt64(_projectsDNB / _projectsNB * 100).ToString();
+
+
+                        _percentageText = new TextBlock();
+                        _percentageText.Text = "% of finished projects (YAY ! ).";
+
+                        _percentagePanel.Children.Add(_percentageNB);
+                        _percentagePanel.Children.Add(_percentageText);
+
+
                         _graphPanel = new StackPanel();
                         _graphPanel.Orientation = Orientation.Horizontal;
                         _graphPanel.Height = 50;
@@ -53,9 +71,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _donePanel = new StackPanel();
                         _donePanel.Width = this.Width * (_projectsDNB / _projectsNB);
 
-                        Constants.Debug.CW("this.Width = " + this.Width);
-                        Constants.Debug.CW("_projectsDNB / _projectsNB" + _projectsDNB / _projectsNB);
-                        Constants.Debug.CW("this.Width *(_projectsDNB / _projectsNB)" + this.Width * (_projectsDNB / _projectsNB));
+                     
 
                         //_donePanel.Width = 100;
                         _donePanel.Height = 50;
@@ -63,12 +79,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _IPPanel = new StackPanel();
                         _IPPanel.Width = this.Width * (_projectsIPNB / _projectsNB);
-                        Constants.Debug.CW("this.Width = " + this.Width);
-                        Constants.Debug.CW("_projectsIPNB " + _projectsIPNB);
-                        Constants.Debug.CW( "_projectsNB" +   _projectsNB);
-
-                        Constants.Debug.CW("_projectsIPNB / _projectsNB" + _projectsIPNB / _projectsNB);
-                        Constants.Debug.CW("this.Width *(_projectsIPNB / _projectsNB)" + this.Width * (_projectsIPNB / _projectsNB));
+                      
 
                         //_IPPanel.Width = 100;
                         _IPPanel.Height = 50;
@@ -80,6 +91,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_projectsPanel);
                         _container.Children.Add(_projectsIPPanel);
                         _container.Children.Add(_projectsDPanel);
+                        _container.Children.Add(_percentagePanel);
                         _container.Children.Add(_graphPanel);
 
 
@@ -189,5 +201,6 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _projectsPanel.Children.Add(_projectsNumber);
                         _projectsPanel.Children.Add(_projects);
                 }//SetUpProjectsPanel()
+
         }//class OverallStatsPopUp()
 }//ns
