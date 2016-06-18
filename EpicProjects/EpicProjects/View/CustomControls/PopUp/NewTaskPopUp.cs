@@ -161,7 +161,6 @@ namespace EpicProjects.View.CustomControls.PopUp
                 /// <returns></returns>
                 private bool IsNameValid()
                 {
-                        Constants.Debug.CW("SECTION : " + _section);
 
                         if(_section == ControlsValues.BRAINSTORMING)
                         {
