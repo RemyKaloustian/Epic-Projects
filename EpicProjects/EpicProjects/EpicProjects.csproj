@@ -191,6 +191,7 @@
     <Compile Include="View\CustomControls\Panels\SideMenuPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SingleAdvancedTaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\SingleTaskPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\StatsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\TaskPanel.cs" />
     <Compile Include="View\CustomControls\Panels\TaskUpdater.cs" />
     <Compile Include="View\CustomControls\Panels\TitlesPanel.cs" />
