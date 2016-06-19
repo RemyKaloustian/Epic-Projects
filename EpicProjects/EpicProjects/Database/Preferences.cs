@@ -15,9 +15,9 @@ namespace EpicProjects.Database
                        List<string> projects = new List<string>();
 
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/Project");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_PROJECT_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
@@ -42,9 +42,9 @@ namespace EpicProjects.Database
                                latestProjects.RemoveAt(3);
                                PrintList(latestProjects);
                                XmlDocument doc = new XmlDocument();
-                               doc.Load("Saves/Preferences.xml");
+                               doc.Load(Paths.PREFERENCES_SAVE);
 
-                               XmlNodeList nodelist = doc.SelectNodes("/Preferences/Project");
+                               XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_PROJECT_PATH);
                                int i = 0;
 
                                foreach (XmlNode item in nodelist)
@@ -53,7 +53,7 @@ namespace EpicProjects.Database
                                        ++i;
                                }
 
-                               doc.Save("Saves/Preferences.xml");
+                               doc.Save(Paths.PREFERENCES_SAVE);
                        }
 
                    
@@ -73,33 +73,33 @@ namespace EpicProjects.Database
                {
 
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ProjectOpening");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_PROJECTOPENING_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
 
-                               item.Attributes["value"].InnerText = opening.ToString();
+                               item.Attributes[DatabaseValues.VALUE].InnerText = opening.ToString();
 
                        }
 
-                       doc.Save("Saves/Preferences.xml");
+                       doc.Save(Paths.PREFERENCES_SAVE);
 
                }//SetOpening()
 
                public static bool GetOpening()
                {
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
                        bool isProjectOpening = false;
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ProjectOpening");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_PROJECTOPENING_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
-                               if (item.Attributes["value"].InnerText == "True")
+                               if (item.Attributes[DatabaseValues.VALUE].InnerText == "True")
                                        isProjectOpening = true;
                        }
 
@@ -112,15 +112,15 @@ namespace EpicProjects.Database
                {
                        //Debug.CW("In GetShowDOne()");
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
                        bool showdone = false;
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ShowDone");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_SHOWDONE_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
-                               if (item.Attributes["value"].InnerText == "True")
+                               if (item.Attributes[DatabaseValues.VALUE].InnerText == "True")
                                {
                                        showdone = true;
                                }
@@ -134,19 +134,19 @@ namespace EpicProjects.Database
                internal static void SetShowDone(bool showDone)
                {
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
                        
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/ShowDone");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_SHOWDONE_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
-                               item.Attributes["value"].InnerText =showDone.ToString() ;
+                               item.Attributes[DatabaseValues.VALUE].InnerText =showDone.ToString() ;
                        }
 
 
-                       doc.Save("Saves/Preferences.xml");
+                       doc.Save(Paths.PREFERENCES_SAVE);
 
 
                }//SetShowDone()
@@ -155,35 +155,35 @@ namespace EpicProjects.Database
                public static void SetSort(string option)
                {
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
 
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/Sort");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_SORT_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
-                               item.Attributes["value"].InnerText =option;
+                               item.Attributes[DatabaseValues.VALUE].InnerText =option;
                        }
 
 
-                       doc.Save("Saves/Preferences.xml");
+                       doc.Save(Paths.PREFERENCES_SAVE);
 
                }//SetSort()
 
                public static string GetSort()
                {
                        XmlDocument doc = new XmlDocument();
-                       doc.Load("Saves/Preferences.xml");
+                       doc.Load(Paths.PREFERENCES_SAVE);
 
                        string option = "";
 
-                       XmlNodeList nodelist = doc.SelectNodes("/Preferences/Sort");
+                       XmlNodeList nodelist = doc.SelectNodes(DatabaseValues.PREFERENCES_SORT_PATH);
 
                        foreach (XmlNode item in nodelist)
                        {
 
-                               option = item.Attributes["value"].InnerText;
+                               option = item.Attributes[DatabaseValues.VALUE].InnerText;
                            
                        }
 

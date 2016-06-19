@@ -57,6 +57,12 @@ namespace EpicProjects.Constants
                 public static readonly string TRAININGS_PATH = "Trainings/Training";
                 public static readonly string ASSIGNMENTS_PATH = "Assignments/Assignment";
                 public static readonly string MAINTENANCES_PATH = "Maintenances/Maintenance";
+                public static readonly string PREFERENCES_PROJECT_PATH = "/Preferences/Project";
+                public static readonly string PREFERENCES_PROJECTOPENING_PATH = "/Preferences/ProjectOpening";
+                public static readonly string PREFERENCES_SHOWDONE_PATH = "/Preferences/ShowDone";
+                public static readonly string PREFERENCES_SORT_PATH = "/Preferences/Sort";
+
+
 
                 public static readonly string THEME_TYPE_PATH = "Theme/Type";
                 public static readonly string THEME_SAVE = "Saves/Theme.xml";
