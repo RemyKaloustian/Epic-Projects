@@ -66,6 +66,24 @@ namespace EpicProjects.Database
                                 }                             
                         }
                         doc.Save(Paths.PROJECTS_SAVE);
+
+
+                        doc = new XmlDocument();
+                        doc.Load("Saves/Preferences.xml");
+
+                        nodelist = doc.SelectNodes("/Preferences/Project");
+
+                        foreach (XmlNode item in nodelist)
+                        {
+                                if(item.Attributes["name"].InnerText == name)
+                                {
+                                        item.Attributes["name"].InnerText = "";
+                                }
+                        }
+
+                        doc.Save("Saves/Preferences.xml");
+
+
                 }//DeleteProject()
 
                 public void DeleteBrainstorming(string name, string project)

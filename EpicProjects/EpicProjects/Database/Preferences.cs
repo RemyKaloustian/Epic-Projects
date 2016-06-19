@@ -21,9 +21,7 @@ namespace EpicProjects.Database
 
                        foreach (XmlNode item in nodelist)
                        {
-
                                projects.Add(item.Attributes[DatabaseValues.NAME].InnerText);
-
                        }
 
                        return projects;
