@@ -73,7 +73,7 @@ namespace EpicProjects.Stats
                 }//GetMaintenancesRatio()
 
 
-                public string GetAdvancedTasksRatio(string project)
+                public Ratio GetAdvancedTasksRatio(string project)
                 {
                         Ratio rTrain = this.GetTrainingsRatio(project);
                         Ratio rAss = this.GetAssignmentsRatio(project);
@@ -84,8 +84,9 @@ namespace EpicProjects.Stats
 
                         double todo = rTrain._todo + rAss._todo + rMain._todo;
 
+                        Ratio final = new Ratio(done, todo);
 
-                        return done.ToString() + "/" + todo.ToString();
+                        return final;
 
                 }//GetAdvancedTasksRatio()
 

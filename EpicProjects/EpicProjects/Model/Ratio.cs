@@ -11,7 +11,7 @@ namespace EpicProjects.Model
                 public double _done { get; set; }
                 public double _todo { get; set; }
 
-                public Ratio(int done, int todo)
+                public Ratio(double done, double todo)
                 {
                         _done = done;
                         _todo = todo;

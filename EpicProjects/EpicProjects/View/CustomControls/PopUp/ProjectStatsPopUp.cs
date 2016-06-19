@@ -26,6 +26,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public StackPanel _maintenacePanel { get; set; }
                 public StackPanel _maintenaceGraph { get; set; }
 
+                public StackPanel _projectPanel{ get; set; }
+                public StackPanel _projectGraph { get; set; }
 
 
                 public ProjectStatsPopUp(double width, double height, string content, string project)
@@ -56,9 +58,17 @@ namespace EpicProjects.View.CustomControls.PopUp
                         Ratio maintenanceRatio = new StatsWarrior().GetMaintenancesRatio(project);
 
                         _maintenacePanel = new StatsPanel(maintenanceRatio.GetPercentage().ToString("f0"),
-                                                        " % of assignments done (" + maintenanceRatio.ToString() + ")");
+                                                        " % of maintenance done (" + maintenanceRatio.ToString() + ")");
 
                         _maintenaceGraph = new GraphPanel(this.Width, maintenanceRatio._done, maintenanceRatio._todo);
+
+                        Ratio projectRatio = new StatsWarrior().GetAdvancedTasksRatio(project);
+
+
+                        _projectPanel = new StatsPanel(projectRatio.GetPercentage().ToString("f0"),
+                                " % of " + project + " finished");
+
+                        _projectGraph = new GraphPanel(this.Width, projectRatio._done, projectRatio._todo);
 
                         _container.Children.Add(_separator);
                         _container.Children.Add(_brainstormingsPanel);
@@ -68,6 +78,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_assignmentsGraph);
                         _container.Children.Add(_maintenacePanel);
                         _container.Children.Add(_maintenaceGraph);
+                        _container.Children.Add(_projectPanel);
+                        _container.Children.Add(_projectGraph);
 
                 }
         }//class ProjectsStatsPopUp

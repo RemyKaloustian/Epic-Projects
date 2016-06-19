@@ -48,7 +48,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         foreach (var item in projects)
                         {
-                                ProjectItem proj = new ProjectItem(this.Height * 0.05, item, new StatsWarrior().GetAdvancedTasksRatio(item));
+                                ProjectItem proj = new ProjectItem(this.Height * 0.05, item, new StatsWarrior().GetAdvancedTasksRatio(item).ToString());
                                 _projectItemList.Add(proj);
                                 _projectsPanel.Children.Add(proj);
                                 proj.MouseDown += proj_MouseDown;
