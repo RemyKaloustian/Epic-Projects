@@ -47,11 +47,15 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _assignmentsPanel = new StatsPanel(assignmentsRatio.GetPercentage().ToString("f0"),
                                 " % of assignments done (" + assignmentsRatio.ToString() + ")");
 
+                        _assignmentsGraph = new GraphPanel(this.Width, assignmentsRatio._done, assignmentsRatio._todo);
+
                         _container.Children.Add(_separator);
                         _container.Children.Add(_brainstormingsPanel);
                         _container.Children.Add(_trainingsPanel);
                         _container.Children.Add(_trainingsGraph);
                         _container.Children.Add(_assignmentsPanel);
+                        _container.Children.Add(_assignmentsGraph);
+
                 }
         }//class ProjectsStatsPopUp
 }//ns
