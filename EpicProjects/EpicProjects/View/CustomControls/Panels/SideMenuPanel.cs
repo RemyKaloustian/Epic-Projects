@@ -90,7 +90,7 @@ namespace EpicProjects.View.CustomControls.Panels
 
                 void _statsItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
                 {
-                        StatsPopUp st = new StatsPopUp(Dimensions.GetWidth()*0.6, Dimensions.GetHeight()*0.8, "Statistics");
+                        StatsPopUp st = new StatsPopUp(Dimensions.GetWidth()*0.6, Dimensions.GetHeight()*0.8, "Statistics", _project);
                 }
 
                 void _bugItem_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
