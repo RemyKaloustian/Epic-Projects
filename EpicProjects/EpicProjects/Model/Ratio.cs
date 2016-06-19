@@ -20,7 +20,7 @@ namespace EpicProjects.Model
 
                 public double GetPercentage()
                 {
-                        return _done / _todo * 100;
+                        return  _done / _todo * 100;
                 }//GetPercentage()
 
 
