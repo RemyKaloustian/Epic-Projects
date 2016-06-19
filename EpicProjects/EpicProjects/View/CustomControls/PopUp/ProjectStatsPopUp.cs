@@ -1,5 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Database;
+using EpicProjects.Model;
+using EpicProjects.Stats;
 using EpicProjects.View.CustomControls.Panels;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public Separator _separator { get; set; }
 
                 public StackPanel _brainstormingsPanel { get; set; }
+                public StackPanel _trainingsPanel{ get; set; }
 
                 public ProjectStatsPopUp(double width, double height, string content, string project)
                         : base(width, height, content)
@@ -26,9 +29,16 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _brainstormingsPanel = new StatsPanel(new Selector("tamaire").SelectBrainstormings(project).Count.ToString(), "  Brainstormings");
 
+                        Ratio trainingsRatio = new StatsWarrior().GetTrainingsRatio(project);
+
+                        _trainingsPanel = new StatsPanel(
+                                trainingsRatio.GetPercentage().ToString(),
+                                " %  of trainings done (" + trainingsRatio.ToString() + ")");
+
 
                         _container.Children.Add(_separator);
                         _container.Children.Add(_brainstormingsPanel);
+                        _container.Children.Add(_trainingsPanel);
                 }
         }//class ProjectsStatsPopUp
 }//ns

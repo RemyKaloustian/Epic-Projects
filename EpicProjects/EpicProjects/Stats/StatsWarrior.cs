@@ -80,15 +80,14 @@ namespace EpicProjects.Stats
                         Ratio rMain = this.GetMaintenancesRatio(project);
 
 
-                        int done = rTrain._done + rAss._done + rMain._done;
+                        double done = rTrain._done + rAss._done + rMain._done;
 
-                        int todo = rTrain._todo + rAss._todo + rMain._todo;
+                        double todo = rTrain._todo + rAss._todo + rMain._todo;
 
 
                         return done.ToString() + "/" + todo.ToString();
 
                 }//GetAdvancedTasksRatio()
-
 
 
         }//class StatsWarrior
