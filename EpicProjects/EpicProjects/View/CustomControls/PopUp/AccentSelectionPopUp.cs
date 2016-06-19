@@ -23,6 +23,8 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 public AccentSelectionPopUp(double width, double height, string content):base( width,  height,  content)
                 {
+                        this.Background = Palette2.GetColor("#B0BEC5");
+
                         _scroller = new ScrollViewer();
                         _scroller.MaxHeight = 700;
 
