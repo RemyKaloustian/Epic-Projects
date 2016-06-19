@@ -18,6 +18,7 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                 public StackPanel _brainstormingsPanel { get; set; }
                 public StackPanel _trainingsPanel{ get; set; }
+                public StackPanel _trainingsGraph{ get; set; }
 
                 public ProjectStatsPopUp(double width, double height, string content, string project)
                         : base(width, height, content)
@@ -35,10 +36,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                                 trainingsRatio.GetPercentage().ToString(),
                                 " %  of trainings done (" + trainingsRatio.ToString() + ")");
 
+                        _trainingsGraph = new GraphPanel(this.Width, trainingsRatio._done, trainingsRatio._todo);
+
 
                         _container.Children.Add(_separator);
                         _container.Children.Add(_brainstormingsPanel);
                         _container.Children.Add(_trainingsPanel);
+                        _container.Children.Add(_trainingsGraph);
                 }
         }//class ProjectsStatsPopUp
 }//ns

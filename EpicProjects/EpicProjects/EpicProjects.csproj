@@ -184,6 +184,7 @@
     <Compile Include="View\CustomControls\Panels\ContentPanel.cs" />
     <Compile Include="View\CustomControls\Panels\DetailsPanel.cs" />
     <Compile Include="View\CustomControls\Panels\EmptyTaskPanel.cs" />
+    <Compile Include="View\CustomControls\Panels\GraphPanel.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderItem.cs" />
     <Compile Include="View\CustomControls\Panels\HeaderPanel.cs" />
     <Compile Include="View\CustomControls\Panels\NewTaskPanel.cs" />
