@@ -23,6 +23,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public StackPanel _assignmentsPanel{ get; set; }
                 public StackPanel _assignmentsGraph{ get; set; }
 
+                public StackPanel _maintenacePanel { get; set; }
+                public StackPanel _maintenaceGraph { get; set; }
+
+
 
                 public ProjectStatsPopUp(double width, double height, string content, string project)
                         : base(width, height, content)
@@ -49,12 +53,21 @@ namespace EpicProjects.View.CustomControls.PopUp
 
                         _assignmentsGraph = new GraphPanel(this.Width, assignmentsRatio._done, assignmentsRatio._todo);
 
+                        Ratio maintenanceRatio = new StatsWarrior().GetMaintenancesRatio(project);
+
+                        _maintenacePanel = new StatsPanel(maintenanceRatio.GetPercentage().ToString("f0"),
+                                                        " % of assignments done (" + maintenanceRatio.ToString() + ")");
+
+                        _maintenaceGraph = new GraphPanel(this.Width, maintenanceRatio._done, maintenanceRatio._todo);
+
                         _container.Children.Add(_separator);
                         _container.Children.Add(_brainstormingsPanel);
                         _container.Children.Add(_trainingsPanel);
                         _container.Children.Add(_trainingsGraph);
                         _container.Children.Add(_assignmentsPanel);
                         _container.Children.Add(_assignmentsGraph);
+                        _container.Children.Add(_maintenacePanel);
+                        _container.Children.Add(_maintenaceGraph);
 
                 }
         }//class ProjectsStatsPopUp
