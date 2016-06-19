@@ -1,4 +1,5 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,17 @@ namespace EpicProjects.View.CustomControls.Panels
 
                         this.Orientation = System.Windows.Controls.Orientation.Horizontal;
                         this.Width = totalWidth;
-                        this.Height = 50;
+                        this.Height = Responsive.GetGraphHeight();
                         this.Margin = new System.Windows.Thickness(10, 0, 10, 0);
 
                         _donePanel = new StackPanel();
                         _donePanel.Width = done / todo * this.Width;
-                        _donePanel.Height = 50;
+                        _donePanel.Height = Responsive.GetGraphHeight();
                         _donePanel.Background = Palette2.GetColor(Palette2.EMERALD);
 
                         _undonePanel = new StackPanel();
                         _undonePanel.Width = (todo - done) / todo * this.Width;
-                        _undonePanel.Height = 100;
+                        _undonePanel.Height = Responsive.GetGraphHeight();
                         _undonePanel.Background = Palette2.GetColor(Palette2.ALIZARIN);
 
                         this.Children.Add(_donePanel);

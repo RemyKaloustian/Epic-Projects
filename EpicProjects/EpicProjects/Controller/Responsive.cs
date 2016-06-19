@@ -136,5 +136,16 @@ namespace EpicProjects.Controller
                         return size;
 
                 }//GetNumberSize()
+
+                public static int GetGraphHeight()
+                {
+                        int height = 50;
+                        if(Dimensions.GetWidth() < 1200)
+                        {
+                                height = 25;
+                        }
+
+                        return height;
+                }//GetGrapHeight
         }//class Responsive
 }//ns
