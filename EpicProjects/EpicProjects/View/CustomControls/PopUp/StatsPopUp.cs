@@ -11,6 +11,7 @@ namespace EpicProjects.View.CustomControls.PopUp
         public class StatsPopUp : PopUp
         {
 
+                public string _project{ get; set; }
                 public ValidateButton _overallButton { get; set; }
 
                 public ValidateButton _projectStatsButton{ get; set; }
@@ -21,12 +22,13 @@ namespace EpicProjects.View.CustomControls.PopUp
                         : base(width, height, content)
                 {
                         this.Background = ThemeSelector.GetPopUpBackground();
-               
 
+                        _project = project;
                         _overallButton = new ValidateButton("Overall stats", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 14, 0, 3), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _overallButton.MouseDown += _overallButton_MouseDown;
 
                         _projectStatsButton = new ValidateButton(project + " statistics", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 2, 0, 3), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _projectStatsButton.MouseDown += _projectStatsButton_MouseDown;
 
                         _closeButton = new CancelButton(ControlsValues.CLOSE, this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 2, 0, 3), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 
@@ -36,6 +38,12 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_overallButton);
                         _container.Children.Add(_projectStatsButton);
                         _container.Children.Add(_closeButton);
+                }
+
+                void _projectStatsButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        this.Close();
+                        ProjectStatsPopUp psp = new ProjectStatsPopUp(Dimensions.GetWidth() * 0.5, Dimensions.GetHeight() * 0.8, _project + " statictics", _project);
                 }
 
                 void _overallButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
