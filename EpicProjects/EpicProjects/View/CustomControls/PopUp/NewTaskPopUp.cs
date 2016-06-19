@@ -71,6 +71,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         _validateButton = new ValidateButton("Create", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _validateButton.MouseDown += _validateButton_MouseDown;
+                        _validateButton.IsEnabled = false;
 
                         _cancelButton = new CancelButton("Cancel", this.Width * 0.5, this.Height * 0.07, new System.Windows.Thickness(0, 0, 0, 0), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
 

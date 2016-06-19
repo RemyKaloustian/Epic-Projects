@@ -1,6 +1,7 @@
 ﻿using EpicProjects.Constants;
 using EpicProjects.Constants.Colors;
 using EpicProjects.Controller;
+using EpicProjects.View.CustomControls.Blocks;
 using EpicProjects.View.Theme;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,16 @@ namespace EpicProjects.View.CustomControls.PopUp
                 public TextBlock _endDateBlock { get; set; }
                 public DatePicker _endDatePicker{ get; set; }
 
+                public StatsBlock _dateAlert { get; set; }
+
                 public ValidateButton _validateButton { get; set; }
                 public CancelButton _cancelButton{ get; set; }
                 public NewProjectPopUp(double width, double height, string content) : base(width,height,content)
                 {
                         this.Background = ThemeSelector.GetPopUpBackground();
+                        _dateAlert = new StatsBlock();
+                        _dateAlert.Text = "";
+                        _dateAlert.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
                         SetUpSeparator();
                         SetUpNameBlock();
@@ -47,6 +53,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _container.Children.Add(_startDatePicker);
                         _container.Children.Add(_endDateBlock);
                         _container.Children.Add(_endDatePicker);
+                        _container.Children.Add(_dateAlert);
                         _container.Children.Add(_validateButton);
                         _container.Children.Add(_cancelButton);
 
@@ -70,6 +77,23 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _endDatePicker.Width = this.Width * 0.5;
                         _endDatePicker.Height = this.Height * 0.05;
                         _endDatePicker.FontSize = 20;
+
+                        _endDatePicker.SelectedDateChanged += _endDatePicker_SelectedDateChanged;
+                }
+
+                void _endDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+                {
+                        if(_endDatePicker.SelectedDate < _startDatePicker.SelectedDate)
+                        {
+                                _validateButton.IsEnabled = false;
+                                _dateAlert.Text = "You can't end a project before begining it.";
+                        }
+
+                        else
+                        {
+                                _validateButton.IsEnabled = true;
+                                _dateAlert.Text = "";
+                        }
                 }
 
                 private void SetUpEndDateBlock()
@@ -89,6 +113,8 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _startDatePicker.Width = this.Width * 0.5;
                         _startDatePicker.Height = this.Height * 0.05;
                         _startDatePicker.FontSize = 20;
+
+                        _startDatePicker.SelectedDateChanged += _endDatePicker_SelectedDateChanged;
                 }
 
                 private void SetUpStartDateBlock()
