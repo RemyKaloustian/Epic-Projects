@@ -1,6 +1,8 @@
 ﻿using EpicProjects.Constants;
+using EpicProjects.Constants.Colors;
 using EpicProjects.Controller;
 using EpicProjects.View.CustomControls;
+using EpicProjects.View.CustomControls.Home;
 using EpicProjects.View.CustomControls.PopUp;
 using EpicProjects.View.Theme;
 using System;
@@ -20,6 +22,7 @@ namespace EpicProjects.View.Layout
                 public Separator _separator { get; set; }
 
                 public ValidateButton _changeThemeButton { get; set; }
+                public AlternativeButton _resetThemeButton { get; set; }
                 public ValidateButton _renameButton{ get; set; }
                 public CancelButton _backButton { get; set; }
 
@@ -39,7 +42,7 @@ namespace EpicProjects.View.Layout
                         _container.Children.Add(_titleBlock);
                         _container.Children.Add(_separator);
                         _container.Children.Add(_changeThemeButton);
-
+                        _container.Children.Add(_resetThemeButton);
 
                         //For the moment not useful
                         //if(previous != "home")
@@ -56,12 +59,22 @@ namespace EpicProjects.View.Layout
                         _changeThemeButton.MouseDown += _changeThemeButton_MouseDown;
                         _changeThemeButton._block.VerticalAlignment = System.Windows.VerticalAlignment.Center;
 
+                        _resetThemeButton = new AlternativeButton("Reset theme", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
+                        _resetThemeButton.MouseDown += _resetThemeButton_MouseDown;
+
                         _backButton = new CancelButton("Back to " + previous, width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _backButton.MouseDown += _backButton_MouseDown;
 
                         
                         _renameButton = new ValidateButton("Rename project", width * 0.5, height * 0.07, new System.Windows.Thickness(0, 30, 0, 30), new System.Windows.Thickness(5, 5, 5, 5), System.Windows.HorizontalAlignment.Center);
                         _renameButton.MouseDown += _renameButton_MouseDown;
+                }
+
+                void _resetThemeButton_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+                {
+                        ThemeSelector.ChangeThemeType(Themes.LIGHT);
+                        ThemeSelector.ChangeAccent(WindowsPhonePalette.CYAN);
+                        new Captain().ToHome();
                 }//SetUpButtons()
 
                
