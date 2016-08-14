@@ -83,7 +83,7 @@ namespace EpicProjects.Database
                         {
                                 doc.WriteTo(xmlTextWriter);
                                 xmlTextWriter.Flush();
-                               MessageBox.Show( stringWriter.GetStringBuilder().ToString());
+                               //MessageBox.Show( stringWriter.GetStringBuilder().ToString());
                         }
                        
                 }//InsertBrainstorming()
@@ -118,7 +118,7 @@ namespace EpicProjects.Database
                         {
                                 doc.WriteTo(xmlTextWriter);
                                 xmlTextWriter.Flush();
-                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                                //MessageBox.Show(stringWriter.GetStringBuilder().ToString());
                         }
                 }//InsertTraining()
 
@@ -152,7 +152,7 @@ namespace EpicProjects.Database
                         {
                                 doc.WriteTo(xmlTextWriter);
                                 xmlTextWriter.Flush();
-                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                                //MessageBox.Show(stringWriter.GetStringBuilder().ToString());
                         }
                 }//InsertAssignment()
 
@@ -185,7 +185,7 @@ namespace EpicProjects.Database
                         {
                                 doc.WriteTo(xmlTextWriter);
                                 xmlTextWriter.Flush();
-                                MessageBox.Show(stringWriter.GetStringBuilder().ToString());
+                                //MessageBox.Show(stringWriter.GetStringBuilder().ToString());
                         }
                 }//InsertMaintenance()
 
