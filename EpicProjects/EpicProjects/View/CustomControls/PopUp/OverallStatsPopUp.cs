@@ -162,6 +162,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                 {
                         foreach (string project in _projectsList)
                         {
+                                int numberOfTasks = 0;
                                 bool isFinished = true;
                                 List<AdvancedTask> workinList = new Selector(Paths.PROJECTS_SAVE).SelectTrainings(project);
 
@@ -172,6 +173,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                                                 isFinished = false;
                                                 break;
                                         }
+                                        numberOfTasks++;
                                 }
 
                                 if(isFinished)
@@ -185,6 +187,7 @@ namespace EpicProjects.View.CustomControls.PopUp
                                                         isFinished = false;
                                                         break;
                                                 }
+                                                numberOfTasks++;
                                         }
                                 }
 
@@ -199,10 +202,11 @@ namespace EpicProjects.View.CustomControls.PopUp
                                                         isFinished = false;
                                                         break;
                                                 }
+                                                numberOfTasks++;
                                         }
                                 }
 
-                                if(isFinished)
+                                if(isFinished && numberOfTasks >0)
                                 {
                                         _projectsDNB++;
                                 }
