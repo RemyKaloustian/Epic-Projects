@@ -20,13 +20,25 @@ namespace EpicProjects.Model
 
                 public double GetPercentage()
                 {
-                        return  _done / _todo * 100;
+                    if (Double.IsNaN(_done / _todo))
+                        return 0;
+
+                    return  _done / _todo * 100;
                 }//GetPercentage()
 
 
                 public override String  ToString()
                 {
-                        return _done + "/" + _todo ; 
+                    string result = "";
+                    if(Double.IsNaN(_done/_todo))
+                    {
+                        result = "0";
+                    }
+                    else
+                    {
+                        result = _done + "/" + _todo;
+                    }
+                        return  result; 
                 }//ToString()
         }//class Ratio
 }//ns

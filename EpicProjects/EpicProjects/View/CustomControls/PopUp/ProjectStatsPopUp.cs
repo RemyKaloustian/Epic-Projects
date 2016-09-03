@@ -38,10 +38,10 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _separator.Background = Palette2.GetColor(Palette2.THIN_GRAY);
 
 
-                        _brainstormingsPanel = new StatsPanel(new Selector("tamaire").SelectBrainstormings(project).Count.ToString(), "  Brainstormings");
+                        _brainstormingsPanel = new StatsPanel(new Selector(Constants.DatabaseValues.PROJECT_PATH).SelectBrainstormings(project).Count.ToString(), "  Brainstormings");
 
                         Ratio trainingsRatio = new StatsWarrior().GetTrainingsRatio(project);
-
+                    
                         _trainingsPanel = new StatsPanel(
                                 trainingsRatio.GetPercentage().ToString(),
                                 " %  of trainings done (" + trainingsRatio.ToString() + ")");
@@ -63,7 +63,6 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _maintenaceGraph = new GraphPanel(this.Width, maintenanceRatio._done, maintenanceRatio._todo);
 
                         Ratio projectRatio = new StatsWarrior().GetAdvancedTasksRatio(project);
-
 
                         _projectPanel = new StatsPanel(projectRatio.GetPercentage().ToString("f0"),
                                 " % of " + project + " finished");

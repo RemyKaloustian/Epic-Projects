@@ -13,7 +13,7 @@ namespace EpicProjects.Stats
         {
                 public Ratio GetTrainingsRatio(string project)
                 {
-                        List<AdvancedTask> trainingsList = new Selector("tamaire").SelectTrainings(project);
+                        List<AdvancedTask> trainingsList = new Selector(Constants.DatabaseValues.PROJECT_PATH).SelectTrainings(project);
 
                         int done = 0;
                         int total = 0;
@@ -33,7 +33,7 @@ namespace EpicProjects.Stats
 
                 public Ratio GetAssignmentsRatio(string project)
                 {
-                        List<AdvancedTask> trainingsList = new Selector("tamaire").SelectAssignments(project);
+                    List<AdvancedTask> trainingsList = new Selector(Constants.DatabaseValues.PROJECT_PATH).SelectAssignments(project);
 
                         int done = 0;
                         int total = 0;
@@ -54,20 +54,24 @@ namespace EpicProjects.Stats
 
                 public Ratio GetMaintenancesRatio(string project)
                 {
-                        List<AdvancedTask> trainingsList = new Selector("tamaire").SelectMaintenances(project);
+                    List<AdvancedTask> trainingsList = new Selector(Constants.DatabaseValues.PROJECT_PATH).SelectMaintenances(project);
 
                         int done = 0;
                         int total = 0;
-
-                        foreach (AdvancedTask item in trainingsList)
+                        
+                        if(trainingsList.Count >0)
                         {
+                            foreach (AdvancedTask item in trainingsList)
+                            {
                                 if (item._state == States.DONE)
                                 {
-                                        done++;
+                                    done++;
                                 }
 
                                 total++;
+                            }
                         }
+                    
 
                         return new Ratio(done, total);
                 }//GetMaintenancesRatio()
