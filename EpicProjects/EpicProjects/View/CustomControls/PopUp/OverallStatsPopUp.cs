@@ -125,7 +125,12 @@ namespace EpicProjects.View.CustomControls.PopUp
                         _projectsDNumber.Text = _projectsDNB.ToString();
 
                         _projectsD = new StatsBlock();
-                        _projectsD.Text = " projects finished.";
+
+                        if(_projectsDNumber.Text == "1")
+                             _projectsD.Text = " project finished.";
+                        else
+                            _projectsD.Text = " projects finished.";
+                                            
                         _projectsD.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
 
                         _projectsDPanel.Children.Add(_projectsDNumber);
